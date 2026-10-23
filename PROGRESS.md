@@ -1,8 +1,11 @@
 # English Quest – progress
-- [x] Research: MoE Curriculum 2020 Table 4 → g7 = Band II Core I, g9 = Band II Core II
-- [x] stages + data/g7.json + data/g9.json (85 / 84 stages)
-- [x] audio (2016×2) + fonts/rubik.woff2
-- [x] app: index.html, css/style.css, js/{app,games,store,data,audio,util}.js, sw.js, manifest
-- [x] playwright mobile+desktop, offline, scramble-fail, boss-loss; shots/
-- [x] independent review loop
-- [x] deploy GitHub Pages dudidd-wq/english-quest
+- [x] v1 ship (MoE data, PWA, Pages)
+- [x] v2 fun redesign (teen game feel) — DONE 2026-10-23
+  - [x] Diagnose live + define arcade visual / loop
+  - [x] Neon HUD CSS + punchy SFX + juice
+  - [x] Mission loop (short session) + story beats on islands
+  - [x] Skill Blitz mini-game + juicier match/boss
+  - [x] Daily challenge, cosmetics, rival ghost
+  - [x] Onboarding <30s
+  - [x] Playwright + skeptical review ≥9 fun/design
+  - [x] Bump SW eq-2.0.0, push, verify live, new shots

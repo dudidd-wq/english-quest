@@ -1,13 +1,41 @@
-// Audio: recorded clips (ElevenLabs "Matilda" EN / "Tomer" HE, from band2-study) + speechSynthesis fallback + Web Audio SFX.
+// Recorded clips (Matilda EN / Tomer HE from band2) + speechSynthesis fallback + punchy Web Audio SFX.
 import { S } from './store.js';
 const pad = n => String(n).padStart(4, '0');
 export const audioUrl = (w, lang) => `audio/${lang}/${pad(w.n)}.mp3`;
 const player = () => document.getElementById('player');
-let token = 0;
-function spokenText(w, lang) {
-  if (lang === 'he') return w.he.replace(/\//g, ' או ').replace(/[()…]/g, ' ');
-  return w.en.replace(/\bsb\/sth\b/g, 'somebody or something').replace(/\bsth\b/g, 'something').replace(/\bsb\b/g, 'somebody').replace(/\//g, ' or ').replace(/[()…]/g, ' ');
+let token = 0, AC = null, master = null;
+
+function ctx() {
+  if (!AC) {
+    AC = new (window.AudioContext || window.webkitAudioContext)();
+    master = AC.createGain(); master.gain.value = 0.55; master.connect(AC.destination);
+  }
+  if (AC.state === 'suspended') AC.resume().catch(() => {});
+  return AC;
 }
+function tone(freq, dur, type = 'square', gain = 0.18, when = 0, slideTo = null) {
+  if (S.settings && S.settings.sfx === false) return;
+  const c = ctx(), t0 = c.currentTime + when;
+  const o = c.createOscillator(), g = c.createGain();
+  o.type = type; o.frequency.setValueAtTime(freq, t0);
+  if (slideTo != null) o.frequency.exponentialRampToValueAtTime(Math.max(20, slideTo), t0 + dur);
+  g.gain.setValueAtTime(0.0001, t0);
+  g.gain.exponentialRampToValueAtTime(gain, t0 + 0.012);
+  g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+  o.connect(g); g.connect(master); o.start(t0); o.stop(t0 + dur + 0.02);
+}
+function noise(dur, gain = 0.12, when = 0, bp = 800) {
+  if (S.settings && S.settings.sfx === false) return;
+  const c = ctx(), t0 = c.currentTime + when, n = Math.ceil(c.sampleRate * dur);
+  const buf = c.createBuffer(1, n, c.sampleRate), d = buf.getChannelData(0);
+  for (let i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
+  const src = c.createBufferSource(); src.buffer = buf;
+  const f = c.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = bp; f.Q.value = 0.8;
+  const g = c.createGain();
+  g.gain.setValueAtTime(gain, t0); g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+  src.connect(f); f.connect(g); g.connect(master); src.start(t0); src.stop(t0 + dur + 0.02);
+}
+
 export function speak(text, lang) {
   return new Promise(res => {
     if (!('speechSynthesis' in window)) return res(false);
@@ -17,6 +45,10 @@ export function speak(text, lang) {
     u.onend = () => fin(true); u.onerror = () => fin(false); setTimeout(() => fin(false), 6000);
     speechSynthesis.speak(u);
   });
+}
+function spokenText(w, lang) {
+  if (lang === 'he') return w.he.replace(/\//g, ' או ').replace(/[()…]/g, ' ');
+  return w.en.replace(/\bsb\/sth\b/g, 'somebody or something').replace(/\bsth\b/g, 'something').replace(/\bsb\b/g, 'somebody').replace(/\//g, ' or ').replace(/[()…]/g, ' ');
 }
 export function playUrl(url) {
   const a = player(); const my = ++token;
@@ -28,7 +60,6 @@ export function playUrl(url) {
     const p = a.play(); if (p) p.catch(err => { if (my === token) { clean(); res(err && err.name === 'NotAllowedError' ? 'blocked' : false); } });
   });
 }
-/** Play a word (recorded clip; speech synthesis only if the clip is missing/unplayable). */
 export async function playWord(w, lang = 'en', btn) {
   if (!w || !S.settings.voice) return false;
   btn?.classList.add('playing');
@@ -39,7 +70,6 @@ export async function playWord(w, lang = 'en', btn) {
   return ok;
 }
 export function stop() { token++; const a = player(); a.onended = a.onerror = null; try { a.pause(); } catch {} if ('speechSynthesis' in window) speechSynthesis.cancel(); }
-/** warm the cache for a list of words (service worker stores them for offline play) */
 export function prefetch(words) {
   if (!navigator.onLine) return;
   let i = 0; const urls = words.flatMap(w => [audioUrl(w, 'en'), audioUrl(w, 'he')]);
@@ -47,39 +77,36 @@ export function prefetch(words) {
   next(); next();
 }
 
-// ---------- SFX (synthesised with Web Audio – no audio files, no copyright) ----------
-let ctx;
-function ac() { ctx = ctx || new (window.AudioContext || window.webkitAudioContext)(); if (ctx.state === 'suspended') ctx.resume(); return ctx; }
-function tone(f, t0, dur, { type = 'sine', vol = .16, slide = 0 } = {}) {
-  const c = ac(), o = c.createOscillator(), g = c.createGain(), t = c.currentTime + t0;
-  o.type = type; o.frequency.setValueAtTime(f, t); if (slide) o.frequency.exponentialRampToValueAtTime(f * slide, t + dur);
-  g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + .012); g.gain.exponentialRampToValueAtTime(.0008, t + dur);
-  o.connect(g).connect(c.destination); o.start(t); o.stop(t + dur + .02);
-}
-function noise(t0, dur, vol = .2) {
-  const c = ac(), len = Math.floor(c.sampleRate * dur), b = c.createBuffer(1, len, c.sampleRate), d = b.getChannelData(0);
-  for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len);
-  const s = c.createBufferSource(), g = c.createGain(), f = c.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = 1400;
-  s.buffer = b; g.gain.value = vol; s.connect(f).connect(g).connect(c.destination); s.start(c.currentTime + t0);
-}
+/** Punchy arcade SFX – every tap should feel physical */
 export function sfx(kind, combo = 0) {
-  if (!S.settings.sfx) return;
   try {
-    const up = Math.pow(2, Math.min(combo, 12) / 12);   // rising pitch with combo
+    if (S.settings && S.settings.sfx === false) return;
+    ctx();
     switch (kind) {
-      case 'ok': tone(660 * up, 0, .12, { type: 'triangle' }); tone(990 * up, .07, .18, { type: 'triangle' }); break;
-      case 'bad': tone(220, 0, .22, { type: 'sawtooth', vol: .08, slide: .7 }); tone(165, .1, .25, { type: 'square', vol: .05 }); break;
-      case 'tap': tone(900, 0, .05, { vol: .07 }); break;
-      case 'flip': tone(500, 0, .07, { type: 'triangle', vol: .08, slide: 1.6 }); break;
-      case 'coin': tone(988, 0, .08, { type: 'square', vol: .06 }); tone(1319, .07, .2, { type: 'square', vol: .06 }); break;
-      case 'win': [523, 659, 784, 1047, 1319].forEach((f, i) => tone(f, i * .09, .3, { type: 'triangle', vol: .14 })); tone(1568, .5, .6, { type: 'sine', vol: .1 }); break;
-      case 'lose': [392, 330, 262, 196].forEach((f, i) => tone(f, i * .14, .3, { type: 'triangle', vol: .12 })); break;
-      case 'level': [392, 523, 659, 784, 1047, 784, 1047].forEach((f, i) => tone(f, i * .08, .25, { type: 'square', vol: .06 })); break;
-      case 'hit': noise(0, .18, .25); tone(160, 0, .2, { type: 'square', vol: .1, slide: .5 }); break;
-      case 'hurt': tone(300, 0, .3, { type: 'sawtooth', vol: .09, slide: .4 }); break;
-      case 'tick': tone(1200, 0, .03, { type: 'square', vol: .04 }); break;
-      case 'combo': [784, 988, 1175].forEach((f, i) => tone(f * up, i * .05, .12, { type: 'square', vol: .05 })); break;
-      case 'whoosh': noise(0, .25, .08); break;
+      case 'tap': tone(420, 0.04, 'square', 0.08); break;
+      case 'ok': {
+        const base = 520 + Math.min(combo, 12) * 28;
+        tone(base, 0.08, 'square', 0.2); tone(base * 1.5, 0.12, 'square', 0.14, 0.05);
+        noise(0.05, 0.06, 0, 2000); break;
+      }
+      case 'bad': tone(180, 0.18, 'sawtooth', 0.16, 0, 70); noise(0.12, 0.1, 0, 200); break;
+      case 'combo': {
+        tone(600, 0.06, 'square', 0.16); tone(900, 0.08, "square", 0.14, 0.05); tone(1200, 0.14, 'square', 0.12, 0.1);
+        noise(0.08, 0.08, 0.05, 3000); break;
+      }
+      case 'coin': tone(980, 0.06, 'square', 0.14); tone(1400, 0.12, 'square', 0.1, 0.05); break;
+      case 'level': tone(400, 0.1, 'square', 0.14); tone(600, 0.1, 'square', 0.14, 0.1); tone(800, 0.2, 'square', 0.16, 0.2); break;
+      case 'win': tone(523, 0.1, 'square', 0.16); tone(659, 0.1, 'square', 0.16, 0.1); tone(784, 0.1, 'square', 0.16, 0.2); tone(1046, 0.28, 'square', 0.18, 0.3); noise(0.2, 0.08, 0.25, 2500); break;
+      case 'lose': tone(300, 0.2, 'sawtooth', 0.14, 0, 120); tone(200, 0.3, 'sawtooth', 0.12, 0.15, 80); break;
+      case 'hit': tone(90, 0.08, 'sawtooth', 0.22); noise(0.1, 0.18, 0, 400); tone(220, 0.06, 'square', 0.1, 0.04); break;
+      case 'hurt': tone(140, 0.15, 'sawtooth', 0.2, 0, 60); noise(0.15, 0.14, 0, 150); break;
+      case 'tick': tone(880, 0.025, 'square', 0.06); break;
+      case 'flip': tone(340, 0.04, 'triangle', 0.08); break;
+      case 'whoosh': noise(0.08, 0.07, 0, 1200); tone(500, 0.08, 'sine', 0.05, 0, 200); break;
+      case 'boss': tone(80, 0.25, 'sawtooth', 0.2); tone(100, 0.3, 'sawtooth', 0.14, 0.1); noise(0.25, 0.12, 0, 180); break;
+      case 'blitz': tone(760, 0.04, 'square', 0.12); tone(1100, 0.06, 'square', 0.1, 0.03); break;
+      case 'streak': tone(440, 0.05, 'square', 0.1); tone(660, 0.08, 'square', 0.12, 0.05); tone(880, 0.12, 'square', 0.14, 0.1); break;
+      default: tone(440, 0.05, 'square', 0.08);
     }
   } catch {}
 }

@@ -1,13 +1,30 @@
 {
-  "name": "English Quest – מסע מילים באנגלית",
-  "short_name": "English Quest",
-  "lang": "he", "dir": "rtl",
-  "start_url": "./", "scope": "./",
-  "display": "standalone", "orientation": "portrait",
-  "background_color": "#1e1b4b", "theme_color": "#4c1d95",
+  "name": "English Quest",
+  "short_name": "EQ",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#07071a",
+  "theme_color": "#07071a",
   "icons": [
-    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
-    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
-    {"src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }

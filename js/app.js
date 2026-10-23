@@ -1,8 +1,8 @@
 // English Quest – screens & navigation
 import { $, h, put, en, shuffle, dayNum, fmtDay, toast, download, nWords, reduced, posHe } from './util.js';
-import { S, save, on, T, stageRec, today, dueWords, level, levelXp, gainCoins, touchStreak, streakNow, checkAch, ACH, isMastered, replaceState, resetAll, exportState, unlock } from './store.js';
+import { S, save, on, T, stageRec, today, dueWords, level, levelXp, gainCoins, touchStreak, streakNow, checkAch, ACH, isMastered, replaceState, resetAll, exportState, unlock, ensureDaily, bumpDaily, beatRival, AURAS, TITLES } from './store.js';
 import { TRACKS, WORLDS, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
-import { GAMES, PRACTICE, Session, intro, match, listen, scramble, fill, memory, boss } from './games.js';
+import { GAMES, PRACTICE, MISSION_POOL, Session, intro, match, listen, scramble, fill, memory, blitz, boss } from './games.js';
 import { playWord, sfx, prefetch, stop as stopAudio } from './audio.js';
 
 const app = $('#app');
@@ -31,9 +31,12 @@ function showBanner() {
 }
 on((type, d) => {
   if (type === 'level') { sfx('level'); confetti(40); banner('⬆️', `עליתם לרמה ${d}!`, 'כל הכבוד, ממשיכים ככה'); }
-  if (type === 'goal') { sfx('win'); banner('🎯', 'הגעתם ליעד היומי!', '+20 מטבעות 🪙'); }
+  if (type === 'goal') { sfx('win'); banner('🎯', 'הגעתם ליעד היומי!', '+25 מטבעות 🪙'); }
   if (type === 'ach') { sfx('coin'); banner(d[1], `הישג חדש: ${d[2]}`, d[3] + ' · +15 🪙'); }
   if (type === 'freeze') banner('🧊', 'הקפאת הרצף הצילה את הרצף שלכם!');
+  if (type === 'daily') { sfx('streak'); confetti(50); banner('☀️', 'אתגר היום הושלם!', '+40 מטבעות 🪙'); }
+  if (type === 'rival') { sfx('win'); banner('👻', 'ניצחתם את הצל!', d.field === 'bestBlitz' ? `בליץ: ${d.value}` : `קומבו: ${d.value}`); }
+  if (type === 'streak' && d >= 3) { sfx('streak'); banner('🔥', `רצף של ${d} ימים!`, 'תמשיכו כך'); }
 });
 
 // ---------- shared bits ----------
@@ -43,9 +46,11 @@ const practiceDone = i => PRACTICE.filter(g => stageRec(i).games[g]).length;
 const starsTxt = n => '★'.repeat(n) + '☆'.repeat(3 - n);
 function hud() {
   const L = level(), a = levelXp(L), b = levelXp(L + 1), d = today(), goal = S.settings.goal, gp = Math.min(1, d.xp / goal);
+  const aura = S.cosmetics?.aura || 'none';
+  const title = S.cosmetics?.title || '';
   return h('header.hud',
-    h('button.avatar-btn', { 'aria-label': 'הפרופיל שלי', onclick: () => go('#/me') }, h('span.av', S.profile.avatar), h('span.lvl', L)),
-    h('div.xpbox', h('div.xpline', h('b', S.profile.name), h('span', `רמה ${L}`)), h('div.xpbar', h('div', { style: { width: ((S.xp - a) / (b - a)) * 100 + '%' } })), h('small', `${S.xp - a} / ${b - a} XP`)),
+    h('button.avatar-btn' + (aura !== 'none' ? '.aura-' + aura : ''), { 'aria-label': 'הפרופיל שלי', onclick: () => go('#/me') }, h('span.av', S.profile.avatar), h('span.lvl', L)),
+    h('div.xpbox', h('div.xpline', h('b', S.profile.name + (title ? ' · ' + title : '')), h('span', `רמה ${L}`)), h('div.xpbar', h('div', { style: { width: ((S.xp - a) / (b - a)) * 100 + '%' } })), h('small', `${S.xp - a} / ${b - a} XP`)),
     h('div.stat', { title: 'רצף ימים' }, h('span', streakNow() ? '🔥' : '🩶'), h('b', streakNow())),
     h('div.stat', { title: 'מטבעות' }, h('span', '🪙'), h('b', S.coins)),
     h('div.goal', { title: 'יעד יומי', style: { '--p': gp * 360 + 'deg' } }, h('span', gp >= 1 ? '✅' : '🎯')));
@@ -60,54 +65,67 @@ export function go(hash) { if (location.hash === hash) route(); else location.ha
 // ---------- onboarding ----------
 function onboarding(step = 0, draft = {}) {
   const next = s => onboarding(s, draft);
+  // Splash + track in one energetic screen (<30s total)
   if (step === 0) return screen('onb', h('div.splash',
-    h('div.logo-emoji.bob', '🚀'), h('h1', 'English Quest'), h('p.lead', 'מסע מילים באנגלית לכיתות ז׳ ו־ט׳'),
-    h('ul.feat', h('li', '🗺️ עולמות, שלבים ובוסים'), h('li', '🎮 6 סוגי משחקים'), h('li', '🔊 הגייה אמיתית לכל מילה'), h('li', '🧠 מילים שטעיתם בהן חוזרות בזמן הנכון')),
-    h('button.btn.primary.xl', { onclick: () => { sfx('coin'); next(1); } }, 'יאללה מתחילים! ✨')));
-  if (step === 1) return screen('onb', h('h2', 'באיזו כיתה אתם?'), h('p.muted', 'אפשר להחליף אחר כך בפרופיל'),
-    Object.entries(TRACKS).map(([k, t]) => h('button.track-card', { onclick: () => { draft.track = k; sfx('tap'); next(2); } },
-      h('div.temoji', t.emoji), h('div', h('b', t.name), h('div.en.small', { dir: 'ltr' }, t.band), h('p', t.desc)))));
-  if (step === 2) {
-    const inp = h('input.name', { maxlength: 14, placeholder: 'למשל: נינג׳ה המילים', value: draft.name || '', 'aria-label': 'כינוי' });
-    const ok = () => { const v = inp.value.replace(/[<>]/g, '').trim(); if (!v) { inp.focus(); return toast('כתבו כינוי 🙂'); } draft.name = v; sfx('tap'); next(3); };
-    inp.addEventListener('keydown', e => e.key === 'Enter' && ok());
-    screen('onb', h('h2', 'איך נקרא לכם?'), h('p.muted', 'כינוי בלבד – בלי שם מלא'), inp, h('button.btn.primary.xl', { onclick: ok }, 'המשך ←'));
-    return setTimeout(() => inp.focus(), 50);
+    h('div.logo-emoji.bob', '🚀'), h('h1', 'English Quest'), h('p.lead', 'משחק מילים באנגלית · כיתות ז׳–ט׳'),
+    h('p.muted.small', '2–4 דקות · בוסים · בליץ · רצפים'),
+    h('h3', 'בחרו מסלול'),
+    Object.entries(TRACKS).map(([k, t]) => h('button.track-card', { onclick: () => { draft.track = k; sfx('tap'); next(1); } },
+      h('div.temoji', t.emoji), h('div', h('b', t.name), h('div.en.small', { dir: 'ltr' }, t.band))))));
+  if (step === 1) {
+    const inp = h('input.name', { maxlength: 14, placeholder: 'נינג׳ה_המילים', value: draft.name || '', 'aria-label': 'כינוי' });
+    const finish = async (av) => {
+      const v = (inp.value || draft.name || '').replace(/[<>]/g, '').trim() || 'שחקן';
+      sfx('win'); confetti(40);
+      S.profile = { name: v.slice(0, 14), avatar: av, track: draft.track, created: Date.now() }; save(true);
+      await loadTrack(draft.track); go('#/map');
+    };
+    screen('onb', h('h2', 'כינוי + דמות'), h('p.muted', 'פחות מ־10 שניות ויוצאים למשחק'),
+      inp, h('div.avgrid', FREE_AV.map(a => h('button.avpick', { 'aria-label': 'דמות ' + a, onclick: () => finish(a) }, a))));
+    return setTimeout(() => inp.focus(), 40);
   }
-  if (step === 3) return screen('onb', h('h2', 'בחרו דמות'), h('div.avgrid', FREE_AV.map(a => h('button.avpick', { 'aria-label': 'דמות ' + a, onclick: async () => {
-    sfx('win'); confetti();
-    S.profile = { name: draft.name, avatar: a, track: draft.track, created: Date.now() }; save(true);
-    await loadTrack(draft.track); go('#/map');
-  } }, a))));
 }
 
 // ---------- world map ----------
 function mapView() {
-  const cur = currentStage(); const due = dueWords();
+  const cur = currentStage(); const due = dueWords(); const daily = ensureDaily();
   const path = h('div.map');
   for (let wi = 0; wi < D.worlds; wi++) {
     const W0 = WORLDS[wi % WORLDS.length], from = wi * PER_WORLD, to = Math.min(D.stages.length, from + PER_WORLD);
     const cleared = Array.from({ length: to - from }, (_, k) => stageRec(from + k).cleared).filter(Boolean).length;
     const locked = !isUnlocked(from);
     const sec = h('section.world' + (locked ? '.locked' : ''), { style: { '--c1': W0.bg[0], '--c2': W0.bg[1] } },
-      h('div.wbanner', h('span.wicon', W0.icon), h('div', h('small', `עולם ${wi + 1}`), h('b', W0.name)), h('span.wprog', `${cleared}/${to - from}`)));
+      h('div.wbanner', h('span.wicon', W0.icon), h('div', h('small', `אי ${wi + 1}`), h('b', W0.name)), h('span.wprog', `${cleared}/${to - from}`)),
+      W0.story && h('p.wstory', W0.story));
     for (let i = from; i < to; i++) {
       const r = stageRec(i), un = isUnlocked(i), k = i - from;
       const off = Math.sin(k * 1.1) * 32;
       const node = h('button.node' + (r.cleared ? '.done' : un ? '.open' : '.lock') + (i === cur ? '.cur' : ''), {
-        style: { transform: `translateX(${off}%)` }, 'aria-label': `שלב ${i + 1}` + (un ? '' : ' (נעול)'),
-        onclick: () => un ? (sfx('tap'), go('#/stage/' + i)) : (sfx('bad'), toast('🔒 נצחו את הבוס של השלב הקודם כדי לפתוח')) },
+        style: { '--tx': off + '%', transform: `translateX(${off}%)` }, 'aria-label': `שלב ${i + 1}` + (un ? '' : ' (נעול)'),
+        onclick: () => un ? (sfx('tap'), go('#/stage/' + i)) : (sfx('bad'), toast('🔒 נצחו את הבוס של השלב הקודם')) },
         h('span.num', un ? i + 1 : '🔒'), r.cleared && h('span.nstars', starsTxt(r.stars)),
         i === cur && h('span.me', S.profile.avatar), i === cur && h('span.bubble', r.plays ? 'ממשיכים!' : 'התחילו כאן!'));
       sec.append(node);
     }
-    sec.append(h('div.gate', h('span.gboss', W0.boss), h('small', `הבוס הגדול: ${W0.bossName}`)));
+    sec.append(h('div.gate', h('span.gboss', W0.boss), h('small', `בוס האי: ${W0.bossName}`)));
     path.append(sec);
   }
+  const dailyGo = () => {
+    if (daily.done) return toast('✅ אתגר היום כבר הושלם – חזרו מחר!');
+    sfx('tap');
+    if (daily.kind === 'blitz_ok' || daily.kind === 'perfect') go('#/play/' + cur + '/blitz');
+    else if (daily.kind === 'boss') go('#/play/' + cur + '/boss');
+    else go('#/stage/' + cur);
+  };
   screen('mapv', hud(),
+    h('div.rival-chip', '👻 יריב מקומי: ', S.rival.name, ' · בליץ ', S.rival.bestBlitz, ' · קומבו ', S.rival.bestCombo),
+    h('div.daily-card' + (daily.done ? '.done' : ''), { onclick: dailyGo },
+      h('div.dico', daily.done ? '✅' : '☀️'),
+      h('div', { style: { flex: 1 } }, h('b', 'אתגר היום'), h('div.muted.small', daily.label || ''),
+        h('div.dbar', h('div', { style: { width: (daily.progress / daily.target * 100) + '%' } })))),
     h('div.mapbar',
-      h('button.btn.primary.cta', { onclick: () => go('#/stage/' + cur) }, `▶ שלב ${cur + 1}`),
-      h('button.btn.review' + (due.length ? '.has' : ''), { onclick: () => due.length ? go('#/review') : toast('אין מילים לחזרה כרגע – שחקו שלבים! 🎮') }, '🔁 חזרה', due.length ? h('b.badge', due.length) : null)),
+      h('button.btn.primary.cta', { onclick: () => { sfx('whoosh'); go('#/stage/' + cur); } }, `▶ משימה · שלב ${cur + 1}`),
+      h('button.btn.review' + (due.length ? '.has' : ''), { onclick: () => due.length ? go('#/review') : toast('אין מילים לחזרה – שחקו! 🎮') }, '🔁', due.length ? h('b.badge', due.length) : null)),
     path, nav('#/map'));
   const c = $('.node.cur'); if (c) setTimeout(() => c.scrollIntoView({ block: 'center', behavior: 'instant' }), 0);
 }
@@ -120,10 +138,19 @@ function nextGame(i) {
   if (practiceDone(i) >= 2 && !r.cleared) return 'boss';
   return g || 'boss';
 }
+function pickMission(i) {
+  const r = stageRec(i);
+  if (!r.games.intro) return 'intro';
+  if (practiceDone(i) >= 2 && !r.cleared) return 'boss';
+  const undone = MISSION_POOL.filter(g => !r.games[g]);
+  const pool = undone.length ? undone : MISSION_POOL;
+  return pool[Math.floor(Math.random() * pool.length)];
+}
 function stageView(i) {
   if (!isUnlocked(i)) return go('#/map');
   const r = stageRec(i), wd = world(i), ws = stageWords(i), done = practiceDone(i), rec = nextGame(i);
   prefetch(ws);
+  const mission = pickMission(i);
   const card = g => {
     const best = r.games[g] || 0, isBoss = g === 'boss', locked = isBoss && done < 2;
     return h('button.gcard' + (g === rec ? '.rec' : '') + (locked ? '.lock' : '') + (isBoss ? '.bosscard' : ''), {
@@ -135,7 +162,13 @@ function stageView(i) {
   screen('stagev', h('div.shead', { style: { '--c1': wd.bg[0], '--c2': wd.bg[1] } },
     h('button.icon-btn', { 'aria-label': 'חזרה למפה', onclick: () => go('#/map') }, '→'),
     h('div', h('small', `${wd.icon} ${wd.name}`), h('h2', `שלב ${i + 1}`)), h('div.sstars', r.cleared ? starsTxt(r.stars) : '')),
-    h('div.glist', card('intro'), h('div.sep', '🎮 משחקי אימון'), PRACTICE.map(card), h('div.sep', '⚔️ הבוס'), card('boss')),
+    h('div.mission-hero',
+      h('div.mico', GAMES[mission].icon),
+      h('b', mission === 'boss' ? `הבוס מחכה: ${wd.bossName}` : 'המשימה שלי'),
+      h('p', mission === 'intro' ? 'הכירו את המילים ואז יוצאים לקרב' : mission === 'boss' ? '2–3 דקות של אקשן. מוכנים?' : `${GAMES[mission].name} · כ־2 דקות`),
+      h('button.btn.primary.xl', { onclick: () => { sfx('whoosh'); go(`#/play/${i}/${mission}`); } },
+        mission === 'boss' ? `⚔️ לקרב!` : mission === 'intro' ? '🚀 בואו נכיר' : `▶ ${GAMES[mission].short}`)),
+    h('div.glist', h('div.sep', 'או בחרו מצב'), card('intro'), PRACTICE.map(card), h('div.sep', '⚔️ הבוס'), card('boss')),
     h('details.wordlist', h('summary', `📝 המילים של השלב (${ws.length})`),
       h('div.chips', ws.map(w => { const b = h('button.chip.wchip', { onclick: () => playWord(w, 'en', b) }, h('span', w.e), en(w.en), h('small', w.he)); return b; }))));
 }
@@ -156,6 +189,7 @@ async function play(i, g) {
   else if (g === 'scramble') res = await scramble(sess, ws);
   else if (g === 'fill') res = await fill(sess, i);
   else if (g === 'memory') res = await memory(sess, ws);
+  else if (g === 'blitz') res = await blitz(sess, ws);
   else if (g === 'boss') {
     const extra = S.powers.heart > 0 ? await askHeart() : false;
     if (sess.dead) return;
@@ -189,25 +223,44 @@ function finishGame(i, g, res) {
         S.stats.bossWins++; if (res.perfect) S.stats.perfectBoss++;
         cleared = !r.cleared; r.cleared = true; r.stars = Math.max(r.stars, res.stars); r.games.boss = Math.max(r.games.boss || 0, res.stars);
         coinsBonus = 10 + 5 * res.stars;
+        bumpDaily('boss');
         const wi = worldOf(i), last = Math.min(D.stages.length, (wi + 1) * PER_WORLD) - 1;
         if (cleared && i === last) { worldDone = true; coinsBonus += 50; if (wi === 0) unlock('world1'); }
       }
-    } else { r.games[g] = Math.max(r.games[g] || 0, res.stars); coinsBonus = res.stars; }
+    } else {
+      r.games[g] = Math.max(r.games[g] || 0, res.stars); coinsBonus = res.stars;
+      if (g !== 'intro') { S.stats.missions++; bumpDaily('mission'); }
+    }
   }
+  if (res.maxCombo >= 8) bumpDaily('combo', res.maxCombo);
+  if (res.maxCombo >= S.rival.bestCombo) beatRival('bestCombo', res.maxCombo);
+  if (g === 'blitz' && res.blitzScore != null) {
+    S.stats.blitzBest = Math.max(S.stats.blitzBest || 0, res.blitzScore);
+    bumpDaily('blitz_ok', res.ok);
+    if (res.blitzScore > S.rival.bestBlitz) beatRival('bestBlitz', res.blitzScore);
+  }
+  if (res.maxCombo >= 10) bumpDaily('perfect', res.maxCombo);
   gainCoins(coinsBonus); save(true);
   checkAch({ speedy: res.speedy, memory: res.memory, ears: res.ears });
   const won = g !== 'boss' || res.won;
-  if (won) { sfx('win'); if (res.stars === 3 || cleared) confetti(cleared ? 110 : 60); } else sfx('lose');
+  if (won) { sfx('win'); if (res.stars === 3 || cleared || res.beatGhost) confetti(cleared ? 110 : 60); } else sfx('lose');
   const wd = g === 'review' ? null : world(i);
   const title = g === 'boss' ? (res.won ? (worldDone ? `🏆 כבשתם את ${wd.name}!` : `ניצחתם את ${wd.bossName}!`) : 'אוי! הבוס ניצח הפעם') :
-    g === 'review' ? 'חזרה הושלמה! 🦉' : res.stars === 3 ? 'מושלם! 🤩' : res.stars === 2 ? 'כל הכבוד! 😎' : 'יפה! ממשיכים להתאמן 💪';
-  const nxt = g === 'review' ? null : cleared && i + 1 < D.stages.length ? ['#/stage/' + (i + 1), `לשלב ${i + 2} ▶`] : (() => { const n = nextGame(i); return n !== g ? ['#/play/' + i + '/' + n, `${GAMES[n].icon} ${GAMES[n].short} ▶`] : null; })();
-  const missed = res.missed.map(W).filter(Boolean);
+    g === 'review' ? 'חזרה הושלמה! 🦉' : g === 'blitz' ? (res.beatGhost ? 'ניצחתם את הצל! 👻' : `בליץ: ${res.blitzScore || 0}`) :
+    res.stars === 3 ? 'מושלם! 🤩' : res.stars === 2 ? 'כל הכבוד! 😎' : 'יפה! עוד סיבוב? 💪';
+  const nxt = g === 'review' ? null : cleared && i + 1 < D.stages.length ? ['#/stage/' + (i + 1), `לשלב ${i + 2} ▶`] : (() => {
+    if (g === 'intro') return ['#/play/' + i + '/' + pickMission(i), '▶ המשימה הראשונה'];
+    const n = nextGame(i);
+    if (n === 'boss' && practiceDone(i) >= 2 && !stageRec(i).cleared) return ['#/play/' + i + '/boss', `⚔️ לבוס!`];
+    if (n !== g && n !== 'boss') return ['#/play/' + i + '/' + n, `${GAMES[n].icon} עוד סיבוב · ${GAMES[n].short}`];
+    return ['#/play/' + i + '/' + (g === 'blitz' ? 'blitz' : pickMission(i)), '🔥 עוד סיבוב'];
+  })();
+  const missed = (res.missed || []).map(W).filter(Boolean);
   screen('result', h('div.rbox',
     h('div.rbig' + (won ? '.bob' : ''), g === 'boss' ? (res.won ? '🏆' : wd.boss) : g === 'review' ? '🦉' : GAMES[g].icon),
     h('h2', title),
     res.stars > 0 && h('div.rstars', [0, 1, 2].map(k => h('span' + (k < res.stars ? '.on' : ''), { style: { animationDelay: k * .18 + 's' } }, '★'))),
-    !won && h('p', 'לא נורא – כל טעות מלמדת. המילים שטעיתם בהן יחזרו אליכם. נסו שוב!'),
+    !won && h('p', 'לא נורא – כל טעות מלמדת. נסו שוב מיד!'),
     h('div.rstats',
       h('div', h('b', '+' + res.xp), h('small', 'XP')),
       h('div', h('b', '+' + (res.coins + coinsBonus)), h('small', '🪙 מטבעות')),
@@ -218,7 +271,7 @@ function finishGame(i, g, res) {
     missed.length > 0 && h('div.missed', h('h4', 'מילים לחזרה:'), missed.map(w => { const b = h('button.chip.wchip', { onclick: () => playWord(w, 'en', b) }, h('span', w.e), en(w.en), h('small', w.he)); return b; })),
     h('div.rbtns',
       nxt && h('button.btn.primary.xl', { onclick: () => go(nxt[0]) }, nxt[1]),
-      g !== 'intro' && g !== 'review' && h('button.btn' + (nxt ? '.ghost' : '.primary'), { onclick: () => route(true) }, '🔄 שוב'),
+      g !== 'intro' && g !== 'review' && h('button.btn' + (nxt ? '.ghost' : '.primary'), { onclick: () => { location.hash = `#/play/${i}/${g}`; route(true); } }, '🔄 שוב עכשיו'),
       h('button.btn.ghost', { onclick: () => go(g === 'review' ? '#/map' : '#/stage/' + i) }, g === 'review' ? '🗺️ למפה' : 'לשלב')))
   );
 }
@@ -231,10 +284,25 @@ function achView() {
 }
 function shopView() {
   const buy = (price, fn) => { if (S.coins < price) { sfx('bad'); return toast(`חסרים ${price - S.coins} מטבעות 🪙`); } S.coins -= price; fn(); S.stats.buys++; sfx('coin'); save(true); checkAch(); shopView(); };
-  screen('shopv', hud(), h('h2.ptitle', '🛒 חנות'), h('p.muted.center', 'מרוויחים מטבעות על כל תשובה נכונה, שלב והישג'),
-    h('h3', 'כוחות מיוחדים'),
-    h('div.shopgrid', POWERS.map(([id, ic, name, desc, price]) => h('div.item', h('div.iicon', ic), h('b', name), h('small', desc), h('small.have', `יש לכם: ${S.powers[id]}`),
+  const cos = S.cosmetics;
+  screen('shopv', hud(), h('h2.ptitle', '🛒 חנות'), h('p.muted.center', 'מטבעות = כוח · קוסמטיקה · סטייל'),
+    h('h3', 'כוחות'),
+    h('div.shopgrid', POWERS.map(([id, ic, name, desc, price]) => h('div.item', h('div.iicon', ic), h('b', name), h('small', desc), h('small.have', `יש: ${S.powers[id]}`),
       h('button.btn.small.primary', { onclick: () => buy(price, () => S.powers[id]++) }, `${price} 🪙`)))),
+    h('h3', 'הילות'),
+    h('div.shopgrid', AURAS.map(([id, name, price]) => {
+      const own = cos.ownedAuras.includes(id), cur = cos.aura === id;
+      return h('div.item', h('div.iicon.big' + (id !== 'none' ? '.aura-' + id : ''), S.profile.avatar), h('b', name),
+        own ? h('button.btn.small' + (cur ? '.ghost' : '.primary'), { disabled: cur, onclick: () => { cos.aura = id; save(); sfx('tap'); shopView(); } }, cur ? 'פעיל' : 'הפעילו')
+          : h('button.btn.small.primary', { onclick: () => buy(price, () => { cos.ownedAuras.push(id); cos.aura = id; }) }, `${price} 🪙`));
+    })),
+    h('h3', 'תארים'),
+    h('div.shopgrid', TITLES.map(([id, name, price]) => {
+      const own = cos.ownedTitles.includes(id), cur = cos.title === id;
+      return h('div.item', h('div.iicon', '🏷️'), h('b', name || '—'),
+        own ? h('button.btn.small' + (cur ? '.ghost' : '.primary'), { disabled: cur, onclick: () => { cos.title = id; save(); sfx('tap'); shopView(); } }, cur ? 'פעיל' : 'הפעילו')
+          : price ? h('button.btn.small.primary', { onclick: () => buy(price, () => { cos.ownedTitles.push(id); cos.title = id; }) }, `${price} 🪙`) : null);
+    })),
     h('h3', 'דמויות'),
     h('div.shopgrid.av', SHOP_AV.map(([a, price]) => { const own = S.owned.includes(a), cur = S.profile.avatar === a;
       return h('div.item', h('div.iicon.big', a), own ? h('button.btn.small' + (cur ? '.ghost' : '.primary'), { disabled: cur, onclick: () => { S.profile.avatar = a; save(); sfx('tap'); shopView(); } }, cur ? 'בשימוש' : 'בחרו')
@@ -245,7 +313,8 @@ function meView() {
   const tr = TRACKS[S.profile.track];
   const tg = (key, txt) => h('label.toggle', h('input', { type: 'checkbox', checked: S.settings[key], onchange: e => { S.settings[key] = e.target.checked; save(); applyBig(); } }), h('span', txt));
   screen('mev', hud(),
-    h('div.mecard', h('div.bigav', S.profile.avatar), h('h2', S.profile.name), h('p', `${tr.name} · `, en(tr.band)),
+    h('div.mecard', h('div.bigav' + ((S.cosmetics?.aura && S.cosmetics.aura !== 'none') ? '.aura-' + S.cosmetics.aura : ''), S.profile.avatar),
+      h('h2', S.profile.name + (S.cosmetics?.title ? ' · ' + S.cosmetics.title : '')), h('p', `${tr.name} · `, en(tr.band)),
       h('button.btn.small.ghost', { onclick: () => { const v = prompt('כינוי חדש:', S.profile.name); if (v && v.trim()) { S.profile.name = v.replace(/[<>]/g, '').trim().slice(0, 14); save(); meView(); } } }, '✏️ שינוי כינוי')),
     h('h3', 'דמות'), h('div.avgrid.small', [...FREE_AV, ...S.owned].map(a => h('button.avpick' + (a === S.profile.avatar ? '.on' : ''), { 'aria-label': 'דמות ' + a, onclick: () => { S.profile.avatar = a; save(); sfx('tap'); meView(); } }, a))),
     h('h3', 'יעד יומי'), h('div.row.seg', [[100, 'רגוע'], [150, 'רגיל'], [300, 'אלופים']].map(([v, t]) => h('button.btn.small' + (S.settings.goal === v ? '.primary' : '.ghost'), { onclick: () => { S.settings.goal = v; save(); meView(); } }, `${t} · ${v} XP`))),

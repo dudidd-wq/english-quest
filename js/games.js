@@ -5,16 +5,18 @@ import { playWord, sfx, stop as stopAudio } from './audio.js';
 import { D, W, distractors, stageSentences, scrambleWord, phraseTiles } from './data.js';
 
 export const GAMES = {
-  intro:   { icon: '📖', name: 'הכירו את המילים', short: 'כרטיסיות', desc: 'שמעו, ראו וזכרו – 12 מילים חדשות' },
+  intro:   { icon: '📖', name: 'הכירו את המילים', short: 'כרטיסיות', desc: 'שמעו, ראו וזכרו – מילים חדשות ב־30 שניות' },
   match:   { icon: '⚡', name: 'התאמה מהירה', short: 'התאמה', desc: 'התאימו מילה לפירוש לפני שהזמן נגמר!' },
   listen:  { icon: '🎧', name: 'האזינו ובחרו', short: 'האזנה', desc: 'שמעו את המילה ובחרו את הפירוש' },
   scramble:{ icon: '🔤', name: 'בלגן אותיות', short: 'איות', desc: 'סדרו את האותיות ובנו את המילה' },
   fill:    { icon: '✍️', name: 'השלימו את המשפט', short: 'משפטים', desc: 'בחרו את המילה שחסרה במשפט' },
   memory:  { icon: '🃏', name: 'משחק זיכרון', short: 'זיכרון', desc: 'מצאו זוגות: מילה באנגלית + פירוש' },
+  blitz:   { icon: '💥', name: 'בליץ', short: 'בליץ', desc: 'רפלקסים! 4 אפשרויות, שעון דופק, אל תפספסו' },
   boss:    { icon: '⚔️', name: 'קרב בוס', short: 'בוס', desc: 'נצחו את הבוס כדי לעבור שלב!' },
   review:  { icon: '🔁', name: 'חזרה יומית', short: 'חזרה', desc: 'המילים שהגיע זמנן לחזור' },
 };
-export const PRACTICE = ['match', 'listen', 'scramble', 'fill', 'memory'];
+export const PRACTICE = ['match', 'listen', 'scramble', 'fill', 'memory', 'blitz'];
+export const MISSION_POOL = ['match', 'blitz', 'listen', 'scramble'];
 const label = w => w.en + (w.m ? ` (${w.m})` : '');
 
 /** One play of one game: owns the top bar, combo, XP, and the result summary. */
@@ -43,16 +45,27 @@ export class Session {
     this.ok++; this.combo++; this.maxCombo = Math.max(this.maxCombo, this.combo);
     S.stats.bestCombo = Math.max(S.stats.bestCombo, this.combo);
     const x = 10 * comboMult(this.combo); this.xp += x; this.coins += 1; gainXp(x); gainCoins(1);
-    sfx('ok', this.combo); this.float('+' + x, el);
-    if ([3, 6, 10].includes(this.combo)) { sfx('combo', this.combo); this.burst(`קומבו ×${comboMult(this.combo)}!`); }
-    else if (this.combo >= 15 && this.combo % 5 === 0) { sfx('combo', this.combo); this.burst(`🔥 ${this.combo} ברצף!`); }
+    sfx(this.combo >= 3 ? 'combo' : 'ok', this.combo); this.float('+' + x, el);
+    if (el) { el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop'); }
+    if ([3, 6, 10, 15, 20].includes(this.combo) || (this.combo >= 25 && this.combo % 5 === 0)) {
+      this.burst(this.combo >= 15 ? `🔥 ${this.combo} ברצף!` : `קומבו ×${comboMult(this.combo)}!`);
+      this.juice(true);
+    }
     this.showCombo();
   }
   wrong(w, el, srs = true) {
     if (srs && w) { answer(w.n, false); this.missed.add(w.n); }
     this.bad++; this.combo = 0; sfx('bad'); this.showCombo();
     if (el) { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); }
+    this.juice(false);
     navigator.vibrate?.(60);
+  }
+  juice(good) {
+    if (S.settings && S.settings.juice === false) return;
+    const root = document.getElementById('app');
+    if (!root) return;
+    root.classList.remove('screen-shake'); void root.offsetWidth;
+    if (!good) root.classList.add('screen-shake');
   }
   showCombo() {
     this.xpEl.textContent = this.xp + ' XP';
@@ -147,10 +160,11 @@ export async function intro(sess, words) {
         h('div.count', `${i + 1} / ${words.length}`));
       const nav = h('div.row.navbtns',
         h('button.btn.ghost', { disabled: i === 0, onclick: () => { i--; sfx('whoosh'); show(); } }, '→ הקודם'),
-        h('button.btn.primary', { onclick: () => { if (++i >= words.length) resolve(); else { sfx('whoosh'); show(); } } }, i === words.length - 1 ? 'יאללה לשחק! 🎮' : 'הבא ←'));
+        h('button.btn.ghost.small', { onclick: () => { sfx('whoosh'); resolve(); } }, 'דלגו ▶'),
+        h('button.btn.primary', { onclick: () => { if (++i >= words.length) resolve(); else { sfx('whoosh'); show(); } } }, i === words.length - 1 ? 'יאללה! 🎮' : 'הבא ←'));
       put(sess.body, h('div.intro', card, nav));
       swipe(card, dir => { if (dir === 'next') nav.lastChild.click(); else if (i > 0) nav.firstChild.click(); });
-      sess.later(async () => { await playWord(w, 'en'); if (!sess.dead && words[i] === w) { await sleep(250); if (words[i] === w && !sess.dead) playWord(w, 'he'); } }, 150);
+      sess.later(async () => { await playWord(w, 'en'); if (!sess.dead && words[i] === w) { await sleep(120); if (words[i] === w && !sess.dead) playWord(w, 'he'); } }, 80);
     };
     show();
   });
@@ -341,6 +355,7 @@ export async function boss(sess, words, { world, hearts = 3, stageIdx, review = 
   const arena = h('div.arena', h('div.bossbox', bossEl, h('div.bossname', review ? 'ינשוף החזרה' : world.bossName), h('div.hp', hpFill)), !review && heartsEl);
   const area = h('div.qarea');
   put(sess.body, h('div.battle', arena, area)); drawHearts();
+  if (!review) { sfx('boss'); sess.burst('⚔️ הבוס תוקף!'); }
   // questions render into `area` instead of the whole body
   const realBody = sess.body; sess.body = area;
   const types = ['enhe', 'listen', 'fill', 'heen'];
@@ -348,7 +363,7 @@ export async function boss(sess, words, { world, hearts = 3, stageIdx, review = 
   while (hp > 0 && (review || lives > 0) && queue.length) {
     if (sess.dead) return sess.summary({ won: false, stars: 0 });
     const w = queue.shift(); const t = types[k++ % types.length];
-    const timer = review ? 0 : 12000;
+    const timer = review ? 0 : Math.max(7000, 10000 - k * 200);
     let ok;
     if (t === 'fill' && sents.has(w.n)) ok = await qSentence(sess, sents.get(w.n), timer);
     else if (t === 'listen' || (t === 'fill' && k % 2)) ok = await qListen(sess, w, pool, timer);
@@ -365,4 +380,73 @@ export async function boss(sess, words, { world, hearts = 3, stageIdx, review = 
   if (won) { bossEl.classList.add('defeated'); await sess.wait(700); }
   const stars = !won ? 0 : !lostAny ? 3 : lives >= 2 ? 2 : 1;
   return sess.summary({ won, stars, perfect: won && !lostAny, acc: sess.ok / Math.max(1, sess.ok + sess.bad) });
+}
+
+// ---------- 💥 Blitz – high-energy timed reflexes ----------
+export async function blitz(sess, words, { target = 14 } = {}) {
+  const pool = shuffle(words);
+  let lives = 3, score = 0, i = 0, streakOk = 0;
+  const ghost = S.rival?.bestBlitz || 35;
+  const livesEl = h('span.lives', '❤️❤️❤️');
+  const scoreEl = h('span.score', '0');
+  const ghostEl = h('span.ghost', `👻 ${ghost}`);
+  const timerFill = h('div');
+  const wordEl = h('div.blitz-word');
+  const wrap = h('div.blitz',
+    h('div.blitz-hud', livesEl, scoreEl, ghostEl),
+    h('div.blitz-timer', timerFill),
+    wordEl);
+  put(sess.body, wrap);
+  sfx('blitz');
+
+  const drawLives = () => { livesEl.textContent = '❤️'.repeat(lives) + '🖤'.repeat(3 - lives); };
+  drawLives();
+
+  while (lives > 0 && i < target && !sess.dead) {
+    const w = pool[i % pool.length]; i++;
+    sess.progress(i / target);
+    const limit = Math.max(1400, 2800 - i * 80);
+    const asHe = Math.random() < 0.55;
+    put(wordEl, asHe
+      ? h('div', h('div.qhint', 'איך אומרים באנגלית?'), h('div.he.big', w.he))
+      : h('div', h('div.qhint', 'מה הפירוש?'), h('div.word', en(label(w)), audioBtn(w))));
+    if (!asHe) sess.later(() => playWord(w, 'en'), 40);
+    else sfx('blitz');
+
+    const ok = await new Promise(resolve => {
+      let done = false;
+      const opts = asHe ? enOpts(w, words) : heOpts(w, words);
+      const grid = h('div.opts');
+      const finish = (good, btn) => {
+        if (done) return; done = true; clearInterval(sess.iv);
+        grid.querySelectorAll('button').forEach(b => { b.disabled = true; if (b._ok) b.classList.add('right'); });
+        if (good) { btn?.classList.add('pop'); sess.right(w, btn); score += 5 + Math.min(10, sess.combo); scoreEl.textContent = score; streakOk++; resolve(true); }
+        else { btn?.classList.add('wrongc'); sess.wrong(w, btn || grid); resolve(false); }
+      };
+      for (const o of opts) {
+        const b = h('button.opt', { onclick: () => finish(!!o.ok, b) }, o.lang === 'en' ? en(o.text) : o.text);
+        b._ok = o.ok; grid.append(b);
+      }
+      const old = wrap.querySelector('.opts'); if (old) old.remove();
+      wrap.append(grid);
+      const t0 = Date.now();
+      sess.iv = setInterval(() => {
+        const left = 1 - (Date.now() - t0) / limit;
+        timerFill.style.transform = `scaleX(${Math.max(0, left)})`;
+        if (left < 0.3) sfx('tick');
+        if (left <= 0) { toast('⏰', 600); finish(false, null); }
+      }, 50);
+    });
+
+    if (!ok) { lives--; drawLives(); sfx('hurt'); if (lives <= 0) break; }
+    await sess.wait(ok ? 280 : 550);
+  }
+
+  sess.progress(1);
+  const acc = sess.ok / Math.max(1, sess.ok + sess.bad);
+  return sess.summary({
+    acc, stars: score >= 60 ? 3 : score >= 35 ? 2 : score >= 15 ? 1 : 0,
+    score, note: `💥 ניקוד בליץ: ${score}` + (score > ghost ? ' · ניצחתם את הצל! 👻' : ` · צל: ${ghost}`),
+    blitzScore: score, beatGhost: score > ghost,
+  });
 }

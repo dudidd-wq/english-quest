@@ -1,20 +1,29 @@
-// Progress lives in localStorage (key is unique to this app – band2-study shares the github.io origin).
 import { dayNum } from './util.js';
 const KEY = 'englishQuest.v1';
 const fresh = () => ({
   v: 1, profile: null, xp: 0, coins: 0, owned: [], powers: { hint: 2, heart: 1, freeze: 0 },
-  settings: { sfx: true, voice: true, goal: 150 },
+  settings: { sfx: true, voice: true, goal: 150, big: false, juice: true },
   tracks: {}, days: {}, streak: { cur: 0, best: 0, last: null }, ach: {},
-  stats: { answers: 0, correct: 0, bestCombo: 0, games: 0, bossWins: 0, perfectBoss: 0, goals: 0, reviews: 0, buys: 0 },
+  stats: { answers: 0, correct: 0, bestCombo: 0, games: 0, bossWins: 0, perfectBoss: 0, goals: 0, reviews: 0, buys: 0, blitzBest: 0, missions: 0 },
+  daily: { day: null, kind: null, target: 12, progress: 0, done: false },
+  cosmetics: { aura: 'none', title: '', ownedAuras: ['none'], ownedTitles: [''] },
+  rival: { name: 'צל_המילים', bestCombo: 7, bestBlitz: 35 },
 });
 export let S = load();
 function load() {
   try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.v === 1) return merge(fresh(), s); } catch {}
   return fresh();
 }
-function merge(a, b) { for (const k in b) a[k] = (b[k] && typeof b[k] === 'object' && !Array.isArray(b[k]) && a[k] && typeof a[k] === 'object') ? merge(a[k], b[k]) : b[k]; return a; }
+function merge(a, b) {
+  for (const k in b) a[k] = (b[k] && typeof b[k] === 'object' && !Array.isArray(b[k]) && a[k] && typeof a[k] === 'object') ? merge(a[k], b[k]) : b[k];
+  return a;
+}
 let saveT;
-export function save(now = false) { clearTimeout(saveT); const w = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} }; now ? w() : (saveT = setTimeout(w, 150)); }
+export function save(now = false) {
+  clearTimeout(saveT);
+  const w = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} };
+  now ? w() : (saveT = setTimeout(w, 150));
+}
 addEventListener('pagehide', () => save(true));
 addEventListener('visibilitychange', () => document.visibilityState === 'hidden' && save(true));
 export function replaceState(obj) { S = merge(fresh(), obj); save(true); }
@@ -29,7 +38,6 @@ export function T(track = S.profile?.track) { return S.tracks[track] ||= { stage
 export function stageRec(i, track) { return T(track).stages[i] ||= { games: {}, stars: 0, cleared: false, plays: 0 }; }
 export function today() { const k = dayNum(); return S.days[k] ||= { xp: 0, ans: 0, ok: 0, ms: 0, games: 0 }; }
 
-// ---- Leitner spaced repetition: box 0..6, interval (days) by box
 const IV = [0, 1, 2, 4, 7, 14, 30];
 export function wordRec(n) { return T().words[n] ||= { b: 0, due: dayNum(), ok: 0, bad: 0, seen: dayNum() }; }
 export function answer(n, ok) {
@@ -37,37 +45,85 @@ export function answer(n, ok) {
   S.stats.answers++; d.ans++;
   if (ok) { r.ok++; S.stats.correct++; d.ok++; if (r.due <= dayNum() || r.b === 0) { r.b = Math.min(6, r.b + 1); r.due = dayNum() + IV[r.b]; } }
   else { r.bad++; r.b = Math.min(r.b, 1); r.due = dayNum(); }
-  r.last = Date.now();
+  r.last = Date.now(); save();
 }
 export const isMastered = r => r && r.b >= 4;
-export function dueWords() { const t = dayNum(); return Object.entries(T().words).filter(([, r]) => r.due <= t && (r.bad > 0 || r.b > 0)).sort((a, b) => a[1].b - b[1].b || a[1].due - b[1].due).map(([n]) => +n); }
+export function dueWords() {
+  const t = dayNum();
+  return Object.entries(T().words).filter(([, r]) => r.due <= t && (r.bad > 0 || r.b > 0))
+    .sort((a, b) => a[1].b - b[1].b || a[1].due - b[1].due).map(([n]) => +n);
+}
 
-// ---- XP, levels, coins, streak, daily goal
-export const levelXp = L => 50 * L * (L + 1) - 100;           // xp needed to reach level L (L1 = 0)
+export const levelXp = L => 50 * L * (L + 1) - 100;
 export function level(xp = S.xp) { let L = 1; while (xp >= levelXp(L + 1)) L++; return L; }
-export const comboMult = c => c >= 10 ? 4 : c >= 6 ? 3 : c >= 3 ? 2 : 1;
+export const comboMult = c => c >= 12 ? 4 : c >= 8 ? 3 : c >= 4 ? 2 : c >= 2 ? 1.5 : 1;
 export function gainXp(x) {
   const before = level(), d = today(), goalBefore = d.xp >= S.settings.goal;
-  S.xp += x; d.xp += x;
+  S.xp += x; d.xp += x; save();
   if (level() > before) emit('level', level());
-  if (!goalBefore && d.xp >= S.settings.goal) { S.stats.goals++; S.coins += 20; emit('goal'); }
-  save();
+  if (!goalBefore && d.xp >= S.settings.goal) { S.stats.goals++; S.coins += 25; emit('goal'); }
 }
 export function gainCoins(c) { S.coins += c; save(); }
 export function touchStreak() {
-  const t = dayNum(), s = S.streak; if (s.last === t) return;
-  if (s.last === t - 1) s.cur++;
-  else if (s.last != null && t - s.last === 2 && S.powers.freeze > 0) { S.powers.freeze--; s.cur++; emit('freeze'); }
-  else s.cur = 1;
-  s.last = t; s.best = Math.max(s.best, s.cur); save();
+  const d = dayNum(), last = S.streak.last;
+  if (last === d) return;
+  if (last === d - 1) S.streak.cur++;
+  else if (last === d - 2 && S.powers.freeze > 0) { S.powers.freeze--; S.streak.cur++; emit('freeze'); }
+  else S.streak.cur = 1;
+  S.streak.best = Math.max(S.streak.best, S.streak.cur);
+  S.streak.last = d; save();
+  if (S.streak.cur >= 3) emit('streak', S.streak.cur);
 }
 export function streakNow() { const s = S.streak, t = dayNum(); return s.last != null && t - s.last <= 1 ? s.cur : 0; }
 
-// ---- achievements
+const DAILY_KINDS = [
+  ['blitz_ok', 'בליץ: 12 תשובות נכונות', 12],
+  ['combo', 'הגיעו לקומבו ×8', 8],
+  ['boss', 'נצחו בוס אחד', 1],
+  ['mission', 'סיימו 2 משימות', 2],
+  ['perfect', '10 תשובות ברצף בלי טעות', 10],
+];
+export function ensureDaily() {
+  const d = dayNum();
+  if (S.daily.day === d) return S.daily;
+  const pick = DAILY_KINDS[d % DAILY_KINDS.length];
+  S.daily = { day: d, kind: pick[0], label: pick[1], target: pick[2], progress: 0, done: false };
+  save(); return S.daily;
+}
+export function bumpDaily(kind, n = 1) {
+  const d = ensureDaily();
+  if (d.done || d.kind !== kind) return;
+  d.progress = Math.min(d.target, d.progress + n);
+  if (d.progress >= d.target) { d.done = true; S.coins += 40; emit('daily'); }
+  save();
+}
+export function beatRival(field, value) {
+  if (value > (S.rival[field] || 0)) {
+    const old = S.rival[field]; S.rival[field] = value; save();
+    if (value > old) emit('rival', { field, value });
+  }
+}
+
+export const AURAS = [
+  ['none', 'בלי הילה', 0],
+  ['cyan', 'הילה ציאן', 80],
+  ['magenta', 'הילה מג׳נטה', 80],
+  ['lime', 'הילה ליים', 100],
+  ['gold', 'הילה זהב', 180],
+  ['fire', 'הילה אש', 220],
+];
+export const TITLES = [
+  ['', 'בלי תואר', 0],
+  ['צייד מילים', 'צייד מילים', 60],
+  ['נינג׳ה אוצר', 'נינג׳ה אוצר', 100],
+  ['מלך הבוסים', 'מלך הבוסים', 150],
+  ['אגדה', 'אגדה', 300],
+];
+
 export const ACH = [
   ['first', '🐣', 'צעד ראשון', 'סיימו משחק ראשון'],
-  ['boss1', '⚔️', 'מנצחי בוסים', 'נצחו בוס ראשון'],
-  ['boss10', '🏅', 'צייד בוסים', 'נצחו 10 בוסים'],
+  ['boss1', '⚔️', 'מנצחי בוסים', 'נצחו בוס אחד'],
+  ['boss10', '🏆', 'צייד בוסים', 'נצחו 10 בוסים'],
   ['perfect', '💎', 'מושלם!', 'נצחו בוס בלי לאבד לב'],
   ['combo10', '🔥', 'רצף לוהט', 'קומבו של 10 תשובות'],
   ['combo25', '☄️', 'בלתי ניתנים לעצירה', 'קומבו של 25 תשובות'],
@@ -79,11 +135,13 @@ export const ACH = [
   ['world1', '🗺️', 'עולם ראשון', 'סיימו את כל השלבים בעולם הראשון'],
   ['goal1', '🎯', 'יעד יומי', 'הגיעו ליעד היומי'],
   ['goal5', '🏹', 'יעד ×5', 'הגיעו ליעד היומי 5 פעמים'],
-  ['speedy', '⚡', 'ברק', 'סיימו התאמה מהירה עם 20+ שניות בשעון'],
-  ['memory', '🃏', 'זיכרון של פיל', 'סיימו משחק זיכרון ב־10 תורות או פחות'],
-  ['ears', '🎧', 'אוזניים חדות', '10 מתוך 10 במשחק ההאזנה'],
+  ['speedy', '⚡', 'ברק', 'סיימו התאמה עם 20+ שניות בשעון'],
+  ['memory', '🃏', 'זיכרון של פיל', 'סיימו זיכרון ב־10 תורות או פחות'],
+  ['ears', '🎧', 'אוזניים חדות', '10 מתוך 10 בהאזנה'],
   ['review', '🔁', 'גיבורי חזרה', 'השלימו חזרה יומית'],
   ['shop', '🛍️', 'קנייה ראשונה', 'קנו משהו בחנות'],
+  ['blitz50', '💥', 'בליץ מטורף', 'הגיעו ל־50 נקודות בבליץ'],
+  ['daily', '☀️', 'אתגר היום', 'סיימו אתגר יומי'],
 ];
 export function unlock(id) { if (S.ach[id]) return; S.ach[id] = dayNum(); S.coins += 15; save(); emit('ach', ACH.find(a => a[0] === id)); }
 export function checkAch(extra = {}) {
@@ -103,5 +161,7 @@ export function checkAch(extra = {}) {
   if (st.goals >= 5) unlock('goal5');
   if (st.reviews >= 1) unlock('review');
   if (st.buys >= 1) unlock('shop');
+  if (st.blitzBest >= 50) unlock('blitz50');
+  if (S.daily?.done) unlock('daily');
   for (const k in extra) if (extra[k]) unlock(k);
 }

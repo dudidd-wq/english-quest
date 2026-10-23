@@ -18,17 +18,13 @@ async function onboard(page) {
   await page.goto(BASE + '/', { waitUntil: 'domcontentloaded' });
   await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
   await page.goto(BASE + '/#/', { waitUntil: 'networkidle' });
-  await page.waitForSelector('button.primary', { timeout: 10000 });
-  await page.click('button.primary'); // splash
-  await page.waitForSelector('button.track-card');
-  await page.click('button.track-card'); // g7
+  await page.waitForSelector('button.track-card', { timeout: 10000 });
+  await page.click('button.track-card'); // g7 – splash+track combined
   await page.waitForSelector('input.name');
   await page.fill('input.name', 'דודו');
-  await page.click('button.primary');
   await page.waitForSelector('button.avpick');
-  await page.click('button.avpick'); // fox
+  await page.click('button.avpick'); // fox finishes onboard
   await page.waitForSelector('.hud, .mapv, .stagev', { timeout: 15000 });
-  // ensure on map
   await page.goto(BASE + '/#/map');
   await page.waitForSelector('.hud', { timeout: 10000 });
 }
@@ -198,6 +194,14 @@ async function runViewport(tag, size) {
   await page.goto(BASE + '/#/play/0/memory');
   await autoMemory(page);
   await waitResult(page);
+  await back(page);
+
+  log('blitz');
+  await page.goto(BASE + '/#/play/0/blitz');
+  await page.waitForSelector('.blitz', { timeout: 10000 });
+  await autoChoices(page, 40);
+  await waitResult(page, 90000);
+  await shot(page, tag + '-08-blitz');
   await back(page);
 
   log('boss');
