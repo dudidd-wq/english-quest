@@ -1,0 +1,77 @@
+564|This ___ makes coffee in one minute.|machine|scarf;website;jail
+979|You can buy tickets on our ___.|website|machine;scarf;contract
+925|Yesterday was Monday, so ___ is Tuesday.|today|website;machine;environment
+500|Do you want to ___ our club? We meet every Tuesday.|join|control;post;study
+566|The wizard did some ___ and the frog became a prince.|magic|error;study;guy
+981|What is your ___? I weigh 40 kilos.|weight|style;hall;mail
+927|Let's walk to school ___.|together|potential;euro;scream
+238|Stop! There is ___ ahead: a big hole in the road!|danger|puppy;kilometer;whenever
+574|My sister is going to ___ her boyfriend next summer.|marry|touch;open;expect
+510|My school is one ___ from my house. I walk there in ten minutes.|kilometer|danger;puppy;set
+792|A ball has a round ___.|shape|apology;match;tour
+864|It's hot! Let's go for a ___ in the pool.|swim|shape;apology;tour
+518|I do my homework on my ___.|laptop|purpose;maximum;share
+793|Can I ___ your pizza? I'm so hungry!|share|laptop;take;toward
+796|We sailed across the sea on a big ___.|ship|dentist;option;medium
+523|A ___ helps people with problems in court.|lawyer|dentist;ship;option
+719|Don't ___ me! I almost fell.|push|explore;trade;lawyer
+252|The storm will ___ many houses.|destroy|hide;organize;shout
+943|We rode the ___ through the city streets.|tram|technology;military;destroy
+799|Don't ___! The baby is sleeping.|shout|tram;organize;destroy
+590|I ___ my grandma. She lives far away.|miss|tell;work;sight
+803|The sunset over the sea was a beautiful ___.|sight|truck;miss;level
+732|She closed the door ___ so she didn't wake the baby.|quietly|familiar;back;hundreds
+138|Write the date of the party on the ___.|calendar|coach;dish;kilogram
+194|Our ___ trains us every day after school.|coach|calendar;dish;kilogram
+509|I bought a ___ of tomatoes.|kilogram|coach;thumb;calendar
+195|Enter the secret ___ to open the door.|code|kite;distance;officer
+629|The police ___ helped us find our car.|officer|code;kite;distance
+819|She's very ___. She knows all the answers.|smart|adequate;fresh air;code
+150|I made a birthday ___ for my mom.|card|bedtime;education;contact
+100|It's nine o'clock. It's your ___!|bedtime|card;education;traveler
+841|Don't ___ on the cat's tail!|step|reduce;ignore;card
+293|I sent you an ___ this morning. Did you read it?|email|belief;image;stomach ache
+843|I ate too much candy, and now I have a ___.|stomach ache|email;image;belief
+213|Please ___ reading. Don't stop now.|continue|announce;owe;remain
+55|I read an interesting ___ in the newspaper.|article|synagogue;pepper;vote
+673|Add salt and ___ to the soup.|pepper|article;synagogue;vote
+973|Who will you ___ for in the class election?|vote|blow;article;pepper
+117|We showed our passports at the ___.|border|centimeter;teaching;curtain
+168|A ___ is smaller than a meter.|centimeter|border;curtain;poem
+777|Who ___ the first goal?|scored|informed;wished;feared
+68|Who is the ___ of this book?|author|handbag;midday;chance
+404|Mom keeps her keys in her ___.|handbag|author;midday;chance
+787|The waiter will ___ the soup now.|serve|author;handbag;midday
+1273|A ___ of birds are sitting on the roof. I can see two.|couple|identity;ability;progress
+1744|Your English is getting better. You are making great ___!|progress|couple;identity;shock
+1750|They will ___ her new book next month.|publish|bother;useless;mile
+1149|Please don't ___ me now. I'm doing my homework.|bother|publish;mile;useless
+1281|The queen wore a gold ___.|crown|builder;accommodation;the West
+1160|The ___ is building a new house next to ours.|builder|crown;entertain;injure
+1368|A clown came to ___ the children at the party.|entertain|injure;crown;builder
+1290|It is a ___ to eat apples and honey on Rosh Hashanah.|custom|column;evidence;introduction
+1551|Read the ___ at the start of the book.|introduction|custom;evidence;column
+1746|Wear ___ shoes for the hike, not flip-flops.|proper|negative;custom;column
+1237|Write a ___ under the photo.|comment|trial;station;angry
+1483|He said he was ___ and he was sorry he broke the vase.|guilty|angry;real;nowhere
+1648|I looked everywhere, but my keys were ___.|nowhere|guilty;angry;real
+1185|She wants a ___ in medicine. She wants to be a doctor.|career|strategy;labor;up
+1059|I really ___ your help. Thank you!|appreciate|deny;career;strategy
+1242|Cohen is a very ___ name in Israel.|common|career;strategy;labor
+1065|My brother and I always ___ about who sits in the front seat.|argue|belong;concentrate;use
+1418|I love reading ___, like stories about dragons and magic.|fiction|law;director;subject
+1876|Math is my favorite ___ at school.|subject|fiction;director;law
+1976|This old coin has a great ___. It's worth a lot of money.|value|category;conclusion;benefit
+1193|Put the words into the right ___: animals or food.|category|value;conclusion;sunset
+1250|At the end of your essay, write a short ___.|conclusion|category;value;sunset
+1332|___ the cake into eight pieces.|Divide|Assume;Consider;Switch
+1680|It's a sunny day. Let's play ___.|outdoors|royal;certain;well-known
+1788|The ___ family lives in a palace.|royal|outdoors;certain;household
+1903|She threw the ball and hit the ___.|target|cottage;chest;board
+1441|The children ___ a circle and held hands.|formed|saw;boarded;targeted
+1086|All students must ___ the meeting.|attend|seek;board;male
+1906|We have a ___ problem with the computer.|technical|male;fortunately;chewing gum
+1605|A rooster is a ___ chicken.|male|technical;chewing gum;attend
+1087|Flowers ___ bees.|attract|manage;wrap;bone
+1907|The coach showed us a new ___ for kicking the ball.|technique|bone;county;frame
+1607|It was hard, but I ___ to finish the race.|managed|attracted;wrapped;bored

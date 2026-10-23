@@ -1,0 +1,71 @@
+217|My dad loves ___. He makes great pasta!|cooking|enemy;turn;careless
+153|You lost your phone again? Don't be so ___!|careless|cooking;enemy;turn
+954|___ left at the traffic lights.|Turn|Stop;Lend;Imagine
+154|Rabbits love to eat ___.|carrots|apartments;stories;levels
+660|It's late. Put on your ___ and go to bed.|pajamas|carrot;girlfriend;energy
+847|Grandpa told us a funny ___ about his dog.|story|carrot;pajamas;turning
+219|We ate popcorn made from ___.|corn|palace;envelope;resource
+301|Put the letter in an ___ and add a stamp.|envelope|corn;palace;license
+661|The king and queen live in a ___.|palace|envelope;corn;resource
+956|The witch in the story has an ___ nose.|ugly|important;straight;beside
+382|It's freezing. Put on your hat and ___.|gloves|lines;rings;parcels
+849|I want a ___ ice cream, please. Pink and sweet!|strawberry|equipment;glove;parcel
+459|It's ___ to swim across the sea. It's too far!|impossible|unnecessary;approximately;strawberry
+221|This T-shirt is made of soft ___.|cotton|rock;Bible;cash
+762|He sat on a big ___ by the river.|rock|cotton;cash;Bible
+546|We buy fruit at the ___ market near our house.|local|even;until;rock
+222|He has a cold and can't stop ___.|coughing|passing;suggesting;locating
+160|Do you want to pay by card or in ___?|cash|cough;event;area
+858|I ___ that we go to the movies tonight.|suggest|pass;cough;locate
+161|The princess lived in a ___ on a hill.|castle|army;passenger;roll
+665|The bus driver said hello to every ___.|passenger|castle;army;voice
+970|We ___ our grandparents every Saturday.|visit|roll;suppose;could
+162|Throw the ball and I will ___ it.|catch|surprise;look up;round
+225|My ___ is my aunt's son.|cousin|factory;voice;passport
+322|They make cars in this ___.|factory|cousin;voice;blood
+971|She has a beautiful ___. She sings in the choir.|voice|factory;cousin;blood
+112|Make a wish and ___ out the candles!|blow|vote;catch;pepper
+769|The soup is too ___. You put in too much salt.|salty|golden;crazy;safe
+768|Stay inside. It's not ___ to go out in the storm.|safe|crazy;golden;salty
+114|___ the water before you make tea.|Boil|Create;Ask;Vote
+113|Exercise is good for your ___ and your mind.|body|period;sauce;boil
+228|Artists ___ beautiful things.|create|boil;ask;vote
+165|There's a spider on the ___ above my bed!|ceiling|crossing;sauce;fall
+770|I want pasta with tomato ___.|sauce|ceiling;crossing;fall
+995|Lions and tigers are ___ animals.|wild|physical;included;great
+166|We ___ my birthday with a big party.|celebrate|cry;book;increase
+232|The baby started to ___ because she was hungry.|cry|celebrate;book;measure
+115|Let's ___ a table at the restaurant for eight o'clock.|book|cry;fall down;celebrate
+116|It's raining. Put on your rain ___.|boots|cents;windows;scooters
+997|Open the ___ and let some fresh air in.|window|boot;culture;industry
+872|Mmm! This cake has a great ___.|taste|window;culture;boot
+235|Close the ___. The sun is too bright.|curtains|feathers;poems;borders
+334|The bird lost a ___.|feather|curtain;border;medicine
+689|She wrote a short ___ about the sea.|poem|curtain;feather;border
+876|Add a ___ of sugar to your tea.|teaspoon|habit;boss;teaching
+1003|Mom was ___ because I came home late.|worried|certain;inner;daily
+119|My dad's ___ gave him a day off.|boss|teaspoon;habit;attitude
+120|Pour the soup into a ___.|bowl|audience;insect;champion
+480|A fly is a small ___.|insect|bowl;audience;memory
+692|Say "please" and "thank you". Be ___!|polite|worse;separate;insect
+122|Your ___ helps you think.|brain|degree;position;charge
+482|The violin is a musical ___.|instrument|brain;degree;minimum
+405|This test is very ___. I can't answer the questions.|hard|minimum;awake;first of all
+124|The ___ firefighter ran into the burning house.|brave|backward;dependent;press
+701|___ the red button to start the game.|Press|Fix;Head;Move
+1010|Sorry, that answer is ___. Try again.|wrong|powerful;away;brave
+790|At noon your ___ is very short.|shadow|insult;branch;mosque
+123|A bird is sitting on a ___ of the tree.|branch|shadow;insult;mosque
+699|The engine of this car is very ___.|powerful|wrong;away;branch
+75|The ___ makes fresh bread every morning.|baker|muscle;sheet;bridge
+344|My bike is broken. Can you ___ it?|fix|produce;invent;baker
+488|Who did ___ the telephone?|invent|fix;head;produce
+76|We decorated the room with colorful ___.|balloons|bridges;chefs;flights
+127|We walked across the ___ over the river.|bridge|balloon;chef;flight
+181|The ___ in this restaurant cooks amazing food.|chef|bridge;balloon;description
+349|There is thick ___ this morning. I can't see the road.|fog|desert;bar;health
+250|It's very hot and dry in the ___.|desert|fog;bar;program
+416|Sleep well and eat well for good ___.|health|fog;desert;bar
+78|Dad is grilling meat on the ___ in the garden.|barbecue|chip;silence;nation
+707|I ___ I will clean my room tomorrow.|promise|follow;develop;barbecue
+350|___ me! I know the way.|Follow|Promise;Develop;Nation

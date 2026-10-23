@@ -1,0 +1,105 @@
+1611|What ___ is this shirt made of? Cotton?|material|ability;progress;identity
+1889|Chew your food well before you ___ it.|swallow|shock;progress;couple
+1366|An elephant is an ___ animal.|enormous|underground;curious;unimportant
+1365|My aunt is an ___. She builds bridges.|engineer|culture;system;pants
+1745|How do you ___ this word? Can you say it again?|pronounce|underline;matter;shoot
+1962|___ the new words in your notebook with a red pen.|Underline|Pronounce;Matter;Shoot
+1286|Cats are very ___ animals. They want to know everything.|curious|enormous;unimportant;absent
+1688|Read the first ___ of the story.|paragraph|blog;tag;property
+1824|The ___ helped me find shoes in my size.|shop assistant|paragraph;blog;tag
+1444|Close the window or we will ___!|freeze|ensure;provide;act
+1827|I take a ___ every morning before school.|shower|partner;metal;currency
+1965|Don't be ___ to your little brother.|unkind|active;metal;shower
+1372|The bird tried to ___ from the cage.|escape|bother;publish;sign
+1828|Read the ___: "No swimming".|sign|party;bomb;escape
+1970|The picture is ___. Turn it around!|upside down|frequently;active;in general
+1447|___ the eggs in a little oil.|Fry|Bother;Publish;Mind
+1973|This old phone is ___. It doesn't work at all.|useless|essential;actual;mile
+1621|A ___ is about 1.6 kilometers.|mile|fry;talent;damage
+1975|There is a river in the ___ between the mountains.|valley|talent;password;damage
+1901|She can draw beautifully. She has a real ___.|talent|valley;password;damage
+1295|The storm caused a lot of ___ to the houses.|damage|valley;talent;password
+1448|The car needs ___. Let's stop at the gas station.|fuel|data;task;add
+1029|___ sugar and mix well.|Add|Estimate;Perform;Fuel
+1904|Your ___ for today is to clean your room.|task|fuel;data;percent
+1702|The band will ___ on stage tonight.|perform|adopt;defend;broadcast
+1030|They want to ___ a puppy from the animal shelter.|adopt|perform;defend;tax
+1303|The goalkeeper must ___ the goal.|defend|adopt;perform;tax
+1458|Be ___ with the baby. Don't hold her too tightly.|gentle|future;against;skill
+1979|A car is a ___.|vehicle|budget;skill;mix
+1835|Swimming is an important ___.|skill|vehicle;budget;reality
+1165|Press the ___ to turn on the computer.|button|receipt;model;agency
+1706|I tried to ___ Mom to let me stay up late.|persuade|button;agency;receipt
+1762|Keep the ___ in case you want to return the shirt.|receipt|button;model;violence
+1307|Oops! I ___ the photo by mistake.|deleted|agreed;recorded;phrased
+1034|I ___ with you. You are right!|agree|delete;motor;tense
+1912|We use the past ___ to talk about yesterday.|tense|motor;record;phrase
+1913|We slept in a ___ when we went camping.|tent|pie;society;exhibition
+1710|Grandma baked an apple ___.|pie|tent;democracy;exhibition
+1386|We saw an ___ of dinosaur bones at the museum.|exhibition|tent;pie;introduction
+1552|Use an ___ to make your shirt smooth.|iron|pipe;vision;term
+1712|Water comes into the house through a ___.|pipe|iron;vision;term
+1842|The bed is ___ and comfortable.|soft|next;iron;pipe
+1554|Put the cookies in a glass ___.|jar|place;report;solid
+1915|What a ___ idea! I love it!|terrific|solid;jar;place
+1773|Write a ___ about your trip.|report|jar;terrific;solid
+1049|I fell and hurt my ___. Now I can't walk.|ankle|canal;waste;design
+1844|Can you ___ this math problem?|solve|require;design;ankle
+1988|Turning on the light when nobody is in the room is a ___ of electricity.|waste|ankle;canal;plain
+1319|The ___ found the thief.|detective|reward;expert;plan
+1989|I was sick, so I feel ___ today.|weak|annual;kind;somewhat
+1778|If you find my dog, you will get a ___.|reward|detective;expert;plan
+1990|My cousin is getting married. The ___ is next month.|wedding|novel;device;goods
+1645|I'm reading a ___ about a girl who lives on the moon.|novel|wedding;goods;device
+1565|Please ___ on the door before you come in.|knock|rise;play;case
+1782|We will ___ chicken in the oven.|roast|grant;apart;soul
+1647|___, many kids have smartphones.|Nowadays|Apart;Then;Western
+1321|Read the ___ between the two friends.|dialogue|soul;roast;certainty
+1199|She wore a gold ___ around her neck.|chain|diet;source;roll
+1322|He eats lots of vegetables. He is on a ___.|diet|chain;facility;source
+1572|The movie will ___ two hours.|last|green;chain;roll
+1479|___ your guests with a smile.|Greet|Obey;Plenty;Route
+1650|Dogs must ___ their owners.|obey|greet;route;fall
+1787|Which ___ do you take to school? Is it the shortest way?|route|application;fall;plenty
+1653|The Pacific is the biggest ___ in the world.|ocean|architect;guess;plural
+1791|We will ___ across the lake in a small boat.|sail|guess;disappoint;change
+1062|An ___ draws plans for houses.|architect|ocean;plural;guess
+1721|Shakespeare was a famous ___.|poet|chapter;sale;dish
+1204|Read the next ___ of the book.|chapter|poet;sale;dish
+1792|Shoes are on ___ today: 50% off!|sale|chapter;poet;happiness
+1793|The kids built a castle of ___ on the beach.|sand|charity;thirst;point
+1999|I hope our team will ___ the game!|win|speak;arrest;sand
+1067|The police ___ the thief.|arrested|won;spoke;pointed
+1208|Grandma kissed me on the ___.|cheek|length;fee;savings
+2000|Please ___ the table after dinner.|wipe|cheek;fee;stage
+1795|I used my ___ to buy a new bike.|savings|cheek;wipe;length
+1657|For breakfast I made an ___ with three eggs.|omelette|heat;politics;circumstance
+1339|___ the new game to your phone.|Download|Lie;Wish;Omelette
+1495|I can't sleep in this ___. Turn on the fan!|heat|omelette;download;politics
+1862|There's a ___ of a lion in the park.|statue|tire;client;scene
+1937|We have a flat ___. We need to change it.|tire|statue;client;scene
+2004|I ___ what time it is.|wonder|scene;poor;statue
+2005|The table is made of ___.|wood|pop;search;lift
+1799|The police ___ for the lost child all night.|searched|dreamed;lifted;popped
+1938|Here's a ___. Blow your nose.|tissue|wood;stranger;lift
+1081|The ___ ran 100 meters in ten seconds.|athlete|security;stress;dressed
+1344|Wait! I'm not ___ yet. I'm still in my pajamas.|dressed|athlete;positive;security
+1802|The ___ guard checked our bags at the airport.|security|athlete;dressed;stress
+1943|A hammer is a ___.|tool|lioness;festival;female
+1592|The ___ is feeding her cubs.|lioness|tool;award;conference
+1500|They want to ___ a new teacher.|hire|oppose;write;tool
+1415|We went to a music ___ in the summer.|festival|seed;tradition;strike
+1805|Plant a ___ and watch it grow.|seed|festival;tradition;strike
+1668|The bank is on the ___ side of the street.|opposite|aware;live;written
+1732|Cook the soup in a big ___.|pot|success;conflict;economy
+1671|Let's ___ pizza tonight!|order|fight;babysit;pot
+1877|The party was a big ___. Everybody had fun!|success|pot;loss;honor
+1952|Tell me the ___. Did you eat the cake?|truth|series;balance;figure
+1810|I watched a TV ___ about animals.|series|truth;balance;zone
+1597|The chair is too ___ for the table.|low|effective;practical;human
+1879|There was a ___ noise and the baby woke up.|sudden|out;contrast;humor
+1421|Save the ___ on your computer.|file|session;humor;majority
+1512|He has a great sense of ___. He always makes me laugh.|humor|file;presence;session
+1955|In America people eat ___ on Thanksgiving.|turkey|finish;hurt;electric
+1357|Is this an ___ car? Where do you charge it?|electric|previous;convenient;turkey
+1513|Ouch! My knee ___.|hurts|suffers;finishes;sets off

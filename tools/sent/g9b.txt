@@ -1,0 +1,122 @@
+1739|The ___ will be king one day.|prince|tweet;make-up;fire station
+1881|These shoes are not ___ for running.|suitable|electronic;out-of-date;cool
+1267|Let the soup ___ before you eat it.|cool|tweet;prince;make-up
+1118|I eat rice and ___ for lunch.|beans|ovens;councils;sums
+1682|Bake the cake in a hot ___ for 30 minutes.|oven|bean;council;process
+1817|___ the bottle before you open it.|Shake|Type;Flow;Count
+1271|Can you ___ from one to a hundred in English?|count|encourage;support;under
+1742|The shop made a big ___ this year.|profit|marathon;over;count
+1362|My coach always ___ me to try again.|encourages|counts;belongs;supports
+1276|A dragon is a ___ from stories.|creature|average;mathematics;test
+1704|She has a ___ job now, not a temporary one.|permanent|circular;incorrect;eastern
+1536|Your answer is ___. Try again!|incorrect|permanent;circular;eastern
+1091|Walk on the path to ___ the mud.|avoid|sew;mean;edge
+1453|We saw beautiful paintings in the ___.|gallery|crew;breath;citizen
+1816|Grandma can ___ a button on your shirt.|sew|avoid;gallery;indeed
+1454|Dad parked the car in the ___.|garage|crime;class;emergency
+1708|The ___ took photos at the wedding.|photographer|garage;crime;class
+1094|The movie was ___. I wanted to leave.|awful|brief;sharp;absolutely
+1097|Put a ___ on the cut on your knee.|bandage|pile;method;crisis
+1820|The stars ___ at night.|shine|gather;clear;pile
+1711|There is a ___ of dirty clothes on the floor.|pile|bandage;method;crisis
+1098|I go to the ___ to get a haircut.|barber|port;crowd;meter
+1222|Israel has a hot ___.|climate|barber;brush;port
+1280|A big ___ came to see the concert.|crowd|barber;climate;meter
+1161|I'd like a ___ and fries, please.|burger|coast;base;minister
+1224|We drove along the ___ and looked at the sea.|coast|burger;power;minister
+1369|It rained the ___ day. We stayed home.|entire|accurate;crucial;inner
+1283|Don't be ___ to animals.|cruel|basic;simply;burn
+1933|I need a needle and ___ to fix my shirt.|thread|code;power;cruel
+1543|My mom ___ that I wear a coat.|insists|burns;misses;simply
+1284|I like ___ in my salad.|cucumber|basin;colleague;business
+1628|My cat is ___! Have you seen her?|missing|equal;pretty;through
+1371|All students get an ___ chance to answer.|equal|missing;single;ahead
+1164|A beautiful ___ landed on the flower.|butterfly|battle;interview;skin
+1227|I ___ stamps from all over the world.|collect|print;aid;tip
+1836|Use sunscreen to protect your ___.|skin|butterfly;battle;interview
+1038|The ___ landed safely at the airport.|aircraft|college;myth;curriculum
+1228|My big sister studies at ___.|college|aircraft;myth;program
+1633|It's just a ___. Dragons aren't real.|myth|college;aircraft;column
+1229|Read the second ___ of the table.|column|custom;evidence;cabbage
+1635|Don't be so ___! Think of the good things.|negative|proper;combined;custom
+1172|Rabbits love to eat ___ leaves.|cabbage|column;evidence;tone
+1636|There's a nice park in our ___.|neighborhood|cabbage;cut;tone
+1754|___ your hand if you know the answer.|Raise|Examine;Cut;Sound
+1173|The bird is singing in its ___.|cage|exchange;network;jet
+1755|This bird is very ___. There are only a few left in the world.|rare|total;cage;goal
+1473|He scored a ___ in the last minute!|goal|cage;jet;network
+1855|Cinnamon is my favorite ___.|spice|rate;excitement;tour
+1384|The kids were full of ___ before the trip.|excitement|spice;rate;tour
+1856|Thousands of fans filled the football ___.|stadium|track;alternative;extent
+1175|We ___ in the forest every summer.|camp|judge;nor;dark
+1297|It's getting ___. Let's go home.|dark|camp;nor;stadium
+1045|We visited an ___ city that is 3,000 years old.|ancient|external;rather;grounds
+1558|Monkeys and tigers live in the ___.|jungle|standard;grounds;ancient
+1236|We watched a funny ___ and laughed a lot.|comedy|angel;candidate;trend
+1481|Plants need water to ___.|grow|state;extra;comedy
+1179|She is a ___ for class president.|candidate|angel;comedy;trend
+1048|Dad was ___ because I broke the window.|angry|real;guilty;nowhere
+1861|The train leaves the ___ at ten.|station|trial;comment;nowhere
+1484|I need a ___. My hair is too long.|haircut|key;tunnel;debate
+1562|I lost the ___ to the front door.|key|haircut;tunnel;factor
+1954|The train went through a dark ___.|tunnel|key;haircut;occasion
+1864|___ the photo on the page with glue.|Stick|Fail;Occur;Degree
+1399|If you don't study, you might ___ the test.|fail|stick;occur;commit
+1183|The ___ of the ship stood on the deck.|captain|lab;committee;fair
+1865|___ the soup with a spoon.|Stir|Recover;Bear;Handle
+1567|We did an experiment in the science ___.|lab|captain;fair;committee
+1120|Our team ___ them 3 to 0.|beat|refused;applied;stored
+1568|Read the ___ on the bottle before you take the medicine.|label|faith;common sense;beat
+1767|He ___ to eat his vegetables.|refused|beat;applied;demonstrated
+1186|There's a soft red ___ on the floor.|carpet|bee;ladder;desire
+1570|Climb the ___ to get to the roof.|ladder|carpet;bee;strong
+1122|A ___ stung my arm. Ouch!|bee|carpet;ladder;desire
+1123|We had ___ burgers for dinner.|beef|lady;studio;desktop
+1873|The singer recorded her new song in the ___.|studio|beef;lady;community
+1571|An old ___ asked me to help her cross the street.|lady|beef;studio;desktop
+1188|I watch ___s on TV every morning.|cartoon|opera;fever;headline
+1416|She has a high ___. Give her some water.|fever|cartoon;opera;headline
+1494|Did you read the ___ in today's newspaper?|headline|fever;cartoon;opera
+1318|Tell me every ___. I want to know everything!|detail|cast;area;few
+1776|She didn't ___ to my message.|respond|hire;detail;stupid
+1247|This puzzle is very ___. It has 1,000 pieces.|complex|stupid;later on;few
+1128|These pants are too big. I need a ___.|belt|sunrise;concern;disadvantage
+1779|Can you ___ a bike?|ride|belt;finally;hit
+1883|We woke up early to see the ___.|sunrise|belt;hit;order
+1884|The sky is orange at ___.|sunset|category;value;benefit
+1326|I ___ with you. I think you're wrong.|disagree|lead;sunset;value
+1980|The team celebrated its ___.|victory|bill;root;league
+1505|Tell the truth. Be ___.|honest|victory;league;sunshine
+1885|Let's go outside and enjoy the ___!|sunshine|root;victory;bill
+1427|The ___ put out the fire.|firefighter|rose;billion;celebrity
+1785|He gave her a red ___.|rose|firefighter;billion;district
+1985|She is a ___ at the animal shelter. She helps without pay.|volunteer|rose;billion;celebrity
+1331|Can you ___ into the pool from the high board?|dive|surround;assess;rough
+1584|What do you like to do in your ___ time?|leisure|bin;flavor;wallet
+1786|The sea is ___ today. The waves are big.|rough|central;leisure;dive
+1336|A ___ jumped out of the water.|dolphin|pan;safety;literature
+1137|Does your dog ___?|bite|dolphin;pan;who
+1790|Wear a helmet for your ___.|safety|bite;dolphin;sympathy
+1894|Add a ___ of oil to the pan.|tablespoon|force;character;blame
+1689|You can't ___ your car here.|park|save;blame;force
+1138|Don't ___ me! It wasn't my fault.|blame|park;save;force
+1139|Write your name on the ___ line.|blank|foreign;mad;illegal
+1438|French is a ___ language for me.|foreign|blank;illegal;dot
+1082|___ the photo to your email.|Attach|Mad;Dot;Chart
+1209|She is always smiling and ___.|cheerful|blind;major;second
+1524|Use your ___ and draw a monster!|imagination|attack;work;cheerful
+1440|Please ___ me. I'm sorry.|forgive|pay;make;block
+1210|In ___ class we mix liquids in test tubes.|chemistry|drama;section;talk
+1696|I'll ___ for the pizza.|pay|forgive;attempt;convert
+1268|We stayed in a small ___ in the mountains.|cottage|chest;target;board
+1211|He has a pain in his ___.|chest|cottage;target;board
+1212|Don't stick your ___ under the desk!|chewing gum|pepper;board;male
+1442|___, nobody was hurt.|Fortunately|Technical;Pepper;Male
+1147|The dog is chewing a ___.|bone|chief;county;frame
+2011|Help me ___ the present in pretty paper.|wrap|manage;bone;chief
+1214|He has a beard on his ___.|chin|dust;master;youth
+1148|Put the books back in the ___.|bookcase|chin;dust;youth
+1349|There's a lot of ___ under the bed.|dust|chin;bookcase;master
+1150|The fish is at the ___ of the lake.|bottom|court;avatar;duty
+1089|Choose an ___ for your game profile.|avatar|bottom;court;duty
+1450|The clown was so ___. We laughed a lot.|funny|serious;choice;period
