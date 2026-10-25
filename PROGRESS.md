@@ -14,5 +14,6 @@
     - [x] "mixed" re-recorded (respelt "mikst.", en/11020) (bc08b1f)
     - [x] Full Scribe STT pass on all 3,148 v3 HE clips + ivrit-ai 2nd opinion on 104 flagged → 14 re-recorded with niqqud (he/11001–11014, incl. להירקב) (54c699d)
     - [x] SW eq-3.2.0 (new clip numbers only → no stale audio cache; progress keyed by n untouched)
-    - [ ] Tests, docs (SOURCES/REVIEW), live verify
+    - [x] Tests on eq-3.2.0: test_v3 full (20 runs; 1 load-induced timeout mobile/g12 → rerun PASS), test_backup PASS (progress preserved)
+    - [ ] Phoneme (consonant-skeleton) pass on all 3,148 HE clips; docs; live verify
 Grade map (Curriculum 2020 Table 4/5): 4=PreBand I+B1C1, 5=B1C1/B1C2, 6=B1C2, 7=B2C1, 8=B2C1/B2C2, 9=B2C2, 10–12: 3pts=Band II, 4pts=B3C1, 5pts=B3C1+B3C2
