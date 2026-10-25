@@ -2,7 +2,8 @@
 // v3 end-to-end: every grade (1–12, and post-12 as 131/132/133 = acad/tech/c2) × mobile & desktop, all stage games + boss + study modes, migration, profiles, offline.
 const { chromium } = require('/usr/local/lib/pnpm/5/.pnpm/playwright-core@1.59.1/node_modules/playwright-core');
 const fs = require('fs');
-const BASE = process.env.EQ_URL || 'http://127.0.0.1:8765';
+const BASE = (process.env.EQ_URL || 'http://127.0.0.1:8765').replace(/\/$/, '');
+// Note: opening the raw manifest makes Chrome ask for /favicon.ico at the ORIGIN root; on GitHub Pages that is outside the app, so only that 404 is ignored.
 const ONLY = process.env.VP; const GR = process.env.GRADES ? process.env.GRADES.split(',').filter(Boolean).map(Number) : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 131, 132, 133];
 const SHOTS = '/workspace/english-quest/shots/v3'; fs.mkdirSync(SHOTS, { recursive: true });
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -55,7 +56,7 @@ async function runGrade(browser, vp, grade) {
   const ctx = await browser.newContext({ ...VPS[vp], locale: 'he-IL' });
   const page = await ctx.newPage(); const tag = `${vp}/g${grade}`;
   page.on('pageerror', e => errors.push(tag + ' PAGEERROR ' + e.message));
-  page.on('console', m => { if (m.type() === 'error' && !/favicon/.test(m.text())) errors.push(tag + ' console ' + m.text() + ' @' + (m.location().url || '')); });
+  page.on('console', m => { const u = m.location().url || ''; if (m.type() === 'error' && !(/favicon\.ico$/.test(u) && !u.startsWith(BASE + '/'))) errors.push(tag + ' console ' + m.text() + ' @' + (m.location().url || '')); });
   page.on('response', r => { if (r.status() >= 400) errors.push(tag + ' HTTP ' + r.status() + ' ' + r.url()); });
   await onboard(page, grade);
   const info = await page.evaluate(async () => { const d = await import('./js/data.js'); const s = await import('./js/store.js'); const g = await import('./js/games.js');
@@ -97,7 +98,7 @@ async function runGrade(browser, vp, grade) {
 async function extras(browser, vp) {
   const ctx = await browser.newContext({ ...VPS[vp] }); const page = await ctx.newPage(); const tag = vp + '/extras';
   page.on('pageerror', e => errors.push(tag + ' PAGEERROR ' + e.message));
-  page.on('console', m => { if (m.type() === 'error' && !/favicon/.test(m.location().url)) errors.push(tag + ' console ' + m.text() + ' @' + m.location().url); });
+  page.on('console', m => { if (m.type() === 'error' && !(/favicon\.ico$/.test(m.location().url || '') && !(m.location().url || '').startsWith(BASE + '/'))) errors.push(tag + ' console ' + m.text() + ' @' + m.location().url); });
   page.on('response', r => { if (r.status() >= 400) errors.push(tag + ' HTTP ' + r.status() + ' ' + r.url()); });
   // migration from englishQuest.v1 (seeded on a non-app URL of the same origin, as a v2 user would have it)
   await page.goto(BASE + '/manifest.webmanifest');
