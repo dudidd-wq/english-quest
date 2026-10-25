@@ -1,7 +1,42 @@
 {
- "results": [],
- "errors": [
-  "mobile/extras console Failed to load resource: the server responded with a status of 404 (File not found)",
-  "mobile extras FAIL page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator('.mapv .hud') to be visible\n"
- ]
+ "results": [
+  {
+   "tag": "mobile/extras",
+   "mig": {
+    "name": "ותיק",
+    "grade": 9,
+    "xp": 777,
+    "cleared": true,
+    "old": true,
+    "idx": {
+     "list": [
+      {
+       "id": "p1",
+       "name": "ותיק",
+       "avatar": "🦉",
+       "grade": 9,
+       "level": 4,
+       "xp": 777
+      }
+     ],
+     "cur": "p1",
+     "migrated": 1792941772638
+    },
+    "theme": "theme-arcade"
+   },
+   "cur": "אחות",
+   "parentProfiles": 2,
+   "back": {
+    "name": "ותיק",
+    "xp": 777
+   },
+   "offline": {
+    "map": true,
+    "study": true,
+    "data": true,
+    "game": true
+   }
+  }
+ ],
+ "errors": []
 }

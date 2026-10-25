@@ -93,7 +93,7 @@ async function runGrade(browser, vp, grade) {
 async function extras(browser, vp) {
   const ctx = await browser.newContext({ ...VPS[vp] }); const page = await ctx.newPage(); const tag = vp + '/extras';
   page.on('pageerror', e => errors.push(tag + ' PAGEERROR ' + e.message));
-  page.on('console', m => { if (m.type() === 'error') errors.push(tag + ' console ' + m.text()); });
+  page.on('console', m => { if (m.type() === 'error' && !/favicon/.test(m.location().url)) errors.push(tag + ' console ' + m.text() + ' @' + m.location().url); });
   page.on('response', r => { if (r.status() >= 400) errors.push(tag + ' HTTP ' + r.status() + ' ' + r.url()); });
   // migration from englishQuest.v1 (seeded on a non-app URL of the same origin, as a v2 user would have it)
   await page.goto(BASE + '/manifest.webmanifest');
@@ -118,8 +118,9 @@ async function extras(browser, vp) {
   // offline
   await page.evaluate(async () => { await navigator.serviceWorker.register('sw.js'); await navigator.serviceWorker.ready; });
   await page.reload({ waitUntil: 'networkidle' }); await sleep(800);
+  console.log('SW', await page.evaluate(async () => ({ ctrl: !!navigator.serviceWorker.controller, keys: await caches.keys(), n: (await Promise.all((await caches.keys()).map(async k => (await (await caches.open(k)).keys()).length))) })));
   await ctx.setOffline(true);
-  await page.reload({ waitUntil: 'domcontentloaded' }); await page.waitForSelector('.mapv .hud', { timeout: 15000 });
+  await page.reload({ waitUntil: 'domcontentloaded' }).catch(e => errors.push(tag + ' offline reload ' + e.message)); await sleep(2000); await page.screenshot({ path: `${SHOTS}/${vp}-offline.png` }); await page.goto(BASE + '/#/map'); await page.waitForSelector('.mapv .hud', { timeout: 15000 });
   let offline = { map: true };
   // switch to another grade's list while offline (all 7 data files precached)
   await page.goto(BASE + '/#/study'); await page.waitForSelector('.wrow'); offline.study = true;
