@@ -17,7 +17,7 @@ function applyBig() { document.documentElement.classList.toggle('big', !!S.setti
 function applyTheme() {
   const t = S.profile ? themeOf(S.profile.grade) : 'arcade', c = document.documentElement.classList;
   c.remove('theme-kids', 'theme-arcade', 'theme-bagrut'); c.add('theme-' + t);
-  document.querySelector('meta[name=theme-color]')?.setAttribute('content', t === 'kids' ? '#2b1b6b' : t === 'bagrut' ? '#0d1b2a' : '#07071a');
+  document.querySelector('meta[name=theme-color]')?.setAttribute('content', t === 'kids' ? '#1f6fe0' : t === 'bagrut' ? '#0d1b2a' : '#07071a');
 }
 applyBig(); applyTheme();
 // 🤖 flag: a word without a recording is read by the browser voice – always visible to the learner/parent
@@ -61,7 +61,7 @@ function hud() {
   const title = S.cosmetics?.title || '';
   return h('header.hud',
     h('button.avatar-btn' + (aura !== 'none' ? '.aura-' + aura : ''), { 'aria-label': 'הפרופיל שלי', onclick: () => go('#/me') }, h('span.av', S.profile.avatar), h('span.lvl', L)),
-    h('div.xpbox', h('div.xpline', h('b', S.profile.name + (title ? ' · ' + title : '')), h('span', `רמה ${L}`)), h('div.xpbar', h('div', { style: { width: ((S.xp - a) / (b - a)) * 100 + '%' } })), h('small', `${S.xp - a} / ${b - a} XP`)),
+    h('div.xpbox', h('div.xpline', h('b', S.profile.name + (title ? ' · ' + title : '')), h('span', `רמה ${L}`)), h('div.xpbar', h('div', { style: { width: ((S.xp - a) / (b - a)) * 100 + '%' } })), h('small', { dir: 'ltr', style: { display: 'block', textAlign: 'right' } }, `${S.xp - a} / ${b - a} XP`)),
     h('div.stat', { title: 'רצף ימים' }, h('span', streakNow() ? '🔥' : '🩶'), h('b', streakNow())),
     h('div.stat', { title: 'מטבעות' }, h('span', '🪙'), h('b', S.coins)),
     h('div.goal', { title: 'יעד יומי', style: { '--p': gp * 360 + 'deg' } }, h('span', gp >= 1 ? '✅' : '🎯')));

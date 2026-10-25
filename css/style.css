@@ -50,7 +50,7 @@ h1{font-size:2rem;background:var(--grad);-webkit-background-clip:text;background
 .en{font-family:Rubik,system-ui,sans-serif;direction:ltr;unicode-bidi:isolate}
 
 /* HUD */
-.hud{display:grid;grid-template-columns:auto 1fr auto auto auto;gap:8px;align-items:center;padding:8px 4px;position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);background:linear-gradient(180deg,rgba(7,7,26,.95),rgba(7,7,26,.7));margin:-10px -14px 10px;padding:calc(8px + var(--safe-t)) 14px 10px}
+.hud{display:grid;grid-template-columns:auto 1fr auto auto auto;gap:8px;align-items:center;padding:8px 4px;position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);background:linear-gradient(180deg,#07071a,#07071a);margin:-10px -14px 10px;padding:calc(8px + var(--safe-t)) 14px 10px}
 .avatar-btn{appearance:none;border:2px solid var(--c);background:var(--panel);border-radius:16px;padding:4px 6px 4px 4px;display:flex;align-items:center;gap:4px;cursor:pointer;box-shadow:var(--glow-c)}
 .avatar-btn .av{font-size:1.6rem;line-height:1;filter:drop-shadow(0 0 6px rgba(0,240,255,.4))}
 .avatar-btn.aura-cyan .av{filter:drop-shadow(0 0 10px #00f0ff)}
@@ -422,8 +422,9 @@ h1{font-size:2rem;background:var(--grad);-webkit-background-clip:text;background
 nav.bottom .navi{padding:6px 2px}
 
 /* --- kids (ד׳–ו׳): bright, big targets --- */
-html.theme-kids{--bg:#2b1b6b;--bg2:#35228a;--panel:#4329a8;--panel2:#5233c4;--ink:#fffdf5;--muted:#e3dbff;--line:#7a63e0;--c:#ffd60a;--m:#ff7ab6;--grad:linear-gradient(135deg,#ffd60a,#ff9f1c 50%,#ff7ab6);--glow-c:0 0 18px rgba(255,214,10,.45);--glow-m:0 0 18px rgba(255,122,182,.45)}
-html.theme-kids body{background:radial-gradient(900px 500px at 0% 0%,rgba(255,214,10,.18),transparent 50%),radial-gradient(900px 500px at 100% 20%,rgba(76,201,240,.22),transparent 50%),var(--bg)}
+html.theme-kids{--bg:#2f8fff;--bg2:#1f6fe0;--panel:#1a5cc4;--panel2:#2068d6;--ink:#ffffff;--muted:#e4f1ff;--line:#8fd3ff;--c:#ffd60a;--m:#ff7ab6;--y:#ffe14d;--grad:linear-gradient(135deg,#ffd60a,#ff9f1c 50%,#ff7ab6);--glow-c:0 0 18px rgba(255,214,10,.55);--glow-m:0 0 18px rgba(255,122,182,.5)}
+html.theme-kids body{background:radial-gradient(700px 420px at 0% 0%,rgba(255,236,120,.4),transparent 55%),radial-gradient(800px 500px at 100% 30%,rgba(120,240,200,.35),transparent 55%),linear-gradient(180deg,#1f7fe6,#4f6cf0 70%,#6a4ff0)}
+html.theme-kids .muted,html.theme-kids h2,html.theme-kids h3,html.theme-kids h4,html.theme-kids small{text-shadow:0 1px 2px rgba(8,30,90,.45)}
 html.theme-kids .opt{min-height:64px;font-size:1.15rem;border-radius:18px}
 html.theme-kids .tile{min-height:58px;font-size:1.05rem}
 html.theme-kids .btn{border-radius:18px;min-height:52px}
@@ -431,16 +432,16 @@ html.theme-kids .btn.primary{box-shadow:0 5px 0 #b35c00}
 html.theme-kids .node{width:84px;border-width:4px}
 html.theme-kids .say{width:46px;height:46px;font-size:1.2rem}
 html.theme-kids .word{font-size:1.9rem}
-html.theme-kids .hud{background:linear-gradient(180deg,rgba(43,27,107,.97),rgba(43,27,107,.75))}
+html.theme-kids .hud{background:linear-gradient(180deg,#1f6fe0,rgba(31,111,224,.96))}
 
 /* --- bagrut (י׳–י״ב): calm, mature, still fast --- */
 html.theme-bagrut{--bg:#0d1b2a;--bg2:#13233a;--panel:#162a43;--panel2:#1d3453;--ink:#eef4fb;--muted:#9fb3c8;--line:#2a4566;--c:#4cc9f0;--m:#f4a261;--y:#ffd166;--grad:linear-gradient(135deg,#4cc9f0,#4895ef 55%,#90e0ef);--glow-c:0 0 10px rgba(76,201,240,.25);--glow-m:0 0 10px rgba(244,162,97,.25)}
 html.theme-bagrut body{background:linear-gradient(180deg,#0d1b2a,#0b1622)}
 html.theme-bagrut h1{background:none;color:var(--ink)}
-html.theme-bagrut .hud{background:linear-gradient(180deg,rgba(13,27,42,.97),rgba(13,27,42,.8))}
+html.theme-bagrut .hud{background:linear-gradient(180deg,rgba(13,27,42,.99),rgba(13,27,42,.95))}
 html.theme-bagrut .btn.primary{box-shadow:0 3px 0 #1d4e89}
 html.theme-bagrut .node.cur{box-shadow:0 0 12px rgba(255,209,102,.4)}
-html.theme-kids .bottom{background:rgba(43,27,107,.95)}
+html.theme-kids .bottom{background:rgba(26,92,196,.97)}
 html.theme-bagrut .bottom{background:rgba(13,27,42,.95)}
 .wrow .wen{text-align:right}
 .wrow .he{unicode-bidi:plaintext}
@@ -462,3 +463,10 @@ html.theme-bagrut .world{filter:saturate(.55) brightness(.85)}
 .sheetbox h3{margin:0}
 .preview{margin:0;padding-inline-start:18px}.preview li{margin:4px 0}
 @media (min-width:700px){.sheet{align-items:center}}
+
+html.theme-kids .opt,html.theme-kids .tile{box-shadow:0 4px 0 rgba(10,40,110,.45)}
+html.theme-kids .card,html.theme-kids .panel{box-shadow:0 6px 18px rgba(10,40,110,.25)}
+html.theme-kids .rival-chip{background:rgba(20,50,140,.55);border-color:rgba(255,225,77,.6);color:#fff3a6}
+html.theme-kids .daily-card{background:linear-gradient(135deg,rgba(255,122,182,.45),rgba(26,92,196,.85));border-color:rgba(255,255,255,.5)}
+html.theme-kids .daily-card.done{opacity:.85}
+html.theme-kids .daily-card .dbar{background:rgba(10,40,110,.6)}

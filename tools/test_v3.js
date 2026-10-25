@@ -36,7 +36,8 @@ async function playUntilResult(page, tag, ms = 120000) {
     if (s === 'done') return true;
     steps++; await sleep(s === 'wait' ? 250 : 120);
   }
-  throw new Error('timeout ' + tag);
+  const dump = await page.evaluate(() => (document.querySelector('.game')?.innerText || document.body.innerText).slice(0, 300)).catch(() => '?');
+  throw new Error('timeout ' + tag + ' :: ' + dump.replace(/\s+/g, ' '));
 }
 // wipe localStorage + the IndexedDB mirror (otherwise v3.1 recovery would restore the previous player)
 const wipe = page => page.evaluate(() => new Promise(r => { localStorage.clear(); sessionStorage.clear(); const q = indexedDB.deleteDatabase('englishQuest'); q.onsuccess = q.onerror = q.onblocked = () => r(); }));
@@ -61,7 +62,7 @@ async function runGrade(browser, vp, grade) {
     return { theme: document.documentElement.className, track: s.S.profile.track, words: d.D.words.length, practice: g.practiceFor(0), read: d.D.read.length, talk: d.D.talk.length, toggle: !!document.querySelector('.ttoggle') }; });
   const games = [];
   await page.goto(BASE + '/#/stage/0'); await page.waitForSelector('.stagev');
-  if (grade === 4 || grade === 7 || grade === 11) await page.screenshot({ path: `${SHOTS}/${vp}-g${grade}-stage.png` });
+  if (grade === 4 || grade === 7 || grade === 11) { await sleep(700); } if (grade === 4 || grade === 7 || grade === 11) await page.screenshot({ path: `${SHOTS}/${vp}-g${grade}-stage.png` });
   for (const g of ['intro', ...info.practice, 'boss']) {
     await page.goto(BASE + `/#/play/0/${g}`); await page.waitForSelector('.game', { timeout: 10000 });
     if (g === info.practice[0] && [4, 7, 11].includes(grade)) { await sleep(400); await page.screenshot({ path: `${SHOTS}/${vp}-g${grade}-${g}.png` }); }
@@ -138,7 +139,7 @@ async function extras(browser, vp) {
 (async () => {
   const browser = await chromium.launch({ executablePath: '/usr/bin/google-chrome', headless: true, args: ['--no-sandbox', '--disable-gpu', '--autoplay-policy=no-user-gesture-required', '--mute-audio'] });
   for (const vp of ONLY ? [ONLY] : ['mobile', 'desktop']) {
-    for (const g of GR) { try { await runGrade(browser, vp, g); } catch (e) { errors.push(`${vp}/g${g} FAIL ${e.message}`); console.log('FAIL', vp, g, e.message); } }
+    for (const g of GR) { try { await runGrade(browser, vp, g); } catch (e) { errors.push(`${vp}/g${g} FAIL ${e.message}`); console.log('FAIL', vp, g, e.message); for (const c of browser.contexts()) await c.close().catch(() => {}); } }
     if (!process.env.NOEXTRA) try { await extras(browser, vp); } catch (e) { errors.push(`${vp} extras FAIL ${e.message}`); console.log('FAIL extras', e.message); }
   }
   await browser.close();
