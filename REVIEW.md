@@ -73,3 +73,36 @@ Round 1 found issues that were fixed in round 2 (commit `a47b2b9`, SW `eq-3.1.1`
 | Tests | test_v3 full run 20 runs (1 load-induced timeout, rerun PASS), test_backup PASS |
 
 **Audio score: 9.1 → 9.4**
+
+## eq-3.3.x – grades א׳–ג׳ and levels above י״ב (2026-10-26)
+
+**What changed since the v3.1 panel:**
+- eq-3.2.1: first-screen grades ד׳–ו׳ looked "selected". The cause was the kids theme, which gave those three buttons a filled purple gradient and gold border. They are now neutral and grouped by stage; only the chosen grade is highlighted.
+- eq-3.3.0: א׳–ב׳ optional early start (`early` 36 MoE Pre-Band I items + `abc` 26 derived letter cards), ג׳ (Pre-Band I + `abc`), "אחרי י״ב" with a level picker: academic (NAWL subset 943), technology (NCSAWL 429), native-like C2 (Octanove CEFR-J C2 subset 300). Listening-first picture game, picture memory, no typing for early grades.
+- Audio: 1,304 EN + 1,323 HE new clips, then QA (Whisper + Scribe for EN, Scribe + ivrit-ai for HE), with 48 re-records under new file numbers. eq-3.3.3: gloss audit of the derived Hebrew (sector, interrupt, hitch fixed).
+
+### Pre-review self-audit (author, not independent)
+| Area | Evidence |
+|---|---|
+| Licences | NAWL CC BY-SA 4.0, NCSAWL CC BY 4.0 (Uba, Irudayasamy & Hankins 2023, doi:10.5430/wjel.v13n5p319), Octanove CEFR-J CC BY-SA 4.0. acad/c2 data offered under CC BY-SA 4.0. Listed in SOURCES.md §2b and About. |
+| Derived vs official | `abc`, all Hebrew glosses for acad/tech/c2, and the C2 subset selection are labelled derived (SOURCES, LEVELS, About). |
+| Audio coverage | All 3,420 extra-track clip URLs return 200 live; build reports `TODO clips: en 0 he 0`. |
+| Progress safety | New tracks use new `n` ranges (20001–32300); existing `n` unchanged; backup/restore tests PASS. |
+
+### Test evidence (eq-3.3.3)
+All runs below were made against the **live** site (https://dudidd-wq.github.io/english-quest/, SW `eq-3.3.3`), one viewport at a time (running both in parallel caused load-induced timeouts earlier).
+
+| Run | Result |
+|---|---|
+| `test_v3` mobile 390×844: grades א׳, ב׳, ג׳, ד׳–י״ב, אחרי י״ב × {academic, technology, native-like C2}, plus extras (onboarding, v1 migration, siblings, parent gate, About, offline reload) | 16/16 PASS. Every stage game and study mode was played to its result screen. 0 page errors, 0 HTTP ≥400. |
+| `test_v3` desktop 1280×860, same matrix | 15/16 PASS on the first run. g10 (י׳) *scramble* hit a 120 s timeout. A clean rerun passed with 0 errors. Recorded as an intermittent harness/timing flake: 1 of about 90 game runs, not reproduced. |
+| `test_backup` mobile + desktop | PASS: 2 profiles, file and EQ2-code export/restore, auto-save file (desktop), IndexedDB auto-recovery, partial-loss prompt, bad/future/legacy/XSS files rejected, undo. **Progress was identical before and after every restore.** Network: same-origin GETs only. |
+| Console | The only console error was Chrome asking for `/favicon.ico` at the **origin root** (outside the app) after the test opens the raw manifest. That is a test artefact; the app declares its own icon. `test_v3` now ignores only that origin-root request (dd09b4d). |
+| `tools/live_check.js` | SW `eq-3.3.3`, one shell cache, the 5 new data files return 200, 13 grade buttons (כיתה א׳ … אחרי י״ב), 0 errors. All 3,420 extra-track clip URLs return 200. |
+
+### Known risks going into the independent review
+- Hebrew glosses for acad/tech/c2 are **derived** (written by us, not official). They were audited by the author only.
+- ASR is weak on isolated Hebrew words. Clips below 0.8 were second-checked, and the rest rely on Scribe.
+- Stress-ambiguous NAWL words are spoken in the citation form for the listed part of speech. The *hull* clip says "the hull". Homophones (cue/Q…) were accepted.
+- The new tracks have word games only: no sentences, reading or talk modes.
+- The scramble timeout above was not reproduced.

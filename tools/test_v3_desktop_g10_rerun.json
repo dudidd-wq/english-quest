@@ -1,0 +1,38 @@
+{
+ "results": [
+  {
+   "tag": "desktop/g10",
+   "theme": "theme-bagrut",
+   "track": "b3c1",
+   "words": 886,
+   "practice": [
+    "fill",
+    "forms",
+    "match",
+    "listen",
+    "blitz",
+    "scramble"
+   ],
+   "read": 8,
+   "talk": 0,
+   "toggle": false,
+   "games": [
+    "intro:3",
+    "fill:3",
+    "forms:3",
+    "match:3",
+    "listen:3",
+    "blitz:3",
+    "scramble:1",
+    "boss:3"
+   ],
+   "study": [
+    "cards",
+    "type",
+    "reading",
+    "forms"
+   ]
+  }
+ ],
+ "errors": []
+}
