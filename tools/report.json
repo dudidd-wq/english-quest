@@ -1,0 +1,65 @@
+{
+ "pre1": {
+  "words": 198,
+  "stages": 16,
+  "in_games": 198,
+  "sentences": 0,
+  "min_sent": 0,
+  "audio_en": 45,
+  "audio_he": 17
+ },
+ "b1c1": {
+  "words": 549,
+  "stages": 46,
+  "in_games": 549,
+  "sentences": 92,
+  "min_sent": 2,
+  "audio_en": 109,
+  "audio_he": 25
+ },
+ "b1c2": {
+  "words": 601,
+  "stages": 50,
+  "in_games": 601,
+  "sentences": 100,
+  "min_sent": 2,
+  "audio_en": 163,
+  "audio_he": 58
+ },
+ "b3c1": {
+  "words": 886,
+  "stages": 74,
+  "in_games": 886,
+  "sentences": 222,
+  "min_sent": 3,
+  "audio_en": 141,
+  "audio_he": 46
+ },
+ "b3c2": {
+  "words": 1100,
+  "stages": 91,
+  "in_games": 1098,
+  "sentences": 273,
+  "min_sent": 3,
+  "audio_en": 96,
+  "audio_he": 40
+ },
+ "g7": {
+  "words": 1014,
+  "stages": 85,
+  "in_games": 1014,
+  "sentences": 329,
+  "min_sent": 3,
+  "audio_en": 1014,
+  "audio_he": 1014
+ },
+ "g9": {
+  "words": 1002,
+  "stages": 84,
+  "in_games": 1002,
+  "sentences": 320,
+  "min_sent": 3,
+  "audio_en": 1002,
+  "audio_he": 1002
+ }
+}
