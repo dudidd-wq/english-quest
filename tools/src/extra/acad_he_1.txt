@@ -147,7 +147,7 @@ bacteria|n|חיידקים
 bacterial|adj|חיידקי
 beam|n|קרן; קורה
 behavioral|adj|התנהגותי
-cattle|n|בקר
+cattle|n|בקר, פרות
 circulate|v|להפיץ; לזרום
 circulation|n|זרימה; תפוצה
 clarify|v|להבהיר

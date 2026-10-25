@@ -362,7 +362,7 @@ innate|adj|מולד
 longitudinal|adj|אורכי
 marrow|n|מח עצם
 millimeter|n|מילימטר
-morphological|adj|צורני
+morphological|adj|צורני, מורפולוגי
 morphology|n|תורת הצורות
 neural|adj|עצבי
 null|adj|בטל, ריק

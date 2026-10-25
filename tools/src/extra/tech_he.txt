@@ -274,7 +274,7 @@ propagation|n|התפשטות
 protocol|n|פרוטוקול
 prototype|n|אב טיפוס
 publish|v|לפרסם
-pulse|n|פולס
+pulse|n|פולס, דופק
 push|v|לדחוף
 put|v|לשים
 quantify|v|לכמת

@@ -27,13 +27,16 @@ for t in OFFICIAL:
 CLIPS = json.load(open(f'{X}/clips.json')) if os.path.exists(f'{X}/clips.json') else {'en': [], 'he': []}
 HAVE = {l: set(CLIPS[l]) for l in ('en', 'he')}
 TODO = {'en': {}, 'he': {}}
+FIX = CLIPS.get('fix', {'en': {}, 'he': {}})   # re-recorded after QA -> new clip number (n + 10000), so no stale cached audio
 
 def en_clip(en, pos, n, say=None):
+    if str(n) in FIX['en']: return FIX['en'][str(n)]
     c = [a for p, a in EN.get(norm(en), []) if not pos or not p or p == P1(pos)]
     if c and not say: return c[0]
     if n in HAVE['en']: return n
     TODO['en'][n] = say or en
 def he_clip(he, n):
+    if str(n) in FIX['he']: return FIX['he'][str(n)]
     if he.strip() in HE: return HE[he.strip()]
     if n in HAVE['he']: return n
     TODO['he'][n] = he
