@@ -60,6 +60,13 @@ for core, t in ((1, 'g7'), (2, 'g9')):
     TRACKS[t] = [{'n': w['n'], 'en': w['en'], 'he': w['he'], 'pos': w['pos'], 'm': w['m'], 'e': EMO_FIX.get(str(w['n']), w['e']), 'rp': w['rp'], 'ae': w['n'], 'ah': w['n']}
                  for w in B2 if w['core'] == core]
 
+# audio fixes (tools/audio_fix.json): homograph clips per meaning + re-recorded clips, always under NEW clip numbers
+AUDIO_FIX = json.load(open(os.path.join(ROOT, 'tools/audio_fix.json'))) if os.path.exists(os.path.join(ROOT, 'tools/audio_fix.json')) else {}
+for _ws in TRACKS.values():
+    for _w in _ws:
+        for _k in ('ae', 'ah'):
+            if str(_w['n']) in AUDIO_FIX.get(_k, {}): _w[_k] = AUDIO_FIX[_k][str(_w['n'])]
+
 OLD_STAGES = json.load(open(os.path.join(ROOT, 'tools/stages.json')))   # keep v1/v2 stage order for g7/g9 (saved progress!)
 def stages_for(t, words):
     if t in OLD_STAGES: return OLD_STAGES[t]
