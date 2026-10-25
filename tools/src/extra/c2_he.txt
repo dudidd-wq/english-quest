@@ -101,7 +101,7 @@ bogus|adj|מזויף
 contractual|adj|חוזי
 lyrical|adj|לירי
 stringent|adj|נוקשה, מחמיר
-hitch|v|לרתום; לטרמפ
+hitch|v|לרתום; לנסוע בטרמפ
 solitude|n|בדידות
 turret|n|צריח
 agile|adj|זריז

@@ -162,7 +162,7 @@ interface|n|ממשק
 internet|n|אינטרנט
 interpolation|n|אינטרפולציה
 interpret|v|לפרש
-interrupt|v|לפסוק
+interrupt|v|לקטוע; פסיקה (במעבד)
 intersect|v|לחתוך, להצטלב
 intruder|n|פולש
 isolation|n|בידוד
@@ -319,7 +319,7 @@ scope|n|תחום הגדרה
 screen|n|מסך
 script|n|סקריפט
 search|n|חיפוש
-sector|n|מגזר
+sector|n|סקטור (בדיסק); מגזר
 seek|v|לחפש; לדלג
 segment|n|מקטע
 select|v|לבחור
