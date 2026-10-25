@@ -84,18 +84,43 @@ Two Band III Core II items are kept in the word list but left out of games. This
 - **Games, scores, XP and SRS intervals.**
 
 ## 4. Audio
-- **Recorded clips** (ElevenLabs, voices Matilda for English and Tomer for Hebrew) come from band2-study. They cover every Band II word.
-- A word in another list reuses a Band II clip only when its English (or Hebrew) text is identical.
+- **Every word in every grade has recorded clips (English + Hebrew).** All are ElevenLabs TTS with the same voices and model as band2-study: Matilda (EN) and Tomer (HE), `eleven_v4`.
+- **Band II words** (grades 7–9, bagrut 3 pts) use the original band2-study clips (1–2016).
+  - Another list reuses one of these clips only when its text is identical.
   - Known risk: heteronyms such as *live, read, wind, lead, tear, close* may be voiced with the Band II reading.
-- **Words without a clip** use the browser's speechSynthesis voice. These are flagged in the app with 🤖: an icon on the word, a note in the Study tab, and a short "קול דפדפן" banner while it plays.
-- **No new TTS was generated.** Estimate for full coverage: about 25k ElevenLabs credits (≈ $5.5–7.5) for 2,780 English and 3,148 Hebrew clips. This is waiting for Dudi's approval.
+- **Generated for v3 (approved by Dudi on 2026-10-25):** 5,928 clips (2,780 EN + 3,148 HE). These come from 5,647 unique texts (identical texts share one recording).
+  - Cost: **25,043 credits** in total, including 7 re-records after QA. This is within the approved ~25k estimate (≈ $5.5–7.5).
+  - Script: `tools/tts_v3.py`. It reads the key only from the environment; no key is in the repo.
+- **Spoken text:** cleaned for speech.
+  - English: *sb/sth* → somebody/something, "/" → "or", parentheses removed.
+  - Hebrew: Latin examples removed, niqqud added for one-letter prefixes and ambiguous words.
+  - Manual overrides cover about 80 items, such as "a, an" and "neither… nor".
+- **Processing (same as band2-study):** trim silence, loudness normalised to −18 LUFS, mono 22.05 kHz 32 kbps MP3. Files are at `audio/en|he/<n>.mp3`.
+- **QA:**
+  - Every English clip was transcribed locally with Whisper small.en. Median similarity was 1.0.
+  - 89 clips that Whisper could not read (mostly single short words and numbers) were re-checked with ElevenLabs Scribe. The remaining mismatches are homophones (eye/I, sea/C, tea/T, wear/where, queue/Q, bare/bear) or "i.e." read as "that is".
+  - 3 clips were re-recorded: *knee, yawn, mixed*. *mixed* still transcribes as "next", so it is a residual risk.
+  - Hebrew: a random sample of 80 clips was checked with Scribe, with mean similarity 0.95. The mismatches were homophones (תה/ט, של). 2 were re-recorded with niqqud: להירקב, וו.
+  - Durations of all clips were checked; there were no outliers.
+- **Offline:** audio is not precached. Each clip is cached on first play, and the "אני" tab can download a whole list for offline use. The browser voice (🤖) remains only as a fallback, if a file fails to load.
 
 | Track | EN clips | HE clips |
 |---|---|---|
-| Pre-Band I | 45/198 | 17/198 |
-| Band I · Core I | 109/549 | 25/549 |
-| Band I · Core II | 163/601 | 58/601 |
+| Pre-Band I | 198/198 | 198/198 |
+| Band I · Core I | 549/549 | 549/549 |
+| Band I · Core II | 601/601 | 601/601 |
 | Band II · Core I | 1014/1014 | 1014/1014 |
 | Band II · Core II | 1002/1002 | 1002/1002 |
-| Band III · Core I | 141/886 | 46/886 |
-| Band III · Core II | 96/1100 | 40/1100 |
+| Band III · Core I | 886/886 | 886/886 |
+| Band III · Core II | 1100/1100 | 1100/1100 |
+
+## 5. Privacy and local persistence
+- **No server:** there is no server, account, analytics or third-party request. Every request is a same-origin GET of a static file. `tools/test_backup.js` asserts this.
+- **On-device storage:** progress is kept in `localStorage`, plus a mirror copy in IndexedDB. `navigator.storage.persist()` is requested.
+- **Automatic recovery:** if localStorage is wiped, progress is restored from the mirror on the next start. If a player's data is missing and there is no mirror, a restore prompt appears.
+- **Backups the parent controls:**
+  - A JSON file (schema 2, all players + SRS). It uses the Web Share sheet on phones and a download elsewhere.
+  - A copy-paste code: `EQ2-…`, deflate + base64url + checksum.
+  - Optional auto-save to a chosen file (File System Access API, Chrome/Edge desktop).
+- **Safe imports:** a backup is parsed with `JSON.parse` only, then copied through a whitelist. Prototype keys are dropped, strings are capped with `<>` stripped, and numbers and grades are clamped. Schema-1 single-player exports are migrated.
+- **Reminder:** a gentle backup reminder appears after 4 days with progress and no backup.
