@@ -54,7 +54,8 @@ async function runGrade(browser, vp, grade) {
   const ctx = await browser.newContext({ ...VPS[vp], locale: 'he-IL' });
   const page = await ctx.newPage(); const tag = `${vp}/g${grade}`;
   page.on('pageerror', e => errors.push(tag + ' PAGEERROR ' + e.message));
-  page.on('console', m => { if (m.type() === 'error' && !/favicon/.test(m.text())) errors.push(tag + ' console ' + m.text()); });
+  page.on('console', m => { if (m.type() === 'error' && !/favicon/.test(m.text())) errors.push(tag + ' console ' + m.text() + ' @' + (m.location().url || '')); });
+  page.on('response', r => { if (r.status() >= 400) errors.push(tag + ' HTTP ' + r.status() + ' ' + r.url()); });
   await onboard(page, grade);
   const info = await page.evaluate(async () => { const d = await import('./js/data.js'); const s = await import('./js/store.js'); const g = await import('./js/games.js');
     return { theme: document.documentElement.className, track: s.S.profile.track, words: d.D.words.length, practice: g.practiceFor(0), read: d.D.read.length, talk: d.D.talk.length, toggle: !!document.querySelector('.ttoggle') }; });

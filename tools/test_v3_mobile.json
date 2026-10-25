@@ -29,105 +29,42 @@
    ]
   },
   {
-   "tag": "mobile/g5",
-   "theme": "theme-kids",
-   "track": "b1c1",
-   "words": 549,
-   "practice": [
-    "match",
-    "listen",
-    "memory",
-    "scramble",
-    "fill"
-   ],
-   "read": 0,
-   "talk": 0,
-   "toggle": true,
-   "track2": "b1c2",
-   "games": [
-    "intro:3",
-    "match:3",
-    "listen:3",
-    "memory:3",
-    "scramble:1",
-    "fill:3",
-    "boss:3"
-   ],
-   "study": [
-    "cards",
-    "type",
-    "forms"
-   ]
-  },
-  {
-   "tag": "mobile/g6",
-   "theme": "theme-kids",
-   "track": "b1c2",
-   "words": 601,
-   "practice": [
-    "match",
-    "listen",
-    "memory",
-    "scramble",
-    "fill"
-   ],
-   "read": 0,
-   "talk": 0,
-   "toggle": false,
-   "games": [
-    "intro:3",
-    "match:3",
-    "listen:3",
-    "memory:3",
-    "scramble:1",
-    "fill:3",
-    "boss:3"
-   ],
-   "study": [
-    "cards",
-    "type",
-    "forms"
-   ]
-  },
-  {
-   "tag": "mobile/g7",
-   "theme": "theme-arcade",
-   "track": "g7",
-   "words": 1014,
-   "practice": [
-    "match",
-    "listen",
-    "scramble",
-    "fill",
-    "memory",
-    "blitz"
-   ],
-   "read": 0,
-   "talk": 80,
-   "toggle": false,
-   "games": [
-    "intro:3",
-    "match:3",
-    "listen:3",
-    "scramble:1",
-    "fill:3",
-    "memory:3",
-    "blitz:3",
-    "boss:3"
-   ],
-   "study": [
-    "cards",
-    "type",
-    "talk"
-   ]
+   "tag": "mobile/extras",
+   "mig": {
+    "name": "ותיק",
+    "grade": 9,
+    "xp": 777,
+    "cleared": true,
+    "old": true,
+    "idx": {
+     "list": [
+      {
+       "id": "p1",
+       "name": "ותיק",
+       "avatar": "🦉",
+       "grade": 9,
+       "level": 4,
+       "xp": 777
+      }
+     ],
+     "cur": "p1",
+     "migrated": 1792949099967
+    },
+    "theme": "theme-arcade"
+   },
+   "cur": "אחות",
+   "parentProfiles": 2,
+   "back": {
+    "name": "ותיק",
+    "xp": 777
+   },
+   "offline": {
+    "map": true,
+    "study": true,
+    "data": true,
+    "game": true
+   }
   }
  ],
- "errors": [
-  "mobile/g8 FAIL timeout mobile/g8 study type",
-  "mobile/g9 FAIL browser.newContext: Target page, context or browser has been closed",
-  "mobile/g10 FAIL browser.newContext: Target page, context or browser has been closed",
-  "mobile/g11 FAIL browser.newContext: Target page, context or browser has been closed",
-  "mobile/g12 FAIL browser.newContext: Target page, context or browser has been closed",
-  "mobile extras FAIL browser.newContext: Target page, context or browser has been closed"
- ]
+ "errors": []
 }
