@@ -1,8 +1,8 @@
 // English Quest – screens & navigation
 import { $, h, put, en, shuffle, dayNum, fmtDay, toast, download, nWords, reduced, posHe } from './util.js';
 import { S, save, on, T, stageRec, today, dueWords, level, levelXp, gainCoins, touchStreak, streakNow, checkAch, ACH, isMastered, replaceState, resetAll, exportState, unlock, ensureDaily, bumpDaily, beatRival, AURAS, TITLES, profiles, curProfileId, createProfile, switchProfile, leaveProfile, deleteProfile } from './store.js';
-import { TRACKS, GRADES, GRADE_GROUPS, LEVELS, gradeTracks, themeOf, gradeLabel, WORLDS, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
-import { GAMES, practiceFor, missionPool, theme, Session, intro, match, listen, scramble, fill, memory, blitz, boss, forms, formsPool, familyItems, reading, talk, cards, typing } from './games.js';
+import { TRACKS, GRADES, GRADE_GROUPS, LEVELS, levelsFor, validLevel, isEarly, gradeTracks, themeOf, gradeLabel, WORLDS, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
+import { GAMES, practiceFor, missionPool, theme, Session, intro, match, listen, pics, scramble, fill, memory, blitz, boss, forms, formsPool, familyItems, reading, talk, cards, typing } from './games.js';
 import * as B from './backup.js';
 import { playWord, sfx, prefetch, stop as stopAudio, hasClip, audioUrl, onRobo } from './audio.js';
 
@@ -73,11 +73,14 @@ function nav(active) {
 function screen(cls, ...kids) { stopAudio(); put(app, h('div.screen.' + cls, ...kids)); app.scrollTop = 0; window.scrollTo(0, 0); }
 export function go(hash) { if (location.hash === hash) route(); else location.hash = hash; }
 
+const LEVEL_CARDS = [[3, '📗', 'Band II (חזרה ושליטה במילים של חטיבת הביניים)'], [4, '📘', 'Band III Core I'], [5, '📕', 'Band III Core I + Core II']];
+const LEVEL_CARDS13 = [['acad', '🎓', 'מילים אקדמיות (NAWL) – לקריאת מאמרים, אוניברסיטה ופרק האנגלית בפסיכומטרי'], ['tech', '💻', 'אנגלית של מדעי המחשב והייטק (NCSAWL)'], ['c2', '💎', 'מילים מתקדמות ברמת C2 – לקראת אנגלית ברמת שפת אם']];
+const gname = g => +g === 13 ? GRADES[13] : 'כיתה ' + GRADES[g];
 /** grade buttons grouped by school stage; all look the same – only the learner's own chosen grade (`cur`) is highlighted */
 function gradePicker(cur, pick, small = false) {
   return h('div.gradegroups' + (small ? '.small' : ''), GRADE_GROUPS.map(([label, gs]) => h('div.gradegroup',
     h('div.gglabel', label),
-    h('div.gradegrid' + (small ? '.small' : ''), gs.map(g => h('button.gradebtn' + (+g === +cur ? '.on' : ''), { 'aria-label': 'כיתה ' + GRADES[g], 'aria-pressed': String(+g === +cur), onclick: () => pick(+g) }, GRADES[g]))))));
+    h('div.gradegrid' + (small ? '.small' : ''), gs.map(g => h('button.gradebtn' + (+g === 13 ? '.wide' : '') + (+g === +cur ? '.on' : ''), { 'aria-label': gname(g), 'aria-pressed': String(+g === +cur), onclick: () => pick(+g) }, GRADES[g]))))));
 }
 // ---------- onboarding: who's playing → grade → (bagrut level) → name + avatar ----------
 function onboarding(step = profiles().length ? 'who' : 0, draft = {}) {
@@ -89,26 +92,26 @@ function onboarding(step = profiles().length ? 'who' : 0, draft = {}) {
     h('button.btn.ghost.wide', { onclick: () => { sfx('tap'); next(0); } }, '➕ שחקן/ית חדש/ה'),
     h('button.btn.ghost.wide.small', { onclick: () => restoreView() }, '🛟 שחזור מגיבוי')));
   if (step === 0) return screen('onb', h('div.splash',
-    h('div.logo-emoji.bob', '🚀'), h('h1', 'English Quest'), h('p.lead', 'משחק מילים באנגלית · כיתות ד׳–י״ב'),
+    h('div.logo-emoji.bob', '🚀'), h('h1', 'English Quest'), h('p.lead', 'משחק מילים באנגלית · כיתות א׳–י״ב ואחרי התיכון'),
     h('p.muted.small', 'לפי רשימות המילים הרשמיות של משרד החינוך · 2–4 דקות לסיבוב'),
     h('h3', 'באיזו כיתה את/ה?'),
     gradePicker(null, g => { draft.grade = g; sfx('tap'); next(g >= 10 ? 'level' : 1); }),
     profiles().length > 0 ? h('button.btn.ghost.wide', { onclick: () => next('who') }, '→ חזרה לבחירת שחקן')
       : h('button.btn.ghost.wide.restore-entry', { onclick: () => restoreView() }, '🛟 כבר שיחקתם? שחזור מגיבוי (קובץ או קוד)')));
-  if (step === 'level') return screen('onb', h('h2', `כיתה ${GRADES[draft.grade]} · כמה יחידות?`), h('p.muted', 'אפשר לשנות בכל רגע בפרופיל'),
-    [[3, 'Band II (חזרה ושליטה במילים של חטיבת הביניים)'], [4, 'Band III Core I'], [5, 'Band III Core I + Core II']].map(([lv, d]) =>
-      h('button.track-card', { onclick: () => { draft.level = lv; sfx('tap'); next(1); } }, h('div.temoji', lv === 3 ? '📗' : lv === 4 ? '📘' : '📕'), h('div', h('b', LEVELS[lv]), h('div.small.muted', d)))),
+  if (step === 'level') return screen('onb', h('h2', draft.grade === 13 ? 'אחרי י״ב · איזו אנגלית?' : `כיתה ${GRADES[draft.grade]} · כמה יחידות?`), h('p.muted', 'אפשר לשנות בכל רגע בפרופיל'),
+    (draft.grade === 13 ? LEVEL_CARDS13 : LEVEL_CARDS).map(([lv, icon, d]) =>
+      h('button.track-card', { onclick: () => { draft.level = lv; sfx('tap'); next(1); } }, h('div.temoji', icon), h('div', h('b', LEVELS[lv]), h('div.small.muted', d)))),
     h('button.btn.ghost.wide', { onclick: () => next(0) }, '→ חזרה'));
   if (step === 1) {
     const inp = h('input.name', { maxlength: 14, placeholder: 'נינג׳ה_המילים', value: draft.name || '', 'aria-label': 'כינוי' });
     const finish = async (av) => {
       const v = (inp.value || draft.name || '').replace(/[<>]/g, '').trim() || 'שחקן';
       sfx('win'); confetti(40);
-      const level = draft.grade >= 10 ? draft.level || 4 : undefined;
+      const level = validLevel(draft.grade, draft.level);
       createProfile({ name: v.slice(0, 14), avatar: av, grade: draft.grade, level, track: gradeTracks(draft.grade, level)[0], created: Date.now() });
       applyTheme(); await loadTrack(S.profile.track); go('#/map');
     };
-    screen('onb', h('h2', 'כינוי + דמות'), h('p.muted', `כיתה ${GRADES[draft.grade]} · פחות מ־10 שניות ויוצאים למשחק`),
+    screen('onb', h('h2', 'כינוי + דמות'), h('p.muted', `${gname(draft.grade)} · פחות מ־10 שניות ויוצאים למשחק`),
       inp, h('div.avgrid', FREE_AV.map(a => h('button.avpick', { 'aria-label': 'דמות ' + a, onclick: () => finish(a) }, a))));
     return setTimeout(() => inp.focus(), 40);
   }
@@ -196,7 +199,7 @@ function stageView(i) {
     return h('button.gcard' + (g === rec ? '.rec' : '') + (locked ? '.lock' : '') + (isBoss ? '.bosscard' : ''), {
       onclick: () => locked ? (sfx('bad'), toast(`שחקו עוד ${2 - done === 1 ? 'משחק אחד' : '2 משחקים'} כדי לפתוח את הבוס`)) : (sfx('tap'), go(`#/play/${i}/${g}`)) },
       h('span.gicon', isBoss ? wd.boss : GAMES[g].icon),
-      h('div.gtxt', h('b', isBoss ? `קרב בוס: ${wd.bossName}` : GAMES[g].name), h('small', locked ? `🔒 שחקו ${2 - done} משחקים נוספים` : GAMES[g].desc)),
+      h('div.gtxt', h('b', isBoss ? `קרב בוס: ${wd.bossName}` : GAMES[g].name), h('small', locked ? `🔒 שחקו ${2 - done} משחקים נוספים` : g === 'memory' && isEarly(S.profile.grade) ? 'מצאו זוגות של תמונות – כל קלף אומר את המילה' : GAMES[g].desc)),
       h('span.gstars', best ? starsTxt(best) : g === rec ? '▶' : ''));
   };
   screen('stagev', h('div.shead', { style: { '--c1': wd.bg[0], '--c2': wd.bg[1] } },
@@ -226,6 +229,7 @@ async function play(i, g) {
   if (g === 'intro') res = await intro(sess, ws);
   else if (g === 'match') res = await match(sess, ws);
   else if (g === 'listen') res = await listen(sess, ws);
+  else if (g === 'pics') res = await pics(sess, ws);
   else if (g === 'scramble') res = await scramble(sess, ws);
   else if (g === 'fill') res = await fill(sess, i);
   else if (g === 'memory') res = await memory(sess, ws);
@@ -376,11 +380,11 @@ function studyView() {
   const mode = (g, n, extra) => h('button.mode', { onclick: () => { sfx('tap'); if (n) fromFilter(n); go('#/study/' + g); } }, h('span', GAMES[g].icon), h('b', GAMES[g].short), extra && h('small', extra));
   screen('studyv', hud(), trackToggle(),
     h('h2.ptitle', '📚 לימוד · ', en(tr.band)),
-    h('div.modes', mode('cards', 12), mode('type', 10),
+    h('div.modes', mode('cards', 12), !isEarly(S.profile.grade) && mode('type', 10),
       D.talk.length > 0 && mode('talk', 0, `${D.talk.length}`),
       D.read.length > 0 && mode('reading', 0, `${D.read.length} קטעים`),
       familyItems(D.words).length >= 4 && mode('forms', 0)),
-    h('p.muted.small', 'כרטיסיות והקלדה מתרגלות את המילים שבסינון. בלי סינון: מילים לחזרה, ואחריהן מילים חדשות לפי הסדר.'),
+    h('p.muted.small', (isEarly(S.profile.grade) ? 'כרטיסיות מתרגלות' : 'כרטיסיות והקלדה מתרגלות') + ' את המילים שבסינון. בלי סינון: מילים לחזרה, ואחריהן מילים חדשות לפי הסדר.'),
     inp,
     h('div.chips.filters', chip('all', 'הכול'), chip('new', 'חדשות'), chip('due', '🔁 לחזרה'), chip('hard', 'קשות'), chip('mast', 'בשליטה'), lists.map(l => chip(l, 'List ' + l))),
     noEn > 0 && h('p.robonote', `🤖 ל־${noEn} מתוך ${D.words.length} המילים ברשימה הזו עדיין אין הקלטה באנגלית – הן מוקראות בקול הדפדפן (מסומנות 🤖).`),
@@ -431,8 +435,8 @@ function meView() {
     h('h3', 'דמות'), h('div.avgrid.small', [...FREE_AV, ...S.owned].map(a => h('button.avpick' + (a === S.profile.avatar ? '.on' : ''), { 'aria-label': 'דמות ' + a, onclick: () => { S.profile.avatar = a; save(); sfx('tap'); meView(); } }, a))),
     h('h3', 'יעד יומי'), h('div.row.seg', [[100, 'רגוע'], [150, 'רגיל'], [300, 'אלופים']].map(([v, t]) => h('button.btn.small' + (S.settings.goal === v ? '.primary' : '.ghost'), { onclick: () => { S.settings.goal = v; save(); meView(); } }, `${t} · ${v} XP`))),
     h('h3', 'הגדרות'), tg('sfx', '🎵 צלילי משחק'), tg('voice', '🗣️ הקראת מילים'), tg('big', '🔠 טקסט גדול'),
-    h('h3', 'כיתה'), gradePicker(S.profile.grade, g => setGrade(g, S.profile.level || 4), true),
-    +S.profile.grade >= 10 && h('div.row.seg', [3, 4, 5].map(lv => h('button.btn.small' + ((S.profile.level || 4) === lv ? '.primary' : '.ghost'), { onclick: () => setGrade(S.profile.grade, lv) }, LEVELS[lv]))),
+    h('h3', 'כיתה'), gradePicker(S.profile.grade, g => setGrade(g, validLevel(g, S.profile.level)), true),
+    levelsFor(S.profile.grade).length > 0 && h('div.row.seg', levelsFor(S.profile.grade).map(lv => h('button.btn.small' + (validLevel(S.profile.grade, S.profile.level) === lv ? '.primary' : '.ghost'), { onclick: () => setGrade(S.profile.grade, lv) }, LEVELS[lv]))),
     h('p.muted.small', 'רשימות: ', gradeTracks(S.profile.grade, S.profile.level).map(k => TRACKS[k].band).join(' + '), ' · ההתקדמות בכל רשימה נשמרת בנפרד'),
     h('h3', 'שחקנים במכשיר'),
     h('div.row', profiles().map(p => h('button.btn.small' + (p.id === curProfileId() ? '.primary' : '.ghost'), { onclick: () => { if (p.id !== curProfileId()) { switchProfile(p.id); applyTheme(); applyBig(); go('#/map'); route(); } } }, `${p.avatar} ${p.name}`)),
@@ -444,9 +448,10 @@ function meView() {
 }
 async function setGrade(grade, lv) {
   const ts = gradeTracks(grade, lv);
-  if (+grade === +S.profile.grade && (grade < 10 || lv === S.profile.level)) return;
-  if (!confirm(`לעבור לכיתה ${GRADES[grade]}${grade >= 10 ? ' · ' + LEVELS[lv] : ''}? ההתקדמות בכל רשימה נשמרת.`)) return;
-  S.profile.grade = grade; S.profile.level = grade >= 10 ? lv : undefined;
+  lv = validLevel(grade, lv);
+  if (+grade === +S.profile.grade && lv === validLevel(S.profile.grade, S.profile.level)) return;
+  if (!confirm(`לעבור ל${gname(grade)}${lv !== undefined ? ' · ' + LEVELS[lv] : ''}? ההתקדמות בכל רשימה נשמרת.`)) return;
+  S.profile.grade = grade; S.profile.level = lv;
   if (!ts.includes(S.profile.track)) S.profile.track = ts[0];
   save(true); applyTheme(); await loadTrack(S.profile.track); go('#/map');
 }
@@ -455,7 +460,11 @@ const ABOUT = `<p><b>רשימות המילים</b> – רשמיות, מהרשי�
 <p><b>התאמה לכיתות</b> – לפי טבלאות 4–5 בתוכנית הלימודים (<a href="https://education.biu.ac.il/sites/education/files/shared/curriculum2020Elementary.pdf" target="_blank" rel="noopener" lang="en">English Curriculum 2020</a>):</p>
 <ul><li>ד׳: Pre-Band I (ג׳ / תחילת ד׳) ← Band I Core I (ד׳ – אמצע ה׳)</li><li>ה׳: Band I Core I / Core II (המעבר באמצע השנה)</li><li>ו׳: Band I Core II (אמצע ה׳ – סוף ו׳)</li>
 <li>ז׳: Band II Core I · ח׳: Core I / Core II (המעבר באמצע השנה) · ט׳: Band II Core II</li>
-<li>י׳–י״ב: 3 יח״ל = Band II (טבלה 5: "7-9, Bagrut 3 points") · 4 יח״ל = Band III Core I · 5 יח״ל = Band III Core I + II</li></ul>
+<li>י׳–י״ב: 3 יח״ל = Band II (טבלה 5: "7-9, Bagrut 3 points") · 4 יח״ל = Band III Core I · 5 יח״ל = Band III Core I + II</li>
+<li>ג׳: Pre-Band I (רשמי, שלב Pre-Basic User / Pre-A1) + אותיות וצלילים (נגזר)</li></ul>
+<p><b>רמות נוספות (נגזר, לא של משרד החינוך)</b> – פירוט ב־<a href="https://github.com/dudidd-wq/english-quest/blob/main/LEVELS.md" target="_blank" rel="noopener">LEVELS.md</a>:</p>
+<ul><li>א׳–ב׳ (התחלה מוקדמת, רשות – תוכנית הלימודים מתחילה בכיתה ג׳): 36 מילים בתמונות מתוך Pre-Band I + 26 אותיות עם מילה לדוגמה; משחקי האזנה ותמונות בלי קריאה.</li>
+<li>אחרי י״ב: <span lang="en">NAWL 1.2</span> (Browne, Culligan &amp; Phillips, CC BY-SA 4.0) · <span lang="en">NCSAWL</span> (Uba, Mustafa &amp; Pathan 2023, CC BY 4.0) · 300 מילים ברמת C2 מתוך <span lang="en">Octanove Vocabulary Profile</span> (CC BY-SA 4.0). התרגום לעברית נכתב לאפליקציה.</li></ul>
 <p><b>מה נקבע על ידינו (נגזר, לא רשמי):</b> החלוקה לשלבים של כ־12 מילים והסדר שלהם; בכיתות ה׳ ו־ח׳ – הלומד בוחר מתי לעבור לרשימה השנייה; המשפטים, קטעי הקריאה והשיחות נכתבו במיוחד לתרגול ואינם טקסטים רשמיים; האימוג׳י והתרגום לעברית הותאמו לגיל.</p>
 <p><b>הקלטות:</b> קולות מלאכותיים (ElevenLabs – Matilda באנגלית, Tomer בעברית) לכל המילים בכל הכיתות. ההקלטות נשמרות במכשיר בהדרגה, לפי הרשימה שבה משחקים; אפשר להוריד רשימה שלמה מראש בלשונית "אני". אם הקלטה לא נטענת, המילה מוקראת בקול הדפדפן ומסומנת 🤖.</p>
 <p><b>🔒 פרטיות:</b> שום מידע לא יוצא מהמכשיר – אין שרת, אין חשבון ואין מעקב. ההתקדמות נשמרת בדפדפן (localStorage + עותק ב־IndexedDB), והגיבוי (קובץ, קוד או שמירה אוטומטית לקובץ) נשאר אצלכם; הוא נשלח לאן שהוא רק אם אתם בוחרים לשתף אותו בעצמכם. מקורות מלאים: <a href="https://github.com/dudidd-wq/english-quest/blob/main/SOURCES.md" target="_blank" rel="noopener">SOURCES.md</a>.</p>`;

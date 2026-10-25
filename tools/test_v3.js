@@ -1,15 +1,15 @@
 #!/usr/bin/env node
-// v3 end-to-end: every grade (4–12) × mobile & desktop, all stage games + boss + study modes, migration, profiles, offline.
+// v3 end-to-end: every grade (1–12, and post-12 as 131/132/133 = acad/tech/c2) × mobile & desktop, all stage games + boss + study modes, migration, profiles, offline.
 const { chromium } = require('/usr/local/lib/pnpm/5/.pnpm/playwright-core@1.59.1/node_modules/playwright-core');
 const fs = require('fs');
 const BASE = process.env.EQ_URL || 'http://127.0.0.1:8765';
-const ONLY = process.env.VP; const GR = process.env.GRADES ? process.env.GRADES.split(',').filter(Boolean).map(Number) : [4, 5, 6, 7, 8, 9, 10, 11, 12];
+const ONLY = process.env.VP; const GR = process.env.GRADES ? process.env.GRADES.split(',').filter(Boolean).map(Number) : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 131, 132, 133];
 const SHOTS = '/workspace/english-quest/shots/v3'; fs.mkdirSync(SHOTS, { recursive: true });
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const VPS = { mobile: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }, desktop: { viewport: { width: 1280, height: 860 } } };
-const LEVEL = { 10: 4, 11: 5, 12: 3 };
+const LEVEL = { 10: '4 יח״ל', 11: '5 יח״ל', 12: '3 יח״ל', 131: 'אקדמי', 132: 'טכנולוגית', 133: 'שפת אם' };
 const errors = [], results = [];
-const HE = { 4: 'ד׳', 5: 'ה׳', 6: 'ו׳', 7: 'ז׳', 8: 'ח׳', 9: 'ט׳', 10: 'י׳', 11: 'י״א', 12: 'י״ב' };
+const HE = { 1: 'א׳', 2: 'ב׳', 3: 'ג׳', 131: 'אחרי י״ב', 132: 'אחרי י״ב', 133: 'אחרי י״ב', 4: 'ד׳', 5: 'ה׳', 6: 'ו׳', 7: 'ז׳', 8: 'ח׳', 9: 'ט׳', 10: 'י׳', 11: 'י״א', 12: 'י״ב' };
 
 async function solveStep(page) {
   return page.evaluate(() => {
@@ -45,8 +45,8 @@ async function onboard(page, grade) {
   await page.goto(BASE + '/manifest.webmanifest');
   await wipe(page);
   await page.goto(BASE + '/#/', { waitUntil: 'networkidle' });
-  await page.click(`button.gradebtn[aria-label="כיתה ${HE[grade]}"]`);
-  if (grade >= 10) { await page.waitForSelector('button.track-card'); await page.locator('button.track-card', { hasText: `${LEVEL[grade]} יח״ל` }).click(); }
+  await page.click(grade > 100 ? 'button.gradebtn.wide' : `button.gradebtn[aria-label="כיתה ${HE[grade]}"]`);
+  if (grade >= 10) { await page.waitForSelector('button.track-card'); await page.locator('button.track-card', { hasText: LEVEL[grade] }).click(); }
   await page.fill('input.name', 'בדיקה' + grade);
   await page.click('button.avpick');
   await page.waitForSelector('.mapv .hud', { timeout: 15000 });
@@ -62,10 +62,10 @@ async function runGrade(browser, vp, grade) {
     return { theme: document.documentElement.className, track: s.S.profile.track, words: d.D.words.length, practice: g.practiceFor(0), read: d.D.read.length, talk: d.D.talk.length, toggle: !!document.querySelector('.ttoggle') }; });
   const games = [];
   await page.goto(BASE + '/#/stage/0'); await page.waitForSelector('.stagev');
-  if (grade === 4 || grade === 7 || grade === 11) { await sleep(700); } if (grade === 4 || grade === 7 || grade === 11) await page.screenshot({ path: `${SHOTS}/${vp}-g${grade}-stage.png` });
+  const SH = [1, 3, 4, 7, 11, 131, 132, 133].includes(grade); if (SH) await sleep(700); if (SH) await page.screenshot({ path: `${SHOTS}/${vp}-g${grade}-stage.png` });
   for (const g of ['intro', ...info.practice, 'boss']) {
     await page.goto(BASE + `/#/play/0/${g}`); await page.waitForSelector('.game', { timeout: 10000 });
-    if (g === info.practice[0] && [4, 7, 11].includes(grade)) { await sleep(400); await page.screenshot({ path: `${SHOTS}/${vp}-g${grade}-${g}.png` }); }
+    if ((g === info.practice[0] || g === 'boss' && grade <= 2) && [1, 3, 4, 7, 11, 131].includes(grade)) { await sleep(400); await page.screenshot({ path: `${SHOTS}/${vp}-g${grade}-${g}.png` }); }
     await playUntilResult(page, tag + ' ' + g);
     games.push(g + ':' + (await page.locator('.rstars span.on').count()));
   }
@@ -77,7 +77,7 @@ async function runGrade(browser, vp, grade) {
   const study = [];
   for (const m of ['cards', 'type', 'talk', 'reading', 'forms']) {
     if (m === 'talk' && !info.talk || m === 'reading' && !info.read) continue;
-    if (m === 'forms' && !modes.includes('צורות')) continue;
+    if (m === 'forms' && !modes.includes('צורות') || m === 'type' && !modes.includes('הקלדה')) continue;
     await page.goto(BASE + `/#/study/${m}`); await page.waitForSelector('.game', { timeout: 10000 });
     if (m === 'reading' && grade === 11) { await sleep(300); await page.screenshot({ path: `${SHOTS}/${vp}-g${grade}-reading.png` }); }
     await playUntilResult(page, tag + ' study ' + m); study.push(m);
@@ -89,7 +89,7 @@ async function runGrade(browser, vp, grade) {
     info.track2 = await page.evaluate(async () => (await import('./js/store.js')).S.profile.track);
   }
   await page.goto(BASE + '/#/map'); await page.waitForSelector('.mapv'); await sleep(200);
-  if ([4, 7, 11].includes(grade)) await page.screenshot({ path: `${SHOTS}/${vp}-g${grade}-map.png` });
+  if ([1, 3, 4, 7, 11, 131].includes(grade)) await page.screenshot({ path: `${SHOTS}/${vp}-g${grade}-map.png` });
   results.push({ tag, ...info, games, study });
   console.log(JSON.stringify(results.at(-1)));
   await ctx.close();
@@ -129,7 +129,7 @@ async function extras(browser, vp) {
   let offline = { map: true };
   // switch to another grade's list while offline (all 7 data files precached)
   await page.goto(BASE + '/#/study'); await page.waitForSelector('.wrow'); offline.study = true;
-  offline.data = await page.evaluate(async () => { const r = await Promise.all(['pre1', 'b1c1', 'b1c2', 'g7', 'g9', 'b3c1', 'b3c2'].map(t => fetch(`data/${t}.json`).then(r => r.ok).catch(() => false))); return r.every(Boolean); });
+  offline.data = await page.evaluate(async () => { const r = await Promise.all(['pre1', 'b1c1', 'b1c2', 'g7', 'g9', 'b3c1', 'b3c2', 'early', 'abc', 'acad', 'tech', 'c2'].map(t => fetch(`data/${t}.json`).then(r => r.ok).catch(() => false))); return r.every(Boolean); });
   await page.goto(BASE + '/#/play/0/match'); await page.waitForSelector('.game'); offline.game = true;
   await ctx.setOffline(false);
   const out = { tag, mig, cur, parentProfiles, back, offline };

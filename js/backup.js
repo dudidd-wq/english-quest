@@ -3,7 +3,7 @@
 import { snapshot, restoreProfiles, profiles, onPersist, missingStates } from './store.js';
 export const SCHEMA = 2;
 const APP = 'english-quest', META = 'englishQuest.meta', MAX_BYTES = 5e6;
-const TRACK_KEYS = ['pre1', 'b1c1', 'b1c2', 'g7', 'g9', 'b3c1', 'b3c2'];
+const TRACK_KEYS = ['pre1', 'b1c1', 'b1c2', 'g7', 'g9', 'b3c1', 'b3c2', 'early', 'abc', 'acad', 'tech', 'c2'];
 
 // ---------- tiny IndexedDB key/value ----------
 let dbp;
@@ -45,9 +45,9 @@ function cleanState(raw) {
   const s = clean(raw);
   if (!s || typeof s !== 'object' || s.v !== 1 || !s.profile || typeof s.profile !== 'object') throw new Error('state');
   const p = s.profile;
-  const grade = int(p.grade, 4, 12, p.track === 'g9' ? 9 : 7);
+  const grade = int(p.grade, 1, 13, p.track === 'g9' ? 9 : 7);
   s.profile = { name: String(p.name || 'שחקן').trim().slice(0, 14) || 'שחקן', avatar: typeof p.avatar === 'string' && p.avatar.length <= 8 ? p.avatar : '🦊',
-    grade, level: grade >= 10 ? int(p.level, 3, 5, 4) : undefined, track: TRACK_KEYS.includes(p.track) ? p.track : undefined, created: int(p.created, 0, 1e13, Date.now()) };
+    grade, level: grade === 13 ? (['acad', 'tech', 'c2'].includes(p.level) ? p.level : 'acad') : grade >= 10 ? int(p.level, 3, 5, 4) : undefined, track: TRACK_KEYS.includes(p.track) ? p.track : undefined, created: int(p.created, 0, 1e13, Date.now()) };
   for (const k of ['xp', 'coins']) s[k] = int(Math.round(s[k] || 0), 0, 1e8, 0);
   if (s.tracks && typeof s.tracks === 'object') for (const k of Object.keys(s.tracks)) if (!TRACK_KEYS.includes(k)) delete s.tracks[k];
   return s;

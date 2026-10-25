@@ -387,6 +387,13 @@ h1{font-size:2rem;background:var(--grad);-webkit-background-clip:text;background
 .gradegroup{margin-bottom:8px}
 .gglabel{font:700 .78rem var(--font);color:var(--muted);margin:0 2px 4px;text-align:start}
 .gradegroups .gradegrid{margin:0}
+.gradebtn.wide{grid-column:1/-1;font-size:1.15rem}
+.gradegrid.small .gradebtn.wide{font-size:.95rem}
+.opts.pic .opt{min-height:118px;display:flex;align-items:center;justify-content:center;padding:6px}
+.picemoji{font-size:3.6rem;line-height:1}
+.picletter{font:800 3rem/1 var(--font);letter-spacing:.06em}
+.mcard .face.picface .picemoji{font-size:2.6rem}
+.mcard .face.picface .picletter{font-size:1.9rem}
 .gradebtn.on{border-color:var(--y);background:rgba(255,229,102,.16);color:var(--y);box-shadow:0 0 0 3px rgba(255,229,102,.35)}
 .gradebtn.on::after{content:' ✓';font-size:.8em}
 .gradebtn:focus-visible{outline:3px solid #8ecae6;outline-offset:2px}

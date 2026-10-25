@@ -2,11 +2,12 @@
 import { h, put, en, shuffle, sample, sleep, clamp, toast, posHe } from './util.js';
 import { S, answer, gainXp, gainCoins, comboMult, save } from './store.js';
 import { playWord, sfx, stop as stopAudio } from './audio.js';
-import { D, W, distractors, stageSentences, scrambleWord, phraseTiles, themeOf } from './data.js';
+import { D, W, distractors, stageSentences, scrambleWord, phraseTiles, themeOf, isEarly, TRACKS } from './data.js';
 
 export const GAMES = {
   intro:   { icon: '📖', name: 'הכירו את המילים', short: 'כרטיסיות', desc: 'שמעו, ראו וזכרו – מילים חדשות ב־30 שניות' },
   match:   { icon: '⚡', name: 'התאמה מהירה', short: 'התאמה', desc: 'התאימו מילה לפירוש לפני שהזמן נגמר!' },
+  pics:    { icon: '🖼️', name: 'שומעים ובוחרים', short: 'תמונות', desc: 'שמעו את המילה באנגלית ולחצו על התמונה' },
   listen:  { icon: '🎧', name: 'האזינו ובחרו', short: 'האזנה', desc: 'שמעו את המילה ובחרו את הפירוש' },
   scramble:{ icon: '🔤', name: 'בלגן אותיות', short: 'איות', desc: 'סדרו את האותיות ובנו את המילה' },
   fill:    { icon: '✍️', name: 'השלימו את המשפט', short: 'משפטים', desc: 'בחרו את המילה שחסרה במשפט' },
@@ -23,15 +24,20 @@ export const GAMES = {
 export const theme = () => themeOf(S.profile?.grade || 7);
 /** timers stretch for younger kids (still brisk) */
 export const pace = () => theme() === 'kids' ? 1.5 : 1;
+/** א׳–ב׳: listening-first, no reading – picture games only */
+export const early = () => isEarly(S.profile?.grade || 7);
+const young = () => +(S.profile?.grade || 7) <= 3;
+const lettersTrack = () => !!TRACKS[D?.track]?.letters;
 const hasSent = () => D && Object.keys(D.sent || {}).length > 0;
 /** practice games offered in a stage, per age band */
 export function practiceFor(i) {
   const t = theme(), fill = hasSent() && stageSentences(i, 1).length ? ['fill'] : [];
-  if (t === 'kids') return ['match', 'listen', 'memory', 'scramble', ...fill];
+  if (early()) return ['pics', 'memory'];
+  if (t === 'kids') return [...(young() ? ['pics'] : []), 'match', 'listen', 'memory', ...(lettersTrack() ? [] : ['scramble']), ...fill];
   if (t === 'bagrut') return [...fill, ...(formsPool(i).length >= 4 ? ['forms'] : []), 'match', 'listen', 'blitz', 'scramble'];
   return ['match', 'listen', 'scramble', ...fill, 'memory', 'blitz'];
 }
-export const missionPool = i => theme() === 'kids' ? ['match', 'listen', 'memory'] : theme() === 'bagrut' ? practiceFor(i).filter(g => ['fill', 'forms', 'blitz', 'match'].includes(g)) : ['match', 'blitz', 'listen', 'scramble'];
+export const missionPool = i => early() ? ['pics', 'memory'] : theme() === 'kids' ? ['match', 'listen', 'memory'] : theme() === 'bagrut' ? practiceFor(i).filter(g => ['fill', 'forms', 'blitz', 'match'].includes(g)) : ['match', 'blitz', 'listen', 'scramble'];
 const label = w => w.en + (w.m ? ` (${w.m})` : '');
 
 /** One play of one game: owns the top bar, combo, XP, and the result summary. */
@@ -103,10 +109,10 @@ const wordHead = (w, big) => h('div.whead' + (big ? '.big' : ''), h('div.emoji',
 
 // ---------- generic multiple-choice question ----------
 /** resolves true/false; opts = [{text, ok, lang}] */
-function choice(sess, { prompt, opts, w, timer = 0, onTimeout, onRight, onWrong, wrongPause = 1300, cols }) {
+function choice(sess, { prompt, opts, w, timer = 0, onTimeout, onRight, onWrong, wrongPause = 1300, cols, pic }) {
   return new Promise(resolve => {
     let done = false, tbar;
-    const grid = h('div.opts' + (cols ? '.c' + cols : ''));
+    const grid = h('div.opts' + (cols ? '.c' + cols : '') + (pic ? '.pic' : ''));
     const finish = (ok, btn) => {
       if (done) return; done = true; clearInterval(sess.iv);
       grid.querySelectorAll('button').forEach(b => { b.disabled = true; if (b._ok) b.classList.add('right'); });
@@ -114,7 +120,7 @@ function choice(sess, { prompt, opts, w, timer = 0, onTimeout, onRight, onWrong,
       else { btn?.classList.add('wrongc'); sess.wrong(w, btn || grid); onWrong?.(); sess.later(() => resolve(false), wrongPause); }
     };
     for (const o of opts) {
-      const b = h('button.opt', { onclick: () => finish(o.ok, b) }, o.lang === 'en' ? en(o.text) : o.text);
+      const b = h('button.opt', { onclick: () => finish(o.ok, b), 'aria-label': o.label }, o.lang === 'en' ? en(o.text) : o.text);
       b._ok = o.ok; grid.append(b);
     }
     const kids = [prompt, grid];
@@ -134,6 +140,32 @@ function choice(sess, { prompt, opts, w, timer = 0, onTimeout, onRight, onWrong,
 const heOpts = (w, prefer) => shuffle([{ text: w.he, ok: true }, ...distractors(w, 3, 'he', prefer).map(x => ({ text: x.he }))]);
 const enOpts = (w, prefer) => shuffle([{ text: label(w), ok: true, lang: 'en' }, ...distractors(w, 3, 'en', prefer).map(x => ({ text: label(x), lang: 'en' }))]);
 const audioBtn = (w, lang = 'en', big) => { const b = h('button.say' + (big ? '.big' : ''), { 'aria-label': lang === 'en' ? 'השמיעו באנגלית' : 'השמיעו בעברית', onclick: e => { e.stopPropagation(); playWord(w, lang, b); } }, big ? '🔊' : '🔊'); return b; };
+
+// 🖼️ picture / letter answer (no reading needed)
+const picFace = w => lettersTrack() ? h('span.picletter', { lang: 'en', dir: 'ltr' }, w.en) : h('span.picemoji', { 'aria-hidden': 'true' }, w.e || '✨');
+function picOpts(w, pool) {
+  const out = [w], key = x => lettersTrack() ? x.en : x.e;
+  for (const x of [...shuffle(pool), ...shuffle(D.words)]) { if (out.length >= 4) break; if (x.e && !out.some(y => key(y) === key(x) || y.n === x.n)) out.push(x); }
+  return shuffle(out.map(x => ({ text: picFace(x), ok: x === w, label: x.en })));
+}
+function qPic(sess, w, pool, timer = 0) {
+  const prompt = h('div.prompt', h('div.qhint', lettersTrack() ? 'הקשיבו ולחצו על האות' : 'הקשיבו ולחצו על התמונה'), audioBtn(w, 'en', true));
+  sess.later(() => playWord(w, 'en'), 150);
+  return choice(sess, { prompt, w, timer, cols: 2, pic: true, opts: picOpts(w, pool), onRight: () => sess.later(() => playWord(w, 'he'), 250), onWrong: () => playWord(w, 'en'), wrongPause: 1800 });
+}
+export async function pics(sess, words, n = 8) {
+  const q = shuffle(words).slice(0, n); let first = 0, asked = 0; const retried = new Set();
+  for (let k = 0; k < q.length; k++) {
+    if (sess.dead) return;
+    sess.progress(k / q.length);
+    const ok = await qPic(sess, q[k], words);
+    if (k < n) { asked++; if (ok) first++; }
+    if (!ok && !retried.has(q[k].n)) { retried.add(q[k].n); q.push(q[k]); }
+  }
+  sess.progress(1);
+  const acc = first / Math.max(1, asked);
+  return sess.summary({ acc, stars: starsFor(acc) });
+}
 
 // question builders used by listen / boss / review
 function qListen(sess, w, pool, timer) {
@@ -337,14 +369,14 @@ export async function memory(sess, words) {
   await new Promise(resolve => {
     const grid = h('div.mgrid');
     for (const c of cards) {
-      const face = c.side === 'en' ? h('div.face', h('span.memo-emoji', c.w.e || ''), en(c.w.en)) : h('div.face.he', c.w.he);
+      const face = early() ? h('div.face.picface', picFace(c.w)) : c.side === 'en' ? h('div.face', h('span.memo-emoji', c.w.e || ''), en(c.w.en)) : h('div.face.he', c.w.he);
       const b = h('button.mcard', { 'aria-label': 'קלף', onclick: () => flip(b) }, h('div.inner', h('div.back', '❓'), face));
       b.c = c; grid.append(b);
     }
     const flip = b => {
       if (busy || b.classList.contains('open') || sess.dead) return;
       b.classList.add('open'); sfx('flip'); open.push(b);
-      if (b.c.side === 'en') playWord(b.c.w, 'en');
+      if (b.c.side === 'en' || early()) playWord(b.c.w, 'en');
       if (open.length < 2) return;
       moves++; movesEl.textContent = moves;
       const [a, c] = open; open = [];
@@ -373,14 +405,15 @@ export async function boss(sess, words, { world, hearts = 3, stageIdx, review = 
   if (!review) { sfx('boss'); sess.burst('⚔️ הבוס תוקף!'); }
   // questions render into `area` instead of the whole body
   const realBody = sess.body; sess.body = area;
-  const types = theme() === 'kids' ? ['enhe', 'listen', 'enhe', 'fill'] : ['enhe', 'listen', 'fill', 'heen'];
+  const types = early() ? ['pic'] : theme() === 'kids' ? ['enhe', 'listen', 'enhe', 'fill'] : ['enhe', 'listen', 'fill', 'heen'];
   let k = 0, lostAny = false;
   while (hp > 0 && (review || lives > 0) && queue.length) {
     if (sess.dead) return sess.summary({ won: false, stars: 0 });
     const w = queue.shift(); const t = types[k++ % types.length];
     const timer = review ? 0 : Math.max(7000, 10000 - k * 200) * pace();
     let ok;
-    if (t === 'fill' && sents.has(w.n)) ok = await qSentence(sess, sents.get(w.n), timer);
+    if (t === 'pic') ok = await qPic(sess, w, pool, 0);
+    else if (t === 'fill' && sents.has(w.n)) ok = await qSentence(sess, sents.get(w.n), timer);
     else if (t === 'listen' || (t === 'fill' && k % 2)) ok = await qListen(sess, w, pool, timer);
     else if (t === 'heen') ok = await qHeEn(sess, w, pool, timer);
     else ok = await qEnHe(sess, w, pool, timer);

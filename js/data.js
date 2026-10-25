@@ -9,14 +9,28 @@ export const TRACKS = {
   g9:   { name: 'Band II – חלק 2', band: 'Band II · Core II', when: "אמצע ח׳ – סוף ט׳", emoji: '🛸', file: 'LexicalBand2.xlsx' },
   b3c1: { name: 'Band III – Core I', band: 'Band III · Core I', when: "י׳–י״ב · 4 ו־5 יח״ל", emoji: '🎓', file: 'LexicalBand3.xlsx' },
   b3c2: { name: 'Band III – Core II', band: 'Band III · Core II', when: "י׳–י״ב · 5 יח״ל", emoji: '🏛️', file: 'LexicalBand3.xlsx' },
+  // derived (not official MoE lists) – see LEVELS.md / SOURCES.md
+  early:{ name: 'מילים בתמונות', band: 'Early words', when: "א׳–ב׳ · התחלה מוקדמת (רשות)", emoji: '🧸', derived: 'תת־רשימה של Pre-Band I (הבחירה שלנו)' },
+  abc:  { name: 'אותיות וצלילים', band: 'ABC', when: "א׳–ג׳", emoji: '🔤', derived: 'נכתב לאפליקציה', letters: true },
+  acad: { name: 'אקדמי / פסיכומטרי', band: 'Academic (NAWL)', when: "אחרי י״ב", emoji: '🎓', derived: 'NAWL 1.2 · CC BY-SA 4.0' },
+  tech: { name: 'אנגלית טכנולוגית', band: 'Tech (NCSAWL)', when: "אחרי י״ב", emoji: '💻', derived: 'NCSAWL · CC BY 4.0' },
+  c2:   { name: 'קרוב לשפת אם', band: 'Near-native (C2)', when: "אחרי י״ב", emoji: '💎', derived: 'Octanove C2 · CC BY-SA 4.0' },
 };
 /** Grade → lists, per English Curriculum 2020 Tables 4–5 (see SOURCES.md). */
-export const GRADES = { 4: "ד׳", 5: "ה׳", 6: "ו׳", 7: "ז׳", 8: "ח׳", 9: "ט׳", 10: "י׳", 11: "י״א", 12: "י״ב" };
-export const GRADE_GROUPS = [['יסודי', [4, 5, 6]], ['חטיבת ביניים', [7, 8, 9]], ['תיכון', [10, 11, 12]]];
-export const LEVELS = { 3: '3 יח״ל', 4: '4 יח״ל', 5: '5 יח״ל' };
-export function gradeTracks(grade, level = 4) {
+export const GRADES = { 1: "א׳", 2: "ב׳", 3: "ג׳", 4: "ד׳", 5: "ה׳", 6: "ו׳", 7: "ז׳", 8: "ח׳", 9: "ט׳", 10: "י׳", 11: "י״א", 12: "י״ב", 13: "אחרי י״ב" };
+export const GRADE_GROUPS = [['יסודי · א׳–ב׳ התחלה מוקדמת (רשות)', [1, 2, 3, 4, 5, 6]], ['חטיבת ביניים', [7, 8, 9]], ['תיכון', [10, 11, 12]], ['אחרי התיכון', [13]]];
+export const LEVELS = { 3: '3 יח״ל', 4: '4 יח״ל', 5: '5 יח״ל', acad: 'אקדמי / פסיכומטרי', tech: 'אנגלית טכנולוגית', c2: 'קרוב לשפת אם' };
+export const ADV = ['acad', 'tech', 'c2'];
+export const levelsFor = grade => +grade === 13 ? ADV : +grade >= 10 ? [3, 4, 5] : [];
+export const defaultLevel = grade => +grade === 13 ? 'acad' : +grade >= 10 ? 4 : undefined;
+export const validLevel = (grade, lv) => levelsFor(grade).includes(lv) ? lv : defaultLevel(grade);
+export const isEarly = grade => +grade <= 2;
+export function gradeTracks(grade, level = defaultLevel(grade)) {
   grade = +grade;
-  if (grade <= 4) return ['pre1', 'b1c1'];
+  if (grade === 13) { const lv = ADV.includes(level) ? level : 'acad'; return [lv, ...ADV.filter(x => x !== lv)]; }
+  if (grade <= 2) return ['early', 'abc'];
+  if (grade === 3) return ['pre1', 'abc'];
+  if (grade === 4) return ['pre1', 'b1c1'];
   if (grade === 5) return ['b1c1', 'b1c2'];
   if (grade === 6) return ['b1c2'];
   if (grade === 7) return ['g7'];
@@ -25,7 +39,7 @@ export function gradeTracks(grade, level = 4) {
   return +level === 3 ? ['g7', 'g9'] : +level === 5 ? ['b3c1', 'b3c2'] : ['b3c1'];
 }
 export const themeOf = grade => +grade <= 6 ? 'kids' : +grade <= 9 ? 'arcade' : 'bagrut';
-export const gradeLabel = p => p ? `כיתה ${GRADES[p.grade] || ''}` + (+p.grade >= 10 ? ` · ${LEVELS[p.level] || ''}` : '') : '';
+export const gradeLabel = p => p ? (+p.grade === 13 ? GRADES[13] : `כיתה ${GRADES[p.grade] || ''}`) + (+p.grade >= 10 ? ` · ${LEVELS[p.level] || ''}` : '') : '';
 export const WORLDS = [
   { name: 'אי הקוקוסים', icon: '🌴', bg: ['#14b8a6', '#0ea5e9'], boss: '🦀', bossName: 'סרטן הענק', story: 'גלים מביאים מילים חדשות — כבשו את החוף!' },
   { name: 'יער הלחשים', icon: '🌲', bg: ['#22c55e', '#15803d'], boss: '🐺', bossName: 'זאב הצללים', story: 'העצים לוחשים באנגלית. תקשיבו היטב…' },
