@@ -9,4 +9,10 @@
         auto-save file (FS Access, handle in IDB), IndexedDB mirror + storage.persist + auto-recovery, partial-loss prompt,
         reminder after 4 days, undo last restore, sanitised imports + schema-1 migration. Tests: tools/test_backup.js
   - [x] Full Playwright rerun (20 runs, 0 errors) + backup tests PASS → REVIEW.md (all ≥9, overall 9.2) → pushed both repos → live verified (eq-3.1.2, band2-study v1.4.0 notice)
+  - [ ] Audio-risk fixes (Dudi pt67u, 20:27):
+    - [x] Homographs: 24 entries → 19 new EN clips per meaning (audio/en/11001–11019), phoneme-verified (bc08b1f)
+    - [x] "mixed" re-recorded (respelt "mikst.", en/11020) (bc08b1f)
+    - [x] Full Scribe STT pass on all 3,148 v3 HE clips + ivrit-ai 2nd opinion on 104 flagged → 14 re-recorded with niqqud (he/11001–11014, incl. להירקב) (54c699d)
+    - [x] SW eq-3.2.0 (new clip numbers only → no stale audio cache; progress keyed by n untouched)
+    - [ ] Tests, docs (SOURCES/REVIEW), live verify
 Grade map (Curriculum 2020 Table 4/5): 4=PreBand I+B1C1, 5=B1C1/B1C2, 6=B1C2, 7=B2C1, 8=B2C1/B2C2, 9=B2C2, 10–12: 3pts=Band II, 4pts=B3C1, 5pts=B3C1+B3C2

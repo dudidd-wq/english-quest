@@ -1,5 +1,5 @@
 // Service worker: precache the app shell, cache word audio on demand (with Range support for Safari).
-const VERSION = 'eq-3.1.2';
+const VERSION = 'eq-3.2.0';
 const SHELL = 'eq-shell-' + VERSION;
 const AUDIO = 'eq-audio-v1';            // audio file names never change, kept across versions
 const ASSETS = [
