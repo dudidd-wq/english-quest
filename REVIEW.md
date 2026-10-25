@@ -6,7 +6,7 @@
 - data audits run on `data/*.json`
 - SOURCES.md
 
-Round 1 found issues that were fixed in round 2 (commit `a47b2b9`, SW `eq-3.1.1`). Round 3 caught one more bidi glitch (SW `eq-3.1.2`). After that the full suite was rerun. Every category is now ≥ 9.
+Round 1 found issues that were fixed in round 2 (commit `a47b2b9`, SW `eq-3.1.1`). The full suite was then rerun on eq-3.1.1. Round 3 caught one more bidi glitch, a text-only fix (SW `eq-3.1.2`), followed by a targeted rerun. Every category is now ≥ 9.
 
 ## Round 1 findings (fixed)
 | # | Reviewer | Finding | Fix |
