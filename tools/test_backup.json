@@ -1,0 +1,204 @@
+{
+ "mobile": {
+  "vp": "mobile",
+  "before": {
+   "names": [
+    "נועה",
+    "איתי"
+   ],
+   "cur": "איתי",
+   "xp": 50,
+   "w": {
+    "b": 3,
+    "due": 99999,
+    "ok": 4,
+    "bad": 1,
+    "seen": 1
+   }
+  },
+  "reminder": true,
+  "file": {
+   "schema": 2,
+   "profiles": 2,
+   "name": "english-quest-backup-2026-10-25.json"
+  },
+  "reminderAfter": false,
+  "codeLen": 1253,
+  "fromFile": {
+   "names": [
+    "נועה",
+    "איתי"
+   ],
+   "cur": "איתי",
+   "xp": 50,
+   "w": {
+    "b": 3,
+    "due": 99999,
+    "ok": 4,
+    "bad": 1,
+    "seen": 1
+   }
+  },
+  "fromCode": {
+   "names": [
+    "נועה",
+    "איתי"
+   ],
+   "cur": "איתי",
+   "xp": 50,
+   "w": {
+    "b": 3,
+    "due": 99999,
+    "ok": 4,
+    "bad": 1,
+    "seen": 1
+   }
+  },
+  "autoRecovered": {
+   "names": [
+    "נועה",
+    "איתי"
+   ],
+   "cur": "איתי",
+   "xp": 50,
+   "w": {
+    "b": 3,
+    "due": 99999,
+    "ok": 4,
+    "bad": 1,
+    "seen": 1
+   }
+  },
+  "partialPrompt": "נראה שחלק מהנתונים במכשיר נמחקו (למשל אחרי ניקוי הדפדפן). אם שמרתם גיבוי – אפשר לשחזר אותו כאן.",
+  "evilPreview": "🦊 img src=x oner · כיתה ז׳ · 0 XP",
+  "badToast": "⚠️ זה לא קובץ גיבוי של English Quest",
+  "futureToast": "⚠️ הגיבוי נוצר בגרסה חדשה יותר – רעננו את האפליקציה ונסו שוב",
+  "badCodeToast": "⚠️ הקוד לא שלם – העתיקו אותו שוב מתחילתו (EQ2-…) ועד סופו",
+  "legacy": {
+   "names": [
+    "ותיק"
+   ],
+   "cur": "ותיק",
+   "xp": 777,
+   "w": null
+  },
+  "evil": {
+   "pwned": false,
+   "name": "img src=x oner",
+   "avatar": "🦊",
+   "grade": 7,
+   "xp": 0,
+   "coins": 0,
+   "tracks": [
+    "b1c1"
+   ],
+   "imgs": 0
+  },
+  "undo": true,
+  "netBad": [],
+  "requests": 129,
+  "errors": []
+ },
+ "desktop": {
+  "vp": "desktop",
+  "before": {
+   "names": [
+    "נועה",
+    "איתי"
+   ],
+   "cur": "איתי",
+   "xp": 50,
+   "w": {
+    "b": 3,
+    "due": 99999,
+    "ok": 4,
+    "bad": 1,
+    "seen": 1
+   }
+  },
+  "reminder": true,
+  "file": {
+   "schema": 2,
+   "profiles": 2,
+   "name": "english-quest-backup-2026-10-25.json"
+  },
+  "reminderAfter": false,
+  "codeLen": 1247,
+  "autoWrites": 2,
+  "autoState": "💾 שמירה אוטומטית לקובץ במחשב: פעילה (eq-auto.json)כיבוי",
+  "fromFile": {
+   "names": [
+    "נועה",
+    "איתי"
+   ],
+   "cur": "איתי",
+   "xp": 50,
+   "w": {
+    "b": 3,
+    "due": 99999,
+    "ok": 4,
+    "bad": 1,
+    "seen": 1
+   }
+  },
+  "fromCode": {
+   "names": [
+    "נועה",
+    "איתי"
+   ],
+   "cur": "איתי",
+   "xp": 50,
+   "w": {
+    "b": 3,
+    "due": 99999,
+    "ok": 4,
+    "bad": 1,
+    "seen": 1
+   }
+  },
+  "autoRecovered": {
+   "names": [
+    "נועה",
+    "איתי"
+   ],
+   "cur": "איתי",
+   "xp": 50,
+   "w": {
+    "b": 3,
+    "due": 99999,
+    "ok": 4,
+    "bad": 1,
+    "seen": 1
+   }
+  },
+  "partialPrompt": "נראה שחלק מהנתונים במכשיר נמחקו (למשל אחרי ניקוי הדפדפן). אם שמרתם גיבוי – אפשר לשחזר אותו כאן.",
+  "evilPreview": "🦊 img src=x oner · כיתה ז׳ · 0 XP",
+  "badToast": "⚠️ זה לא קובץ גיבוי של English Quest",
+  "futureToast": "⚠️ הגיבוי נוצר בגרסה חדשה יותר – רעננו את האפליקציה ונסו שוב",
+  "badCodeToast": "⚠️ הקוד לא שלם – העתיקו אותו שוב מתחילתו (EQ2-…) ועד סופו",
+  "legacy": {
+   "names": [
+    "ותיק"
+   ],
+   "cur": "ותיק",
+   "xp": 777,
+   "w": null
+  },
+  "evil": {
+   "pwned": false,
+   "name": "img src=x oner",
+   "avatar": "🦊",
+   "grade": 7,
+   "xp": 0,
+   "coins": 0,
+   "tracks": [
+    "b1c1"
+   ],
+   "imgs": 0
+  },
+  "undo": true,
+  "netBad": [],
+  "requests": 129,
+  "errors": []
+ }
+}
