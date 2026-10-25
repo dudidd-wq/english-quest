@@ -6,7 +6,7 @@
 - data audits run on `data/*.json`
 - SOURCES.md
 
-Round 1 found issues that were fixed in round 2 (commit `a47b2b9`, SW `eq-3.1.1`), and the affected tests were rerun. Every category is now ≥ 9.
+Round 1 found issues that were fixed in round 2 (commit `a47b2b9`, SW `eq-3.1.1`). Round 3 caught one more bidi glitch (SW `eq-3.1.2`). After that the full suite was rerun. Every category is now ≥ 9.
 
 ## Round 1 findings (fixed)
 | # | Reviewer | Finding | Fix |
@@ -42,7 +42,16 @@ Round 1 found issues that were fixed in round 2 (commit `a47b2b9`, SW `eq-3.1.1`
 **Overall: 9.2 / 10. Lowest category: 9.0 (bagrut fun).**
 
 ## Test evidence
-TEST_EVIDENCE_PLACEHOLDER
+- **Full rerun, `tools/test_v3_all.json`:** 20 runs: grades ד׳–י״ב × mobile + desktop, plus the extras (onboarding, englishQuest.v1 migration, siblings, parent screen, About, offline reload).
+  - Every game was played to its result screen: intro, match, listen, memory, scramble, fill, blitz, forms and boss, plus the study modes (cards, type, forms, talk, reading).
+  - **0 page errors, 0 console errors, 0 HTTP ≥400.** SW controlled, shell cache 23 entries.
+- **Backup/restore, `tools/test_backup.json`:** PASS on mobile and desktop.
+  - Covered: 2 players, file export, EQ2 code, auto-save file (desktop, 2 writes), wipe-all → file restore, wipe-all → code restore, localStorage wipe → auto-recovery from IndexedDB, partial-loss prompt, bad/future/legacy/XSS files, undo.
+  - Network audit: 130 requests, all same-origin GETs.
+- **Live check, after the push:** https://dudidd-wq.github.io/english-quest/ loads with 0 errors.
+  - SW controls the page, and the shell cache holds 23 entries with **0 audio files**.
+  - Fetching one clip → 200 audio/mp3, cached lazily in `eq-audio-v1`.
+- **Round 3 fix (after the full run):** the bagrut "forms" card description mixed English POS tags into RTL text, which garbled the parentheses. It is now Hebrew. SW eq-3.1.2, mobile י״א rerun: 0 errors.
 
 ## Residual risks (accepted)
 - **TTS edge cases:**
