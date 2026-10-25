@@ -26,7 +26,22 @@
   "8766": 11019,
   "9648": 11020
  },
- "ah": {},
+ "ah": {
+  "5111": 11001,
+  "6039": 11002,
+  "6135": 11003,
+  "6179": 11004,
+  "6483": 11005,
+  "6510": 11006,
+  "7127": 11007,
+  "7216": 11008,
+  "7270": 11009,
+  "8274": 11010,
+  "8383": 11011,
+  "9173": 11012,
+  "9463": 11013,
+  "9234": 11014
+ },
  "clips": {
   "en/11001": "homograph close_v (carrier-cut)",
   "en/11002": "homograph live_adj (carrier-cut)",
@@ -47,6 +62,20 @@
   "en/11017": "homograph associate_v (carrier-cut)",
   "en/11018": "homograph protest_v (carrier-cut)",
   "en/11019": "homograph suspect_v (carrier-cut)",
-  "en/11020": "mixed (respelt \"mikst\" – \"mixed\" was read as \"next\")"
+  "en/11020": "mixed (respelt \"mikst\" – \"mixed\" was read as \"next\")",
+  "he/11001": "HE re-record גֶּבֶר, אִישׁ (flagged by full STT QA; verified scribe=1.0 ivrit=0.4)",
+  "he/11002": "HE re-record גַּב (flagged by full STT QA; verified scribe=0.0 ivrit=1.0)",
+  "he/11003": "HE re-record מִסְמָךְ (flagged by full STT QA; verified scribe=0.75 ivrit=1.0)",
+  "he/11004": "HE re-record לִמְצֹא (flagged by full STT QA; verified scribe=1.0 ivrit=1.0)",
+  "he/11005": "HE re-record עֵץ (flagged by full STT QA; verified scribe=0.0 ivrit=1.0)",
+  "he/11006": "HE re-record מַיִם (flagged by full STT QA; verified scribe=0.5 ivrit=1.0)",
+  "he/11007": "HE re-record שְׁמִינִי (flagged by full STT QA; verified scribe=1.0 ivrit=1.0)",
+  "he/11008": "HE re-record חוֹר (flagged by full STT QA; verified scribe=0.0 ivrit=1.0)",
+  "he/11009": "HE re-record מִכְתָּב (flagged by full STT QA; verified scribe=1.0 ivrit=1.0)",
+  "he/11010": "HE re-record זְבוּב (flagged by full STT QA; verified scribe=0.4 ivrit=1.0)",
+  "he/11011": "HE re-record נִרְאֶה שֶׁ, נִרְאֶה כְּאִלּוּ (flagged by full STT QA; verified scribe=1.0 ivrit=1.0)",
+  "he/11012": "HE re-record פְּקֻדָּה (flagged by full STT QA; verified scribe=0.0 ivrit=1.0)",
+  "he/11013": "HE re-record וָו, מִתְלֶה (flagged by full STT QA; verified scribe=0.57 ivrit=1.0)",
+  "he/11014": "HE re-record לְהֵרָקֵב (flagged by full STT QA; verified scribe=1.0 ivrit=1.0)"
  }
 }
