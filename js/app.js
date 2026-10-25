@@ -1,9 +1,9 @@
 // English Quest – screens & navigation
 import { $, h, put, en, shuffle, dayNum, fmtDay, toast, download, nWords, reduced, posHe } from './util.js';
-import { S, save, on, T, stageRec, today, dueWords, level, levelXp, gainCoins, touchStreak, streakNow, checkAch, ACH, isMastered, replaceState, resetAll, exportState, unlock, ensureDaily, bumpDaily, beatRival, AURAS, TITLES } from './store.js';
-import { TRACKS, WORLDS, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
-import { GAMES, PRACTICE, MISSION_POOL, Session, intro, match, listen, scramble, fill, memory, blitz, boss } from './games.js';
-import { playWord, sfx, prefetch, stop as stopAudio } from './audio.js';
+import { S, save, on, T, stageRec, today, dueWords, level, levelXp, gainCoins, touchStreak, streakNow, checkAch, ACH, isMastered, replaceState, resetAll, exportState, unlock, ensureDaily, bumpDaily, beatRival, AURAS, TITLES, profiles, curProfileId, createProfile, switchProfile, leaveProfile, deleteProfile } from './store.js';
+import { TRACKS, GRADES, LEVELS, gradeTracks, themeOf, gradeLabel, WORLDS, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
+import { GAMES, practiceFor, missionPool, theme, Session, intro, match, listen, scramble, fill, memory, blitz, boss, forms, formsPool, familyItems, reading, talk, cards, typing } from './games.js';
+import { playWord, sfx, prefetch, stop as stopAudio, hasClip, audioUrl, onRobo } from './audio.js';
 
 const app = $('#app');
 const FREE_AV = ['🦊', '🐼', '🦁', '🐯', '🐸', '🐙', '🦄', '🐧', '🦉', '🐨', '🤖', '👾', '⭐', '🔷'];
@@ -13,7 +13,17 @@ let session = null;
 
 // ---------- celebrations ----------
 function applyBig() { document.documentElement.classList.toggle('big', !!S.settings.big); }
-applyBig();
+function applyTheme() {
+  const t = S.profile ? themeOf(S.profile.grade) : 'arcade', c = document.documentElement.classList;
+  c.remove('theme-kids', 'theme-arcade', 'theme-bagrut'); c.add('theme-' + t);
+  document.querySelector('meta[name=theme-color]')?.setAttribute('content', t === 'kids' ? '#2b1b6b' : t === 'bagrut' ? '#0d1b2a' : '#07071a');
+}
+applyBig(); applyTheme();
+// 🤖 flag: a word without a recording is read by the browser voice – always visible to the learner/parent
+let roboT = 0;
+onRobo((w, lang) => {
+  const el = document.getElementById('robo'); if (el) { el.hidden = false; clearTimeout(roboT); roboT = setTimeout(() => { el.hidden = true; }, 2600); }
+});
 function confetti(n = 70) {
   if (reduced()) return;
   const box = h('div.confetti'); const cols = ['#ff4d6d', '#ffd60a', '#4cc9f0', '#80ed99', '#b388ff', '#ff9f1c'];
@@ -42,7 +52,7 @@ on((type, d) => {
 // ---------- shared bits ----------
 const isUnlocked = i => i === 0 || stageRec(i - 1).cleared;
 const currentStage = () => { let i = 0; while (i < D.stages.length - 1 && stageRec(i).cleared) i++; return i; };
-const practiceDone = i => PRACTICE.filter(g => stageRec(i).games[g]).length;
+const practiceDone = i => practiceFor(i).filter(g => stageRec(i).games[g]).length;
 const starsTxt = n => '★'.repeat(n) + '☆'.repeat(3 - n);
 function hud() {
   const L = level(), a = levelXp(L), b = levelXp(L + 1), d = today(), goal = S.settings.goal, gp = Math.min(1, d.xp / goal);
@@ -57,33 +67,49 @@ function hud() {
 }
 function nav(active) {
   const it = (hash, icon, txt) => h('a.navi' + (active === hash ? '.on' : ''), { href: hash }, h('span', icon), txt);
-  return h('nav.bottom', it('#/map', '🗺️', 'מפה'), it('#/ach', '🏆', 'הישגים'), it('#/shop', '🛒', 'חנות'), it('#/me', '👤', 'פרופיל'));
+  return h('nav.bottom', it('#/map', '🗺️', 'מפה'), it('#/study', '📚', 'לימוד'), it('#/ach', '🏆', 'הישגים'), it('#/shop', '🛒', 'חנות'), it('#/me', '👤', 'פרופיל'));
 }
 function screen(cls, ...kids) { stopAudio(); put(app, h('div.screen.' + cls, ...kids)); app.scrollTop = 0; window.scrollTo(0, 0); }
 export function go(hash) { if (location.hash === hash) route(); else location.hash = hash; }
 
-// ---------- onboarding ----------
-function onboarding(step = 0, draft = {}) {
+// ---------- onboarding: who's playing → grade → (bagrut level) → name + avatar ----------
+function onboarding(step = profiles().length ? 'who' : 0, draft = {}) {
   const next = s => onboarding(s, draft);
-  // Splash + track in one energetic screen (<30s total)
+  if (step === 'who') return screen('onb', h('div.splash',
+    h('div.logo-emoji.bob', '🚀'), h('h1', 'English Quest'), h('h3', 'מי משחק עכשיו?'),
+    h('div.wholist', profiles().map(p => h('button.track-card', { onclick: async () => { sfx('tap'); switchProfile(p.id); applyTheme(); applyBig(); go('#/map'); route(); } },
+      h('div.temoji', p.avatar), h('div', h('b', p.name), h('div.small.muted', gradeLabel(p)))))),
+    h('button.btn.ghost.wide', { onclick: () => { sfx('tap'); next(0); } }, '➕ שחקן/ית חדש/ה')));
   if (step === 0) return screen('onb', h('div.splash',
-    h('div.logo-emoji.bob', '🚀'), h('h1', 'English Quest'), h('p.lead', 'משחק מילים באנגלית · כיתות ז׳–ט׳'),
-    h('p.muted.small', '2–4 דקות · בוסים · בליץ · רצפים'),
-    h('h3', 'בחרו מסלול'),
-    Object.entries(TRACKS).map(([k, t]) => h('button.track-card', { onclick: () => { draft.track = k; sfx('tap'); next(1); } },
-      h('div.temoji', t.emoji), h('div', h('b', t.name), h('div.en.small', { dir: 'ltr' }, t.band))))));
+    h('div.logo-emoji.bob', '🚀'), h('h1', 'English Quest'), h('p.lead', 'משחק מילים באנגלית · כיתות ד׳–י״ב'),
+    h('p.muted.small', 'לפי רשימות המילים הרשמיות של משרד החינוך · 2–4 דקות לסיבוב'),
+    h('h3', 'באיזו כיתה את/ה?'),
+    h('div.gradegrid', Object.entries(GRADES).map(([g, he]) => h('button.gradebtn.t-' + themeOf(g), { 'aria-label': 'כיתה ' + he, onclick: () => { draft.grade = +g; sfx('tap'); next(+g >= 10 ? 'level' : 1); } }, he))),
+    profiles().length > 0 && h('button.btn.ghost.wide', { onclick: () => next('who') }, '→ חזרה לבחירת שחקן')));
+  if (step === 'level') return screen('onb', h('h2', `כיתה ${GRADES[draft.grade]} · כמה יחידות?`), h('p.muted', 'אפשר לשנות בכל רגע בפרופיל'),
+    [[3, 'Band II (חזרה ושליטה במילים של חטיבת הביניים)'], [4, 'Band III Core I'], [5, 'Band III Core I + Core II']].map(([lv, d]) =>
+      h('button.track-card', { onclick: () => { draft.level = lv; sfx('tap'); next(1); } }, h('div.temoji', lv === 3 ? '📗' : lv === 4 ? '📘' : '📕'), h('div', h('b', LEVELS[lv]), h('div.small.muted', d)))),
+    h('button.btn.ghost.wide', { onclick: () => next(0) }, '→ חזרה'));
   if (step === 1) {
     const inp = h('input.name', { maxlength: 14, placeholder: 'נינג׳ה_המילים', value: draft.name || '', 'aria-label': 'כינוי' });
     const finish = async (av) => {
       const v = (inp.value || draft.name || '').replace(/[<>]/g, '').trim() || 'שחקן';
       sfx('win'); confetti(40);
-      S.profile = { name: v.slice(0, 14), avatar: av, track: draft.track, created: Date.now() }; save(true);
-      await loadTrack(draft.track); go('#/map');
+      const level = draft.grade >= 10 ? draft.level || 4 : undefined;
+      createProfile({ name: v.slice(0, 14), avatar: av, grade: draft.grade, level, track: gradeTracks(draft.grade, level)[0], created: Date.now() });
+      applyTheme(); await loadTrack(S.profile.track); go('#/map');
     };
-    screen('onb', h('h2', 'כינוי + דמות'), h('p.muted', 'פחות מ־10 שניות ויוצאים למשחק'),
+    screen('onb', h('h2', 'כינוי + דמות'), h('p.muted', `כיתה ${GRADES[draft.grade]} · פחות מ־10 שניות ויוצאים למשחק`),
       inp, h('div.avgrid', FREE_AV.map(a => h('button.avpick', { 'aria-label': 'דמות ' + a, onclick: () => finish(a) }, a))));
     return setTimeout(() => inp.focus(), 40);
   }
+}
+/** a grade can cover two official lists (e.g. ה׳, ח׳) – let the learner switch */
+function trackToggle() {
+  const ts = gradeTracks(S.profile.grade, S.profile.level);
+  if (ts.length < 2) return null;
+  return h('div.ttoggle', { role: 'group', 'aria-label': 'רשימת מילים' }, ts.map(k => h('button' + (k === S.profile.track ? '.on' : ''), { onclick: async () => {
+    if (k === S.profile.track) return; S.profile.track = k; save(true); sfx('whoosh'); await loadTrack(k); route(); } }, TRACKS[k].emoji + ' ', en(TRACKS[k].band))));
 }
 
 // ---------- world map ----------
@@ -117,7 +143,12 @@ function mapView() {
     else if (daily.kind === 'boss') go('#/play/' + cur + '/boss');
     else go('#/stage/' + cur);
   };
-  screen('mapv', hud(),
+  const bag = theme() === 'bagrut';
+  screen('mapv', hud(), trackToggle(),
+    bag && h('div.bagrow',
+      D.read.length > 0 && h('button.btn.small', { onclick: () => go('#/study/reading') }, '📰 קטע קריאה'),
+      familyItems(D.words).length >= 4 && h('button.btn.small', { onclick: () => go('#/study/forms') }, '🧩 משפחות מילים'),
+      h('button.btn.small', { onclick: () => go('#/study') }, '📚 כל המילים')),
     h('div.rival-chip', '👻 יריב מקומי: ', S.rival.name, ' · בליץ ', S.rival.bestBlitz, ' · קומבו ', S.rival.bestCombo),
     h('div.daily-card' + (daily.done ? '.done' : ''), { onclick: dailyGo },
       h('div.dico', daily.done ? '✅' : '☀️'),
@@ -134,7 +165,7 @@ function mapView() {
 function nextGame(i) {
   const r = stageRec(i);
   if (!r.games.intro) return 'intro';
-  const g = PRACTICE.find(g => !r.games[g]);
+  const g = practiceFor(i).find(g => !r.games[g]);
   if (practiceDone(i) >= 2 && !r.cleared) return 'boss';
   return g || 'boss';
 }
@@ -142,8 +173,8 @@ function pickMission(i) {
   const r = stageRec(i);
   if (!r.games.intro) return 'intro';
   if (practiceDone(i) >= 2 && !r.cleared) return 'boss';
-  const undone = MISSION_POOL.filter(g => !r.games[g]);
-  const pool = undone.length ? undone : MISSION_POOL;
+  const MP = missionPool(i), undone = MP.filter(g => !r.games[g]);
+  const pool = undone.length ? undone : MP;
   return pool[Math.floor(Math.random() * pool.length)];
 }
 function stageView(i) {
@@ -168,7 +199,7 @@ function stageView(i) {
       h('p', mission === 'intro' ? 'הכירו את המילים ואז יוצאים לקרב' : mission === 'boss' ? '2–3 דקות של אקשן. מוכנים?' : `${GAMES[mission].name} · כ־2 דקות`),
       h('button.btn.primary.xl', { onclick: () => { sfx('whoosh'); go(`#/play/${i}/${mission}`); } },
         mission === 'boss' ? `⚔️ לקרב!` : mission === 'intro' ? '🚀 בואו נכיר' : `▶ ${GAMES[mission].short}`)),
-    h('div.glist', h('div.sep', 'או בחרו מצב'), card('intro'), PRACTICE.map(card), h('div.sep', '⚔️ הבוס'), card('boss')),
+    h('div.glist', h('div.sep', 'או בחרו מצב'), card('intro'), practiceFor(i).map(card), h('div.sep', '⚔️ הבוס'), card('boss')),
     h('details.wordlist', h('summary', `📝 המילים של השלב (${ws.length})`),
       h('div.chips', ws.map(w => { const b = h('button.chip.wchip', { onclick: () => playWord(w, 'en', b) }, h('span', w.e), en(w.en), h('small', w.he)); return b; }))));
 }
@@ -190,6 +221,7 @@ async function play(i, g) {
   else if (g === 'fill') res = await fill(sess, i);
   else if (g === 'memory') res = await memory(sess, ws);
   else if (g === 'blitz') res = await blitz(sess, ws);
+  else if (g === 'forms') res = await forms(sess, formsPool(i));
   else if (g === 'boss') {
     const extra = S.powers.heart > 0 ? await askHeart() : false;
     if (sess.dead) return;
@@ -204,6 +236,29 @@ async function play(i, g) {
   sess.kill(); session = null;
   finishGame(i, g, res);
 }
+// study-tab sessions (not tied to a stage): cards / type / talk / reading / forms
+const STUDY = new Set(['cards', 'type', 'talk', 'reading', 'forms']);
+let studyPick = [];   // words chosen in the study list for cards/type
+async function playStudy(g, arg) {
+  session?.kill();
+  const sess = session = new Session(app, g, { onQuit: () => quit() });
+  const quit = () => { if (sess.ok + sess.bad > 0 && !confirm('לצאת? ההתקדמות בסבב הזה לא תישמר')) return; sess.kill(); go('#/study'); };
+  let res;
+  if (g === 'cards') res = await cards(sess, studyPick.length ? studyPick : pickStudyWords(12));
+  else if (g === 'type') res = await typing(sess, studyPick.length ? studyPick : pickStudyWords(10));
+  else if (g === 'talk') res = await talk(sess, D.talk.length ? shuffle(D.talk).slice(0, 8) : []);
+  else if (g === 'reading') { const r = D.read[+arg] || D.read[Math.floor(Math.random() * D.read.length)]; if (!r) return go('#/study'); res = await reading(sess, r); }
+  else if (g === 'forms') { const fam = familyItems(D.words), seen = fam.filter(x => T().words[x.w.n]); res = await forms(sess, [...new Set([...shuffle(seen), ...shuffle(fam)])].slice(0, 8)); }
+  if (!res || sess.dead) return;
+  sess.kill(); session = null;
+  finishGame(-1, g, res);
+}
+/** due first, then the next unseen words in curriculum order, then weakest */
+function pickStudyWords(k) {
+  const t = T().words, due = new Set(dueWords());
+  const a = D.words.filter(w => due.has(w.n)), b = D.stages.flat().map(W).filter(w => w && !t[w.n]), c = D.words.filter(w => t[w.n] && !due.has(w.n)).sort((x, y) => (t[y.n].bad - t[y.n].ok) - (t[x.n].bad - t[x.n].ok));
+  return [...new Set([...a, ...b, ...c])].slice(0, k);
+}
 function askHeart() {
   return new Promise(res => {
     const m = h('div.modal', h('div.mbox', h('div.huge', '❤️'), h('h3', 'להשתמש בלב נוסף?'), h('p', `יש לכם ${S.powers.heart}. עם לב נוסף יהיו לכם 4 חיים בקרב.`),
@@ -215,7 +270,9 @@ function finishGame(i, g, res) {
   const d = today(); d.games++; d.ms += res.ms; T().ms += res.ms; S.stats.games++;
   touchStreak();
   let cleared = false, worldDone = false, coinsBonus = 0;
+  const free = i < 0;
   if (g === 'review') { S.stats.reviews++; coinsBonus = 10; }
+  else if (free) { coinsBonus = res.stars; S.stats.missions++; bumpDaily('mission'); }
   else {
     const r = stageRec(i); r.plays++;
     if (g === 'boss') {
@@ -244,11 +301,11 @@ function finishGame(i, g, res) {
   checkAch({ speedy: res.speedy, memory: res.memory, ears: res.ears });
   const won = g !== 'boss' || res.won;
   if (won) { sfx('win'); if (res.stars === 3 || cleared || res.beatGhost) confetti(cleared ? 110 : 60); } else sfx('lose');
-  const wd = g === 'review' ? null : world(i);
+  const wd = g === 'review' || free ? null : world(i);
   const title = g === 'boss' ? (res.won ? (worldDone ? `🏆 כבשתם את ${wd.name}!` : `ניצחתם את ${wd.bossName}!`) : 'אוי! הבוס ניצח הפעם') :
     g === 'review' ? 'חזרה הושלמה! 🦉' : g === 'blitz' ? (res.beatGhost ? 'ניצחתם את הצל! 👻' : `בליץ: ${res.blitzScore || 0}`) :
     res.stars === 3 ? 'מושלם! 🤩' : res.stars === 2 ? 'כל הכבוד! 😎' : 'יפה! עוד סיבוב? 💪';
-  const nxt = g === 'review' ? null : cleared && i + 1 < D.stages.length ? ['#/stage/' + (i + 1), `לשלב ${i + 2} ▶`] : (() => {
+  const nxt = g === 'review' ? null : free ? ['#/study/' + g + (g === 'reading' ? '/' + Math.floor(Math.random() * D.read.length) : ''), '🔥 עוד סבב'] : cleared && i + 1 < D.stages.length ? ['#/stage/' + (i + 1), `לשלב ${i + 2} ▶`] : (() => {
     if (g === 'intro') return ['#/play/' + i + '/' + pickMission(i), '▶ המשימה הראשונה'];
     const n = nextGame(i);
     if (n === 'boss' && practiceDone(i) >= 2 && !stageRec(i).cleared) return ['#/play/' + i + '/boss', `⚔️ לבוס!`];
@@ -271,9 +328,55 @@ function finishGame(i, g, res) {
     missed.length > 0 && h('div.missed', h('h4', 'מילים לחזרה:'), missed.map(w => { const b = h('button.chip.wchip', { onclick: () => playWord(w, 'en', b) }, h('span', w.e), en(w.en), h('small', w.he)); return b; })),
     h('div.rbtns',
       nxt && h('button.btn.primary.xl', { onclick: () => go(nxt[0]) }, nxt[1]),
-      g !== 'intro' && g !== 'review' && h('button.btn' + (nxt ? '.ghost' : '.primary'), { onclick: () => { location.hash = `#/play/${i}/${g}`; route(true); } }, '🔄 שוב עכשיו'),
-      h('button.btn.ghost', { onclick: () => go(g === 'review' ? '#/map' : '#/stage/' + i) }, g === 'review' ? '🗺️ למפה' : 'לשלב')))
+      g !== 'intro' && g !== 'review' && !free && h('button.btn' + (nxt ? '.ghost' : '.primary'), { onclick: () => { location.hash = `#/play/${i}/${g}`; route(true); } }, '🔄 שוב עכשיו'),
+      h('button.btn.ghost', { onclick: () => go(g === 'review' ? '#/map' : free ? '#/study' : '#/stage/' + i) }, g === 'review' ? '🗺️ למפה' : free ? '📚 ללימוד' : 'לשלב')))
   );
+}
+
+// ---------- 📚 study tab: browse & listen, flashcards, typing quiz, conversations, reading ----------
+const SF = { q: '', f: 'all', show: 60 };
+function studyList() {
+  const t = T().words, due = new Set(dueWords()), q = SF.q.trim().toLowerCase();
+  return D.words.filter(w => {
+    if (q && !w.en.toLowerCase().includes(q) && !w.he.includes(q)) return false;
+    const r = t[w.n];
+    if (SF.f === 'new') return !r; if (SF.f === 'hard') return r && r.bad > 0; if (SF.f === 'due') return due.has(w.n);
+    if (SF.f === 'mast') return r && isMastered(r);
+    if (/^[A-D]$/.test(SF.f)) return w.l === SF.f;
+    return true;
+  });
+}
+function studyView() {
+  const tr = TRACKS[S.profile.track], lists = [...new Set(D.words.map(w => w.l).filter(Boolean))].sort();
+  const noEn = D.words.filter(w => !hasClip(w, 'en')).length;
+  const listEl = h('div.wlist');
+  const draw = () => {
+    const ws = studyList();
+    put(listEl, h('div.muted.small', `${ws.length} מילים`), ws.slice(0, SF.show).map(w => {
+      const r = T().words[w.n];
+      return h('div.wrow',
+        h('span.we', { 'aria-hidden': 'true' }, w.e || '✨'),
+        h('div.wtxt', h('div.wen', { dir: 'ltr', lang: 'en' }, h('b', w.en), w.m && h('small', ` (${w.m})`)), h('div.he', w.he), h('small.muted', posHe(w.pos) + (w.l ? ` · List ${w.l}` : '') + (r ? (isMastered(r) ? ' · ✅ בשליטה' : ' · 👀 נלמדה') : ''))),
+        h('button.say', { 'aria-label': 'השמיעו באנגלית', onclick: e => playWord(w, 'en', e.currentTarget) }, hasClip(w, 'en') ? '🔊' : '🤖'),
+        h('button.say.he', { 'aria-label': 'השמיעו בעברית', onclick: e => playWord(w, 'he', e.currentTarget) }, hasClip(w, 'he') ? 'עב' : '🤖'));
+    }), ws.length > SF.show && h('button.btn.ghost.wide', { onclick: () => { SF.show += 120; draw(); } }, `הציגו עוד (${ws.length - SF.show})`));
+  };
+  const inp = h('input.name.search', { type: 'search', placeholder: '🔎 חיפוש באנגלית או בעברית', value: SF.q, 'aria-label': 'חיפוש', oninput: e => { SF.q = e.target.value; SF.show = 60; draw(); } });
+  const chip = (k, txt) => h('button.chip' + (SF.f === k ? '.on' : ''), { onclick: () => { SF.f = k; SF.show = 60; studyView(); } }, txt);
+  const fromFilter = n => { const ws = studyList(); studyPick = SF.f === 'all' && !SF.q ? [] : shuffle(ws).slice(0, n); };
+  const mode = (g, n, extra) => h('button.mode', { onclick: () => { sfx('tap'); if (n) fromFilter(n); go('#/study/' + g); } }, h('span', GAMES[g].icon), h('b', GAMES[g].short), extra && h('small', extra));
+  screen('studyv', hud(), trackToggle(),
+    h('h2.ptitle', '📚 לימוד · ', en(tr.band)),
+    h('div.modes', mode('cards', 12), mode('type', 10),
+      D.talk.length > 0 && mode('talk', 0, `${D.talk.length}`),
+      D.read.length > 0 && mode('reading', 0, `${D.read.length} קטעים`),
+      familyItems(D.words).length >= 4 && mode('forms', 0)),
+    h('p.muted.small', 'כרטיסיות והקלדה מתרגלות את המילים שבסינון. בלי סינון: מילים לחזרה, ואחריהן מילים חדשות לפי הסדר.'),
+    inp,
+    h('div.chips.filters', chip('all', 'הכול'), chip('new', 'חדשות'), chip('due', '🔁 לחזרה'), chip('hard', 'קשות'), chip('mast', 'בשליטה'), lists.map(l => chip(l, 'List ' + l))),
+    noEn > 0 && h('p.robonote', `🤖 ל־${noEn} מתוך ${D.words.length} המילים ברשימה הזו עדיין אין הקלטה באנגלית – הן מוקראות בקול הדפדפן (מסומנות 🤖).`),
+    listEl, nav('#/study'));
+  draw();
 }
 
 // ---------- achievements / shop / profile / parent ----------
@@ -319,20 +422,41 @@ function meView() {
     h('h3', 'דמות'), h('div.avgrid.small', [...FREE_AV, ...S.owned].map(a => h('button.avpick' + (a === S.profile.avatar ? '.on' : ''), { 'aria-label': 'דמות ' + a, onclick: () => { S.profile.avatar = a; save(); sfx('tap'); meView(); } }, a))),
     h('h3', 'יעד יומי'), h('div.row.seg', [[100, 'רגוע'], [150, 'רגיל'], [300, 'אלופים']].map(([v, t]) => h('button.btn.small' + (S.settings.goal === v ? '.primary' : '.ghost'), { onclick: () => { S.settings.goal = v; save(); meView(); } }, `${t} · ${v} XP`))),
     h('h3', 'הגדרות'), tg('sfx', '🎵 צלילי משחק'), tg('voice', '🗣️ הקראת מילים'), tg('big', '🔠 טקסט גדול'),
-    h('h3', 'כיתה / רמה'), h('div.row.seg', Object.entries(TRACKS).map(([k, t]) => h('button.btn.small' + (S.profile.track === k ? '.primary' : '.ghost'), { onclick: async () => {
-      if (k === S.profile.track) return; if (!confirm(`לעבור ל${t.name}? ההתקדמות בכל כיתה נשמרת בנפרד.`)) return;
-      S.profile.track = k; save(true); await loadTrack(k); go('#/map'); } }, t.name))),
-    h('button.btn.ghost.wide', { onclick: offlineAll }, '📥 הורדת כל ההקלטות לשימוש בלי אינטרנט'),
+    h('h3', 'כיתה'), h('div.gradegrid.small', Object.entries(GRADES).map(([g, he]) => h('button.gradebtn.t-' + themeOf(g) + (+g === +S.profile.grade ? '.on' : ''), { 'aria-label': 'כיתה ' + he, onclick: () => setGrade(+g, S.profile.level || 4) }, he))),
+    +S.profile.grade >= 10 && h('div.row.seg', [3, 4, 5].map(lv => h('button.btn.small' + ((S.profile.level || 4) === lv ? '.primary' : '.ghost'), { onclick: () => setGrade(S.profile.grade, lv) }, LEVELS[lv]))),
+    h('p.muted.small', 'רשימות: ', gradeTracks(S.profile.grade, S.profile.level).map(k => TRACKS[k].band).join(' + '), ' · ההתקדמות בכל רשימה נשמרת בנפרד'),
+    h('h3', 'שחקנים במכשיר'),
+    h('div.row', profiles().map(p => h('button.btn.small' + (p.id === curProfileId() ? '.primary' : '.ghost'), { onclick: () => { if (p.id !== curProfileId()) { switchProfile(p.id); applyTheme(); applyBig(); go('#/map'); route(); } } }, `${p.avatar} ${p.name}`)),
+      h('button.btn.small.ghost', { onclick: () => { leaveProfile(); applyTheme(); if (location.hash === '#/new') route(); else location.hash = '#/new'; } }, '➕ חדש/ה')),
+    h('button.btn.ghost.wide', { onclick: offlineAll }, '📥 הורדת כל ההקלטות של הרשימה לשימוש בלי אינטרנט'),
     h('button.btn.ghost.wide', { onclick: () => go('#/parent') }, '👨‍👩‍👧 אזור הורים ומורים'),
-    h('details.about', h('summary', 'ℹ️ על האפליקציה ומקורות'), h('div', { html: ABOUT })),
+    h('details.about', h('summary', 'ℹ️ על האפליקציה ומקורות'), h('div', { html: ABOUT }), coverage()),
     nav('#/me'));
 }
-const ABOUT = `<p>רשימות המילים לקוחות מהרשימה הלקסיקלית הרשמית של משרד החינוך: <a href="https://meyda.education.gov.il/files/Mazkirut_Pedagogit/English/CurriculumFilesAugust21/LexicalBand2.xlsx" target="_blank" rel="noopener" lang="en">Lexical Band II – Junior High School</a>.</p>
-<p>לפי תוכנית הלימודים באנגלית (Revised English Curriculum 2020, טבלה 4): <b>Band II Core I</b> נלמד בכיתה ז׳ עד אמצע ח׳, ו־<b>Band II Core II</b> מאמצע ח׳ עד סוף ט׳.</p>
-<p>הסדר בתוך כל רשימה (שלבים של 12 מילים) נקבע על ידינו: קודם מילים לשימוש פעיל (Productive) ואחר כך מילים להבנה (Receptive). המשפטים נכתבו במיוחד לאפליקציה. ההקלטות הוקלטו בקולות מלאכותיים (ElevenLabs).</p>
-<p>ההתקדמות נשמרת רק במכשיר הזה (לא נשלח שום מידע לשרת).</p>`;
+async function setGrade(grade, lv) {
+  const ts = gradeTracks(grade, lv);
+  if (+grade === +S.profile.grade && (grade < 10 || lv === S.profile.level)) return;
+  if (!confirm(`לעבור לכיתה ${GRADES[grade]}${grade >= 10 ? ' · ' + LEVELS[lv] : ''}? ההתקדמות בכל רשימה נשמרת.`)) return;
+  S.profile.grade = grade; S.profile.level = grade >= 10 ? lv : undefined;
+  if (!ts.includes(S.profile.track)) S.profile.track = ts[0];
+  save(true); applyTheme(); await loadTrack(S.profile.track); go('#/map');
+}
+const SRC = 'https://meyda.education.gov.il/files/Mazkirut_Pedagogit/English/CurriculumFilesAugust21/';
+const ABOUT = `<p><b>רשימות המילים</b> – רשמיות, מהרשימות הלקסיקליות של משרד החינוך (English Curriculum 2020): <a href="${SRC}LexicalBand1.xlsx" target="_blank" rel="noopener" lang="en">Band I (+ Pre-Band I)</a>, <a href="${SRC}LexicalBand2.xlsx" target="_blank" rel="noopener" lang="en">Band II</a>, <a href="${SRC}LexicalBand3.xlsx" target="_blank" rel="noopener" lang="en">Band III</a>. סימון List A–D ב־Band III Core I לפי פרסום המזכירות הפדגוגית.</p>
+<p><b>התאמה לכיתות</b> – לפי טבלאות 4–5 בתוכנית הלימודים (<a href="https://education.biu.ac.il/sites/education/files/shared/curriculum2020Elementary.pdf" target="_blank" rel="noopener" lang="en">English Curriculum 2020</a>):</p>
+<ul><li>ד׳: Pre-Band I (ג׳ / תחילת ד׳) ← Band I Core I (ד׳ – אמצע ה׳)</li><li>ה׳: Band I Core I / Core II (המעבר באמצע השנה)</li><li>ו׳: Band I Core II (אמצע ה׳ – סוף ו׳)</li>
+<li>ז׳: Band II Core I · ח׳: Core I / Core II (המעבר באמצע השנה) · ט׳: Band II Core II</li>
+<li>י׳–י״ב: 3 יח״ל = Band II (טבלה 5: "7-9, Bagrut 3 points") · 4 יח״ל = Band III Core I · 5 יח״ל = Band III Core I + II</li></ul>
+<p><b>מה נקבע על ידינו (נגזר, לא רשמי):</b> החלוקה לשלבים של כ־12 מילים והסדר שלהם; בכיתות ה׳ ו־ח׳ – הלומד בוחר מתי לעבור לרשימה השנייה; המשפטים, קטעי הקריאה והשיחות נכתבו במיוחד לתרגול ואינם טקסטים רשמיים; האימוג׳י והתרגום לעברית הותאמו לגיל.</p>
+<p><b>הקלטות:</b> קולות מלאכותיים (ElevenLabs). מילים בלי הקלטה מוקראות בקול הדפדפן ומסומנות 🤖.</p>
+<p>ההתקדמות נשמרת רק במכשיר הזה (לא נשלח שום מידע לשרת). מקורות מלאים: <a href="https://github.com/dudidd-wq/english-quest/blob/main/SOURCES.md" target="_blank" rel="noopener">SOURCES.md</a>.</p>`;
+function coverage() {
+  const ae = D.words.filter(w => hasClip(w, 'en')).length, ah = D.words.filter(w => hasClip(w, 'he')).length;
+  return h('p.small.muted', `ברשימה הנוכחית (${TRACKS[S.profile.track].band}): ${D.words.length} מילים · הקלטה באנגלית ${ae} · בעברית ${ah} · השאר 🤖 קול דפדפן`);
+}
 async function offlineAll() {
-  const urls = D.words.flatMap(w => [`audio/en/${String(w.n).padStart(4, '0')}.mp3`, `audio/he/${String(w.n).padStart(4, '0')}.mp3`]);
+  const urls = D.words.flatMap(w => [audioUrl(w, 'en'), audioUrl(w, 'he')]).filter(Boolean);
+  if (!urls.length) return toast('🤖 לרשימה הזו אין הקלטות – קול הדפדפן עובד גם בלי אינטרנט', 3000);
   let done = 0; toast('מוריד… 0%', 60000);
   const worker = async () => { while (urls.length) { const u = urls.pop(); try { await fetch(u); } catch {} done++; if (done % 50 === 0) toast(`מוריד… ${Math.round(done / (done + urls.length) * 100)}%`, 60000); } };
   await Promise.all([worker(), worker(), worker(), worker()]);
@@ -355,10 +479,13 @@ function parentView() {
   const hard = words.filter(([, r]) => r.bad > 0).sort((a, b) => (b[1].bad - b[1].ok * .5) - (a[1].bad - a[1].ok * .5)).slice(0, 12).map(([n, r]) => [W(n), r]).filter(x => x[0]);
   const mins = Math.round(t.ms / 60000);
   const tr = TRACKS[S.profile.track];
+  const ps = profiles();
   const imp = h('input', { type: 'file', accept: 'application/json', style: { display: 'none' }, onchange: async e => {
     try { const obj = JSON.parse(await e.target.files[0].text()); if (!obj.v) throw 0; if (confirm('לייבא ולהחליף את ההתקדמות הנוכחית?')) { replaceState(obj); location.reload(); } } catch { toast('הקובץ לא תקין'); } } });
   screen('parentv', h('div.shead.plain', h('button.icon-btn', { 'aria-label': 'חזרה', onclick: () => go('#/me') }, '→'), h('h2', 'אזור הורים ומורים')),
-    h('p.muted', `${S.profile.avatar} ${S.profile.name} · ${tr.name} (`, en(tr.band), ')'),
+    ps.length > 1 && h('div.row', ps.map(p => h('button.btn.small' + (p.id === curProfileId() ? '.primary' : '.ghost'), { onclick: () => { if (p.id !== curProfileId()) { switchProfile(p.id); applyTheme(); parentView(); } } }, `${p.avatar} ${p.name} · ${gradeLabel(p)} · ${p.xp || 0} XP`))),
+    h('p.muted', `${S.profile.avatar} ${S.profile.name} · ${gradeLabel(S.profile)} · ${tr.name} (`, en(tr.band), ')'),
+    trackToggle(),
     h('div.kpis',
       h('div', h('b', `${cleared}/${D.stages.length}`), h('small', 'שלבים הושלמו')),
       h('div', h('b', `${seen}/${D.words.length}`), h('small', 'מילים שנלמדו')),
@@ -376,8 +503,8 @@ function parentView() {
     hard.length ? h('table.hard', h('tr', h('th', 'מילה'), h('th', 'פירוש'), h('th', '✓'), h('th', '✗')), hard.map(([w, r]) => h('tr', h('td', en(w.en)), h('td', w.he), h('td', r.ok), h('td', r.bad)))) : h('p.muted', 'עוד אין טעויות 🙂'),
     h('h3', 'גיבוי'),
     h('div.row', h('button.btn.small.ghost', { onclick: () => download(`english-quest-${S.profile.name}.json`, exportState()) }, '⬇️ ייצוא'), h('button.btn.small.ghost', { onclick: () => imp.click() }, '⬆️ ייבוא'), imp,
-      h('button.btn.small.danger', { onclick: () => { if (confirm('למחוק את כל ההתקדמות? אי אפשר לבטל.') && confirm('בטוחים?')) { resetAll(); location.hash = ''; location.reload(); } } }, '🗑️ איפוס')),
-    h('p.muted.small', 'הנתונים נשמרים רק בדפדפן במכשיר הזה.'));
+      h('button.btn.small.danger', { onclick: () => { if (confirm(`למחוק את ${S.profile.name} ואת כל ההתקדמות שלו/ה? אי אפשר לבטל.`) && confirm('בטוחים?')) { resetAll(); location.hash = ''; location.reload(); } } }, '🗑️ מחיקת השחקן')),
+    h('p.muted.small', 'הנתונים נשמרים רק בדפדפן במכשיר הזה. לכל שחקן התקדמות נפרדת, ולכל רשימת מילים – רשומה נפרדת.'));
 }
 
 // ---------- router ----------
@@ -385,12 +512,15 @@ let lastPlay = null;
 async function route(replay) {
   document.querySelectorAll('.confetti,.banner').forEach(el => el.remove());
   banners.length = 0;
-  if (!S.profile) return onboarding();
+  if (!S.profile) return onboarding(location.hash === '#/new' ? 0 : undefined);
+  applyTheme();
+  if (!gradeTracks(S.profile.grade, S.profile.level).includes(S.profile.track)) S.profile.track = gradeTracks(S.profile.grade, S.profile.level)[0];
   if (!D || D.track !== S.profile.track) await loadTrack(S.profile.track);
   const p = location.hash.replace(/^#\/?/, '').split('/');
-  if (p[0] !== 'play' && p[0] !== 'review') { session?.kill(); session = null; }
+  if (p[0] !== 'play' && p[0] !== 'review' && !(p[0] === 'study' && p[1])) { session?.kill(); session = null; }
+  if (p[0] === 'study') { if (STUDY.has(p[1])) return playStudy(p[1], p[2]); return studyView(); }
   if (p[0] === 'stage' && D.stages[+p[1]]) return stageView(+p[1]);
-  if (p[0] === 'play' && D.stages[+p[1]] && GAMES[p[2]]) return play(+p[1], p[2]);
+  if (p[0] === 'play' && D.stages[+p[1]] && GAMES[p[2]] && (!STUDY.has(p[2]) || p[2] === 'forms')) return play(+p[1], p[2]);
   if (p[0] === 'review') return play(0, 'review');
   if (p[0] === 'ach') return achView();
   if (p[0] === 'shop') return shopView();

@@ -1,5 +1,6 @@
 import { dayNum } from './util.js';
-const KEY = 'englishQuest.v1';
+// Multiple sibling profiles: an index + one state object per profile. englishQuest.v1 (v1/v2 single profile) is migrated, never deleted.
+const IDX = 'englishQuest.profiles', OLD = 'englishQuest.v1', PK = id => 'englishQuest.p.' + id;
 const fresh = () => ({
   v: 1, profile: null, xp: 0, coins: 0, owned: [], powers: { hint: 2, heart: 1, freeze: 0 },
   settings: { sfx: true, voice: true, goal: 150, big: false, juice: true },
@@ -9,10 +10,25 @@ const fresh = () => ({
   cosmetics: { aura: 'none', title: '', ownedAuras: ['none'], ownedTitles: [''] },
   rival: { name: 'צל_המילים', bestCombo: 7, bestBlitz: 35 },
 });
+const read = k => { try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } };
+const write = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
+function loadIdx() {
+  const x = read(IDX); if (x && Array.isArray(x.list) && (x.list.length || x.migrated)) return x;
+  const idx = { list: [], cur: null, migrated: 0 };
+  const old = read(OLD);
+  if (old && old.v === 1 && old.profile) {            // migrate the single v1/v2 profile → p1
+    const p = old.profile; p.grade ||= p.track === 'g9' ? 9 : 7; p.level ||= 4;
+    write(PK('p1'), old); idx.list.push({ id: 'p1', name: p.name, avatar: p.avatar, grade: p.grade }); idx.cur = 'p1';
+  }
+  idx.migrated = Date.now();             // checked once: a deleted migrated profile is never resurrected
+  write(IDX, idx); return idx;
+}
+const idx = loadIdx();
 export let S = load();
 function load() {
-  try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.v === 1) return merge(fresh(), s); } catch {}
-  return fresh();
+  const s = idx.cur && read(PK(idx.cur));
+  if (s && s.v === 1) { const st = merge(fresh(), s); if (st.profile && !st.profile.grade) st.profile.grade = st.profile.track === 'g9' ? 9 : 7; return st; }
+  idx.cur = null; return fresh();
 }
 function merge(a, b) {
   for (const k in b) a[k] = (b[k] && typeof b[k] === 'object' && !Array.isArray(b[k]) && a[k] && typeof a[k] === 'object') ? merge(a[k], b[k]) : b[k];
@@ -21,14 +37,37 @@ function merge(a, b) {
 let saveT;
 export function save(now = false) {
   clearTimeout(saveT);
-  const w = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} };
+  const w = () => {
+    if (!idx.cur || !S.profile) return;
+    write(PK(idx.cur), S);
+    const e = idx.list.find(x => x.id === idx.cur); if (e) { e.name = S.profile.name; e.avatar = S.profile.avatar; e.grade = S.profile.grade; e.level = S.profile.level; e.xp = S.xp; }
+    write(IDX, idx);
+  };
   now ? w() : (saveT = setTimeout(w, 150));
 }
 addEventListener('pagehide', () => save(true));
 addEventListener('visibilitychange', () => document.visibilityState === 'hidden' && save(true));
-export function replaceState(obj) { S = merge(fresh(), obj); save(true); }
-export function resetAll() { S = fresh(); save(true); }
+export function replaceState(obj) { const p = S.profile; S = merge(fresh(), obj); S.profile ||= p; S.profile.grade ||= S.profile.track === 'g9' ? 9 : 7; save(true); }
 export const exportState = () => JSON.stringify(S, null, 1);
+// ---- profiles ----
+export const profiles = () => idx.list;
+export const curProfileId = () => idx.cur;
+export const migratedAt = () => idx.migrated;
+export function createProfile(profile) {
+  save(true);
+  const id = 'p' + Date.now().toString(36);
+  S = fresh(); S.profile = profile; idx.cur = id;
+  idx.list.push({ id, name: profile.name, avatar: profile.avatar, grade: profile.grade, level: profile.level });
+  save(true); return id;
+}
+export function switchProfile(id) { save(true); if (!idx.list.some(x => x.id === id)) return; idx.cur = id; write(IDX, idx); S = load(); }
+export function leaveProfile() { save(true); idx.cur = null; write(IDX, idx); S = fresh(); }
+export function deleteProfile(id = idx.cur) {
+  idx.list = idx.list.filter(x => x.id !== id); try { localStorage.removeItem(PK(id)); } catch {}
+  if (idx.cur === id) { idx.cur = null; S = fresh(); }
+  write(IDX, idx);
+}
+export function resetAll() { deleteProfile(idx.cur); }
 
 const listeners = [];
 export const on = fn => listeners.push(fn);

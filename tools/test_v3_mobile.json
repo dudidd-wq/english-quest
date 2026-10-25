@@ -1,0 +1,7 @@
+{
+ "results": [],
+ "errors": [
+  "mobile/extras console Failed to load resource: the server responded with a status of 404 (File not found)",
+  "mobile extras FAIL page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator('.mapv .hud') to be visible\n"
+ ]
+}

@@ -1,9 +1,30 @@
-// Word data per track (built by tools/build_data.py from the official MoE Lexical Band II list).
+// Word data per track (built by tools/build_all.py from the official MoE Lexical Bands, Curriculum 2020).
 import { shuffle, overlaps, posCat } from './util.js';
+/** One track = one official core list. */
 export const TRACKS = {
-  g7: { name: "כיתה ז'", band: 'Band II · Core I', desc: 'החלק הראשון של רשימת המילים הרשמית לחטיבת הביניים (כיתה ז׳ – אמצע ח׳)', emoji: '🚀' },
-  g9: { name: "כיתה ט'", band: 'Band II · Core II', desc: 'החלק השני של רשימת המילים הרשמית לחטיבת הביניים (אמצע ח׳ – סוף ט׳)', emoji: '🛸' },
+  pre1: { name: 'מילים ראשונות', band: 'Pre-Band I', when: "כיתה ג׳ / תחילת ד׳", emoji: '🌱', file: 'LexicalBand1.xlsx' },
+  b1c1: { name: 'Band I – חלק 1', band: 'Band I · Core I', when: "ד׳ – אמצע ה׳", emoji: '🐣', file: 'LexicalBand1.xlsx' },
+  b1c2: { name: 'Band I – חלק 2', band: 'Band I · Core II', when: "אמצע ה׳ – סוף ו׳", emoji: '🦋', file: 'LexicalBand1.xlsx' },
+  g7:   { name: 'Band II – חלק 1', band: 'Band II · Core I', when: "ז׳ – אמצע ח׳", emoji: '🚀', file: 'LexicalBand2.xlsx' },
+  g9:   { name: 'Band II – חלק 2', band: 'Band II · Core II', when: "אמצע ח׳ – סוף ט׳", emoji: '🛸', file: 'LexicalBand2.xlsx' },
+  b3c1: { name: 'Band III – Core I', band: 'Band III · Core I', when: "י׳–י״ב · 4 ו־5 יח״ל", emoji: '🎓', file: 'LexicalBand3.xlsx' },
+  b3c2: { name: 'Band III – Core II', band: 'Band III · Core II', when: "י׳–י״ב · 5 יח״ל", emoji: '🏛️', file: 'LexicalBand3.xlsx' },
 };
+/** Grade → lists, per English Curriculum 2020 Tables 4–5 (see SOURCES.md). */
+export const GRADES = { 4: "ד׳", 5: "ה׳", 6: "ו׳", 7: "ז׳", 8: "ח׳", 9: "ט׳", 10: "י׳", 11: "י״א", 12: "י״ב" };
+export const LEVELS = { 3: '3 יח״ל', 4: '4 יח״ל', 5: '5 יח״ל' };
+export function gradeTracks(grade, level = 4) {
+  grade = +grade;
+  if (grade <= 4) return ['pre1', 'b1c1'];
+  if (grade === 5) return ['b1c1', 'b1c2'];
+  if (grade === 6) return ['b1c2'];
+  if (grade === 7) return ['g7'];
+  if (grade === 8) return ['g7', 'g9'];
+  if (grade === 9) return ['g9'];
+  return +level === 3 ? ['g7', 'g9'] : +level === 5 ? ['b3c1', 'b3c2'] : ['b3c1'];
+}
+export const themeOf = grade => +grade <= 6 ? 'kids' : +grade <= 9 ? 'arcade' : 'bagrut';
+export const gradeLabel = p => p ? `כיתה ${GRADES[p.grade] || ''}` + (+p.grade >= 10 ? ` · ${LEVELS[p.level] || ''}` : '') : '';
 export const WORLDS = [
   { name: 'אי הקוקוסים', icon: '🌴', bg: ['#14b8a6', '#0ea5e9'], boss: '🦀', bossName: 'סרטן הענק', story: 'גלים מביאים מילים חדשות — כבשו את החוף!' },
   { name: 'יער הלחשים', icon: '🌲', bg: ['#22c55e', '#15803d'], boss: '🐺', bossName: 'זאב הצללים', story: 'העצים לוחשים באנגלית. תקשיבו היטב…' },
@@ -20,12 +41,14 @@ export const WORLDS = [
 export const PER_WORLD = 8;
 export let D = null;           // current track data
 const cache = {};
+export const loaded = t => cache[t];
 export async function loadTrack(track) {
   if (!cache[track]) {
     const r = await fetch(`data/${track}.json`); const d = await r.json();
     d.byN = new Map(d.words.map(w => [w.n, w]));
     d.stageOf = new Map(); d.stages.forEach((b, i) => b.forEach(n => d.stageOf.set(n, i)));
     d.worlds = Math.ceil(d.stages.length / PER_WORLD);
+    d.read ||= []; d.talk ||= [];
     cache[track] = d;
   }
   return (D = cache[track]);

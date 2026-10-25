@@ -1,7 +1,12 @@
 // Recorded clips (Matilda EN / Tomer HE from band2) + speechSynthesis fallback + punchy Web Audio SFX.
 import { S } from './store.js';
 const pad = n => String(n).padStart(4, '0');
-export const audioUrl = (w, lang) => `audio/${lang}/${pad(w.n)}.mp3`;
+/** recorded clip for a word, or null (then the browser voice is used and flagged in the UI) */
+export const clipNo = (w, lang) => lang === 'he' ? w.ah : w.ae;
+export const hasClip = (w, lang) => !!clipNo(w, lang);
+export const audioUrl = (w, lang) => hasClip(w, lang) ? `audio/${lang}/${pad(clipNo(w, lang))}.mp3` : null;
+/** fires when the browser voice (speechSynthesis) is used instead of a recording */
+const robo = new Set(); export const onRobo = fn => robo.add(fn);
 const player = () => document.getElementById('player');
 let token = 0, AC = null, master = null;
 
@@ -64,15 +69,16 @@ export async function playWord(w, lang = 'en', btn) {
   if (!w || !S.settings.voice) return false;
   btn?.classList.add('playing');
   const my = token + 1;
-  let ok = await playUrl(audioUrl(w, lang));
-  if (!ok && ok !== 'blocked' && my === token) ok = await speak(spokenText(w, lang), lang);
+  const url = audioUrl(w, lang);
+  let ok = url ? await playUrl(url) : false;
+  if (!ok && ok !== 'blocked' && (my === token || !url)) { robo.forEach(f => f(w, lang)); ok = await speak(spokenText(w, lang), lang); }
   btn?.classList.remove('playing');
   return ok;
 }
 export function stop() { token++; const a = player(); a.onended = a.onerror = null; try { a.pause(); } catch {} if ('speechSynthesis' in window) speechSynthesis.cancel(); }
 export function prefetch(words) {
   if (!navigator.onLine) return;
-  let i = 0; const urls = words.flatMap(w => [audioUrl(w, 'en'), audioUrl(w, 'he')]);
+  let i = 0; const urls = words.flatMap(w => [audioUrl(w, 'en'), audioUrl(w, 'he')]).filter(Boolean);
   const next = () => { if (i < urls.length) fetch(urls[i++]).catch(() => {}).finally(next); };
   next(); next();
 }

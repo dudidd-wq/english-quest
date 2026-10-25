@@ -93,6 +93,9 @@ OLD_SENT = {**OLD[0]['sent'], **OLD[1]['sent']}        # v2 sentences (built by 
 SRCN = {'pre1': 'Pre-Band I', 'b1c1': 'Band I · Core I', 'b1c2': 'Band I · Core II', 'g7': 'Band II · Core I', 'g9': 'Band II · Core II', 'b3c1': 'Band III · Core I', 'b3c2': 'Band III · Core II'}
 FILE = {'pre1': 'LexicalBand1.xlsx', 'b1c1': 'LexicalBand1.xlsx', 'b1c2': 'LexicalBand1.xlsx', 'g7': 'LexicalBand2.xlsx', 'g9': 'LexicalBand2.xlsx', 'b3c1': 'LexicalBand3.xlsx', 'b3c2': 'LexicalBand3.xlsx'}
 READ = json.load(open(os.path.join(ROOT, 'tools/src/reading.json'))) if os.path.exists(os.path.join(ROOT, 'tools/src/reading.json')) else {}
+TALK = {'g7': [], 'g9': []}   # conversation items from band2-study (parts 1–10 = Core I, 11–20 = Core II)
+for it in json.load(open(os.path.join(ROOT, 'tools/src/talk_band2.json')))['items']:
+    TALK['g7' if it['part'] <= 10 else 'g9'].append({k: v for k, v in it.items() if k not in ('part',)})
 report = {}
 for t, words in TRACKS.items():
     valid = {w['n'] for w in words}
@@ -106,6 +109,6 @@ for t, words in TRACKS.items():
     ae = sum(1 for w in words if 'ae' in w); ah = sum(1 for w in words if 'ah' in w)
     report[t] = dict(words=len(words), stages=len(st), in_games=sum(map(len, st)), sentences=sum(cov), min_sent=min(cov), audio_en=ae, audio_he=ah)
     print(t, report[t], 'stages<2 sent:', sum(1 for c in cov if c < 2))
-    json.dump({'track': t, 'source': f'Israel MoE Lexical {SRCN[t]} ({FILE[t]})', 'stages': st, 'words': words, 'sent': S, 'read': READ.get(t, [])},
+    json.dump({'track': t, 'source': f'Israel MoE Lexical {SRCN[t]} ({FILE[t]})', 'stages': st, 'words': words, 'sent': S, 'read': READ.get(t, []), 'talk': TALK.get(t, [])},
               open(os.path.join(ROOT, f'data/{t}.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 json.dump(report, open(os.path.join(ROOT, 'tools/report.json'), 'w'), indent=1)

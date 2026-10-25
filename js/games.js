@@ -2,7 +2,7 @@
 import { h, put, en, shuffle, sample, sleep, clamp, toast, posHe } from './util.js';
 import { S, answer, gainXp, gainCoins, comboMult, save } from './store.js';
 import { playWord, sfx, stop as stopAudio } from './audio.js';
-import { D, W, distractors, stageSentences, scrambleWord, phraseTiles } from './data.js';
+import { D, W, distractors, stageSentences, scrambleWord, phraseTiles, themeOf } from './data.js';
 
 export const GAMES = {
   intro:   { icon: '📖', name: 'הכירו את המילים', short: 'כרטיסיות', desc: 'שמעו, ראו וזכרו – מילים חדשות ב־30 שניות' },
@@ -14,9 +14,24 @@ export const GAMES = {
   blitz:   { icon: '💥', name: 'בליץ', short: 'בליץ', desc: 'רפלקסים! 4 אפשרויות, שעון דופק, אל תפספסו' },
   boss:    { icon: '⚔️', name: 'קרב בוס', short: 'בוס', desc: 'נצחו את הבוס כדי לעבור שלב!' },
   review:  { icon: '🔁', name: 'חזרה יומית', short: 'חזרה', desc: 'המילים שהגיע זמנן לחזור' },
+  forms:   { icon: '🧩', name: 'משפחות מילים', short: 'צורות', desc: 'בחרו את הצורה הנכונה מאותה משפחה (n / v / adj / adv)' },
+  reading: { icon: '📰', name: 'קטע קריאה', short: 'קריאה', desc: 'קטע קצר + שאלות הבנה בסגנון בגרות' },
+  talk:    { icon: '💬', name: 'משפטים ושיחות', short: 'שיחה', desc: 'השלימו דיאלוג ובנו משפטים' },
+  cards:   { icon: '📇', name: 'כרטיסיות', short: 'כרטיסיות', desc: 'הפכו כרטיס, דרגו את עצמכם – החזרה המרווחת מתעדכנת' },
+  type:    { icon: '⌨️', name: 'בוחן הקלדה', short: 'הקלדה', desc: 'רואים בעברית, מקלידים באנגלית (סלחני לטעות קטנה)' },
 };
-export const PRACTICE = ['match', 'listen', 'scramble', 'fill', 'memory', 'blitz'];
-export const MISSION_POOL = ['match', 'blitz', 'listen', 'scramble'];
+export const theme = () => themeOf(S.profile?.grade || 7);
+/** timers stretch for younger kids (still brisk) */
+export const pace = () => theme() === 'kids' ? 1.5 : 1;
+const hasSent = () => D && Object.keys(D.sent || {}).length > 0;
+/** practice games offered in a stage, per age band */
+export function practiceFor(i) {
+  const t = theme(), fill = hasSent() && stageSentences(i, 1).length ? ['fill'] : [];
+  if (t === 'kids') return ['match', 'listen', 'memory', 'scramble', ...fill];
+  if (t === 'bagrut') return [...fill, ...(formsPool(i).length >= 4 ? ['forms'] : []), 'match', 'listen', 'blitz', 'scramble'];
+  return ['match', 'listen', 'scramble', ...fill, 'memory', 'blitz'];
+}
+export const missionPool = i => theme() === 'kids' ? ['match', 'listen', 'memory'] : theme() === 'bagrut' ? practiceFor(i).filter(g => ['fill', 'forms', 'blitz', 'match'].includes(g)) : ['match', 'blitz', 'listen', 'scramble'];
 const label = w => w.en + (w.m ? ` (${w.m})` : '');
 
 /** One play of one game: owns the top bar, combo, XP, and the result summary. */
@@ -184,8 +199,8 @@ export async function match(sess, words) {
   const rounds = []; const ws = shuffle(words);
   for (let i = 0; i < ws.length; i += 4) rounds.push(ws.slice(i, i + 4));
   if (rounds.length > 1 && rounds.at(-1).length < 3) rounds.at(-2).push(...rounds.pop());
-  let timeLeft = 60, matched = 0; const total = ws.length;
-  const clock = h('div.clock', '60');
+  let timeLeft = Math.round(60 * pace()), matched = 0; const total = ws.length;
+  const clock = h('div.clock', String(timeLeft));
   let over = false;
   await new Promise(resolve => {
     const tick = () => {
@@ -358,12 +373,12 @@ export async function boss(sess, words, { world, hearts = 3, stageIdx, review = 
   if (!review) { sfx('boss'); sess.burst('⚔️ הבוס תוקף!'); }
   // questions render into `area` instead of the whole body
   const realBody = sess.body; sess.body = area;
-  const types = ['enhe', 'listen', 'fill', 'heen'];
+  const types = theme() === 'kids' ? ['enhe', 'listen', 'enhe', 'fill'] : ['enhe', 'listen', 'fill', 'heen'];
   let k = 0, lostAny = false;
   while (hp > 0 && (review || lives > 0) && queue.length) {
     if (sess.dead) return sess.summary({ won: false, stars: 0 });
     const w = queue.shift(); const t = types[k++ % types.length];
-    const timer = review ? 0 : Math.max(7000, 10000 - k * 200);
+    const timer = review ? 0 : Math.max(7000, 10000 - k * 200) * pace();
     let ok;
     if (t === 'fill' && sents.has(w.n)) ok = await qSentence(sess, sents.get(w.n), timer);
     else if (t === 'listen' || (t === 'fill' && k % 2)) ok = await qListen(sess, w, pool, timer);
@@ -405,7 +420,7 @@ export async function blitz(sess, words, { target = 14 } = {}) {
   while (lives > 0 && i < target && !sess.dead) {
     const w = pool[i % pool.length]; i++;
     sess.progress(i / target);
-    const limit = Math.max(1400, 2800 - i * 80);
+    const limit = Math.max(1400, 2800 - i * 80) * pace();
     const asHe = Math.random() < 0.55;
     put(wordEl, asHe
       ? h('div', h('div.qhint', 'איך אומרים באנגלית?'), h('div.he.big', w.he))
@@ -449,4 +464,172 @@ export async function blitz(sess, words, { target = 14 } = {}) {
     score, note: `💥 ניקוד בליץ: ${score}` + (score > ghost ? ' · ניצחתם את הצל! 👻' : ` · צל: ${ghost}`),
     blitzScore: score, beatGhost: score > ghost,
   });
+}
+
+// ---------- 🧩 word families (Band III "selected family members" column) ----------
+const POS_FULL = { n: 'שם עצם (noun)', v: 'פועל (verb)', adj: 'שם תואר (adjective)', adv: 'תואר הפועל (adverb)', prep: 'מילת יחס (preposition)', conj: 'מילת חיבור (conjunction)' };
+/** official family members split into single-word {w, form, pos} items */
+export function familyItems(words) {
+  const out = [];
+  for (const w of words) {
+    if (!w.f || !w.fp) continue;
+    const fs = w.f.split(/\s+/), ps = w.fp.split(/\s+/);
+    if (fs.length !== ps.length) continue;
+    fs.forEach((form, k) => { if (/^[a-z-]+$/i.test(form) && form.toLowerCase() !== w.en.toLowerCase() && POS_FULL[ps[k]]) out.push({ w, form, pos: ps[k] }); });
+  }
+  return out;
+}
+let famAll = null, famTrack = null;
+function allFamilies() { if (famTrack !== D.track) { famAll = familyItems(D.words); famTrack = D.track; } return famAll; }
+export function formsPool(i) {
+  const all = allFamilies(); if (!all.length) return [];
+  const near = new Set(D.stages.slice(Math.max(0, i - 3), i + 2).flat());
+  const here = new Set(D.stages[i] || []);
+  const a = all.filter(x => here.has(x.w.n)), b = all.filter(x => near.has(x.w.n) && !here.has(x.w.n));
+  let pool = [...shuffle(a), ...shuffle(b)];
+  if (pool.length < 6) pool = [...pool, ...shuffle(all.filter(x => !near.has(x.w.n)))];
+  return pool.slice(0, 6);
+}
+const suffix = s => s.slice(-3);
+function qForm(sess, it, timer) {
+  const all = allFamilies(); const same = all.filter(x => x.pos === it.pos && x.form !== it.form && x.w.n !== it.w.n);
+  const close = shuffle(same.filter(x => suffix(x.form) === suffix(it.form)));
+  const picks = [...new Set([...close, ...shuffle(same)].map(x => x.form))].slice(0, 3);
+  const prompt = h('div.prompt', h('div.qhint', 'איזו מילה שייכת למשפחה של'), h('div.word', en(it.w.en), audioBtn(it.w)), h('div.he', it.w.he),
+    h('div.qhint', 'בתור ', h('b', POS_FULL[it.pos]), '?'));
+  const opts = shuffle([{ text: it.form, ok: true, lang: 'en' }, ...picks.map(t => ({ text: t, lang: 'en' }))]);
+  return choice(sess, { prompt, w: it.w, timer, opts, cols: 2, wrongPause: 1800, onRight: () => playWord(it.w, 'en') });
+}
+export async function forms(sess, items) {
+  if (!items.length) return sess.summary({ acc: 1, stars: 3, note: 'אין משפחות מילים ברשימה הזו' });
+  let first = 0;
+  for (let k = 0; k < items.length; k++) {
+    if (sess.dead) return sess.summary({ stars: 0 });
+    sess.progress(k / items.length);
+    if (await qForm(sess, items[k], 0)) first++;
+  }
+  sess.progress(1); const acc = first / items.length;
+  return sess.summary({ acc, stars: starsFor(acc), note: 'המשפחות לקוחות מעמודת "selected family members" ברשימה הרשמית' });
+}
+
+// ---------- 📰 reading snippet (written for the app – not an official exam text) ----------
+export async function reading(sess, r) {
+  let first = 0; const text = h('div.passage', { lang: 'en', dir: 'ltr' }, h('h3', r.title), h('p', r.text));
+  for (let k = 0; k < r.q.length; k++) {
+    if (sess.dead) return sess.summary({ stars: 0 });
+    sess.progress(k / r.q.length);
+    const q = r.q[k];
+    const prompt = h('div.prompt', text, h('div.qhint', `שאלה ${k + 1} מתוך ${r.q.length}`), h('p.rq', { lang: 'en', dir: 'ltr' }, q.q));
+    if (await choice(sess, { prompt, w: null, opts: shuffle([{ text: q.a, ok: true, lang: 'en' }, ...q.o.map(t => ({ text: t, lang: 'en' }))]), wrongPause: 2200 })) first++;
+  }
+  sess.progress(1); const acc = first / r.q.length;
+  return sess.summary({ acc, stars: starsFor(acc), note: 'קטע הקריאה נכתב במיוחד לאפליקציה (אינו קטע בחינה רשמי)' });
+}
+
+// ---------- 💬 conversation sentences (from band2-study) ----------
+export async function talk(sess, items) {
+  let first = 0;
+  for (let k = 0; k < items.length; k++) {
+    if (sess.dead) return sess.summary({ stars: 0 });
+    sess.progress(k / items.length);
+    const it = items[k], w = W(it.t?.[0]);
+    let ok;
+    if (it.type === 'build') ok = await buildOne(sess, it, w);
+    else {
+      const body = it.type === 'dialog'
+        ? h('div.dialog', { lang: 'en', dir: 'ltr' }, it.lines.map((l, j) => h('div.bubble2' + (j % 2 ? '.b' : '.a'), h('span.who', j % 2 ? '🤖' : '🦊'), l.en)))
+        : h('p.sentence', { lang: 'en', dir: 'ltr' }, it.s);
+      const prompt = h('div.prompt', h('div.qhint', it.type === 'dialog' ? 'השלימו את השיחה' : 'איזו מילה חסרה?'), body);
+      ok = await choice(sess, { prompt, w, cols: 2, wrongPause: 2200, opts: shuffle(it.opts.map(t => ({ text: t, ok: it.ans.includes(t), lang: 'en' }))),
+        onRight: () => prompt.append(h('div.gloss', it.he)), onWrong: () => prompt.append(h('div.gloss', it.he)) });
+    }
+    if (ok) first++;
+  }
+  sess.progress(1); const acc = items.length ? first / items.length : 1;
+  return sess.summary({ acc, stars: starsFor(acc), note: 'המשפטים מאפליקציית התרגול Band II (נכתבו לתרגול, לא רשימה רשמית)' });
+}
+function buildOne(sess, it, w) {
+  const norm = x => x.toLowerCase().replace(/[^a-z' ]/g, '').replace(/\s+/g, ' ').trim();
+  return new Promise(resolve => {
+    const pieces = it.tiles; let order = shuffle(pieces.map((_, i) => i)); const got = []; let tries = 0, lock = false;
+    const line = h('div.slots.words', { dir: 'ltr' }), bank = h('div.bank', { dir: 'ltr' });
+    const render = () => {
+      put(line, got.map((i, k) => h('button.slot.full', { onclick: () => { if (!lock) { got.splice(k, 1); render(); } } }, pieces[i])));
+      put(bank, order.map(i => h('button.ltr.wtile', { disabled: got.includes(i), onclick: () => { if (lock) return; got.push(i); sfx('tap'); render(); if (got.length === pieces.length) check(); } }, pieces[i])));
+    };
+    const check = () => {
+      const s = norm(got.map(i => pieces[i]).join(' '));
+      if (it.ans.map(norm).includes(s)) { lock = true; line.classList.add('solved'); tries ? (sfx('ok'), sess.ok++) : sess.right(w, line); sess.later(() => resolve(tries === 0), 900); }
+      else if (++tries < 2) { sess.wrong(w, line); toast('כמעט! נסו שוב 💪', 1100); sess.later(() => { got.length = 0; render(); }, 450); }
+      else { lock = true; sess.wrong(null, line); put(line, h('div.reveal', { lang: 'en' }, it.s)); sess.later(() => resolve(false), 2000); }
+    };
+    render();
+    put(sess.body, h('div.spell', h('div.qhint', 'סדרו את המילים למשפט'), h('div.he.big', it.he), line, bank));
+  });
+}
+
+// ---------- 📇 flashcards (self-graded SRS) ----------
+export async function cards(sess, words) {
+  let knew = 0;
+  for (let k = 0; k < words.length; k++) {
+    if (sess.dead) return sess.summary({ stars: 0 });
+    sess.progress(k / words.length);
+    const w = words[k], heFirst = k % 2 === 1;
+    const ok = await new Promise(resolve => {
+      const back = h('div.cback', h('div.he.big', w.he, audioBtn(w, 'he')), h('div.word', en(w.en), audioBtn(w)), w.m && h('div.mhint', en(`(${w.m})`)), h('div.pos', posHe(w.pos)));
+      const front = heFirst ? h('div.he.big', w.he) : h('div.word.big', en(w.en), audioBtn(w));
+      const btns = h('div.row.navbtns', h('button.btn.big.ghost', { onclick: () => { sess.wrong(w, card); resolve(false); } }, '😕 עוד לא'), h('button.btn.big.primary', { onclick: () => { sess.right(w, card); resolve(true); } }, '😎 ידעתי'));
+      const card = h('button.card.flash', { 'aria-label': 'הפכו את הכרטיס', onclick: () => { if (card.classList.contains('flipped')) return; card.classList.add('flipped'); card.append(back); sess.body.querySelector('.q').append(btns); if (heFirst) playWord(w, 'en'); } },
+        h('div.emoji.huge', { 'aria-hidden': 'true' }, w.e || '✨'), front, h('div.qhint', 'חשבו על התשובה ולחצו להפוך'));
+      put(sess.body, h('div.q', card, h('div.count', `${k + 1} / ${words.length}`)));
+      if (!heFirst) sess.later(() => playWord(w, 'en'), 100);
+    });
+    if (ok) knew++;
+    await sess.wait(250);
+  }
+  sess.progress(1); const acc = words.length ? knew / words.length : 1;
+  return sess.summary({ acc, stars: starsFor(acc) });
+}
+
+// ---------- ⌨️ forgiving typing quiz ----------
+export function lev(a, b) {
+  const m = a.length, n = b.length; if (Math.abs(m - n) > 2) return 9; const d = Array.from({ length: m + 1 }, (_, i) => [i]);
+  for (let j = 1; j <= n; j++) d[0][j] = j;
+  for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return d[m][n];
+}
+const clean = s => s.toLowerCase().replace(/[’`]/g, "'").replace(/\([^)]*\)/g, '').replace(/\bsth\b|\bsb\b|\bsomething\b|\bsomeone\b/g, '').replace(/[^a-z' -]/g, ' ').replace(/^to /, '').replace(/\s+/g, ' ').trim();
+/** 'ok' exact (ignoring case/“to ”/sth), 'near' one small typo, false otherwise */
+export function checkTyped(input, w) {
+  const a = clean(input); if (!a) return false;
+  const targets = w.en.split(/\s*(?:\/|\bor\b)\s*/).map(clean).filter(Boolean);
+  if (targets.includes(a)) return 'ok';
+  if (targets.some(t => t.length >= 4 && lev(a, t) <= 1)) return 'near';
+  return false;
+}
+export async function typing(sess, words) {
+  let first = 0;
+  for (let k = 0; k < words.length; k++) {
+    if (sess.dead) return sess.summary({ stars: 0 });
+    sess.progress(k / words.length);
+    const w = words[k];
+    const ok = await new Promise(resolve => {
+      const inp = h('input.name.typein', { dir: 'ltr', lang: 'en', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', 'aria-label': 'הקלידו באנגלית' });
+      const fb = h('div.fb', { 'aria-live': 'polite' });
+      let tries = 0, done = false;
+      const submit = () => {
+        if (done) return; const r = checkTyped(inp.value, w);
+        if (r) { done = true; sess.right(w, inp); put(fb, r === 'near' ? h('span', '✅ כמעט מושלם – הכתיב: ', en(w.en)) : h('span', '✅ ', en(w.en))); playWord(w, 'en'); sess.later(() => resolve(tries === 0), r === 'near' ? 1600 : 800); }
+        else if (++tries < 2) { sess.wrong(null, inp); put(fb, `לא בדיוק. רמז: מתחיל ב־`, en(w.en.slice(0, 2) + '…')); inp.select(); }
+        else { done = true; sess.wrong(w, inp); put(fb, h('span', 'התשובה: ', en(w.en))); playWord(w, 'en'); sess.later(() => resolve(false), 1900); }
+      };
+      inp.addEventListener('keydown', e => e.key === 'Enter' && submit());
+      put(sess.body, h('div.q', h('div.prompt', h('div.qhint', 'איך כותבים באנגלית?'), wordHead(w), h('div.he.big', w.he), w.m && h('div.mhint', en(`(${w.m})`))),
+        inp, h('div.row.navbtns', h('button.btn.ghost', { onclick: () => { inp.value = ''; tries = 1; submit(); } }, 'לא יודע/ת'), h('button.btn.primary', { onclick: submit }, 'בדיקה ✓')), fb));
+      setTimeout(() => inp.focus(), 30);
+    });
+    if (ok) first++;
+  }
+  sess.progress(1); const acc = words.length ? first / words.length : 1;
+  return sess.summary({ acc, stars: starsFor(acc) });
 }
