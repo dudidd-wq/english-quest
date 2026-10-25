@@ -38,6 +38,8 @@ def he_file(t):
     return out
 
 TRACKS = {}
+# v3 clips (tools/tts_v3.py install): same voices/model as band2, file name = word number n
+V3 = json.load(open(os.path.join(SRC, 'clips_v3.json'))) if os.path.exists(os.path.join(SRC, 'clips_v3.json')) else {}
 for t in ('pre1', 'b1c1', 'b1c2', 'b3c1', 'b3c2'):
     H = he_file(t); words = []
     for r in RAW[t]:
@@ -49,6 +51,9 @@ for t in ('pre1', 'b1c1', 'b1c2', 'b3c1', 'b3c2'):
         a = EN2N.get(norm(r['en']));  b = HE2N.get(he)
         if a: w['ae'] = a
         if b: w['ah'] = b
+        v = V3.get(str(r['n']), {})
+        if 'ae' not in w and v.get('ae'): w['ae'] = v['ae']
+        if 'ah' not in w and v.get('ah'): w['ah'] = v['ah']
         words.append(w)
     TRACKS[t] = words
 for core, t in ((1, 'g7'), (2, 'g9')):
