@@ -11,7 +11,11 @@ const fresh = () => ({
   rival: { name: 'צל_המילים', bestCombo: 7, bestBlitz: 35 },
 });
 const read = k => { try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } };
-const write = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
+const persistL = []; let persistT;
+/** called (debounced) after anything is written – used by backup.js for the IndexedDB mirror / auto-save file */
+export const onPersist = fn => persistL.push(fn);
+const notify = () => { clearTimeout(persistT); persistT = setTimeout(() => persistL.forEach(f => { try { f(); } catch {} }), 800); };
+const write = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} notify(); };
 function loadIdx() {
   const x = read(IDX); if (x && Array.isArray(x.list) && (x.list.length || x.migrated)) return x;
   const idx = { list: [], cur: null, migrated: 0 };
@@ -23,7 +27,7 @@ function loadIdx() {
   idx.migrated = Date.now();             // checked once: a deleted migrated profile is never resurrected
   write(IDX, idx); return idx;
 }
-const idx = loadIdx();
+let idx = loadIdx();
 export let S = load();
 function load() {
   const s = idx.cur && read(PK(idx.cur));
@@ -49,6 +53,28 @@ addEventListener('pagehide', () => save(true));
 addEventListener('visibilitychange', () => document.visibilityState === 'hidden' && save(true));
 export function replaceState(obj) { const p = S.profile; S = merge(fresh(), obj); S.profile ||= p; S.profile.grade ||= S.profile.track === 'g9' ? 9 : 7; save(true); }
 export const exportState = () => JSON.stringify(S, null, 1);
+// ---- whole-device snapshot (all profiles) for backup.js; no data ever leaves the device from here ----
+export function snapshot() {
+  save(true);
+  return { app: 'english-quest', schema: 2, savedAt: Date.now(), cur: idx.cur,
+    profiles: idx.list.map(e => ({ id: e.id, name: e.name, avatar: e.avatar, grade: e.grade, level: e.level, xp: e.xp || 0, state: read(PK(e.id)) })).filter(p => p.state) };
+}
+/** profiles = sanitized [{id,name,avatar,grade,level,xp,state}] (see backup.js) */
+export function restoreProfiles(list, cur, mode = 'replace') {
+  clearTimeout(saveT);
+  if (mode === 'replace') { for (const e of idx.list) try { localStorage.removeItem(PK(e.id)); } catch {} idx.list = []; }
+  for (const p of list) {
+    const i = idx.list.findIndex(e => e.id === p.id);
+    if (i >= 0) { if ((p.state.xp || 0) < (read(PK(p.id))?.xp || 0)) continue; idx.list.splice(i, 1); }   // merge: keep the more advanced copy
+    write(PK(p.id), p.state);
+    idx.list.push({ id: p.id, name: p.state.profile.name, avatar: p.state.profile.avatar, grade: p.state.profile.grade, level: p.state.profile.level, xp: p.state.xp || 0 });
+  }
+  idx.migrated ||= Date.now();
+  if (mode === 'replace' || !idx.cur) idx.cur = idx.list.some(e => e.id === cur) ? cur : null;
+  write(IDX, idx); S = load();
+}
+/** true when the index lists a profile whose saved state is missing (partial wipe) */
+export const missingStates = () => idx.list.filter(e => !read(PK(e.id))).map(e => e.id);
 // ---- profiles ----
 export const profiles = () => idx.list;
 export const curProfileId = () => idx.cur;

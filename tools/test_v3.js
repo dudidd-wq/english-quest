@@ -38,9 +38,11 @@ async function playUntilResult(page, tag, ms = 120000) {
   }
   throw new Error('timeout ' + tag);
 }
+// wipe localStorage + the IndexedDB mirror (otherwise v3.1 recovery would restore the previous player)
+const wipe = page => page.evaluate(() => new Promise(r => { localStorage.clear(); sessionStorage.clear(); const q = indexedDB.deleteDatabase('englishQuest'); q.onsuccess = q.onerror = q.onblocked = () => r(); }));
 async function onboard(page, grade) {
-  await page.goto(BASE + '/', { waitUntil: 'domcontentloaded' });
-  await page.evaluate(() => { localStorage.clear(); sessionStorage.clear(); });
+  await page.goto(BASE + '/manifest.webmanifest');
+  await wipe(page);
   await page.goto(BASE + '/#/', { waitUntil: 'networkidle' });
   await page.click(`button.gradebtn[aria-label="כיתה ${HE[grade]}"]`);
   if (grade >= 10) { await page.waitForSelector('button.track-card'); await page.locator('button.track-card', { hasText: `${LEVEL[grade]} יח״ל` }).click(); }
@@ -97,7 +99,8 @@ async function extras(browser, vp) {
   page.on('response', r => { if (r.status() >= 400) errors.push(tag + ' HTTP ' + r.status() + ' ' + r.url()); });
   // migration from englishQuest.v1 (seeded on a non-app URL of the same origin, as a v2 user would have it)
   await page.goto(BASE + '/manifest.webmanifest');
-  await page.evaluate(() => { localStorage.clear(); localStorage.setItem('englishQuest.v1', JSON.stringify({ v: 1, profile: { name: 'ותיק', avatar: '🦉', track: 'g9', created: 1 }, xp: 777, coins: 55, tracks: { g9: { stages: { 0: { cleared: true, stars: 3, plays: 2, games: { intro: 3, boss: 3 } } }, words: { 1015: { b: 2, due: 0, ok: 3, bad: 1, seen: 1 } }, ms: 1000 } } })); });
+  await wipe(page);
+  await page.evaluate(() => { localStorage.setItem('englishQuest.v1', JSON.stringify({ v: 1, profile: { name: 'ותיק', avatar: '🦉', track: 'g9', created: 1 }, xp: 777, coins: 55, tracks: { g9: { stages: { 0: { cleared: true, stars: 3, plays: 2, games: { intro: 3, boss: 3 } } }, words: { 1015: { b: 2, due: 0, ok: 3, bad: 1, seen: 1 } }, ms: 1000 } } })); });
   await page.goto(BASE + '/#/map', { waitUntil: 'networkidle' }); await sleep(1500); await page.screenshot({ path: `${SHOTS}/${vp}-migrate.png` }); await page.waitForSelector('.mapv .hud');
   const mig = await page.evaluate(async () => { const s = await import('./js/store.js'); return { name: s.S.profile.name, grade: s.S.profile.grade, xp: s.S.xp, cleared: !!s.S.tracks.g9.stages[0].cleared, old: !!localStorage.getItem('englishQuest.v1'), idx: JSON.parse(localStorage.getItem('englishQuest.profiles')), theme: document.documentElement.className }; });
   // add sibling profile via profile screen

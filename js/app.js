@@ -3,6 +3,7 @@ import { $, h, put, en, shuffle, dayNum, fmtDay, toast, download, nWords, reduce
 import { S, save, on, T, stageRec, today, dueWords, level, levelXp, gainCoins, touchStreak, streakNow, checkAch, ACH, isMastered, replaceState, resetAll, exportState, unlock, ensureDaily, bumpDaily, beatRival, AURAS, TITLES, profiles, curProfileId, createProfile, switchProfile, leaveProfile, deleteProfile } from './store.js';
 import { TRACKS, GRADES, LEVELS, gradeTracks, themeOf, gradeLabel, WORLDS, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
 import { GAMES, practiceFor, missionPool, theme, Session, intro, match, listen, scramble, fill, memory, blitz, boss, forms, formsPool, familyItems, reading, talk, cards, typing } from './games.js';
+import * as B from './backup.js';
 import { playWord, sfx, prefetch, stop as stopAudio, hasClip, audioUrl, onRobo } from './audio.js';
 
 const app = $('#app');
@@ -79,13 +80,15 @@ function onboarding(step = profiles().length ? 'who' : 0, draft = {}) {
     h('div.logo-emoji.bob', '🚀'), h('h1', 'English Quest'), h('h3', 'מי משחק עכשיו?'),
     h('div.wholist', profiles().map(p => h('button.track-card', { onclick: async () => { sfx('tap'); switchProfile(p.id); applyTheme(); applyBig(); go('#/map'); route(); } },
       h('div.temoji', p.avatar), h('div', h('b', p.name), h('div.small.muted', gradeLabel(p)))))),
-    h('button.btn.ghost.wide', { onclick: () => { sfx('tap'); next(0); } }, '➕ שחקן/ית חדש/ה')));
+    h('button.btn.ghost.wide', { onclick: () => { sfx('tap'); next(0); } }, '➕ שחקן/ית חדש/ה'),
+    h('button.btn.ghost.wide.small', { onclick: () => restoreView() }, '🛟 שחזור מגיבוי')));
   if (step === 0) return screen('onb', h('div.splash',
     h('div.logo-emoji.bob', '🚀'), h('h1', 'English Quest'), h('p.lead', 'משחק מילים באנגלית · כיתות ד׳–י״ב'),
     h('p.muted.small', 'לפי רשימות המילים הרשמיות של משרד החינוך · 2–4 דקות לסיבוב'),
     h('h3', 'באיזו כיתה את/ה?'),
     h('div.gradegrid', Object.entries(GRADES).map(([g, he]) => h('button.gradebtn.t-' + themeOf(g), { 'aria-label': 'כיתה ' + he, onclick: () => { draft.grade = +g; sfx('tap'); next(+g >= 10 ? 'level' : 1); } }, he))),
-    profiles().length > 0 && h('button.btn.ghost.wide', { onclick: () => next('who') }, '→ חזרה לבחירת שחקן')));
+    profiles().length > 0 ? h('button.btn.ghost.wide', { onclick: () => next('who') }, '→ חזרה לבחירת שחקן')
+      : h('button.btn.ghost.wide.restore-entry', { onclick: () => restoreView() }, '🛟 כבר שיחקתם? שחזור מגיבוי (קובץ או קוד)')));
   if (step === 'level') return screen('onb', h('h2', `כיתה ${GRADES[draft.grade]} · כמה יחידות?`), h('p.muted', 'אפשר לשנות בכל רגע בפרופיל'),
     [[3, 'Band II (חזרה ושליטה במילים של חטיבת הביניים)'], [4, 'Band III Core I'], [5, 'Band III Core I + Core II']].map(([lv, d]) =>
       h('button.track-card', { onclick: () => { draft.level = lv; sfx('tap'); next(1); } }, h('div.temoji', lv === 3 ? '📗' : lv === 4 ? '📘' : '📕'), h('div', h('b', LEVELS[lv]), h('div.small.muted', d)))),
@@ -415,7 +418,7 @@ function shopView() {
 function meView() {
   const tr = TRACKS[S.profile.track];
   const tg = (key, txt) => h('label.toggle', h('input', { type: 'checkbox', checked: S.settings[key], onchange: e => { S.settings[key] = e.target.checked; save(); applyBig(); } }), h('span', txt));
-  screen('mev', hud(),
+  screen('mev', hud(), backupReminder(),
     h('div.mecard', h('div.bigav' + ((S.cosmetics?.aura && S.cosmetics.aura !== 'none') ? '.aura-' + S.cosmetics.aura : ''), S.profile.avatar),
       h('h2', S.profile.name + (S.cosmetics?.title ? ' · ' + S.cosmetics.title : '')), h('p', `${tr.name} · `, en(tr.band)),
       h('button.btn.small.ghost', { onclick: () => { const v = prompt('כינוי חדש:', S.profile.name); if (v && v.trim()) { S.profile.name = v.replace(/[<>]/g, '').trim().slice(0, 14); save(); meView(); } } }, '✏️ שינוי כינוי')),
@@ -448,11 +451,11 @@ const ABOUT = `<p><b>רשימות המילים</b> – רשמיות, מהרשי�
 <li>ז׳: Band II Core I · ח׳: Core I / Core II (המעבר באמצע השנה) · ט׳: Band II Core II</li>
 <li>י׳–י״ב: 3 יח״ל = Band II (טבלה 5: "7-9, Bagrut 3 points") · 4 יח״ל = Band III Core I · 5 יח״ל = Band III Core I + II</li></ul>
 <p><b>מה נקבע על ידינו (נגזר, לא רשמי):</b> החלוקה לשלבים של כ־12 מילים והסדר שלהם; בכיתות ה׳ ו־ח׳ – הלומד בוחר מתי לעבור לרשימה השנייה; המשפטים, קטעי הקריאה והשיחות נכתבו במיוחד לתרגול ואינם טקסטים רשמיים; האימוג׳י והתרגום לעברית הותאמו לגיל.</p>
-<p><b>הקלטות:</b> קולות מלאכותיים (ElevenLabs). מילים בלי הקלטה מוקראות בקול הדפדפן ומסומנות 🤖.</p>
-<p>ההתקדמות נשמרת רק במכשיר הזה (לא נשלח שום מידע לשרת). מקורות מלאים: <a href="https://github.com/dudidd-wq/english-quest/blob/main/SOURCES.md" target="_blank" rel="noopener">SOURCES.md</a>.</p>`;
+<p><b>הקלטות:</b> קולות מלאכותיים (ElevenLabs – Matilda באנגלית, Tomer בעברית) לכל המילים בכל הכיתות. ההקלטות נשמרות במכשיר בהדרגה, לפי הרשימה שבה משחקים; אפשר להוריד רשימה שלמה מראש בלשונית "אני". אם הקלטה לא נטענת, המילה מוקראת בקול הדפדפן ומסומנת 🤖.</p>
+<p><b>🔒 פרטיות:</b> שום מידע לא יוצא מהמכשיר – אין שרת, אין חשבון ואין מעקב. ההתקדמות נשמרת בדפדפן (localStorage + עותק ב־IndexedDB), והגיבוי (קובץ, קוד או שמירה אוטומטית לקובץ) נשאר אצלכם; הוא נשלח לאן שהוא רק אם אתם בוחרים לשתף אותו בעצמכם. מקורות מלאים: <a href="https://github.com/dudidd-wq/english-quest/blob/main/SOURCES.md" target="_blank" rel="noopener">SOURCES.md</a>.</p>`;
 function coverage() {
   const ae = D.words.filter(w => hasClip(w, 'en')).length, ah = D.words.filter(w => hasClip(w, 'he')).length;
-  return h('p.small.muted', `ברשימה הנוכחית (${TRACKS[S.profile.track].band}): ${D.words.length} מילים · הקלטה באנגלית ${ae} · בעברית ${ah} · השאר 🤖 קול דפדפן`);
+  return h('p.small.muted', `ברשימה הנוכחית (${TRACKS[S.profile.track].band}): ${D.words.length} מילים · הקלטה באנגלית ${ae} · בעברית ${ah}${ae < D.words.length || ah < D.words.length ? ' · השאר 🤖 קול דפדפן' : ' ✅'}`);
 }
 async function offlineAll() {
   const urls = D.words.flatMap(w => [audioUrl(w, 'en'), audioUrl(w, 'he')]).filter(Boolean);
@@ -480,8 +483,6 @@ function parentView() {
   const mins = Math.round(t.ms / 60000);
   const tr = TRACKS[S.profile.track];
   const ps = profiles();
-  const imp = h('input', { type: 'file', accept: 'application/json', style: { display: 'none' }, onchange: async e => {
-    try { const obj = JSON.parse(await e.target.files[0].text()); if (!obj.v) throw 0; if (confirm('לייבא ולהחליף את ההתקדמות הנוכחית?')) { replaceState(obj); location.reload(); } } catch { toast('הקובץ לא תקין'); } } });
   screen('parentv', h('div.shead.plain', h('button.icon-btn', { 'aria-label': 'חזרה', onclick: () => go('#/me') }, '→'), h('h2', 'אזור הורים ומורים')),
     ps.length > 1 && h('div.row', ps.map(p => h('button.btn.small' + (p.id === curProfileId() ? '.primary' : '.ghost'), { onclick: () => { if (p.id !== curProfileId()) { switchProfile(p.id); applyTheme(); parentView(); } } }, `${p.avatar} ${p.name} · ${gradeLabel(p)} · ${p.xp || 0} XP`))),
     h('p.muted', `${S.profile.avatar} ${S.profile.name} · ${gradeLabel(S.profile)} · ${tr.name} (`, en(tr.band), ')'),
@@ -501,10 +502,8 @@ function parentView() {
       return h('div.wp', h('span', `${Wd.icon} ${Wd.name}`), h('div.pbar', h('div', { style: { width: c / (to - from) * 100 + '%' } })), h('small', `${c}/${to - from}`)); })),
     h('h3', 'המילים הקשות ביותר'),
     hard.length ? h('table.hard', h('tr', h('th', 'מילה'), h('th', 'פירוש'), h('th', '✓'), h('th', '✗')), hard.map(([w, r]) => h('tr', h('td', en(w.en)), h('td', w.he), h('td', r.ok), h('td', r.bad)))) : h('p.muted', 'עוד אין טעויות 🙂'),
-    h('h3', 'גיבוי'),
-    h('div.row', h('button.btn.small.ghost', { onclick: () => download(`english-quest-${S.profile.name}.json`, exportState()) }, '⬇️ ייצוא'), h('button.btn.small.ghost', { onclick: () => imp.click() }, '⬆️ ייבוא'), imp,
-      h('button.btn.small.danger', { onclick: () => { if (confirm(`למחוק את ${S.profile.name} ואת כל ההתקדמות שלו/ה? אי אפשר לבטל.`) && confirm('בטוחים?')) { resetAll(); location.hash = ''; location.reload(); } } }, '🗑️ מחיקת השחקן')),
-    h('p.muted.small', 'הנתונים נשמרים רק בדפדפן במכשיר הזה. לכל שחקן התקדמות נפרדת, ולכל רשימת מילים – רשומה נפרדת.'));
+    backupSection(),
+    h('div.row', h('button.btn.small.danger', { onclick: async () => { if (confirm(`למחוק את ${S.profile.name} ואת כל ההתקדמות שלו/ה? אי אפשר לבטל.`) && confirm('בטוחים?')) { resetAll(); await B.afterDelete(); location.hash = ''; location.reload(); } } }, '🗑️ מחיקת השחקן')));
 }
 
 // ---------- router ----------
@@ -532,5 +531,82 @@ addEventListener('hashchange', () => route());
 document.addEventListener('keydown', e => {   // keyboard: 1-4 picks an answer on desktop
   if (/^[1-4]$/.test(e.key) && !/INPUT|TEXTAREA/.test(document.activeElement?.tagName)) { const b = document.querySelectorAll('.opts .opt:not([disabled])')[+e.key - 1]; b?.click(); }
 });
-route();
+B.init().then(r => { route(); if (r === 'restored') setTimeout(() => toast('🛟 ההתקדמות שוחזרה מהעותק השמור במכשיר', 3500), 300); else if (r === 'partial') restoreView(true); });
 if ('serviceWorker' in navigator && location.protocol !== 'file:') navigator.serviceWorker.register('sw.js').catch(() => {});
+
+// ---------- backup & restore (local only) ----------
+const agoHe = t => { const d = Math.floor((Date.now() - t) / 864e5); return d <= 0 ? 'היום' : d === 1 ? 'אתמול' : `לפני ${d} ימים`; };
+const KIND_HE = { file: 'קובץ', code: 'קוד', auto: 'שמירה אוטומטית' };
+function backupReminder() {
+  const due = B.backupDue(); if (!due) return null;
+  const box = h('div.backupnote', { role: 'note' },
+    h('span', due.never ? '💾 להורים: עוד לא שמרתם גיבוי של ההתקדמות.' : `💾 להורים: הגיבוי האחרון נשמר ${agoHe(B.getMeta().lastBackup)}.`),
+    h('button.btn.small.primary', { onclick: () => go('#/parent') }, 'לגיבוי'),
+    h('button.btn.small.ghost', { onclick: () => { B.snoozeReminder(); box.remove(); } }, 'אחר כך'));
+  return box;
+}
+function sheet(...kids) {
+  const close = () => wrap.remove();
+  const wrap = h('div.sheet', { role: 'dialog', 'aria-modal': 'true', onclick: e => e.target === wrap && close() }, h('div.sheetbox', ...kids));
+  document.body.append(wrap); wrap.querySelector('button')?.focus(); return close;
+}
+function previewRestore(b) {
+  const has = profiles().length > 0;
+  const done = async mode => { close(); await B.applyBackup(b, mode); applyTheme(); applyBig(); toast('✅ ההתקדמות שוחזרה', 2600); location.hash = S.profile ? '#/map' : ''; route(); };
+  const close = sheet(h('h3', '🛟 שחזור מגיבוי'),
+    b.savedAt && h('p.muted.small', `הגיבוי נשמר ב־${new Date(b.savedAt).toLocaleDateString('he-IL')}`),
+    h('ul.preview', b.profiles.map(p => h('li', `${p.state.profile.avatar} ${p.state.profile.name} · ${gradeLabel(p.state.profile)} · ${p.state.xp || 0} XP`))),
+    has ? [h('button.btn.primary.wide', { onclick: () => done('replace') }, 'החלפת כל השחקנים במכשיר בגיבוי'),
+      h('button.btn.ghost.wide', { onclick: () => done('merge') }, 'הוספה לשחקנים הקיימים (מיזוג)'),
+      h('p.muted.small', 'במיזוג: שחקן שקיים גם במכשיר וגם בגיבוי – נשמרת הגרסה המתקדמת יותר.')]
+      : h('button.btn.primary.wide', { onclick: () => done('replace') }, 'שחזור'),
+    h('button.btn.ghost.wide', { onclick: () => close() }, 'ביטול'));
+}
+function restoreControls() {
+  const file = h('input.restore-file', { type: 'file', accept: '.json,application/json', style: { display: 'none' }, onchange: async e => {
+    try { previewRestore(await B.readFile(e.target.files[0])); } catch (er) { toast('⚠️ ' + (er.message || 'הקובץ לא תקין'), 3500); } e.target.value = ''; } });
+  const ta = h('textarea.codein', { rows: 3, dir: 'ltr', placeholder: 'EQ2-…', 'aria-label': 'קוד גיבוי', spellcheck: 'false' });
+  return [h('button.btn.wide.restore-file-btn', { onclick: () => file.click() }, '📂 שחזור מקובץ גיבוי'), file,
+    h('details.codebox', h('summary', '⌨️ שחזור מקוד גיבוי'), ta,
+      h('button.btn.small.primary.restore-code-btn', { onclick: async () => { try { previewRestore(await B.readCode(ta.value)); } catch (er) { toast('⚠️ ' + (er.message || 'הקוד לא תקין'), 3500); } } }, 'שחזור מהקוד'))];
+}
+function restoreView(partial = false) {
+  screen('onb', h('div.splash',
+    h('div.logo-emoji', '🛟'), h('h2', 'שחזור התקדמות'),
+    partial ? h('p.lead', 'נראה שחלק מהנתונים במכשיר נמחקו (למשל אחרי ניקוי הדפדפן). אם שמרתם גיבוי – אפשר לשחזר אותו כאן.')
+      : h('p.muted', 'בחרו את קובץ הגיבוי ', en('english-quest-backup-….json'), ' או הדביקו את קוד הגיבוי.'),
+    ...restoreControls(),
+    h('p.muted.small', '🔒 השחזור נעשה כולו במכשיר – שום דבר לא נשלח לשרת.'),
+    h('button.btn.ghost.wide', { onclick: () => { location.hash = S.profile ? '#/map' : ''; S.profile ? route() : onboarding(); } }, partial ? 'המשך בלי לשחזר' : '→ חזרה')));
+}
+function backupSection() {
+  const m = B.getMeta(), box = h('div.backup');
+  const status = h('p.small', m.lastBackup ? `גיבוי אחרון: ${agoHe(m.lastBackup)} (${KIND_HE[m.lastKind] || ''})` : 'עוד לא נשמר גיבוי.');
+  const codeOut = h('div.codeout');
+  const auto = h('div.autofile');
+  const drawAuto = () => {
+    if (!B.autoFileSupported()) return put(auto, null);
+    const st = B.autoFileState();
+    put(auto, h('p.small', '💾 שמירה אוטומטית לקובץ במחשב: ', h('b', st.state === 'on' ? `פעילה (${st.name})` : st.state === 'off' ? 'כבויה' : 'צריך לאשר שוב גישה לקובץ')),
+      st.state === 'off' ? h('button.btn.small.ghost.autofile-on', { onclick: async () => { try { await B.enableAutoFile(); toast('✅ ההתקדמות תישמר אוטומטית לקובץ'); } catch (e) { if (e?.name !== 'AbortError') toast('⚠️ לא הצלחנו לפתוח קובץ'); } drawAuto(); } }, 'הפעלה – בחירת קובץ')
+        : [st.state !== 'on' && h('button.btn.small.primary', { onclick: async () => { await B.resumeAutoFile(); drawAuto(); } }, '🔓 אישור גישה מחדש'),
+          h('button.btn.small.ghost', { onclick: async () => { await B.disableAutoFile(); drawAuto(); } }, 'כיבוי')]);
+  };
+  const stor = h('p.small.muted');
+  B.storageStatus().then(x => put(stor, `🛡️ עותק נוסף ב־IndexedDB: ${x.mirror ? 'קיים ✓' : 'עדיין לא'} · אחסון קבוע בדפדפן: ${x.persisted ? 'אושר ✓' : 'לא אושר (הדפדפן עלול למחוק נתונים כשחסר מקום)'}`));
+  const undo = h('span');
+  B.canUndo().then(ok => ok && put(undo, h('button.btn.small.ghost', { onclick: async () => { if (confirm('לבטל את השחזור האחרון ולחזור למצב שלפניו?') && await B.undoRestore()) { toast('↩️ בוטל'); location.reload(); } } }, '↩️ ביטול השחזור האחרון')));
+  put(box, h('h3', '💾 גיבוי ושחזור'),
+    h('p.small', `הגיבוי כולל את כל השחקנים במכשיר (${profiles().length}), את ההתקדמות ואת לוח החזרות. כדאי לגבות פעם בכמה ימים – ניקוי הדפדפן או החלפת מכשיר מוחקים את הנתונים.`),
+    status,
+    h('div.row', h('button.btn.small.primary.export-file', { onclick: async () => { const r = await B.exportFile(); if (r !== 'cancelled') { toast(r === 'shared' ? '✅ הגיבוי נשלח לאן שבחרתם' : '✅ קובץ הגיבוי ירד למכשיר'); backupRefresh(); } } }, '📤 שמירת קובץ גיבוי'),
+      h('button.btn.small.ghost.make-code', { onclick: async () => { const c = await B.makeCode(); const ta = h('textarea.codeout-ta', { rows: 3, dir: 'ltr', readonly: true, 'aria-label': 'קוד הגיבוי' }); ta.value = c;
+        put(codeOut, h('p.small', `קוד הגיבוי (${c.length} תווים) – שמרו אותו בפתקים או שלחו לעצמכם:`), ta,
+          h('button.btn.small.ghost', { onclick: async () => { try { await navigator.clipboard.writeText(c); toast('📋 הועתק'); } catch { ta.select(); toast('סמנו והעתיקו'); } } }, '📋 העתקה')); backupRefresh(false); } }, '🔑 קוד גיבוי')),
+    codeOut, auto, h('h4', 'שחזור'), ...restoreControls(), undo, stor,
+    h('p.small.muted', '🔒 שום מידע לא נשלח לשרת: הקובץ והקוד נוצרים במכשיר ונשארים אצלכם.'));
+  drawAuto();
+  function backupRefresh() { const mm = B.getMeta(); put(status, mm.lastBackup ? `גיבוי אחרון: ${agoHe(mm.lastBackup)} (${KIND_HE[mm.lastKind] || ''})` : 'עוד לא נשמר גיבוי.'); }
+  return [backupReminderParent(), box];
+}
+function backupReminderParent() { const due = B.backupDue(); return due ? h('div.backupnote', h('span', due.never ? '💾 עוד לא שמרתם גיבוי – זה לוקח 5 שניות.' : `💾 עברו ${due.days} ימים מהגיבוי האחרון.`)) : null; }

@@ -1,10 +1,10 @@
 // Service worker: precache the app shell, cache word audio on demand (with Range support for Safari).
-const VERSION = 'eq-3.0.0';
+const VERSION = 'eq-3.1.0';
 const SHELL = 'eq-shell-' + VERSION;
 const AUDIO = 'eq-audio-v1';            // audio file names never change, kept across versions
 const ASSETS = [
   './', 'index.html', 'manifest.webmanifest', 'css/style.css', 'fonts/rubik.woff2',
-  'js/app.js', 'js/util.js', 'js/data.js', 'js/store.js', 'js/audio.js', 'js/games.js',
+  'js/app.js', 'js/util.js', 'js/data.js', 'js/store.js', 'js/audio.js', 'js/games.js', 'js/backup.js',
   'data/pre1.json', 'data/b1c1.json', 'data/b1c2.json', 'data/g7.json', 'data/g9.json', 'data/b3c1.json', 'data/b3c2.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png', 'icons/apple-touch-icon.png',
 ];
@@ -44,7 +44,7 @@ self.addEventListener('fetch', e => {
     return;
   }
   // data JSON: network-first so content fixes arrive, fall back to cache offline
-  if (/\/data\/(g7|g9)\.json$/.test(url.pathname)) {
+  if (/\/data\/\w+\.json$/.test(url.pathname)) {
     e.respondWith(fetch(req).then(r => { if (r.ok) { const cl = r.clone(); caches.open(SHELL).then(c => c.put(req, cl)); } return r; })
       .catch(() => caches.match(req, { ignoreSearch: true })));
     return;
