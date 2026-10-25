@@ -32,7 +32,7 @@ Round 1 found issues that were fixed in round 2 (commit `a47b2b9`, SW `eq-3.1.1`
 | Content accuracy, י׳–י״ב (B3C1 / B3C2) | English teacher | **9.1** | 886 / 1100 items, 222 / 273 sentences, 8 + 8 passages. Sample of 18 per list: 0 errors. Hebrew glosses for sb/sth phrasal entries are short but correct. |
 | Official vs derived labelling | English teacher | **9.4** | SOURCES.md §2–§3 and About ("מה נקבע על ידינו (נגזר, לא רשמי)", i.e. "what we set ourselves (derived, not official)"). No unsourced lists are presented as official. |
 | Hebrew quality & age fit | English teacher | **9.1** | Niqqud added where ambiguous (עָלֶה, "leaf"). HE TTS sample similarity 0.95. One residual mispronunciation risk: להירקב ("to rot"). |
-| Audio | QA | **9.1** | 100 % EN + HE coverage for all 7 lists (5,928 clips). EN Whisper median similarity 1.0. Residual: "mixed" heard as "next" by ASR (human ear: OK). Lazy per-clip caching, plus "download track for offline". |
+| Audio | QA | **9.4** (eq-3.2.0) | 100 % EN + HE coverage for all 7 lists (5,928 clips). EN Whisper median similarity 1.0. Residual: "mixed" heard as "next" by ASR (human ear: OK). Lazy per-clip caching, plus "download track for offline". |
 | PWA / offline | QA | **9.3** | SW eq-3.1.1 precaches 23 shell assets. Data is network-first; audio is cache-on-play (eq-audio-v1). The offline reload test passes on both viewports. |
 | Persistence & privacy | QA / privacy | **9.4** | localStorage plus IndexedDB mirror with `storage.persist()`. Auto-recovery after a localStorage wipe; file and code backup; desktop auto-save file; reminder after 4 days; undo restore. Sanitised imports: an XSS name rendered inert, future/bad files rejected. The network audit shows same-origin GETs only. Privacy statement is on About. |
 | Profiles / siblings / parent / migration | QA | **9.2** | Multi-profile with per-profile state, a parent area behind a grown-up maths gate, englishQuest.v1 migration verified (`mobile-migrate.png`). |
@@ -55,9 +55,21 @@ Round 1 found issues that were fixed in round 2 (commit `a47b2b9`, SW `eq-3.1.1`
 
 ## Residual risks (accepted)
 - **TTS edge cases:**
-  - Heteronyms reuse one clip per spelling (e.g. *live*, *read*, *lead*, *tear*, *close*, *wind*).
-  - "mixed" and "להירקב" were flagged by ASR.
-  - Hebrew QA was a random sample (80 clips), not every clip.
+  - *(Fixed in eq-3.2.0: heteronyms mapped per meaning, "mixed" and להירקב re-recorded, all 3,148 HE clips STT-checked, 32 HE re-records. See the addendum below.)*
+  - Stress-only noun/verb pairs (*increase, import, export, transfer, update*…) keep one clip. Combined "v, n" entries use the first-listed sense.
+  - Very short Hebrew words are hard for any ASR to check, and the phoneme model is weak on Hebrew ר. A few homophone-level cases were accepted without re-recording (עם, תה, עני, אח).
 - **Browser storage:** storage can still be evicted on iOS if the PWA is not installed. The backup reminder and file/code backup mitigate this.
 - **Reading and talk banks:** these are small and derived. The app trains vocabulary in context and is not a full Bagrut exam simulator.
 - **Build sources:** `tools/src` (the raw MoE spreadsheets and TTS manifests) is git-ignored, so rebuilding data needs the original files.
+
+## Addendum – audio-risk fixes (eq-3.2.0, 2026-10-25)
+| Item | Result |
+|---|---|
+| Heteronyms | 24 entries → 19 new EN clips, phoneme + Whisper verified |
+| "mixed" | re-recorded ("mikst."), verified |
+| Hebrew QA | 3,148/3,148 Scribe + 3,148/3,148 phoneme skeleton + ivrit-ai 2nd opinion on 104 flagged + 277 sampled |
+| Hebrew re-records | 32 (niqqud), all pass Scribe and/or ivrit-ai (≥0.8), new clip numbers |
+| Progress safety | only `ae`/`ah` changed in data (diff-checked), `n` untouched; backup tests PASS |
+| Tests | test_v3 full run 20 runs (1 load-induced timeout, rerun PASS), test_backup PASS |
+
+**Audio score: 9.1 → 9.4**

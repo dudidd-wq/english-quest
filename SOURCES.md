@@ -87,7 +87,7 @@ Two Band III Core II items are kept in the word list but left out of games. This
 - **Every word in every grade has recorded clips (English + Hebrew).** All are ElevenLabs TTS with the same voices and model as band2-study: Matilda (EN) and Tomer (HE), `eleven_v4`.
 - **Band II words** (grades 7–9, bagrut 3 pts) use the original band2-study clips (1–2016).
   - Another list reuses one of these clips only when its text is identical.
-  - Known risk: heteronyms such as *live, read, wind, lead, tear, close* may be voiced with the Band II reading.
+  - Heteronyms (same spelling, different pronunciation) are mapped per meaning; see "Audio fixes" below.
 - **Generated for v3 (approved by Dudi on 2026-10-25):** 5,928 clips (2,780 EN + 3,148 HE). These come from 5,647 unique texts (identical texts share one recording).
   - Cost: **25,043 credits** in total, including 7 re-records after QA. This is within the approved ~25k estimate (≈ $5.5–7.5).
   - Script: `tools/tts_v3.py`. It reads the key only from the environment; no key is in the repo.
@@ -99,8 +99,21 @@ Two Band III Core II items are kept in the word list but left out of games. This
 - **QA:**
   - Every English clip was transcribed locally with Whisper small.en. Median similarity was 1.0.
   - 89 clips that Whisper could not read (mostly single short words and numbers) were re-checked with ElevenLabs Scribe. The remaining mismatches are homophones (eye/I, sea/C, tea/T, wear/where, queue/Q, bare/bear) or "i.e." read as "that is".
-  - 3 clips were re-recorded: *knee, yawn, mixed*. *mixed* still transcribes as "next", so it is a residual risk.
-  - Hebrew: a random sample of 80 clips was checked with Scribe, with mean similarity 0.95. The mismatches were homophones (תה/ט, של). 2 were re-recorded with niqqud: להירקב, וו.
+  - 3 clips were re-recorded: *knee, yawn, mixed*.
+  - Hebrew: **all 3,148 v3 Hebrew clips** were transcribed with ElevenLabs Scribe (homophone-aware comparison). The 104 below 0.8 got a second, independent opinion from the local ivrit-ai Whisper model. All 3,148 were also run through a wav2vec2 phoneme model, and the consonant skeleton was compared with the written word.
+- **Audio fixes (2026-10-25, approved by Dudi):**
+  - **Heteronyms:** 24 entries now have their own clip for their meaning/part of speech: 19 new EN clips (`audio/en/11001–11019`), e.g. *close* (v), *live* (adj), *tear* (n), *use* (n), *record* (n), *object/insult/progress/present/produce/permit/protest/suspect/associate* (v), *separate/content* (adj), *estimate/excuse/conduct* (n).
+    - Each one was cut from a carrier sentence and verified with a phoneme model (stress/vowel) and Whisper.
+    - Clips already checked as correct: *lead, read, wind, bow, row, minute, wound, desert, refuse, rebel* and others.
+  - **"mixed"** was re-recorded from the respelling "mikst." (`en/11020`).
+  - **Hebrew:** 32 clips were re-recorded with explicit niqqud and verified by Scribe and ivrit-ai (`audio/he/11001–11032`). Examples:
+    - להירקב
+    - וו
+    - יד, which had been read as letter names
+    - פה (mouth), which had been read as "here"
+    - short words ending in ר: הר, צר, קר, דור, כפר, קבר, אוצר, העבר
+  - Fixed clips always get **new file numbers** (`tools/audio_fix.json`), so no stale cached audio can play. Learner progress is keyed by word number, so it is untouched.
+  - Cost: **376 TTS credits + ≈1,450 speech-to-text credits**.
   - Durations of all clips were checked; there were no outliers.
 - **Offline:** audio is not precached. Each clip is cached on first play, and the "אני" tab can download a whole list for offline use. The browser voice (🤖) remains only as a fallback, if a file fails to load.
 
