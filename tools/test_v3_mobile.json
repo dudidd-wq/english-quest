@@ -1,69 +1,36 @@
 {
  "results": [
   {
-   "tag": "mobile/g4",
-   "theme": "theme-kids",
-   "track": "pre1",
-   "words": 198,
+   "tag": "mobile/g7",
+   "theme": "theme-arcade",
+   "track": "g7",
+   "words": 1014,
    "practice": [
     "match",
     "listen",
+    "scramble",
+    "fill",
     "memory",
-    "scramble"
+    "blitz"
    ],
    "read": 0,
-   "talk": 0,
-   "toggle": true,
-   "track2": "b1c1",
+   "talk": 80,
+   "toggle": false,
    "games": [
     "intro:3",
     "match:3",
     "listen:3",
-    "memory:3",
     "scramble:1",
+    "fill:3",
+    "memory:3",
+    "blitz:3",
     "boss:3"
    ],
    "study": [
     "cards",
-    "type"
+    "type",
+    "talk"
    ]
-  },
-  {
-   "tag": "mobile/extras",
-   "mig": {
-    "name": "ותיק",
-    "grade": 9,
-    "xp": 777,
-    "cleared": true,
-    "old": true,
-    "idx": {
-     "list": [
-      {
-       "id": "p1",
-       "name": "ותיק",
-       "avatar": "🦉",
-       "grade": 9,
-       "level": 4,
-       "xp": 777
-      }
-     ],
-     "cur": "p1",
-     "migrated": 1792949099967
-    },
-    "theme": "theme-arcade"
-   },
-   "cur": "אחות",
-   "parentProfiles": 2,
-   "back": {
-    "name": "ותיק",
-    "xp": 777
-   },
-   "offline": {
-    "map": true,
-    "study": true,
-    "data": true,
-    "game": true
-   }
   }
  ],
  "errors": []

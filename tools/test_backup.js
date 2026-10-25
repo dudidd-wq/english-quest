@@ -45,7 +45,7 @@ async function run(vp, R0) {
   await page.evaluate(() => { const m = JSON.parse(localStorage.getItem('englishQuest.meta') || '{}'); m.firstSeen = Date.now() - 5 * 864e5; localStorage.setItem('englishQuest.meta', JSON.stringify(m)); });
   await page.reload(); await page.goto(BASE + '/#/me'); await page.waitForSelector('.mev'); R.reminder = !!(await page.$('.mev .backupnote'));
   // 2. export file
-  await parent(); await page.screenshot({ path: `${SHOTS}/${vp}-backup.png`, fullPage: true });
+  await parent(); await sleep(500); await page.screenshot({ path: `${SHOTS}/${vp}-backup.png`, fullPage: true });
   const [dl] = await Promise.all([page.waitForEvent('download'), page.click('.export-file')]);
   const file = path.join(os.tmpdir(), `eq-backup-${vp}.json`); await dl.saveAs(file);
   const snap = JSON.parse(fs.readFileSync(file, 'utf8')); R.file = { schema: snap.schema, profiles: snap.profiles.length, name: dl.suggestedFilename() };

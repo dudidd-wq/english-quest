@@ -23,7 +23,7 @@
    "name": "english-quest-backup-2026-10-25.json"
   },
   "reminderAfter": false,
-  "codeLen": 1253,
+  "codeLen": 1251,
   "fromFile": {
    "names": [
     "נועה",
@@ -96,7 +96,7 @@
   },
   "undo": true,
   "netBad": [],
-  "requests": 129,
+  "requests": 130,
   "errors": []
  },
  "desktop": {
@@ -123,7 +123,7 @@
    "name": "english-quest-backup-2026-10-25.json"
   },
   "reminderAfter": false,
-  "codeLen": 1247,
+  "codeLen": 1252,
   "autoWrites": 2,
   "autoState": "💾 שמירה אוטומטית לקובץ במחשב: פעילה (eq-auto.json)כיבוי",
   "fromFile": {
@@ -198,7 +198,7 @@
   },
   "undo": true,
   "netBad": [],
-  "requests": 129,
+  "requests": 130,
   "errors": []
  }
 }
