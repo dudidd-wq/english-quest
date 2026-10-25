@@ -3,7 +3,7 @@
   early : 36 picturable items from the official Pre-Band I list (grades 1–2, optional early start), n 21001+
   abc   : 26 letters with an example word (grades 1–3), n 20001+
   acad  : New Academic Word List (NAWL 1.2, Browne/Culligan/Phillips, CC BY-SA 4.0), prefixes removed, n 30001+
-  tech  : New Computer Science Academic Word List (NCSAWL, Roesler 2021, CC BY 4.0), brand names/typos removed, n 31001+
+  tech  : New Computer Science Academic Word List (NCSAWL, Uba, Irudayasamy & Hankins 2023, CC BY 4.0), brand names/typos removed, n 31001+
   c2    : 300-word C2 subset of the Octanove C1/C2 list (CC BY-SA 4.0) – rule in tools/build_c2_list.py, n 32001+
 Hebrew for acad/tech/c2 and the abc example words: written for this app (derived); where an official MoE item
 has the same English word its Hebrew is reused for acad (not for tech, which uses the computing sense).
@@ -92,7 +92,7 @@ out('acad', 'NAWL 1.2 – New Academic Word List (Browne, Culligan & Phillips 20
 ws, n = [], 31001
 for idx, en, pos, he in [(i,) + tuple(r) for i, r in enumerate(lines('tech_he.txt'))]:
     ws.append(word(n, en, he, pos, '💻')); n += 1
-out('tech', 'NCSAWL – New Computer Science Academic Word List (Roesler 2021), CC BY 4.0; Hebrew derived (computing sense)', ws, chunks(ws, 12))
+out('tech', 'NCSAWL – New Computer Science Academic Word List (Uba, Irudayasamy & Hankins 2023), CC BY 4.0; Hebrew derived (computing sense)', ws, chunks(ws, 12))
 
 # ---- c2 (Octanove subset)
 PO = {'noun': 'n', 'verb': 'v', 'adjective': 'adj', 'adverb': 'adv'}

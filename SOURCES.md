@@ -30,6 +30,8 @@ Table 5 vocabulary targets:
 
 | Grade | Lists in the app | Basis |
 |---|---|---|
+| א׳–ב׳ (1–2, optional "early start") | `early` (36 picturable Pre-Band I words) + `abc` (letters) | **Derived.** No MoE list exists for grades 1–2; some schools start English there. See LEVELS.md |
+| ג׳ (3) | Pre-Band I + `abc` (letters) | Table 4 ("Grade 3 and/or first months of Grade 4"); `abc` is derived |
 | ד׳ (4) | Pre-Band I → Band I Core I | Table 4 |
 | ה׳ (5) | Band I Core I / Core II (the learner switches in mid-year) | Table 4 ("mid-Grade 5") |
 | ו׳ (6) | Band I Core II | Table 4 |
@@ -39,6 +41,7 @@ Table 5 vocabulary targets:
 | י׳–י״ב, 3 יח״ל | Band II Core I + II | Table 5 (A2 = Bagrut 3 points) |
 | י׳–י״ב, 4 יח״ל | Band III Core I | Table 4/5 (B1 = 4 points) |
 | י׳–י״ב, 5 יח״ל | Band III Core I + Core II | Table 4/5 (B2 = 5 points, cumulative) |
+| אחרי י״ב (13) | Picker: `acad` (NAWL) / `tech` (NCSAWL) / `c2` (Octanove C2 subset) | **Not MoE.** Open research lists, see §2b and LEVELS.md |
 
 **Derived parts of the mapping:**
 - The default order of lists within a grade.
@@ -66,6 +69,17 @@ All words, parts of speech and the Productive/Receptive split come from the Lexi
 The app's counts are the rows in each file. The Table 5 figures (200 / 1200 / 2000 / 900 / 1100) are the curriculum's rounded targets.
 
 Two Band III Core II items are kept in the word list but left out of games. This is an age-appropriateness choice, and it is derived.
+
+## 2b. Lists beyond the MoE curriculum (open licences)
+| Track | Source | Licence | Words in app | Notes |
+|---|---|---|---|---|
+| `acad` אקדמי / פסיכומטרי | NAWL 1.2 – New Academic Word List, Browne, Culligan & Phillips (2013), https://www.newgeneralservicelist.com/new-academic-word-list | CC BY-SA 4.0 | 943 | Prefix entries and duplicates removed. It is an open proxy for the psychometric English section; NITE publishes no official list. |
+| `tech` אנגלית טכנולוגית | NCSAWL – A New Computer Science Academic Word List, Uba, Irudayasamy & Hankins (2023), *World Journal of English Language* 13(5):319, doi:10.5430/wjel.v13n5p319 | CC BY 4.0 | 429 | Of 444 items: brand names and typos were removed (`tools/build_extra.py`). |
+| `c2` קרוב לשפת אם | Octanove Vocabulary Profile C1/C2 1.0, https://github.com/openlanguageprofiles/olp-en-cefrj | CC BY-SA 4.0 | 300 | **Derived subset.** The rule is in LEVELS.md, reproducible with `tools/build_c2_list.py`. |
+| `early` (grades 1–2) | MoE Lexical Pre-Band I | official words | 36 | **Derived subset** (picturable concrete nouns, colours and numbers). |
+| `abc` letters | written for the app | — | 26 | **Derived.** "X is for …" example words come mostly from Pre-Band I / Band I. X uses *box* (final x sound). |
+
+For all five tracks the Hebrew and emoji were written for the app (derived). Sources are in `tools/src/extra/*.txt`. When a word already exists in an MoE list with the same sense, its Hebrew and clips are reused. Share-alike: the derived lists `data/acad.json` and `data/c2.json` are offered under CC BY-SA 4.0, with attribution as above.
 
 ## 3. Derived content (written for the app, not from the Ministry)
 - **Hebrew translations and emoji hints** for Pre-Band I, Band I and Band III. Band II translations come from band2-study.
@@ -115,6 +129,13 @@ Two Band III Core II items are kept in the word list but left out of games. This
   - Fixed clips always get **new file numbers** (`tools/audio_fix.json`), so no stale cached audio can play. Learner progress is keyed by word number, so it is untouched.
   - Cost: **376 TTS credits + ≈1,450 speech-to-text credits**.
   - Durations of all clips were checked; there were no outliers.
+- **Extra tracks (eq-3.3, approved within the ~15k credit cap):** 1,304 EN + 1,323 HE new clip files (`audio/en|he/20001–32300`); the rest are reused where the text is identical. Same voices, model and processing as above.
+  - "Letter" clips for `abc` say "B, as in bus."; `early` reuses existing Pre-Band I clips.
+  - Heteronyms: *attribute* (n) and *incline* (n) were cut from carrier sentences (`audio_fix.json`). Other stress-ambiguous NAWL words (approximate, associate, aggregate, articulate…) are spoken in the citation form for the listed part of speech.
+  - **QA EN:** Whisper small.en on all of them. The 214 clips Whisper could not read (empty or hallucinated output on single words) got an ElevenLabs Scribe second opinion. The 17 remaining mismatches were homophones (cue/Q, dye/die, cache/cash, route/root, pole/poll, palate/palette, herald/Harold…) except 5 real errors, which were re-recorded and re-checked: *hull* (spoken "the hull"), *null* ×2, *mere*, *cocoon* (`en/40874, 41227, 42009, 42015, 42253`).
+  - **QA HE:** Scribe on all 1,323. The 77 below 0.8 got an ivrit-ai second opinion and listening-level phoneme review. 40 were re-recorded with niqqud (`he/40xxx–42xxx`, spoken texts in `tools/src/extra/say.json`). Glosses for *cattle* (בקר, פרות), *pulse* (tech: פולס, דופק) and *morphological* (צורני, מורפולוגי) were clarified so the audio is unambiguous.
+  - Fixes always use new file numbers (n+10000), so no stale cached audio can play.
+  - Cost: **≈8,594 TTS + ≈380 STT credits** (cap 15,000).
 - **Offline:** audio is not precached. Each clip is cached on first play, and the "אני" tab can download a whole list for offline use. The browser voice (🤖) remains only as a fallback, if a file fails to load.
 
 | Track | EN clips | HE clips |
@@ -126,6 +147,11 @@ Two Band III Core II items are kept in the word list but left out of games. This
 | Band II · Core II | 1002/1002 | 1002/1002 |
 | Band III · Core I | 886/886 | 886/886 |
 | Band III · Core II | 1100/1100 | 1100/1100 |
+| abc (letters) | 26/26 | 26/26 |
+| early | 36/36 | 36/36 |
+| acad (NAWL) | 943/943 | 943/943 |
+| tech (NCSAWL) | 429/429 | 429/429 |
+| c2 (Octanove subset) | 300/300 | 300/300 |
 
 ## 5. Privacy and local persistence
 - **No server:** there is no server, account, analytics or third-party request. Every request is a same-origin GET of a static file. `tools/test_backup.js` asserts this.
