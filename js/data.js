@@ -12,6 +12,7 @@ export const TRACKS = {
 };
 /** Grade → lists, per English Curriculum 2020 Tables 4–5 (see SOURCES.md). */
 export const GRADES = { 4: "ד׳", 5: "ה׳", 6: "ו׳", 7: "ז׳", 8: "ח׳", 9: "ט׳", 10: "י׳", 11: "י״א", 12: "י״ב" };
+export const GRADE_GROUPS = [['יסודי', [4, 5, 6]], ['חטיבת ביניים', [7, 8, 9]], ['תיכון', [10, 11, 12]]];
 export const LEVELS = { 3: '3 יח״ל', 4: '4 יח״ל', 5: '5 יח״ל' };
 export function gradeTracks(grade, level = 4) {
   grade = +grade;

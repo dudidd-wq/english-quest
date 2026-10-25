@@ -1,7 +1,7 @@
 // English Quest – screens & navigation
 import { $, h, put, en, shuffle, dayNum, fmtDay, toast, download, nWords, reduced, posHe } from './util.js';
 import { S, save, on, T, stageRec, today, dueWords, level, levelXp, gainCoins, touchStreak, streakNow, checkAch, ACH, isMastered, replaceState, resetAll, exportState, unlock, ensureDaily, bumpDaily, beatRival, AURAS, TITLES, profiles, curProfileId, createProfile, switchProfile, leaveProfile, deleteProfile } from './store.js';
-import { TRACKS, GRADES, LEVELS, gradeTracks, themeOf, gradeLabel, WORLDS, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
+import { TRACKS, GRADES, GRADE_GROUPS, LEVELS, gradeTracks, themeOf, gradeLabel, WORLDS, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
 import { GAMES, practiceFor, missionPool, theme, Session, intro, match, listen, scramble, fill, memory, blitz, boss, forms, formsPool, familyItems, reading, talk, cards, typing } from './games.js';
 import * as B from './backup.js';
 import { playWord, sfx, prefetch, stop as stopAudio, hasClip, audioUrl, onRobo } from './audio.js';
@@ -73,6 +73,12 @@ function nav(active) {
 function screen(cls, ...kids) { stopAudio(); put(app, h('div.screen.' + cls, ...kids)); app.scrollTop = 0; window.scrollTo(0, 0); }
 export function go(hash) { if (location.hash === hash) route(); else location.hash = hash; }
 
+/** grade buttons grouped by school stage; all look the same – only the learner's own chosen grade (`cur`) is highlighted */
+function gradePicker(cur, pick, small = false) {
+  return h('div.gradegroups' + (small ? '.small' : ''), GRADE_GROUPS.map(([label, gs]) => h('div.gradegroup',
+    h('div.gglabel', label),
+    h('div.gradegrid' + (small ? '.small' : ''), gs.map(g => h('button.gradebtn' + (+g === +cur ? '.on' : ''), { 'aria-label': 'כיתה ' + GRADES[g], 'aria-pressed': String(+g === +cur), onclick: () => pick(+g) }, GRADES[g]))))));
+}
 // ---------- onboarding: who's playing → grade → (bagrut level) → name + avatar ----------
 function onboarding(step = profiles().length ? 'who' : 0, draft = {}) {
   const next = s => onboarding(s, draft);
@@ -86,7 +92,7 @@ function onboarding(step = profiles().length ? 'who' : 0, draft = {}) {
     h('div.logo-emoji.bob', '🚀'), h('h1', 'English Quest'), h('p.lead', 'משחק מילים באנגלית · כיתות ד׳–י״ב'),
     h('p.muted.small', 'לפי רשימות המילים הרשמיות של משרד החינוך · 2–4 דקות לסיבוב'),
     h('h3', 'באיזו כיתה את/ה?'),
-    h('div.gradegrid', Object.entries(GRADES).map(([g, he]) => h('button.gradebtn.t-' + themeOf(g), { 'aria-label': 'כיתה ' + he, onclick: () => { draft.grade = +g; sfx('tap'); next(+g >= 10 ? 'level' : 1); } }, he))),
+    gradePicker(null, g => { draft.grade = g; sfx('tap'); next(g >= 10 ? 'level' : 1); }),
     profiles().length > 0 ? h('button.btn.ghost.wide', { onclick: () => next('who') }, '→ חזרה לבחירת שחקן')
       : h('button.btn.ghost.wide.restore-entry', { onclick: () => restoreView() }, '🛟 כבר שיחקתם? שחזור מגיבוי (קובץ או קוד)')));
   if (step === 'level') return screen('onb', h('h2', `כיתה ${GRADES[draft.grade]} · כמה יחידות?`), h('p.muted', 'אפשר לשנות בכל רגע בפרופיל'),
@@ -425,7 +431,7 @@ function meView() {
     h('h3', 'דמות'), h('div.avgrid.small', [...FREE_AV, ...S.owned].map(a => h('button.avpick' + (a === S.profile.avatar ? '.on' : ''), { 'aria-label': 'דמות ' + a, onclick: () => { S.profile.avatar = a; save(); sfx('tap'); meView(); } }, a))),
     h('h3', 'יעד יומי'), h('div.row.seg', [[100, 'רגוע'], [150, 'רגיל'], [300, 'אלופים']].map(([v, t]) => h('button.btn.small' + (S.settings.goal === v ? '.primary' : '.ghost'), { onclick: () => { S.settings.goal = v; save(); meView(); } }, `${t} · ${v} XP`))),
     h('h3', 'הגדרות'), tg('sfx', '🎵 צלילי משחק'), tg('voice', '🗣️ הקראת מילים'), tg('big', '🔠 טקסט גדול'),
-    h('h3', 'כיתה'), h('div.gradegrid.small', Object.entries(GRADES).map(([g, he]) => h('button.gradebtn.t-' + themeOf(g) + (+g === +S.profile.grade ? '.on' : ''), { 'aria-label': 'כיתה ' + he, onclick: () => setGrade(+g, S.profile.level || 4) }, he))),
+    h('h3', 'כיתה'), gradePicker(S.profile.grade, g => setGrade(g, S.profile.level || 4), true),
     +S.profile.grade >= 10 && h('div.row.seg', [3, 4, 5].map(lv => h('button.btn.small' + ((S.profile.level || 4) === lv ? '.primary' : '.ghost'), { onclick: () => setGrade(S.profile.grade, lv) }, LEVELS[lv]))),
     h('p.muted.small', 'רשימות: ', gradeTracks(S.profile.grade, S.profile.level).map(k => TRACKS[k].band).join(' + '), ' · ההתקדמות בכל רשימה נשמרת בנפרד'),
     h('h3', 'שחקנים במכשיר'),

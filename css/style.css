@@ -383,10 +383,13 @@ h1{font-size:2rem;background:var(--grad);-webkit-background-clip:text;background
 .gradebtn{appearance:none;border:2px solid var(--line);background:var(--panel);color:var(--ink);border-radius:16px;min-height:64px;font:800 1.5rem var(--font);cursor:pointer;transition:transform .1s}
 .gradegrid.small .gradebtn{min-height:44px;font-size:1.05rem}
 .gradebtn:active{transform:scale(.95)}
-.gradebtn.t-kids{border-color:#ffb703;background:linear-gradient(160deg,#3b2a7a,#5b3cc4)}
-.gradebtn.t-arcade{border-color:#00f0ff66}
-.gradebtn.t-bagrut{border-color:#8ecae6aa;background:#13233a}
-.gradebtn.on{outline:3px solid var(--y);outline-offset:2px}
+.gradegroups{margin:6px 0 14px;width:100%;max-width:420px;margin-inline:auto}
+.gradegroup{margin-bottom:8px}
+.gglabel{font:700 .78rem var(--font);color:var(--muted);margin:0 2px 4px;text-align:start}
+.gradegroups .gradegrid{margin:0}
+.gradebtn.on{border-color:var(--y);background:rgba(255,229,102,.16);color:var(--y);box-shadow:0 0 0 3px rgba(255,229,102,.35)}
+.gradebtn.on::after{content:' ✓';font-size:.8em}
+.gradebtn:focus-visible{outline:3px solid #8ecae6;outline-offset:2px}
 .ttoggle{display:flex;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:4px;margin:0 0 10px}
 .ttoggle button{flex:1;appearance:none;border:0;background:transparent;color:var(--muted);border-radius:10px;padding:9px 6px;font:700 .82rem var(--font);cursor:pointer;min-height:44px}
 .ttoggle button.on{background:var(--grad);color:#0a0618}
