@@ -17,5 +17,5 @@
     - [x] Tests on eq-3.2.0: test_v3 full (20 runs; 1 load-induced timeout mobile/g12 → rerun PASS), test_backup PASS (progress preserved)
     - [x] Phoneme (consonant-skeleton) pass on all 3,148 HE clips → 18 more HE re-records (he/11015–11032) (d2b69ca)
     - [x] Docs (SOURCES §4, REVIEW addendum). Credits this task: 376 TTS + ≈1,450 STT
-    - [ ] Live verify eq-3.2.0
+    - [x] Live verified 21:37: SW eq-3.2.0, 0 console errors, 0 bad requests; live data has 25 EN + 32 HE remapped entries; new clips 200; band2-study v1.4.0 OK
 Grade map (Curriculum 2020 Table 4/5): 4=PreBand I+B1C1, 5=B1C1/B1C2, 6=B1C2, 7=B2C1, 8=B2C1/B2C2, 9=B2C2, 10–12: 3pts=Band II, 4pts=B3C1, 5pts=B3C1+B3C2
