@@ -133,9 +133,9 @@ For all five tracks the Hebrew and emoji were written for the app (derived). Sou
   - "Letter" clips for `abc` say "B, as in bus."; `early` reuses existing Pre-Band I clips.
   - Heteronyms: *attribute* (n) and *incline* (n) were cut from carrier sentences (`audio_fix.json`). Other stress-ambiguous NAWL words (approximate, associate, aggregate, articulate…) are spoken in the citation form for the listed part of speech.
   - **QA EN:** Whisper small.en on all of them. The 214 clips Whisper could not read (empty or hallucinated output on single words) got an ElevenLabs Scribe second opinion. The 17 remaining mismatches were homophones (cue/Q, dye/die, cache/cash, route/root, pole/poll, palate/palette, herald/Harold…) except 5 real errors, which were re-recorded and re-checked: *hull* (spoken "the hull"), *null* ×2, *mere*, *cocoon* (`en/40874, 41227, 42009, 42015, 42253`).
-  - **QA HE:** Scribe on all 1,323. The 77 below 0.8 got an ivrit-ai second opinion and listening-level phoneme review. 40 were re-recorded with niqqud (`he/40xxx–42xxx`, spoken texts in `tools/src/extra/say.json`). Glosses for *cattle* (בקר, פרות), *pulse* (tech: פולס, דופק) and *morphological* (צורני, מורפולוגי) were clarified so the audio is unambiguous.
+  - **QA HE:** Scribe on all 1,323. The 77 below 0.8 got an ivrit-ai second opinion and listening-level phoneme review. 40 were re-recorded with niqqud (`he/40xxx–42xxx`, spoken texts in `tools/src/extra/say.json`). Glosses for *cattle* (בקר, פרות), *pulse* (tech: פולס, דופק) and *morphological* (צורני, מורפולוגי) were clarified so the audio is unambiguous. A later gloss audit fixed tech *sector* (סקטור בדיסק; מגזר), tech *interrupt* (לקטוע; פסיקה במעבד) and c2 *hitch* (לרתום; לנסוע בטרמפ), with new Scribe-checked clips (`he/41322, 41165, 42104`).
   - Fixes always use new file numbers (n+10000), so no stale cached audio can play.
-  - Cost: **≈8,594 TTS + ≈380 STT credits** (cap 15,000).
+  - Cost: **≈8,670 TTS + ≈385 STT credits** (≈9.06k of the 15,000 cap).
 - **Offline:** audio is not precached. Each clip is cached on first play, and the "אני" tab can download a whole list for offline use. The browser voice (🤖) remains only as a fallback, if a file fails to load.
 
 | Track | EN clips | HE clips |

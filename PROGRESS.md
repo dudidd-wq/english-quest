@@ -24,3 +24,4 @@ Grade map (Curriculum 2020 Table 4/5): 4=PreBand I+B1C1, 5=B1C1/B1C2, 6=B1C2, 7=
 - [x] eq-3.3.0: grades א׳–ב׳ (optional early start: `early` + `abc`), ג׳ (Pre-Band I + `abc`), grade 13 picker (acad NAWL / tech NCSAWL / c2 Octanove subset); listening-first picture game, picture memory, big targets, no typing for early grades (2e9fc2b, 0371864)
 - [x] Audio: 1,304 EN + 1,323 HE new clips (455e550); HE QA: Scribe all + ivrit-ai on 77 → 40 niqqud re-records (e0810e9); EN QA: Whisper all + Scribe on 214 → 5 re-records (cfc1af7). Credits ≈8,594 TTS + ≈380 STT (cap 15k)
 - [x] NCSAWL attribution corrected to Uba, Irudayasamy & Hankins 2023 (data, About, LEVELS, SOURCES); SW eq-3.3.2
+- [x] Gloss audit (derived Hebrew, tech + c2 + acad scanned): sector, interrupt, hitch fixed + 3 HE clips; SW eq-3.3.3 live (52fd676). Credits ≈8,670 TTS + ≈385 STT
