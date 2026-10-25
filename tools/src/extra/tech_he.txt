@@ -1,0 +1,429 @@
+access|n|גישה
+acknowledge|v|לאשר קבלה
+actor|n|שחקן; גורם פעיל (במערכת)
+address|n|כתובת
+agent|n|סוכן
+allocate|v|להקצות
+anomaly|n|חריגה, אנומליה
+app|n|אפליקציה
+approach|n|גישה, שיטה
+architecture|n|ארכיטקטורה
+argument|n|ארגומנט (פרמטר); טיעון
+array|n|מערך
+assemble|v|להרכיב
+associate|n|שותף; משויך
+asymmetric|adj|אסימטרי
+asynchronous|adj|אסינכרוני
+atom|n|אטום
+attach|v|לצרף
+attack|n|מתקפה
+attribute|n|תכונה, מאפיין
+audio|n|שמע, אודיו
+authorization|n|הרשאה
+automate|v|להפוך לאוטומטי
+background|n|רקע
+backup|n|גיבוי
+band|n|פס (תדרים)
+bandwidth|n|רוחב פס
+bank|n|בנק; מאגר
+barcode|n|ברקוד
+base|n|בסיס
+baseline|n|קו בסיס
+batch|n|אצווה
+beacon|n|משואה
+benchmark|n|מבחן ביצועים, אמת מידה
+bias|n|הטיה
+bin|n|פח; תא (בהיסטוגרמה)
+binary|n|בינארי; קובץ הרצה
+bind|v|לקשור
+biometric|n|נתון ביומטרי
+block|n|בלוק, גוש
+board|n|לוח
+bookmark|v|לסמן (מועדף)
+bottleneck|n|צוואר בקבוק
+bottom|n|תחתית
+box|n|תיבה
+branch|n|ענף (בקוד)
+break|v|לשבור; לעצור
+brightness|n|בהירות
+browse|v|לגלוש, לעיין
+bucket|n|דלי; מכל אחסון
+buffer|n|חוצץ, באפר
+bug|n|באג
+build|n|גרסת בנייה
+bus|n|אפיק (במחשב)
+byte|n|בית (8 סיביות)
+cable|n|כבל
+cache|n|מטמון
+calibrate|v|לכייל
+call|n|קריאה (לפונקציה)
+capture|v|ללכוד
+card|n|כרטיס
+cell|n|תא
+chain|n|שרשרת
+channel|n|ערוץ
+character|n|תו
+chip|n|שבב
+circuit|n|מעגל חשמלי
+class|n|מחלקה (בתכנות)
+clear|v|לנקות, לאפס
+click|v|ללחוץ
+client|n|לקוח
+clock|n|שעון
+clone|n|שכפול
+cloud|n|ענן
+cluster|n|אשכול
+cold|adj|קר
+collector|n|אוסף; אספן
+column|n|עמודה
+command|n|פקודה
+comment|n|הערה
+compile|v|להדר (קוד)
+component|n|רכיב
+compress|v|לדחוס
+computer|n|מחשב
+concatenation|n|שרשור
+configuration|n|תצורה
+connect|v|להתחבר
+contact|n|איש קשר
+container|n|מכולה (קונטיינר)
+content|n|תוכן
+contrast|n|ניגודיות
+control|n|בקרה; פקד
+cryptography|n|הצפנה, קריפטוגרפיה
+customize|v|להתאים אישית
+cut|v|לגזור
+data|n|נתונים
+database|n|מסד נתונים
+datacenter|n|חוות שרתים
+debug|v|לנפות באגים
+decode|v|לפענח
+decoupling|n|הפרדה בין רכיבים
+decrypt|v|לפענח הצפנה
+default|n|ברירת מחדל
+demonstration|n|הדגמה
+desktop|n|שולחן עבודה
+developer|n|מפתח
+device|n|התקן
+digital|adj|דיגיטלי
+disk|n|דיסק
+display|n|תצוגה
+document|n|מסמך
+domain|n|דומיין, תחום
+down|adv|למטה; לא פעיל
+download|n|הורדה
+drag|v|לגרור
+drive|n|כונן
+element|n|רכיב, איבר
+encode|v|לקודד
+encryption|n|הצפנה
+enter|v|להזין; להיכנס
+entry|n|רשומה
+erase|v|למחוק
+event|n|אירוע
+exception|n|חריגה
+explorer|n|סייר
+extraction|n|חילוץ
+feed|n|פיד, הזנה
+fetch|v|לאחזר
+field|n|שדה
+file|n|קובץ
+filter|v|לסנן
+firmware|n|קושחה
+flag|n|דגל
+flash|n|זיכרון הבזק
+flush|v|לרוקן (חוצץ)
+focus|n|מיקוד
+fold|n|קיפול
+form|n|טופס
+forth|adv|הלאה
+frame|n|מסגרת; פריים
+gate|n|שער
+get|v|לקבל
+granularity|n|רמת פירוט
+guard|n|שומר; תנאי שמירה
+hardware|n|חומרה
+hash|n|גיבוב
+head|n|ראש
+header|n|כותרת
+hierarchy|n|היררכיה
+history|n|היסטוריה
+hit|n|פגיעה (במטמון)
+host|v|לארח
+idle|adj|במצב סרק
+implement|v|לממש
+index|n|אינדקס
+inheritance|n|ירושה
+input|n|קלט
+install|v|להתקין
+instrument|v|לשלב מדידה (בקוד)
+interactive|adj|אינטראקטיבי
+interface|n|ממשק
+internet|n|אינטרנט
+interpolation|n|אינטרפולציה
+interpret|v|לפרש
+interrupt|v|לפסוק
+intersect|v|לחתוך, להצטלב
+intruder|n|פולש
+isolation|n|בידוד
+iteration|n|איטרציה
+job|n|משימה (ריצה)
+join|n|צירוף טבלאות
+journal|n|יומן
+jump|n|קפיצה
+justify|v|ליישר (טקסט); להצדיק
+key|n|מפתח
+keyboard|n|מקלדת
+label|n|תווית
+laptop|n|מחשב נייד
+latency|n|השהיה
+launch|v|להפעיל, להשיק
+library|n|ספרייה
+line|n|שורה
+link|n|קישור
+list|n|רשימה
+literal|n|ערך מילולי
+load|v|לטעון
+local|adj|מקומי
+log|n|יומן רישום
+logic|n|לוגיקה
+login|n|כניסה
+long|adj|ארוך
+look|n|מראה
+loop|n|לולאה
+machine|n|מכונה
+make|v|לבנות
+maintainer|n|מתחזק
+malicious|adj|זדוני
+manual|adj|ידני
+manufacture|v|לייצר
+mark|n|סימון
+mask|n|מסכה
+master|n|ראשי
+match|n|התאמה
+matrix|n|מטריצה
+maximize|v|להגדיל לגודל מלא
+media|n|מדיה
+memory|n|זיכרון
+merge|v|למזג
+message|n|הודעה
+metadata|n|מטא־נתונים
+microcontroller|n|בקר זעיר
+migrate|v|להעביר (מערכת)
+minimize|v|למזער
+mode|n|מצב
+model|n|מודל
+modular|adj|מודולרי
+module|n|מודול
+monitor|n|מסך; צג
+mouse|n|עכבר
+move|v|להזיז
+multiplex|v|לרבב
+navigate|v|לנווט
+network|n|רשת
+node|n|צומת
+noise|n|רעש
+normalization|n|נרמול
+null|n|ערך ריק
+number|n|מספר
+object|n|אובייקט
+offset|n|היסט
+online|adj|מקוון
+open|v|לפתוח
+optimal|adj|אופטימלי
+orthogonal|adj|אורתוגונלי, ניצב
+output|n|פלט
+overhead|n|תקורה
+overlap|v|לחפוף
+pack|v|לארוז
+page|n|דף
+pair|v|לצמד
+paradigm|n|פרדיגמה
+parameter|n|פרמטר
+parent|n|הורה (צומת אב)
+park|v|להחנות
+partition|n|מחיצה
+pass|n|מעבר
+password|n|סיסמה
+patch|n|תיקון (טלאי)
+path|n|נתיב
+payload|n|מטען
+perform|v|לבצע
+persistence|n|שמירה קבועה
+perspective|n|פרספקטיבה
+pilot|n|פיילוט, ניסוי
+pixel|n|פיקסל
+platform|n|פלטפורמה
+plot|n|גרף
+pop|v|לשלוף (מהמחסנית)
+port|v|להסב (תוכנה)
+pose|n|תנוחה
+post|v|לפרסם
+power|n|הספק; חשמל
+practise|v|לתרגל
+predicate|n|פרדיקט, תנאי
+preemption|n|הפקעה
+print|v|להדפיס
+probe|n|גשש, חיישן
+procedure|n|פרוצדורה
+processor|n|מעבד
+profile|n|פרופיל
+programme|n|תוכנית
+programming|n|תכנות
+propagation|n|התפשטות
+protocol|n|פרוטוקול
+prototype|n|אב טיפוס
+publish|v|לפרסם
+pulse|n|פולס
+push|v|לדחוף
+put|v|לשים
+quantify|v|לכמת
+query|v|לשאול (שאילתה)
+queue|n|תור
+radio|n|רדיו
+rank|n|דירוג
+read|v|לקרוא
+real|adj|ממשי
+reconfiguration|n|הגדרה מחדש
+record|n|רשומה
+recover|v|לשחזר
+recursion|n|רקורסיה
+reflection|n|השתקפות; רפלקציה
+register|v|להירשם
+release|n|גרסה; שחרור
+remote|adj|מרוחק
+rename|v|לשנות שם
+replace|v|להחליף
+report|n|דוח
+repository|n|מאגר
+reset|v|לאפס
+resiliency|n|חוסן
+resolution|n|רזולוציה
+resolve|v|לפתור
+resource|n|משאב
+response|n|תגובה
+retrieval|n|אחזור
+return|n|ערך החזרה
+reuse|v|לעשות שימוש חוזר
+robot|n|רובוט
+robust|adj|חסין, יציב
+root|n|שורש
+route|v|לנתב
+router|n|נתב
+run|v|להריץ
+runtime|n|זמן ריצה
+sample|v|לדגום
+scan|v|לסרוק
+schema|n|סכמה
+scope|n|תחום הגדרה
+screen|n|מסך
+script|n|סקריפט
+search|n|חיפוש
+sector|n|מגזר
+seek|v|לחפש; לדלג
+segment|n|מקטע
+select|v|לבחור
+self|n|עצמי
+sensor|n|חיישן
+server|n|שרת
+service|n|שירות
+session|n|הפעלה, סשן
+set|n|קבוצה
+shift|n|הזזה
+signal|n|אות
+simulation|n|הדמיה
+sleep|n|מצב שינה
+slice|n|פרוסה; תת־מערך
+smart|adj|חכם
+software|n|תוכנה
+sort|v|למיין
+sound|n|צליל
+source|n|מקור
+space|n|רווח; מקום
+speed|n|מהירות
+spreadsheet|n|גיליון אלקטרוני
+stack|n|מחסנית
+state|n|מצב
+static|adj|סטטי
+station|n|תחנה
+store|v|לאחסן
+stream|v|להזרים
+string|n|מחרוזת
+structure|n|מבנה
+subject|n|נושא
+subset|n|תת־קבוצה
+subsystem|n|תת־מערכת
+supervisor|n|מפקח
+support|v|לתמוך
+surface|n|משטח
+swap|n|החלפה
+symbol|n|סמל
+symmetric|adj|סימטרי
+synchronise|v|לסנכרן
+syntax|n|תחביר
+system|n|מערכת
+table|n|טבלה
+tag|n|תגית
+tap|v|להקיש
+task|n|משימה
+technique|n|טכניקה
+test|n|בדיקה
+theme|n|ערכת נושא
+threat|n|איום
+threshold|n|סף
+throughput|n|תפוקה
+timestamp|n|חותמת זמן
+token|n|אסימון
+tool|n|כלי
+topology|n|טופולוגיה
+touch|n|מגע
+trace|n|עקבה
+track|v|לעקוב
+traffic|n|תעבורה
+train|v|לאמן (מודל)
+transaction|n|טרנזקציה
+transcribe|v|לתמלל
+transfer|v|להעביר
+translate|v|לתרגם
+transmit|v|לשדר
+transport|v|להעביר
+tree|n|עץ
+triangle|n|משולש
+trigger|v|להפעיל
+trust|n|אמון
+tuple|n|רשומה (n-יה)
+turn|n|תור
+type|n|טיפוס, סוג
+union|n|איחוד
+unique|adj|ייחודי
+unit|n|יחידה
+up|adj|פעיל, זמין
+update|n|עדכון
+upload|v|להעלות
+user|n|משתמש
+utility|n|כלי עזר
+utilization|n|ניצולת
+valid|adj|תקף
+value|n|ערך
+variable|n|משתנה
+version|n|גרסה
+video|n|וידאו
+view|n|תצוגה
+virtual|adj|וירטואלי
+visit|n|ביקור
+voice|n|קול
+voltage|n|מתח חשמלי
+volume|n|עוצמת קול; כרך
+walk|v|לעבור על (מבנה נתונים)
+wall|n|קיר
+wave|n|גל
+web|n|רשת
+website|n|אתר אינטרנט
+while|conj|כל עוד
+Wi-Fi|n|רשת אלחוטית
+window|n|חלון
+wire|n|חוט, כבל
+wireless|adj|אלחוטי
+word|n|מילה
+write|v|לכתוב
+yield|v|להניב; לוותר על המעבד

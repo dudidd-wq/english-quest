@@ -1,0 +1,435 @@
+activate|v|להפעיל
+acute|adj|חריף
+adjacent|adj|סמוך, צמוד
+adverse|adj|שלילי, מזיק
+aesthetic|adj|אסתטי
+aluminum|n|אלומיניום
+anthropology|n|אנתרופולוגיה
+array|n|מערך
+articulate|v|לבטא, לנסח
+auction|v|למכור במכירה פומבית
+audio|adj|שמע, קולי
+barrel|n|חבית
+biologist|n|ביולוג
+bizarre|adj|מוזר, משונה
+bubble|n|בועה
+bulk|n|עיקר; כמות גדולה
+bundle|n|צרור, חבילה
+calcium|n|סידן
+campus|n|קמפוס
+capitalism|n|קפיטליזם
+capitalist|n|קפיטליסט
+censor|n|צנזור
+chronic|adj|כרוני
+chunk|n|נתח, גוש
+classification|n|סיווג
+clay|n|חימר
+clone|v|לשבט, לשכפל
+closure|n|סגירה
+cognitive|adj|קוגניטיבי
+coherent|adj|קוהרנטי, עקבי
+commodity|n|סחורה, מצרך
+compact|adj|קומפקטי, דחוס
+comparative|adj|השוואתי
+competence|n|כשירות, יכולת
+complement|n|השלמה
+comply|v|לציית
+comprehension|n|הבנה
+configuration|n|תצורה
+consensus|n|הסכמה כללית
+contrary|adj|מנוגד
+cord|n|חבל; כבל
+credibility|n|אמינות
+critique|n|ביקורת
+crude|adj|גולמי, גס
+deadline|n|מועד אחרון
+defect|n|פגם
+deficiency|n|מחסור, ליקוי
+dependence|n|תלות
+diagnose|v|לאבחן
+diagnosis|n|אבחנה
+diameter|n|קוטר
+differentiate|v|להבחין, להבדיל
+differentiation|n|הבחנה, בידול
+dioxide|n|דו־תחמוצת
+displacement|n|עקירה; תזוזה
+dissolve|v|להמס, להתמוסס
+domain|n|תחום
+donor|n|תורם
+ecological|adj|אקולוגי
+electron|n|אלקטרון
+emperor|n|קיסר
+empirical|adj|אמפירי
+entity|n|ישות
+essence|n|מהות
+ethical|adj|אתי
+ethics|n|אתיקה
+expertise|n|מומחיות
+fluid|adj|נוזלי, זורם
+fossil|n|מאובן
+fraction|n|שבר
+fracture|n|שבר (בעצם)
+fringe|n|שוליים
+fusion|n|היתוך; מיזוג
+gauge|n|מד
+goat|n|עז
+grid|n|רשת
+gut|n|מעי; תחושת בטן
+habitat|n|בית גידול
+harvest|n|קציר, יבול
+hierarchy|n|היררכיה
+horizon|n|אופק
+horizontal|adj|אופקי
+hormone|n|הורמון
+hydrogen|n|מימן
+illusion|n|אשליה
+implicit|adj|מרומז, משתמע
+impulse|n|דחף
+incidence|n|שכיחות
+incline|n|שיפוע
+inclusion|n|הכללה
+indifference|n|אדישות
+indigenous|adj|ילידי
+induce|v|לגרום, להשרות
+inference|n|הסקה
+infinite|adj|אינסופי
+inhibit|v|לעכב
+inhibition|n|עכבה
+integral|adj|אינטגרלי, בלתי נפרד
+interface|n|ממשק
+invade|v|לפלוש
+lever|n|מנוף, ידית
+likewise|adv|כמו כן
+limb|n|גפה; ענף
+linear|adj|ליניארי
+linguistic|adj|לשוני
+linguistics|n|בלשנות
+loop|n|לולאה
+magnitude|n|גודל, עוצמה
+manuscript|n|כתב יד
+marble|n|שיש; גולה
+matrix|n|מטריצה
+maximize|v|למקסם
+mediate|v|לתווך
+metaphor|n|מטאפורה
+mineral|n|מינרל
+minimal|adj|מינימלי
+momentum|n|תנע
+monetary|adj|מוניטרי, כספי
+monopoly|n|מונופול
+multiply|v|להכפיל
+noble|adj|אציל
+nonlinear|adj|לא ליניארי
+norm|n|נורמה
+obscure|adj|לא ידוע; סתום
+optical|adj|אופטי
+organism|n|אורגניזם
+outlet|n|שקע; פורקן
+overhead|adj|עילי, מעל הראש
+overlap|v|לחפוף
+paradox|n|פרדוקס
+parameter|n|פרמטר
+particle|n|חלקיק
+peripheral|adj|היקפי, שולי
+physician|n|רופא
+polar|adj|קוטבי
+portfolio|n|תיק עבודות
+portray|v|לתאר, לגלם
+poster|n|כרזה
+predator|n|טורף
+predominantly|adv|בעיקר
+prevalence|n|שכיחות
+prey|n|טרף
+proposition|n|טענה; הצעה
+protocol|n|פרוטוקול
+pulse|n|דופק
+rack|n|מדף, מתלה
+realm|n|תחום; ממלכה
+regression|n|נסיגה; רגרסיה
+rehabilitation|n|שיקום
+residual|adj|שיורי
+residue|n|שארית
+retrieve|v|לאחזר
+rhetoric|n|רטוריקה
+robot|n|רובוט
+rotate|v|לסובב
+rotation|n|סיבוב
+scenario|n|תרחיש
+scholarship|n|מלגה
+seminar|n|סמינר
+simulate|v|לדמות
+simulation|n|הדמיה
+sketch|n|סקיצה, רישום
+skip|v|לדלג
+slot|n|חריץ; משבצת זמן
+sodium|n|נתרן
+span|v|להשתרע על פני
+spatial|adj|מרחבי
+specimen|n|דגימה
+spectrum|n|קשת, ספקטרום
+sphere|n|כדור; תחום
+spontaneous|adj|ספונטני
+stack|v|לערום
+stance|n|עמדה
+stereotype|n|סטריאוטיפ
+stimulus|n|גירוי
+strand|n|גדיל, סיב
+subjective|adj|סובייקטיבי
+surgeon|n|מנתח
+surplus|adj|עודף
+syndrome|n|תסמונת
+synthesis|n|סינתזה
+thesis|n|תזה
+threshold|n|סף
+toxic|adj|רעיל
+trait|n|תכונה
+transcription|n|תעתיק
+transplant|n|השתלה
+trauma|n|טראומה
+tumor|n|גידול
+undermine|v|לערער
+unify|v|לאחד
+upward|adv|כלפי מעלה
+utilize|v|לנצל, להשתמש
+utterance|n|מבע, אמירה
+vein|n|וריד
+verbal|adj|מילולי
+vertical|adj|אנכי
+viable|adj|בר ביצוע
+abdominal|adj|של הבטן
+aggregate|n|סך כולל
+algorithm|n|אלגוריתם
+altitude|n|גובה (מעל פני הים)
+analogy|n|אנלוגיה, היקש
+antibiotic|adj|אנטיביוטי
+antibody|n|נוגדן
+appendix|n|נספח; תוספתן
+applause|n|מחיאות כפיים
+arbitrary|adj|שרירותי
+axis|n|ציר
+bracket|n|סוגריים
+coefficient|n|מקדם
+composite|adj|מורכב, מרוכב
+cone|n|חרוט
+converge|v|להתכנס
+convergence|n|התכנסות
+cue|n|רמז, אות
+cylinder|n|גליל
+degrade|v|להשפיל; להתפרק
+delta|n|דלתא
+deviation|n|סטייה
+diagnostic|adj|אבחוני
+differential|adj|דיפרנציאלי
+diffusion|n|פעפוע, דיפוזיה
+dilute|v|למהול, לדלל
+dominance|n|שליטה, דומיננטיות
+dye|n|צבע (לצביעה)
+ecology|n|אקולוגיה
+elastic|adj|גמיש, אלסטי
+elasticity|n|גמישות
+embed|v|להטמיע
+enzyme|n|אנזים
+epidemic|n|מגפה
+equilibrium|n|שיווי משקל
+erase|v|למחוק
+fatigue|n|עייפות
+fungus|n|פטרייה
+hawk|n|נץ
+incumbent|n|מכהן
+inferior|adj|נחות
+ion|n|יון
+kidney|n|כליה
+lateral|adj|צדדי
+maternal|adj|אימהי
+membrane|n|קרום
+messenger|n|שליח
+motif|n|מוטיב
+multinational|adj|רב־לאומי
+mutation|n|מוטציה
+niche|n|נישה
+nitrogen|n|חנקן
+node|n|צומת
+nominal|adj|נומינלי, סמלי
+nucleus|n|גרעין
+numerical|adj|מספרי
+nutrient|n|חומר מזין
+offspring|n|צאצאים
+onset|n|התחלה, פרוץ
+optimal|adj|אופטימלי
+orient|v|לכוון
+overview|n|סקירה כללית
+par|n|רמה רגילה
+paradigm|n|פרדיגמה
+pest|n|מזיק
+pesticide|n|חומר הדברה
+plantation|n|מטע
+plausible|adj|סביר
+pragmatic|adj|מעשי
+precipitate|v|לזרז; לשקוע
+precipitation|n|משקעים
+qualitative|adj|איכותני
+quantum|n|קוונט
+radar|n|מכ"ם
+replicate|v|לשחזר, לשכפל
+replication|n|שחזור, שכפול
+reservoir|n|מאגר
+scripture|n|כתבי קודש
+sediment|n|משקע
+semantic|adj|סמנטי
+shuttle|n|הסעה; מעבורת
+slab|n|לוח
+slash|n|לוכסן; חתך
+sniff|v|לרחרח
+socialize|v|להתרועע
+static|adj|סטטי
+surgical|adj|כירורגי
+susceptible|adj|רגיש, חשוף
+swap|v|להחליף
+synthetic|adj|סינתטי
+temporal|adj|זמני, של זמן
+thermal|adj|תרמי
+tolerance|n|סובלנות
+tract|n|מערכת (בגוף); שטח
+turbulent|adj|סוער
+undergraduate|n|סטודנט לתואר ראשון
+unintelligible|adj|לא מובן
+usage|n|שימוש
+valve|n|שסתום
+vegetation|n|צמחייה
+velocity|n|מהירות
+whereby|adv|שבאמצעותו
+antiquity|n|העת העתיקה
+binary|adj|בינארי
+chess|n|שחמט
+chromosome|n|כרומוזום
+contour|n|קו מתאר
+coronary|adj|כלילי (של הלב)
+corpus|n|קורפוס
+deceive|v|להונות
+deflection|n|הסטה
+denote|v|לציין, לסמן
+dialect|n|ניב
+discrete|adj|בדיד, נפרד
+encode|v|לקודד
+epidemiology|n|אפידמיולוגיה
+facet|n|היבט
+fin|n|סנפיר
+finite|adj|סופי
+flux|n|שטף
+friction|n|חיכוך
+hepatitis|n|דלקת כבד
+induction|n|השראה; אינדוקציה
+invert|v|להפוך
+irrigation|n|השקיה
+locus|n|מוקד, מקום
+mentor|n|חונך, מנטור
+mercury|n|כספית
+metabolism|n|חילוף חומרים
+mole|n|שומה; חפרפרת; מול
+neuron|n|נוירון
+notation|n|סימון
+novice|n|מתחיל
+onwards|adv|והלאה
+oscillation|n|תנודה
+partition|n|מחיצה
+physiological|adj|פיזיולוגי
+radius|n|רדיוס
+receptor|n|קולטן
+repertoire|n|רפרטואר
+respiratory|adj|של מערכת הנשימה
+scroll|n|מגילה
+secrete|v|להפריש
+sensory|adj|חושי
+solvent|n|ממס
+syllable|n|הברה
+terminology|n|מינוח
+transcribe|v|לתמלל
+vector|n|וקטור
+yeast|n|שמרים
+amino|n|אמינו
+artifact|n|חפץ, ממצא
+bilingual|adj|דו־לשוני
+chemotherapy|n|כימותרפיה
+confound|v|לבלבל; לערבב
+dissection|n|ניתוח (לימודי)
+dissertation|n|עבודת דוקטורט
+entrant|n|מצטרף, מתמודד
+fetal|adj|עוברי
+gradient|n|שיפוע
+grammatical|adj|דקדוקי
+infinity|n|אינסוף
+innate|adj|מולד
+longitudinal|adj|אורכי
+marrow|n|מח עצם
+millimeter|n|מילימטר
+morphological|adj|צורני
+morphology|n|תורת הצורות
+neural|adj|עצבי
+null|adj|בטל, ריק
+optimum|adj|מיטבי
+phenomenal|adj|פנומנלי
+phosphate|n|פוספט
+potassium|n|אשלגן
+primer|n|צבע יסוד; ספר מבוא
+proton|n|פרוטון
+soluble|adj|מסיס
+substrate|n|מצע
+syllabus|n|סילבוס
+trajectory|n|מסלול
+transparency|n|שקיפות
+watershed|n|קו פרשת מים
+algebra|n|אלגברה
+amplitude|n|משרעת
+biodiversity|n|מגוון ביולוגי
+chloride|n|כלוריד
+circa|prep|בערך
+consonant|n|עיצור
+cortex|n|קליפת המוח
+inversion|n|היפוך
+lexical|adj|מילוני
+phonological|adj|פונולוגי
+postgraduate|n|סטודנט לתואר מתקדם
+syntactic|adj|תחבירי
+syntax|n|תחביר
+theorem|n|משפט (מתמטי)
+aerosol|n|תרסיס
+axiom|n|אקסיומה
+calculus|n|חשבון אינפיניטסימלי
+capillary|n|נימה
+congruent|adj|חופף
+denominator|n|מכנה
+equivalence|n|שקילות
+exponential|adj|מעריכי
+helix|n|סליל
+herbicide|n|קוטל עשבים
+splice|n|חיבור, הדבקה
+connotation|n|קונוטציה
+descriptor|n|מתאר
+oxidize|v|לחמצן
+parenthesis|n|סוגריים
+semester|n|סמסטר
+volition|n|רצון חופשי
+factorial|n|עצרת
+solute|n|מומס
+mid|adj|אמצע
+airplane|n|מטוס
+artwork|n|יצירת אמנות
+breakdown|n|התמוטטות; פירוט
+footnote|n|הערת שוליים
+halfway|adv|באמצע הדרך
+handout|n|דף מידע
+layout|n|פריסה
+lifestyle|n|אורח חיים
+lifetime|n|משך החיים
+pathway|n|נתיב
+rainfall|n|כמות משקעים
+textbook|n|ספר לימוד
+uplift|n|רוממות; הרמה
+wavelength|n|אורך גל
+widespread|adj|נפוץ
+workshop|n|סדנה
+micro|n|מיקרו
+pi|n|פאי
+pole|n|מוט; קוטב
+headquarters|n|מטה
+portrayal|n|תיאור, גילום

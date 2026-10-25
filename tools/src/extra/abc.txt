@@ -1,0 +1,27 @@
+# n|letter|example|hebrew|emoji   (derived: written for the app; example words mostly from Pre-Band I / Band I)
+20001|A|apple|תפוח|🍎
+20002|B|bus|אוטובוס|🚌
+20003|C|cat|חתול|🐱
+20004|D|dog|כלב|🐶
+20005|E|egg|ביצה|🥚
+20006|F|fish|דג|🐟
+20007|G|gift|מתנה|🎁
+20008|H|hat|כובע|🧢
+20009|I|ice cream|גלידה|🍦
+20010|J|juice|מיץ|🧃
+20011|K|kite|עפיפון|🪁
+20012|L|lion|אריה|🦁
+20013|M|milk|חלב|🥛
+20014|N|nine|תשע|9️⃣
+20015|O|orange|תפוז|🍊
+20016|P|pen|עט|🖊️
+20017|Q|question|שאלה|❓
+20018|R|rabbit|ארנב|🐰
+20019|S|sun|שמש|☀️
+20020|T|tree|עץ|🌳
+20021|U|umbrella|מטרייה|☂️
+20022|V|van|טנדר|🚐
+20023|W|watch|שעון יד|⌚
+20024|X|box|קופסה|📦
+20025|Y|yellow|צהוב|🟡
+20026|Z|zebra|זברה|🦓

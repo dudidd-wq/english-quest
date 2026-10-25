@@ -1,0 +1,300 @@
+commission|n|עמלה; ועדה
+standing|n|מעמד
+plane|n|מישור
+secure|v|להשיג, להבטיח
+venture|n|מיזם
+regulatory|adj|רגולטורי, מפקח
+marvel|n|פלא
+haven|n|מקלט, מחסה
+mere|adj|גרידא, בלבד
+ally|v|לכרות ברית
+ore|n|עפרה
+merit|n|יתרון, ערך
+provincial|adj|פרובינציאלי
+deficit|n|גירעון
+hull|n|גוף (ספינה)
+bout|n|התקף; סיבוב
+echo|n|הד
+hazard|v|להעז (לנחש)
+merger|n|מיזוג
+tactical|adj|טקטי
+herald|v|לבשר
+secular|adj|חילוני
+prone|adj|נוטה, מועד
+wax|v|לגדול (ירח); למרוח בשעווה
+accountability|n|אחריותיות, דין וחשבון
+hypothesis|n|השערה
+abundance|n|שפע
+legion|n|לגיון
+autonomous|adj|אוטונומי
+utter|adj|מוחלט, גמור
+notorious|adj|ידוע לשמצה
+wholly|adv|לגמרי
+predecessor|n|קודם (בתפקיד)
+surge|v|לזנק, לגאות
+temper|v|למתן
+ironic|adj|אירוני
+vicinity|n|סביבה, קרבה
+cosmic|adj|קוסמי
+phantom|n|רוח רפאים
+abundant|adj|שופע
+dwarf|v|לגמד
+mesh|v|להשתלב
+paramount|adj|עליון, ראשון במעלה
+solitary|adj|בודד
+reconciliation|n|פיוס
+tactic|n|טקטיקה
+apprentice|v|להתלמד
+proprietary|adj|קנייני
+formidable|adj|אדיר, מאיים
+helm|n|הגה (ספינה)
+posture|v|להתהדר, להעמיד פנים
+vocational|adj|מקצועי
+rift|n|קרע
+gale|n|סערה
+nostalgia|n|נוסטלגיה
+hypothetical|adj|היפותטי
+proliferation|n|התפשטות, ריבוי
+resin|n|שרף
+authenticity|n|אותנטיות
+proportional|adj|יחסי
+scholarly|adj|מלומד, אקדמי
+strait|n|מצר (ים)
+redundant|adj|מיותר
+transmitter|n|משדר
+catastrophic|adj|הרסני
+adhere|v|לדבוק
+blitz|v|להפציץ בעוצמה
+combustion|n|בעירה
+eminent|adj|דגול
+subsidy|n|סובסידיה
+curator|n|אוצר (מוזיאון)
+indulge|v|לפנק, להתמכר
+menace|n|איום
+seismic|adj|סייסמי
+accessibility|n|נגישות
+angular|adj|זוויתי
+brink|n|סף
+diligence|n|חריצות
+mediation|n|גישור
+procedural|adj|נוהלי
+locomotive|n|קטר
+profitability|n|רווחיות
+reconcile|v|ליישב, לפייס
+choreography|n|כוריאוגרפיה
+gravitational|adj|כבידתי
+homestead|n|חווה, נחלה
+myriad|adj|אין־ספור
+abolish|v|לבטל
+anthology|n|אנתולוגיה
+fabrication|n|בדיה; ייצור
+retrospective|adj|בדיעבד, רטרוספקטיבי
+cascade|v|לזרום במפל
+graft|n|שתל; שוחד
+intrinsic|adj|מהותי, פנימי
+vortex|n|מערבולת
+diminish|v|לפחות, להקטין
+nostalgic|adj|נוסטלגי
+deprivation|n|מחסור, קיפוח
+kinetic|adj|קינטי
+bogus|adj|מזויף
+contractual|adj|חוזי
+lyrical|adj|לירי
+stringent|adj|נוקשה, מחמיר
+hitch|v|לרתום; לטרמפ
+solitude|n|בדידות
+turret|n|צריח
+agile|adj|זריז
+austerity|n|צנע
+constrained|adj|מוגבל
+emulate|v|לחקות
+chronological|adj|כרונולוגי
+daunting|adj|מרתיע
+vocalist|n|זמר
+anonymity|n|אנונימיות
+conglomerate|n|תאגיד ענק
+hinder|v|לעכב, להפריע
+melancholy|n|מלנכוליה, עצב
+meteorological|adj|מטאורולוגי
+pervasive|adj|נפוץ, חודר
+punitive|adj|עונשי
+electrode|n|אלקטרודה
+rhetorical|adj|רטורי
+beneficiary|n|מוטב
+notoriously|adv|לשמצה
+opaque|adj|אטום
+conjecture|v|לשער
+ostensibly|adv|לכאורה
+palate|n|חך
+pedestal|n|כן, בסיס
+hindsight|n|חוכמה שבדיעבד
+malice|n|רשעות
+additive|n|תוסף
+adept|adj|מיומן
+advantageous|adj|מועיל
+agility|n|זריזות
+deficient|adj|לוקה בחסר
+deterrent|n|גורם מרתיע
+informant|n|מודיע; מרואיין
+maverick|n|עצמאי, יוצא דופן
+uncanny|adj|מסתורי, מוזר
+baroque|adj|בארוקי
+ethos|n|אתוס
+outpatient|n|מטופל במרפאת חוץ
+philanthropy|n|פילנתרופיה
+redundancy|n|כפילות; פיטורים
+treacherous|adj|בוגדני; מסוכן
+embodiment|n|התגלמות
+disperse|v|לפזר
+clinch|v|להבטיח (ניצחון)
+collide|v|להתנגש
+perch|v|לשבת על ענף
+recourse|n|מוצא, אפשרות פנייה
+retrospect|n|מבט לאחור
+archival|adj|ארכיוני
+conduit|n|צינור, מעבר
+splinter|v|להתפצל
+topography|n|טופוגרפיה
+adversely|adv|לרעה
+encompass|v|להקיף, לכלול
+parasitic|adj|טפילי
+angst|n|חרדה קיומית
+dissemination|n|הפצה
+hamper|v|לעכב
+hover|v|לרחף
+knack|n|כישרון מיוחד
+antidote|n|תרופת נגד
+brood|v|להרהר בעצב
+extant|adj|קיים, שרד
+impeccable|adj|ללא רבב
+lament|v|לקונן
+blight|n|מכה, נגע
+cinematography|n|צילום קולנועי
+denounce|v|לגנות
+euphoria|n|אופוריה
+jargon|n|ז'רגון
+meticulous|adj|קפדני
+whirlwind|n|מערבולת, סופה
+diligent|adj|חרוץ
+calamity|n|אסון
+chronology|n|כרונולוגיה
+fruition|n|הגשמה
+meteorology|n|מטאורולוגיה
+eminence|n|גדולה, חשיבות
+fallacy|n|כשל
+hermit|n|נזיר מתבודד
+mercantile|adj|מסחרי
+philanthropic|adj|פילנתרופי
+prolong|v|להאריך
+aptitude|n|כישרון, נטייה
+oblique|adj|אלכסוני; עקיף
+assimilation|n|הטמעה
+imposition|n|כפייה; הטרדה
+indulgence|n|פינוק
+notoriety|n|שם רע
+ornate|adj|מקושט
+plume|n|נוצה; תימרה
+provocation|n|התגרות
+unravel|v|לפרום; לפענח
+zoology|n|זואולוגיה
+arduous|adj|מפרך
+barometer|n|ברומטר
+intermediary|n|מתווך
+menacing|adj|מאיים
+condone|v|להשלים עם, להעלים עין
+embody|v|לגלם
+promenade|n|טיילת
+rapture|n|התלהבות עזה
+skim|v|לרפרף, לקרוא ברפרוף
+attrition|n|שחיקה
+autopilot|n|טייס אוטומטי
+attainment|n|הישג
+exalted|adj|נעלה
+grievance|n|תלונה, קובלנה
+hitherto|adv|עד כה
+rife|adj|נפוץ, שורץ
+adhesion|n|הידבקות
+avian|adj|של עופות
+contextual|adj|הקשרי
+cordon|v|לחסום בטבעת
+dispersal|n|פיזור
+instantaneous|adj|מיידי
+allotment|n|הקצבה; חלקת גינה
+diligently|adv|בחריצות
+etching|n|תחריט
+modernism|n|מודרניזם
+pluck|n|אומץ
+proverbial|adj|פתגמי, ידוע
+quirk|n|מוזרות קטנה
+treachery|n|בגידה
+burgeoning|adj|מתפתח במהירות
+condensation|n|עיבוי
+figurative|adj|מושאל, ציורי
+hoist|v|להניף
+mediocrity|n|בינוניות
+philanthropist|n|נדבן
+relinquish|v|לוותר על
+snippet|n|קטע קצר
+abundantly|adv|בשפע; לגמרי
+spire|n|צריח (כנסייה)
+subsistence|n|קיום בסיסי
+tenacity|n|עקשנות, דבקות
+derelict|adj|נטוש, מוזנח
+gambit|n|מהלך פתיחה
+monastic|adj|נזירי
+parable|n|משל
+rebuke|v|לנזוף
+tactile|adj|מישושי
+anthropological|adj|אנתרופולוגי
+articulation|n|ניסוח; היגוי
+inert|adj|אדיש, דומם
+interlude|n|הפוגה, אינטרלוד
+wayward|adj|סורר
+cocoon|v|לעטוף, לגונן
+huddle|v|להצטופף
+meticulously|adv|בקפדנות
+nascent|adj|מתהווה
+venomous|adj|ארסי
+allegory|n|אלגוריה
+banish|v|לגרש
+callous|adj|קר לב
+testimonial|n|המלצה
+verbatim|adj|מילה במילה
+averse|adj|סולד, מתנגד
+brim|v|להיות מלא עד גדותיו
+dribble|v|לכדרר; לטפטף
+egalitarian|adj|שוויוני
+intrinsically|adv|במהותו
+palatable|adj|טעים; מקובל
+solicit|v|לבקש, לשדל
+succumb|v|להיכנע
+unequivocally|adv|באופן חד־משמעי
+assimilate|v|להטמיע, להיטמע
+counterproductive|adj|מזיק למטרה
+materialism|n|חומרנות
+parochial|adj|צר אופקים
+utilitarian|adj|תועלתני
+belligerent|adj|לוחמני
+ebb|v|לשפול, לדעוך
+emulation|n|חיקוי
+forfeiture|n|חילוט
+magnate|n|איל הון
+poise|v|לאזן; להיות מוכן
+tenacious|adj|עיקש
+confrontational|adj|עימותי
+contagion|n|הדבקה
+curate|v|לאצור
+deviant|n|סוטה מהנורמה
+disseminate|v|להפיץ
+insular|adj|מסוגר
+jarring|adj|צורם
+mariner|n|ימאי
+methodological|adj|מתודולוגי
+resounding|adj|מהדהד
+scavenger|n|אוכל נבלות
+apprehend|v|לעצור (חשוד); לתפוס
+infallible|adj|שאינו טועה
+wither|v|לקמול
+adorn|v|לקשט
+detract|v|לגרוע
+distillation|n|זיקוק

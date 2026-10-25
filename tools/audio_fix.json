@@ -112,6 +112,8 @@
   "he/11029": "HE re-record כְּפָר (flagged by STT+phoneme QA; verified scribe=1.0 ivrit=1.0)",
   "he/11030": "HE re-record תְּשׁוּקָה (flagged by STT+phoneme QA; verified scribe=1.0 ivrit=1.0)",
   "he/11031": "HE re-record תְּשַׁע עֶשְׂרֵה (flagged by STT+phoneme QA; verified scribe=1.0 ivrit=1.0)",
-  "he/11032": "HE re-record שַׁעֲרוּרִיָּה (flagged by STT+phoneme QA; verified scribe=1.0 ivrit=1.0)"
+  "he/11032": "HE re-record שַׁעֲרוּרִיָּה (flagged by STT+phoneme QA; verified scribe=1.0 ivrit=1.0)",
+  "en/31020": "homograph attribute_n (carrier-cut)",
+  "en/30551": "homograph incline_n (carrier-cut)"
  }
 }

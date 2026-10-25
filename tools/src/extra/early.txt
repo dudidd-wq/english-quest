@@ -1,0 +1,7 @@
+# derived subset of the official MoE Pre-Band I list: picturable items, no people emoji; one line per stage (6 words)
+cat|dog|egg|milk|hat|bag
+bus|bed|box|pen|pencil|sun
+gift|hand|fan|six|ten|three
+red|hot|big|soft|stop|yes
+sit|sleep|cut|pet|trip|take a picture
+hello|thank you|Happy birthday!|Good luck!|Well done!|Let's go

@@ -1,0 +1,324 @@
+afterward|adv|אחר כך, לאחר מכן
+amongst|prep|בין, בקרב
+backward|adv|אחורה
+bodily|adv|בגופו, פיזית
+carrier|n|נשא; חברת תובלה
+collective|adj|קיבוצי, משותף
+computation|n|חישוב
+continuity|n|רציפות, המשכיות
+freely|adv|בחופשיות
+generalization|n|הכללה
+generalize|v|להכליל
+goodness|n|טוּב
+historically|adv|מבחינה היסטורית
+importantly|adv|חשוב מכך
+interestingly|adv|באופן מעניין
+locally|adv|באופן מקומי
+machinery|n|מכונות, מנגנון
+marker|n|סמן; טוש
+meaningful|adj|משמעותי
+namely|adv|כלומר, דהיינו
+nationalism|n|לאומיות
+nicely|adv|יפה, היטב
+parental|adj|הורי, של הורים
+partially|adv|באופן חלקי
+photographic|adj|צילומי
+planner|n|מתכנן; יומן תכנון
+problematic|adj|בעייתי
+realism|n|ריאליזם, מציאותיות
+simplify|v|לפשט
+sometime|adv|מתישהו
+specialty|n|התמחות, תחום מומחיות
+subset|n|תת־קבוצה
+supposedly|adv|כביכול, לכאורה
+systematic|adj|שיטתי
+terribly|adv|נורא, מאוד
+thickness|n|עובי
+whichever|det|איזה שלא יהיה
+actively|adv|באופן פעיל
+adaptation|n|הסתגלות; עיבוד
+adaptive|adj|מסתגל, אדפטיבי
+bang|v|לחבוט, להטיח
+bat|n|מחבט; עטלף
+bleed|v|לדמם
+bound|v|לתחום, להגביל
+broadly|adv|באופן כללי, בגדול
+calculator|n|מחשבון
+characterization|n|אפיון
+cheers|n|לחיים!; תודה
+commentary|n|פרשנות
+commonly|adv|בדרך כלל, לרוב
+comparable|adj|בר השוואה, דומה
+complication|n|סיבוך
+conditional|adj|מותנה
+connector|n|מחבר
+conscious|adj|מודע
+correction|n|תיקון
+correctly|adv|נכון, כראוי
+detection|n|גילוי, איתור
+developmental|adj|התפתחותי
+directive|n|הנחיה
+disturbance|n|הפרעה
+economically|adv|מבחינה כלכלית
+economist|n|כלכלן
+enormously|adv|במידה עצומה
+equality|n|שוויון
+hedge|n|גדר חיה; גידור
+identification|n|זיהוי
+incredibly|adv|באופן מדהים
+indicator|n|מדד, מחוון
+individually|adv|באופן אישי, כל אחד לחוד
+industrialization|n|תיעוש
+industrialize|v|לתעש
+inequality|n|אי־שוויון
+instability|n|חוסר יציבות
+intensity|n|עוצמה
+intensive|adj|אינטנסיבי, מרוכז
+interviewer|n|מראיין
+likelihood|n|סבירות
+lump|n|גוש
+mathematical|adj|מתמטי
+memorize|v|לשנן, לזכור בעל פה
+minus|prep|פחות, מינוס
+nest|n|קן
+observer|n|צופה, משקיף
+occurrence|n|התרחשות
+periodic|adj|מחזורי
+physically|adv|פיזית
+plug|v|לחבר לחשמל; לסתום
+politically|adv|מבחינה פוליטית
+positively|adv|באופן חיובי
+presume|v|להניח
+processor|n|מעבד
+productive|adj|יצרני, פורה
+productivity|n|פריון
+progression|n|התקדמות
+progressive|adj|מתקדם, הדרגתי
+projection|n|תחזית; הקרנה
+punishment|n|עונש
+purely|adv|אך ורק, באופן טהור
+quotation|n|ציטוט; הצעת מחיר
+ray|n|קרן
+reactive|adj|מגיב, תגובתי
+reactor|n|כור
+reliability|n|אמינות
+replacement|n|החלפה, תחליף
+resistant|adj|עמיד
+selective|adj|בררני, סלקטיבי
+separation|n|הפרדה
+slavery|n|עבדות
+socially|adv|מבחינה חברתית
+specification|n|מפרט
+stabilize|v|לייצב
+standardize|v|לתקנן
+tech|n|טכנולוגיה, הייטק
+tricky|adj|מסובך, מכשיל
+unstable|adj|לא יציב
+variability|n|השתנות, שונות
+variance|n|שונות
+variant|n|גרסה, וריאנט
+wisdom|n|חוכמה
+absorption|n|ספיגה
+accelerate|v|להאיץ
+acceleration|n|תאוצה, האצה
+accumulate|v|לצבור
+accumulation|n|הצטברות
+accuracy|n|דיוק
+accurately|adv|במדויק
+acid|n|חומצה
+acidic|adj|חומצי
+admission|n|קבלה; הודאה
+adolescent|n|מתבגר
+affirm|v|לאשר, לאמת
+alien|n|חייזר; זר
+alliance|n|ברית
+allocate|v|להקצות
+allocation|n|הקצאה
+approximate|adj|משוער, מקורב
+approximation|n|קירוב
+archaeology|n|ארכאולוגיה
+assembly|n|אספה; הרכבה
+assert|v|לטעון בתוקף
+athletic|adj|אתלטי
+atom|n|אטום
+atomic|adj|אטומי
+audit|v|לבקר (חשבונות)
+bacteria|n|חיידקים
+bacterial|adj|חיידקי
+beam|n|קרן; קורה
+behavioral|adj|התנהגותי
+cattle|n|בקר
+circulate|v|להפיץ; לזרום
+circulation|n|זרימה; תפוצה
+clarify|v|להבהיר
+colonial|adj|קולוניאלי
+colony|n|מושבה
+communicative|adj|תקשורתי
+communist|adj|קומוניסטי
+compensate|v|לפצות
+competent|adj|מוכשר, כשיר
+composer|n|מלחין
+conceive|v|להגות, לתפוס
+conception|n|תפיסה, הגות
+conceptual|adj|מושגי
+conduction|n|הולכה
+confine|v|להגביל, לכלוא
+consent|v|להסכים
+conserve|v|לשמר, לחסוך
+constitution|n|חוקה
+constrain|v|להגביל
+consultation|n|התייעצות
+consumption|n|צריכה
+contradict|v|לסתור
+contradiction|n|סתירה
+contradictory|adj|סותר
+controversy|n|מחלוקת
+coordination|n|תיאום
+correlate|v|להיות בקשר, לתאם
+correlation|n|מתאם
+correspondence|n|התכתבות; התאמה
+corruption|n|שחיתות
+criteria|n|קריטריונים
+critically|adv|באופן ביקורתי
+crystal|n|גביש
+cyclic|adj|מחזורי
+demonstrator|n|מפגין; מדגים
+dense|adj|צפוף, דחוס
+depict|v|לתאר
+derivative|adj|נגזר
+dictate|v|להכתיב
+dimensional|adj|ממדי
+disability|n|מוגבלות
+discharge|v|לשחרר; לפרוק
+distribution|n|התפלגות; הפצה
+dominant|adj|דומיננטי, שולט
+domination|n|שליטה
+drain|n|ניקוז; ביוב
+drift|n|סחף, היסחפות
+effectiveness|n|יעילות, אפקטיביות
+elaborate|adj|מפורט, מורכב
+elevate|v|להגביה, להעלות
+elevation|n|גובה; הגבהה
+elimination|n|סילוק, חיסול
+elite|n|עילית, אליטה
+emergence|n|הופעה, צמיחה
+emission|n|פליטה
+emit|v|לפלוט
+enforcement|n|אכיפה
+estimation|n|הערכה, אומדן
+evolutionary|adj|אבולוציוני
+execute|v|לבצע
+execution|n|ביצוע
+explicit|adj|מפורש
+explicitly|adv|במפורש
+facilitate|v|להקל, לאפשר
+faculty|n|פקולטה; סגל
+fertility|n|פוריות
+fiber|n|סיב
+flesh|n|בשר
+flexibility|n|גמישות
+formally|adv|באופן רשמי
+formulation|n|ניסוח
+fundamentally|adv|ביסודו, באופן יסודי
+genetically|adv|גנטית
+genetics|n|גנטיקה
+globalization|n|גלובליזציה
+grasp|v|לתפוס, להבין
+gravity|n|כוח המשיכה
+gross|adj|ברוטו, גולמי; מגעיל
+ideology|n|אידאולוגיה
+immune|adj|חסין
+independently|adv|באופן עצמאי
+inevitably|adv|בהכרח
+infect|v|להדביק (במחלה)
+infectious|adj|מדבק
+initiation|n|ייזום; טקס חניכה
+inject|v|להזריק
+injection|n|זריקה, הזרקה
+instinct|n|אינסטינקט, יצר
+interact|v|לתקשר, לפעול הדדית
+intervene|v|להתערב
+irrelevant|adj|לא רלוונטי
+justification|n|הצדקה
+lecturer|n|מרצה
+legitimate|adj|לגיטימי, חוקי
+liable|adj|אחראי (משפטית); עלול
+manipulation|n|מניפולציה
+manual|adj|ידני
+marginal|adj|שולי
+mechanic|n|מכונאי
+mechanical|adj|מכני
+media|n|תקשורת, מדיה
+merge|v|למזג, להתמזג
+methodology|n|מתודולוגיה
+migrate|v|להגר, לנדוד
+migration|n|הגירה, נדידה
+missile|n|טיל
+mobility|n|ניידות
+modification|n|שינוי
+molecular|adj|מולקולרי
+molecule|n|מולקולה
+morality|n|מוסריות
+mortality|n|תמותה
+objection|n|התנגדות
+orientation|n|התמצאות; נטייה
+peasant|n|איכר
+philosopher|n|פילוסוף
+philosophical|adj|פילוסופי
+practitioner|n|איש מקצוע
+precede|v|לקדום
+prediction|n|תחזית, ניבוי
+probe|v|לחקור, לגשש
+profound|adj|עמוק
+prominent|adj|בולט
+psychiatric|adj|פסיכיאטרי
+psychologist|n|פסיכולוג
+quantitative|adj|כמותי
+radiation|n|קרינה
+randomize|v|לבחור באקראי
+randomly|adv|באקראי
+rational|adj|רציונלי
+rationality|n|רציונליות
+reconstruct|v|לשחזר
+regime|n|משטר
+reinforce|v|לחזק
+rejection|n|דחייה
+render|v|להפוך ל־; לעבד
+reproduce|v|לשכפל; להתרבות
+reproduction|n|רבייה; שכפול
+resemble|v|להיות דומה ל־
+revolutionary|adj|מהפכני
+ritual|n|טקס
+scatter|v|לפזר
+sensible|adj|הגיוני, נבון
+sensitivity|n|רגישות
+sin|n|חטא
+sophisticate|v|לעדן, לשכלל
+sponsorship|n|חסות
+statistical|adj|סטטיסטי
+statistically|adv|סטטיסטית
+statistics|n|סטטיסטיקה
+strategic|adj|אסטרטגי
+substitution|n|החלפה
+subtle|adj|עדין, דק
+sufficiently|adv|במידה מספקת
+superior|n|ממונה
+sustainable|adj|בר־קיימא
+swell|v|להתנפח
+symbolic|adj|סמלי
+technically|adv|מבחינה טכנית
+theorist|n|תאורטיקן
+thereby|adv|ובכך
+ton|n|טון
+transaction|n|עסקה
+transformation|n|שינוי צורה, טרנספורמציה
+translation|n|תרגום
+transmission|n|שידור, העברה
+transmit|v|לשדר, להעביר
+treaty|n|אמנה, הסכם
+unity|n|אחדות
+utility|n|תועלת; שירות ציבורי
+vague|adj|מעורפל
+validity|n|תוקף
+virtue|n|מידה טובה
+weave|v|לארוג
