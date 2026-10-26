@@ -15,9 +15,14 @@ HOMO=[{'bear','bare'},{'be','bee','b'},{'by','bye','buy'},{'pi','pie'},{'pea','p
  {'bay','bey'},{'pause','paws'},{'role','roll'},{'sale','sail'},{'son','sun'},{'tail','tale'},{'wait','weight'},{'week','weak'},{'wear','where'},
  {'hour','our'},{'know','no'},{'right','write'},{'sea','see'},{'two','to','too'},{'one','won'},{'eight','ate'},{'for','four'},{'new','knew'},
  {'hear','here'},{'their','there'},{'road','rode'},{'flour','flower'},{'fair','fare'},{'deer','dear'},{'die','dye'},{'mist','missed'},
- {'prey','pray'},{'pole','poll'},{'byte','bite'},{'main','maine','mane'},{'pack','pak','pac'},{'band','banned'},{'bass','base'}]
+ {'prey','pray'},{'pole','poll'},{'byte','bite'},{'main','maine','mane'},{'pack','pak','pac'},{'band','banned'},{'bass','base'},
+ {'sea','see','c'},{'tea','tee','t'},{'cue','q','queue'},{'eye','i','aye'},{'owe','o','oh'},{'ok','okay'},{'high','hi'},{'hire','higher'},
+ {'cord','chord'},{'vein','vain','vane'},{'hole','whole'},{'heel','heal'},{'cite','sight','site'},{'cent','scent','sent'},{'due','do','dew'},
+ {'ore','or','oar'},{'flu','flew','flue'},{'tide','tied'}]
+# whisper writes spoken numbers as digits
+DIG={'0':'zero','1':'one','2':'two','3':'three','4':'four','5':'five','6':'six','7':'seven','8':'eight','9':'nine','10':'ten'}
 EXP={'b':'b','m':'m','p':'p','d':'d','l':'l','r':'ɹr','n':'n','t':'t','s':'s','f':'f','k':'k'}
-nz=lambda s:re.sub(r'[^a-z]','',s.lower())
+nz=lambda s:re.sub(r'[^a-z]','',re.sub(r'\d+',lambda m:DIG.get(m.group(),m.group()),s).lower())
 def word_ok(w,h):
     w,h=nz(w),nz(h); return h==w or any(w in s and h in s for s in HOMO)
 def onset_ok(w,ph):
