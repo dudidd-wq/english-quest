@@ -82,7 +82,8 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
 - [x] R4-5a cloze 30368, 30127
 - [x] R4-5b pluck gloss (noun+verb); "to" (consequence) in b1c2
 - [x] R4-5c tech themes for all chapters; C2 ch4 stages; C1 card text
-- [ ] R4-5d one-off 404 after profile creation
+- [x] R4-5d one-off 404 after profile creation
+  - not reproducible: tools/test_404.js (fresh profiles g1/g5/g9 + acad/c2, page + SW network events, local and live, with reload) logs 0 HTTP≥400, 0 failed requests, 0 console errors; every ae/ah clip, REFRESH entry and UI clip exists. Most likely a transient GitHub Pages response (we saw 503s during round-3 tests).
 - [ ] R4-5e Band III source URL
 - [ ] R4-6 human-figure emoji pre-1/MoE → neutral where cheap
 - [ ] R4-1a global re-trim of short EN clips (lead ≥120 ms, −60 dB), verify
