@@ -2,7 +2,7 @@
 import { h, put, en, shuffle, sample, sleep, clamp, toast, posHe, overlaps, reduced } from './util.js';
 import { S, answer, gainXp, gainCoins, comboMult, save } from './store.js';
 import { playWord, playUrl, sfx, stop as stopAudio } from './audio.js';
-import { D, W, distractors, stageSentences, scrambleWord, phraseTiles, themeOf, isEarly, TRACKS } from './data.js';
+import { D, W, distractors, stageSentences, scrambleWord, phraseTiles, themeOf, isEarly, TRACKS, PER_WORLD } from './data.js';
 
 export const GAMES = {
   intro:   { icon: '📖', name: 'הכירו את המילים', short: 'כרטיסיות', desc: 'שמעו, ראו וזכרו – מילים חדשות ב־30 שניות' },
@@ -48,10 +48,12 @@ const young = () => +(S.profile?.grade || 7) <= 3;
 const lettersTrack = () => !!TRACKS[D?.track]?.letters;
 const hasSent = () => D && Object.keys(D.sent || {}).length > 0;
 /** practice games offered in a stage, per age band */
+/** review #3 #7: grade 3 is listening-first – spelling games open from chapter 2 */
+export const spellingOpen = i => +(S.profile?.grade || 7) !== 3 || i >= PER_WORLD;
 export function practiceFor(i) {
   const t = theme(), fill = hasSent() && stageSentences(i, 1).length ? ['fill'] : [];
   if (early()) return ['pics', 'memory'];
-  if (t === 'kids') return [...(young() ? ['pics'] : []), 'match', 'listen', 'memory', ...(lettersTrack() ? [] : ['scramble']), ...fill];
+  if (t === 'kids') return [...(young() ? ['pics'] : []), 'match', 'listen', 'memory', ...(lettersTrack() || !spellingOpen(i) ? [] : ['scramble']), ...fill];
   if (t === 'bagrut') return [...fill, ...(formsPool(i).length >= 4 ? ['forms'] : []), 'match', 'listen', 'blitz', 'scramble'];
   return ['match', 'listen', 'scramble', ...fill, 'memory', 'blitz'];
 }

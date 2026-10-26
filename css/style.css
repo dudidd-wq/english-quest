@@ -493,3 +493,4 @@ html.theme-kids .daily-card .dbar{background:rgba(10,40,110,.6)}
 .abar{position:relative;height:10px;border-radius:99px;background:rgba(255,255,255,.12);overflow:visible;margin-bottom:6px}
 .abar>div{height:100%;border-radius:99px;background:var(--grad,linear-gradient(90deg,#38bdf8,#818cf8))}
 .abar>i{position:absolute;top:-3px;width:2px;height:16px;background:currentColor;opacity:.6}
+.rbig.kbig{font-size:6rem;line-height:1.1}

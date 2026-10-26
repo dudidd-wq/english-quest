@@ -2,7 +2,7 @@
 import { $, h, put, en, shuffle, dayNum, fmtDay, toast, download, nWords, reduced, posHe } from './util.js';
 import { S, save, on, T, stageRec, today, dueWords, level, levelXp, gainCoins, touchStreak, streakNow, checkAch, ACH, isMastered, replaceState, resetAll, exportState, unlock, ensureDaily, bumpDaily, beatRival, AURAS, TITLES, profiles, curProfileId, createProfile, switchProfile, leaveProfile, deleteProfile } from './store.js';
 import { setOnTrackLoad, TRACKS, GRADES, GRADE_GROUPS, LEVELS, levelsFor, validLevel, isEarly, gradeTracks, themeOf, gradeLabel, WORLDS, worldsFor, worldAt, isAdultTrack, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
-import { sayUi, untimed, GAMES, practiceFor, missionPool, theme, Session, intro, match, listen, pics, scramble, fill, memory, blitz, boss, forms, formsPool, familyItems, reading, talk, cards, typing } from './games.js';
+import { sayUi, spellingOpen, untimed, GAMES, practiceFor, missionPool, theme, Session, intro, match, listen, pics, scramble, fill, memory, blitz, boss, forms, formsPool, familyItems, reading, talk, cards, typing } from './games.js';
 import * as B from './backup.js';
 import { playWord, sfx, prefetch, stop as stopAudio, hasClip, audioUrl, onRobo } from './audio.js';
 
@@ -155,8 +155,12 @@ function adultProgress() {
     h('div.abar', h('div', { style: { width: pct + '%' } }), h('i', { style: { insetInlineStart: next + '%' } })),
     h('div.muted.small', `נלמדו ${seen} · פרקים שהושלמו ${chapters}/${D.worlds} · היעד הבא: ${next}% מהרשימה`));
 }
+/** review #3 #6: grades 1–2 (pre-readers) */
+const kidsTiny = () => +(S.profile?.grade || 7) <= 2;
 function mapView() {
   const cur = currentStage(); const due = dueWords(); const daily = ensureDaily();
+  // review #3 #6: grades 1–2 can't read yet – no text banners (rival, daily challenge) until 3 stages are cleared
+  const tinyEarly = kidsTiny() && D.stages.filter((_, k) => stageRec(k).cleared).length < 3;
   const path = h('div.map');
   for (let wi = 0; wi < D.worlds; wi++) {
     const W0 = worldAt(wi), fastCh = D.fast != null && wi * PER_WORLD >= D.fast, adult = isAdultTrack(D.track), from = wi * PER_WORLD, to = Math.min(D.stages.length, from + PER_WORLD);
@@ -193,8 +197,8 @@ function mapView() {
       D.read.length > 0 && h('button.btn.small', { onclick: () => go('#/study/reading') }, '📰 קטע קריאה'),
       familyItems(D.words).length >= 4 && h('button.btn.small', { onclick: () => go('#/study/forms') }, '🧩 משפחות מילים'),
       h('button.btn.small', { onclick: () => go('#/study') }, '📚 כל המילים')),
-    h('div.rival-chip', '👻 יריב מקומי: ', S.rival.name, ...(untimed() ? [] : [' · בליץ ', S.rival.bestBlitz]), ' · קומבו ', S.rival.bestCombo, sayUi(11101)),
-    h('div.daily-card' + (daily.done ? '.done' : ''), { onclick: dailyGo },
+    !tinyEarly && h('div.rival-chip', '👻 יריב מקומי: ', S.rival.name, ...(untimed() ? [] : [' · בליץ ', S.rival.bestBlitz]), ' · קומבו ', S.rival.bestCombo, sayUi(11101)),
+    !tinyEarly && h('div.daily-card' + (daily.done ? '.done' : ''), { onclick: dailyGo },
       h('div.dico', daily.done ? '✅' : '☀️'),
       h('div', { style: { flex: 1 } }, h('b', 'אתגר היום', sayUi(11100)), h('div.muted.small', daily.label || ''),
         h('div.dbar', h('div', { style: { width: (daily.progress / daily.target * 100) + '%' } })))),
@@ -360,11 +364,11 @@ function finishGame(i, g, res) {
   })();
   const missed = (res.missed || []).map(W).filter(Boolean);
   screen('result', h('div.rbox',
-    h('div.rbig' + (won ? '.bob' : ''), g === 'boss' ? (res.won ? '🏆' : wd.boss) : g === 'review' ? '🦉' : GAMES[g].icon),
+    h('div.rbig' + (won ? '.bob' : '') + (kidsTiny() ? '.kbig' : ''), kidsTiny() ? (!won ? '🤗' : res.stars === 3 ? '🤩' : res.stars === 2 ? '😄' : '🙂') : g === 'boss' ? (res.won ? '🏆' : wd.boss) : g === 'review' ? '🦉' : GAMES[g].icon),
     h('h2', title),
     res.stars > 0 && h('div.rstars', [0, 1, 2].map(k => h('span' + (k < res.stars ? '.on' : ''), { style: { animationDelay: k * .18 + 's' } }, '★'))),
     !won && h('p', 'לא נורא – כל טעות מלמדת. נסו שוב מיד!'),
-    h('div.rstats',
+    !kidsTiny() && h('div.rstats',
       h('div', h('b', '+' + res.xp), h('small', 'XP')),
       h('div', h('b', '+' + (res.coins + coinsBonus)), h('small', '🪙 מטבעות')),
       res.ok + res.bad > 0 && g !== 'intro' && h('div', h('b', Math.round(res.acc * 100) + '%'), h('small', 'דיוק')),
@@ -413,7 +417,7 @@ function studyView() {
   const mode = (g, n, extra) => h('button.mode', { onclick: () => { sfx('tap'); if (n) fromFilter(n); go('#/study/' + g); } }, h('span', GAMES[g].icon), h('b', GAMES[g].short), extra && h('small', extra));
   screen('studyv', hud(), trackToggle(),
     h('h2.ptitle', '📚 לימוד · ', en(tr.band)),
-    h('div.modes', mode('cards', 12), !isEarly(S.profile.grade) && mode('type', 10),
+    h('div.modes', mode('cards', 12), !isEarly(S.profile.grade) && spellingOpen(currentStage()) && mode('type', 10),
       D.talk.length > 0 && mode('talk', 0, `${D.talk.length}`),
       D.read.length > 0 && mode('reading', 0, `${D.read.length} קטעים`),
       familyItems(D.words).length >= 4 && mode('forms', 0)),
