@@ -321,7 +321,7 @@ function spellOne(sess, { w, word, tiles }) {
     const hintBtn = h('button.btn.small.hint', { onclick: () => hint() }, `💡 רמז (${S.powers.hint})`);
     const render = () => {
       put(slots, pieces.map((_, i) => h('button.slot' + (filled[i] != null ? '.full' : ''), { onclick: () => { if (filled[i] != null && !lock) { filled.splice(i, 1); sfx('tap'); render(); } } }, filled[i] != null ? pieces[filled[i]] : '')));
-      put(bank, order.map(i => h('button.ltr' + (word ? '' : '.wtile'), { disabled: filled.includes(i), onclick: () => { if (lock) return; filled.push(i); sfx('tap'); render(); if (filled.length === pieces.length) check(); } }, pieces[i])));
+      put(bank, order.map(i => h('button.ltr' + (word ? '' : '.wtile'), { disabled: filled.includes(i), onclick: () => { if (lock || filled.includes(i) || filled.length >= pieces.length) return; filled.push(i); sfx('tap'); render(); if (filled.length === pieces.length) check(); } }, pieces[i])));
       hintBtn.textContent = `💡 רמז (${S.powers.hint})`;
     };
     let lock = false;
@@ -333,7 +333,7 @@ function spellOne(sess, { w, word, tiles }) {
         playWord(w, 'en'); sess.later(() => resolve(tries === 0), 900);
       } else {
         tries++;
-        if (tries === 1) { sess.wrong(w, slots); toast('כמעט! נסו שוב 💪', 1100); sess.later(() => { filled.length = 0; render(); }, 450); }
+        if (tries === 1) { lock = true; sess.wrong(w, slots); toast('כמעט! נסו שוב 💪', 1100); sess.later(() => { filled.length = 0; lock = false; render(); }, 450); }   // lock: taps during the reset could trigger a 2nd check
         else { lock = true; sess.wrong(null, slots); filled.length = 0; pieces.forEach((_, i) => filled.push(i)); render(); slots.classList.add('revealed'); playWord(w, 'en'); sess.later(() => resolve(false), 1800); }
       }
     };
