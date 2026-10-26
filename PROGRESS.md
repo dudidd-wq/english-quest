@@ -109,3 +109,11 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
 - [x] SW eq-3.7.0, full tests, live verify, credits
   - live: SW eq-3.7.0 + eq-audio-v2; 9 test_v3 chunks (mobile/desktop × grades 1–3, 4–7, 8–12, post-12) ERRORS 0 (mobile post-12 first run hit a transient GitHub Pages 503 on js/util.js, rerun clean); live_check, test_backup, test_upgrade, test_remap, test_r3, test_a11y (serious 0), test_404 all PASS – TESTS-3.7.0.md.
   - credits: ledger total 37,311; round 4 ≈557 (HE 2 clips, 6,311 re-pads cost 0, ~50 EN re-records incl. phrase tries); cumulative ≈12.33k of the 15k approved (cap 14k not reached).
+
+## Round 5 (review #5 → eq-3.8.0, branch `eq-3.8.0-voices`, NOT on main until Dudi approves)
+- [x] #1 alt voices (Alice/Bella/Sarah) for weak EN clips: middle 77306, medal, mere, bay, hall, bill, few, vary, chew, considerate, beach, bench, madam (new numbers 7xxxx); per-clip record tools/voices.json; 3-model verify tools/r5/verify3.py (c97a2722)
+- [x] #2 grades 1–2: no XP numbers, rival card, memory turns counter, daily challenge (0f4780dd)
+- [x] #3 cloze 8287 rewritten (former), 8318 distractor "bent" removed (53fc6e67)
+- [x] #4 fear 80333, burn 80130/81162 re-padded to ≥120 ms lead (c97a2722)
+- [x] #5 SOURCES §4 (lead pad, 3.7.0 in-place + eq-audio-v2, new-number rule, alt voices + licence), c2 ally=verb note, About credits (3087ef1b); tech last chapter merged, locked stages not tab stops (4facefce)
+- [x] #6 sw eq-3.8.0, retired clips evicted from eq-audio-v2 (369702ce); tests → TESTS-3.8.0.md
