@@ -63,7 +63,7 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
 
 ## Review #3 fixes (eq-3.6.0) – resume checklist (/workspace/eq_review_findings_3.md)
 - [x] R1a trim: keep ≥120 ms lead (-60 dB) in tools/tts_v3.py + tts_extra.py
-- [ ] R1b re-process 32 labial clips (_r3/lab.txt) + bay/bat/bear/mail/base/melt/bare/Miss/he 5068/hall/all
+- [x] R1b re-process 32 labial clips (_r3/lab.txt) + bay/bat/bear/mail/base/melt/bare/Miss/he 5068/hall/all
 - [ ] R1c ASR gate (Whisper small+medium + phonemes) on every EN ≤4 letters + b/m/p-initial
 - [x] R2 per-track chapter themes (tech / C1 / C2 / acad)
 - [x] R3 HE 893 שלשום, 11101 שיאה, 6402, 31210

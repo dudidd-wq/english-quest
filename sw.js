@@ -9,6 +9,7 @@ const REFRESH = [
   'audio/he/33027.mp3', 'audio/he/33072.mp3', 'audio/he/33092.mp3', 'audio/he/33159.mp3', 'audio/he/33172.mp3',
   'audio/he/11044.mp3', 'audio/he/11058.mp3', 'audio/he/8656.mp3', 'audio/he/33045.mp3', 'audio/he/11099.mp3',
   // eq-3.6.0 (review #3)
+  'audio/en/0096.mp3', 'audio/en/0097.mp3', 'audio/en/0402.mp3', 'audio/en/0567.mp3', 'audio/en/0590.mp3', 'audio/en/0667.mp3', 'audio/en/1100.mp3', 'audio/en/1119.mp3', 'audio/en/1128.mp3', 'audio/en/1626.mp3', 'audio/en/1633.mp3', 'audio/en/1686.mp3', 'audio/en/1696.mp3', 'audio/en/5068.mp3', 'audio/en/7015.mp3', 'audio/en/7043.mp3', 'audio/en/7388.mp3', 'audio/en/8095.mp3', 'audio/en/8448.mp3', 'audio/en/8455.mp3', 'audio/en/9051.mp3', 'audio/en/20013.mp3',
   'audio/he/0893.mp3', 'audio/he/6402.mp3', 'audio/he/5043.mp3', 'audio/he/32072.mp3', 'audio/he/32192.mp3', 'audio/he/11101.mp3', 'audio/he/31210.mp3',
 ];
 const ASSETS = [
