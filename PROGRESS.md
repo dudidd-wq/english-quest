@@ -46,10 +46,10 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
 
 ## Review #2 fixes (eq-3.5.0) – resume checklist (/workspace/eq_review_findings_2.md)
 - [x] #17 shots/v3/desktop-g7-map.png committed
-- [~] #1 EN apt 33094 → /æpt/ (done, "Apt!", ad83849); ASR re-check all ≤3-letter EN words
+- [x] #1 EN apt 33094 → /æpt/ ("Apt!"); ASR re-check of all 294 ≤3-letter EN clips (whisper in carrier + standalone + wav2vec2 phonemes): 38 flags, mostly homophones (ten/10, by/bye, eye/I); real onset doubts re-recorded: mix 1629 "Mix!", bay 8057 "Bay!", map 573 "Map?"
 - [x] #2 הבא 1431, #3 חזה 1211, #7 container 11035, #10 אי־צדק 33072, גנום 33092, שלשום 10010 re-record + verify
 - [x] #4 testament 33027: no bracketed text in any recording text (lint)
-- [ ] #9 bat 30062 / mid 30927 / fin 30819 verify by ASR in context; re-record if doubtful
+- [x] #9 bat 30062 "Bat!" (phonemes b æ t), mid 30927 "Mid?" (m e d, ASR "Mid"), fin 30819 kept (ASR "Finn" = /fɪn/); all added to sw.js REFRESH
 - [x] #5 11099 "green" vs kids button colour
 - [x] #6/#8 cloze distractors (30439, 32255, 31312, 31131, 32146, 30805, 30520, 30867, 30563, 30953) + automatic near-synonym lint
 - [x] #11 adult chapter themes (no repeats; ⚡ chapters named "חזרה מהירה")
