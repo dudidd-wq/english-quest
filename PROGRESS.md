@@ -84,6 +84,7 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
 - [x] R4-5c tech themes for all chapters; C2 ch4 stages; C1 card text
 - [x] R4-5d one-off 404 after profile creation
   - not reproducible: tools/test_404.js (fresh profiles g1/g5/g9 + acad/c2, page + SW network events, local and live, with reload) logs 0 HTTP≥400, 0 failed requests, 0 console errors; every ae/ah clip, REFRESH entry and UI clip exists. Most likely a transient GitHub Pages response (we saw 503s during round-3 tests).
+  - update (3.7.0 tests): cause found – the only 404 is Chrome's root favicon request (dudidd-wq.github.io/favicon.ico, outside this repo) when a test harness opens manifest.webmanifest directly before the app; not an app request. tools/test_a11y.js now logs HTTP≥400 URLs.
 - [x] R4-5e Band III source URL
 - [x] R4-6 human-figure emoji pre-1/MoE → neutral where cheap
   - glyph table NEUTRAL in tools/build_all.py: 0 person/face-figure pictograms left in pre1/b1c1/b1c2/g7/g9/b3c1/b3c2 (was ~420). Kept on purpose: 👤 👥 (faceless silhouettes, 50 words), hand gestures 🙏 🤲 🙌, and 🙈. man/woman/boy/girl words → ♂️/♀️; family → 🌳.
@@ -105,4 +106,6 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
   - residual list: bill 1132 (phonemes "dɪl" on every pad; 8 re-record phrasings all scored the same, both ASR models hear "bill" → kept); bay 58057, mere 62009, medal 578 (see R4-1b); hall 50402 (new take; "Haul"/"hull" – old clip gave an empty transcript); hard 405 (empty on two check passes, passes in rerec's judge – ASR flake); hull 61021 (phrase take by design); sure (letter s, sound ʃ – test artefact); FOMO (f heard as s by the phoneme model; both ASR ok); few→"Phew", vary→"Very", chew→"choo" (homophones/merger).
 - [x] R4-1d HE 872, 33045
   - 872 taste → new clip he/50872 "טַעַם, לִטְעוֹם" (vocalised; ivrit-ai turbo hears "טעם לטעום"). 33045 acre → he/53045 "אַקֶר. בְּעֵרֶךְ אַרְבָּעָה דּוּנָם." (5 wordings tried; ASR writes the homophone "עקר" for every correctly pronounced take – א/ע sound the same in modern Hebrew – rest of the gloss exact). Tools: tools/r4/he.py. Ledger 80.
-- [ ] SW eq-3.7.0, full tests, live verify, credits
+- [x] SW eq-3.7.0, full tests, live verify, credits
+  - live: SW eq-3.7.0 + eq-audio-v2; 9 test_v3 chunks (mobile/desktop × grades 1–3, 4–7, 8–12, post-12) ERRORS 0 (mobile post-12 first run hit a transient GitHub Pages 503 on js/util.js, rerun clean); live_check, test_backup, test_upgrade, test_remap, test_r3, test_a11y (serious 0), test_404 all PASS – TESTS-3.7.0.md.
+  - credits: ledger total 37,311; round 4 ≈557 (HE 2 clips, 6,311 re-pads cost 0, ~50 EN re-records incl. phrase tries); cumulative ≈12.33k of the 15k approved (cap 14k not reached).

@@ -12,7 +12,7 @@ async function axe(p,tag){ await p.addScriptTag({content:AXE}); const r=await p.
  for (const prof of (process.env.G||'1,3,5,8,acad,tech,c1,c2').split(',')){
   const ctx=await b.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,locale:'he-IL'}); const p=await ctx.newPage(); const tag='g'+prof;
   const audio=[]; p.on('request',r=>{hosts.add(new URL(r.url()).host); if(/audio\/(he|en)\//.test(r.url())) audio.push(r.url().split('/audio/')[1]);});
-  p.on('pageerror',e=>L(tag+' PAGEERROR '+e.message)); p.on('console',m=>{if(m.type()==='error')L(tag+' CONSOLE '+m.text().slice(0,150))});
+  p.on('pageerror',e=>L(tag+' PAGEERROR '+e.message)); p.on('response',r=>{if(r.status()>=400)L(tag+' HTTP '+r.status()+' '+r.url())}); p.on('console',m=>{if(m.type()==='error')L(tag+' CONSOLE '+m.text().slice(0,150))});
   await p.goto(BASE+'/manifest.webmanifest'); await wipe(p); await p.goto(BASE+'/#/',{waitUntil:'networkidle'});
   if(prof==='1'){ await axe(p,'grades'); await p.screenshot({path:`${OUT}/grades.png`});
     // keyboard: tab to first grade button, enter
