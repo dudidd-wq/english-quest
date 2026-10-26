@@ -28,7 +28,7 @@ export const pace = () => theme() === 'kids' ? 1.5 : 1;
 export const early = () => isEarly(S.profile?.grade || 7);
 /** grades 1–3: no countdowns (review #1) */
 /** grades 1–2: spoken Hebrew instructions for non-readers (review #1/#4) */
-export const sayUi = clip => early() ? h('button.say-ui', { type: 'button', 'aria-label': 'הקראת ההוראה', onclick: e => { e.stopPropagation(); sfx('tap'); playUrl(`audio/he/${clip}.mp3`); } }, '🗣️', h('span.say-ui-l', 'הוראה')) : null;
+export const sayUi = clip => early() ? h('button.say-ui', { type: 'button', 'aria-label': 'הוראה – הקראה בקול', onclick: e => { e.stopPropagation(); sfx('tap'); playUrl(`audio/he/${clip}.mp3`); } }, '🗣️', h('span.say-ui-l', 'הוראה')) : null;
 export const untimed = () => +(S.profile?.grade || 7) <= 3;
 /** rounds of up to k words in which no two words could be confused (same/overlapping Hebrew gloss) */
 export function safeRounds(ws, k) {
@@ -116,7 +116,7 @@ export class Session {
   }
   float(text, el) {
     const r = (el || this.body).getBoundingClientRect();
-    const f = h('div.floaty', text); f.style.left = r.left + r.width / 2 + 'px'; f.style.top = r.top + 'px';
+    const f = h('div.floaty', { 'aria-hidden': 'true', 'data-t': text });   // decorative (+XP is also in the HUD); text drawn by CSS so the fade-out is not read/scanned as text f.style.left = r.left + r.width / 2 + 'px'; f.style.top = r.top + 'px';
     document.body.append(f); setTimeout(() => f.remove(), 900);
   }
   cheer(el) {

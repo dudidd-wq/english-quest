@@ -80,7 +80,7 @@ function hud() {
   const aura = S.cosmetics?.aura || 'none';
   const title = S.cosmetics?.title || '';
   return h('header.hud',
-    h('button.avatar-btn' + (aura !== 'none' ? '.aura-' + aura : ''), { 'aria-label': 'הפרופיל שלי', onclick: () => go('#/me') }, h('span.av', S.profile.avatar), h('span.lvl', L)),
+    h('button.avatar-btn' + (aura !== 'none' ? '.aura-' + aura : ''), { 'aria-label': `${L} – הפרופיל שלי (רמה ${L})`, onclick: () => go('#/me') }, h('span.av', S.profile.avatar), h('span.lvl', L)),
     h('div.xpbox', h('div.xpline', h('b', S.profile.name + (title ? ' · ' + title : '')), h('span', `רמה ${L}`)), h('div.xpbar', h('div', { style: { width: ((S.xp - a) / (b - a)) * 100 + '%' } })), h('small', { dir: 'ltr', style: { display: 'block', textAlign: 'right' } }, `${S.xp - a} / ${b - a} XP`)),
     h('div.stat', { title: 'רצף ימים' }, h('span', streakNow() ? '🔥' : '🩶'), h('b', streakNow())),
     h('div.stat', { title: 'מטבעות' }, h('span', '🪙'), h('b', S.coins)),
@@ -174,10 +174,10 @@ function mapView() {
       const r = stageRec(i), un = isUnlocked(i), k = i - from;
       const off = Math.sin(k * 1.1) * 32;
       const node = h('button.node' + (r.cleared ? '.done' : un ? '.open' : '.lock') + (i === cur ? '.cur' : ''), {
-        style: { '--tx': off + '%', transform: `translateX(${off}%)` }, 'aria-label': `שלב ${i + 1}` + (un ? '' : ' (נעול)'),
+        style: { '--tx': off + '%', transform: `translateX(${off}%)` }, 'aria-label': (i === cur ? `${i + 1} ${r.plays ? 'ממשיכים!' : 'התחילו כאן!'} – ` : '') + `שלב ${i + 1}` + (un ? '' : ' (נעול)'),
         onclick: () => un ? (sfx('tap'), go('#/stage/' + i)) : (sfx('bad'), toast('🔒 נצחו את הבוס של השלב הקודם')) },
         h('span.num', un ? (D.fast != null && i >= D.fast ? '⚡' + (i + 1) : i + 1) : '🔒'), r.cleared && h('span.nstars', starsTxt(r.stars)),
-        i === cur && h('span.me', S.profile.avatar), i === cur && h('span.bubble', r.plays ? 'ממשיכים!' : 'התחילו כאן!'));
+        i === cur && h('span.me', { 'aria-hidden': 'true' }, S.profile.avatar), i === cur && h('span.bubble', r.plays ? 'ממשיכים!' : 'התחילו כאן!'));
       if (i === sepAt) sec.append(h('div.fastsep', '⚡ חזרה מהירה – מילים שכבר פגשתם ברשימות של משרד החינוך. פתוח תמיד, אפשר לדלג.'));
       sec.append(node);
     }
