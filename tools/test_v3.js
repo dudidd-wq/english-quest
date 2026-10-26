@@ -1,16 +1,16 @@
 #!/usr/bin/env node
-// v3 end-to-end: every grade (1–12, and post-12 as 131/132/133 = acad/tech/c2) × mobile & desktop, all stage games + boss + study modes, migration, profiles, offline.
+// v3 end-to-end: every grade (1–12, and post-12 as 131/132/134/133 = acad/tech/c1/c2) × mobile & desktop, all stage games + boss + study modes, migration, profiles, offline.
 const { chromium } = require('/usr/local/lib/pnpm/5/.pnpm/playwright-core@1.59.1/node_modules/playwright-core');
 const fs = require('fs');
 const BASE = (process.env.EQ_URL || 'http://127.0.0.1:8765').replace(/\/$/, '');
 // Note: opening the raw manifest makes Chrome ask for /favicon.ico at the ORIGIN root; on GitHub Pages that is outside the app, so only that 404 is ignored.
-const ONLY = process.env.VP; const GR = process.env.GRADES ? process.env.GRADES.split(',').filter(Boolean).map(Number) : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 131, 132, 133];
+const ONLY = process.env.VP; const GR = process.env.GRADES ? process.env.GRADES.split(',').filter(Boolean).map(Number) : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 131, 132, 134, 133];
 const SHOTS = '/workspace/english-quest/shots/v3'; fs.mkdirSync(SHOTS, { recursive: true });
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const VPS = { mobile: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }, desktop: { viewport: { width: 1280, height: 860 } } };
-const LEVEL = { 10: '4 יח״ל', 11: '5 יח״ל', 12: '3 יח״ל', 131: 'אקדמי', 132: 'טכנולוגית', 133: 'שפת אם' };
+const LEVEL = { 10: '4 יח״ל', 11: '5 יח״ל', 12: '3 יח״ל', 131: 'אקדמי', 132: 'טכנולוגית', 133: 'שפת אם', 134: 'C1' };
 const errors = [], results = [];
-const HE = { 1: 'א׳', 2: 'ב׳', 3: 'ג׳', 131: 'אחרי י״ב', 132: 'אחרי י״ב', 133: 'אחרי י״ב', 4: 'ד׳', 5: 'ה׳', 6: 'ו׳', 7: 'ז׳', 8: 'ח׳', 9: 'ט׳', 10: 'י׳', 11: 'י״א', 12: 'י״ב' };
+const HE = { 1: 'א׳', 2: 'ב׳', 3: 'ג׳', 131: 'אחרי י״ב', 132: 'אחרי י״ב', 133: 'אחרי י״ב', 134: 'אחרי י״ב', 4: 'ד׳', 5: 'ה׳', 6: 'ו׳', 7: 'ז׳', 8: 'ח׳', 9: 'ט׳', 10: 'י׳', 11: 'י״א', 12: 'י״ב' };
 
 async function solveStep(page) {
   return page.evaluate(() => {
@@ -130,7 +130,7 @@ async function extras(browser, vp) {
   let offline = { map: true };
   // switch to another grade's list while offline (all 7 data files precached)
   await page.goto(BASE + '/#/study'); await page.waitForSelector('.wrow'); offline.study = true;
-  offline.data = await page.evaluate(async () => { const r = await Promise.all(['pre1', 'b1c1', 'b1c2', 'g7', 'g9', 'b3c1', 'b3c2', 'early', 'abc', 'acad', 'tech', 'c2'].map(t => fetch(`data/${t}.json`).then(r => r.ok).catch(() => false))); return r.every(Boolean); });
+  offline.data = await page.evaluate(async () => { const r = await Promise.all(['pre1', 'b1c1', 'b1c2', 'g7', 'g9', 'b3c1', 'b3c2', 'early', 'abc', 'acad', 'tech', 'c1', 'c2'].map(t => fetch(`data/${t}.json`).then(r => r.ok).catch(() => false))); return r.every(Boolean); });
   await page.goto(BASE + '/#/play/0/match'); await page.waitForSelector('.game'); offline.game = true;
   await ctx.setOffline(false);
   const out = { tag, mig, cur, parentProfiles, back, offline };

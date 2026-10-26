@@ -14,13 +14,14 @@ export const TRACKS = {
   abc:  { name: 'אותיות וצלילים', band: 'ABC', when: "א׳–ג׳", emoji: '🔤', derived: 'נכתב לאפליקציה', letters: true },
   acad: { name: 'אקדמי / פסיכומטרי', band: 'Academic (NAWL)', when: "אחרי י״ב", emoji: '🎓', derived: 'NAWL 1.2 · CC BY-SA 4.0' },
   tech: { name: 'אנגלית טכנולוגית', band: 'Tech (NCSAWL)', when: "אחרי י״ב", emoji: '💻', derived: 'NCSAWL · CC BY 4.0' },
+  c1:   { name: 'מתקדמים (C1)', band: 'Advanced (C1)', when: "אחרי י״ב", emoji: '🔷', derived: 'Octanove C1 · CC BY-SA 4.0' },
   c2:   { name: 'קרוב לשפת אם', band: 'Near-native (C2)', when: "אחרי י״ב", emoji: '💎', derived: 'Octanove C2 · CC BY-SA 4.0' },
 };
 /** Grade → lists, per English Curriculum 2020 Tables 4–5 (see SOURCES.md). */
 export const GRADES = { 1: "א׳", 2: "ב׳", 3: "ג׳", 4: "ד׳", 5: "ה׳", 6: "ו׳", 7: "ז׳", 8: "ח׳", 9: "ט׳", 10: "י׳", 11: "י״א", 12: "י״ב", 13: "אחרי י״ב" };
 export const GRADE_GROUPS = [['יסודי · א׳–ב׳ התחלה מוקדמת (רשות)', [1, 2, 3, 4, 5, 6]], ['חטיבת ביניים', [7, 8, 9]], ['תיכון', [10, 11, 12]], ['אחרי התיכון', [13]]];
-export const LEVELS = { 3: '3 יח״ל', 4: '4 יח״ל', 5: '5 יח״ל', acad: 'אקדמי / פסיכומטרי', tech: 'אנגלית טכנולוגית', c2: 'קרוב לשפת אם' };
-export const ADV = ['acad', 'tech', 'c2'];
+export const LEVELS = { 3: '3 יח״ל', 4: '4 יח״ל', 5: '5 יח״ל', acad: 'אקדמי / פסיכומטרי', tech: 'אנגלית טכנולוגית', c1: 'מתקדמים (C1)', c2: 'קרוב לשפת אם' };
+export const ADV = ['acad', 'tech', 'c1', 'c2'];
 export const levelsFor = grade => +grade === 13 ? ADV : +grade >= 10 ? [3, 4, 5] : [];
 export const defaultLevel = grade => +grade === 13 ? 'acad' : +grade >= 10 ? 4 : undefined;
 export const validLevel = (grade, lv) => levelsFor(grade).includes(lv) ? lv : defaultLevel(grade);

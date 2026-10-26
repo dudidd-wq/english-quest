@@ -128,6 +128,7 @@ out('early', 'Derived: picturable subset of the MoE Lexical Pre-Band I list (opt
 mine = {r[0].lower(): r for f in ('acad_he_1.txt', 'acad_he_2.txt') for r in lines(f)}
 OVR = {'tense': ('adj', 'מתוח'), 'pardon': ('v', 'לחון'), 'flip': ('n', 'היפוך'), 'junior': ('adj', 'זוטר, צעיר'), 'nonetheless': ('adv', 'אף על פי כן'),
        'plural': ('adj', 'רבים (דקדוק)'), 'cure': ('n', 'תרופה, ריפוי'), 'cheat': ('v', 'לרמות'), 'punch': ('v', 'להכות באגרוף'), 'spray': ('v', 'לרסס'), 'sneeze': ('v', 'להתעטש')}
+OVR.update({'computation': ('n', 'חישוב ממוחשב, עיבוד'), 'inclusion': ('n', 'שילוב, צירוף'), 'inversion': ('n', 'הפיכת סדר'), 'cyclic': ('adj', 'מעגלי'), 'credibility': ('n', 'מהימנות'), 'facet': ('n', 'פן, צד'), 'elasticity': ('n', 'אלסטיות, קפיציות'), 'interfere': ('v', 'להפריע, להתערב לרעה'), 'incidence': ('n', 'היארעות'), 'incline': ('n', 'מדרון'), 'bracket': ('n', 'סוגר מרובע')})   # review #10: differentiate identical glosses
 SKIP = {'sexuality', 'suicide', 'naked', 'sperm', 'urine', 'founds', 'neo', 'descendent'}
 PM = {'n': 'n', 'n pl.': 'n', 'verb': 'v', 'adj': 'adj', 'adv': 'adv', 'prep': 'prep', 'det': 'det', 'pron': 'pron'}
 ws, n, MISS = [], 30001, []

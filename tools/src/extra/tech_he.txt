@@ -103,11 +103,11 @@ decrypt|v|לפענח הצפנה
 default|n|ברירת מחדל
 demonstration|n|הדגמה
 desktop|n|שולחן עבודה
-developer|n|מפתח
+developer|n|מפתח תוכנה
 device|n|התקן
 digital|adj|דיגיטלי
 disk|n|דיסק
-display|n|תצוגה
+display|n|צג, מסך
 document|n|מסמך
 domain|n|דומיין, תחום
 down|adv|למטה; לא פעיל
@@ -118,7 +118,7 @@ element|n|רכיב, איבר
 encode|v|לקודד
 encryption|n|הצפנה
 enter|v|להזין; להיכנס
-entry|n|רשומה
+entry|n|פריט ברשימה, כניסה
 erase|v|למחוק
 event|n|אירוע
 exception|n|חריגה
@@ -211,7 +211,7 @@ metadata|n|מטא־נתונים
 microcontroller|n|בקר זעיר
 migrate|v|להעביר (מערכת)
 minimize|v|למזער
-mode|n|מצב
+mode|n|אופן פעולה
 model|n|מודל
 modular|adj|מודולרי
 module|n|מודול
@@ -258,7 +258,7 @@ plot|n|גרף
 pop|v|לשלוף (מהמחסנית)
 port|v|להסב (תוכנה)
 pose|n|תנוחה
-post|v|לפרסם
+post|v|להעלות פוסט
 power|n|הספק; חשמל
 practise|v|לתרגל
 predicate|n|פרדיקט, תנאי
@@ -386,13 +386,13 @@ transcribe|v|לתמלל
 transfer|v|להעביר
 translate|v|לתרגם
 transmit|v|לשדר
-transport|v|להעביר
+transport|v|להוביל, לשנע
 tree|n|עץ
 triangle|n|משולש
 trigger|v|להפעיל
 trust|n|אמון
 tuple|n|רשומה סדורה (טאפל)
-turn|n|תור
+turn|n|תור; סיבוב
 type|n|טיפוס, סוג
 union|n|איחוד
 unique|adj|ייחודי
@@ -417,7 +417,7 @@ volume|n|עוצמת קול; כרך
 walk|v|לעבור על (מבנה נתונים)
 wall|n|קיר
 wave|n|גל
-web|n|רשת
+web|n|הרשת העולמית
 website|n|אתר אינטרנט
 while|conj|כל עוד
 Wi-Fi|n|רשת אלחוטית

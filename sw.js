@@ -6,7 +6,7 @@ const ASSETS = [
   './', 'index.html', 'manifest.webmanifest', 'css/style.css', 'fonts/rubik.woff2',
   'js/app.js', 'js/util.js', 'js/data.js', 'js/store.js', 'js/audio.js', 'js/games.js', 'js/backup.js',
   'data/pre1.json', 'data/b1c1.json', 'data/b1c2.json', 'data/g7.json', 'data/g9.json', 'data/b3c1.json', 'data/b3c2.json',
-  'data/early.json', 'data/abc.json', 'data/acad.json', 'data/tech.json', 'data/c2.json',
+  'data/early.json', 'data/abc.json', 'data/acad.json', 'data/tech.json', 'data/c1.json', 'data/c2.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png', 'icons/apple-touch-icon.png',
 ];
 self.addEventListener('install', e => {
