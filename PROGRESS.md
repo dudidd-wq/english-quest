@@ -76,7 +76,7 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
 - [x] SW eq-3.6.0, chunked full tests, live verify, credits (all chunks ERRORS 0 except transient Pages 503s, rerun clean; ledger total 36754; round 3 ≈313 credits; cumulative ≈11.77k of 15k cap)
 
 ## Round 4 (review #4 → eq-3.7.0)
-- [ ] R4-2 sw.js audio miss: fetch(key,{cache:'no-cache'})
+- [x] R4-2 sw.js audio miss: fetch(key,{cache:'no-cache'})
 - [ ] R4-3 a11y: avatar/🗣️ aria-label contains visible text; contrast .gglabel, .floaty
 - [ ] R4-4 grades 1–2: no daily-goal coins toast, no "רמה/XP" text in HUD
 - [ ] R4-5a cloze 30368, 30127
