@@ -2,6 +2,12 @@
 const VERSION = 'eq-3.4.0';
 const SHELL = 'eq-shell-' + VERSION;
 const AUDIO = 'eq-audio-v1';            // audio file names never change, kept across versions
+// clips re-recorded in place (same file name): evicted from the audio cache on activate so users get the new take
+const REFRESH = [
+  'audio/en/33094.mp3',
+  'audio/he/1431.mp3', 'audio/he/1211.mp3', 'audio/he/11035.mp3', 'audio/he/10010.mp3',
+  'audio/he/33027.mp3', 'audio/he/33072.mp3', 'audio/he/33092.mp3', 'audio/he/33159.mp3', 'audio/he/33172.mp3',
+];
 const ASSETS = [
   './', 'index.html', 'manifest.webmanifest', 'css/style.css', 'fonts/rubik.woff2',
   'js/app.js', 'js/util.js', 'js/data.js', 'js/store.js', 'js/audio.js', 'js/games.js', 'js/backup.js',
@@ -15,7 +21,8 @@ self.addEventListener('install', e => {
 self.addEventListener('activate', e => {
   // only touch this app's caches (the same github.io origin hosts other apps)
   e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith('eq-shell-') && k !== SHELL).map(k => caches.delete(k))))
-    .then(() => self.clients.claim()));
+    .then(() => caches.open(AUDIO)).then(c => Promise.all(REFRESH.map(u => c.delete(new URL(u, self.registration.scope).href, { ignoreSearch: true }))))
+    .catch(() => {}).then(() => self.clients.claim()));
 });
 async function rangeResponse(req, res) {
   const range = req.headers.get('range');

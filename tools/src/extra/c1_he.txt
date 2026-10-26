@@ -157,7 +157,7 @@ intuition|n|אינטואיציה
 screenplay|n|תסריט
 conform|v|להתאים את עצמו, לציית
 customary|adj|נהוג, מקובל
-flourish|n|תנועה ראוותנית; קישוט
+flourish|v|לשגשג, לפרוח; תנועה ראוותנית
 knowledgeable|adj|בקיא
 numb|adj|רדום, חסר תחושה
 plaster|n|טיח; גבס
@@ -170,7 +170,7 @@ alleviate|v|להקל (כאב, בעיה)
 tread|n|דריכה; סוליה (של צמיג)
 turmoil|n|מהומה, סערה
 benign|adj|שפיר; נעים
-boast|n|התרברבות
+boast|n|התרברבות; להתרברב
 collaborate|v|לשתף פעולה
 oversee|v|לפקח על
 parasite|n|טפיל
