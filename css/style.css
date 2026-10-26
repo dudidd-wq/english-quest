@@ -485,3 +485,11 @@ html.theme-kids .daily-card .dbar{background:rgba(10,40,110,.6)}
 .say-ui-l{font-size:.8rem;font-weight:600}
 .say-ui:active{transform:scale(.92)}
 .fastsep{margin:14px 8px 6px;padding:8px 12px;border-radius:12px;background:rgba(255,229,102,.12);border:1px dashed rgba(255,229,102,.5);font-size:.82rem;text-align:center}
+/* review #2: reward sparkles for grades 1–3, adult list progress for post-12 */
+.spark{position:fixed;z-index:60;pointer-events:none;font-size:1.4rem;transform:translate(-50%,-50%);animation:spark .8s ease-out forwards}
+@keyframes spark{0%{opacity:1;transform:translate(-50%,-50%) scale(.4)}60%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.2) rotate(40deg)}}
+.aprog{margin:8px 0;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--panel)}
+.aprow{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.abar{position:relative;height:10px;border-radius:99px;background:rgba(255,255,255,.12);overflow:visible;margin-bottom:6px}
+.abar>div{height:100%;border-radius:99px;background:var(--grad,linear-gradient(90deg,#38bdf8,#818cf8))}
+.abar>i{position:absolute;top:-3px;width:2px;height:16px;background:currentColor;opacity:.6}

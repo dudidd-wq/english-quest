@@ -106,6 +106,7 @@ export function sfx(kind, combo = 0) {
       case 'lose': tone(300, 0.2, 'sawtooth', 0.14, 0, 120); tone(200, 0.3, 'sawtooth', 0.12, 0.15, 80); break;
       case 'hit': tone(90, 0.08, 'sawtooth', 0.22); noise(0.1, 0.18, 0, 400); tone(220, 0.06, 'square', 0.1, 0.04); break;
       case 'hurt': tone(140, 0.15, 'sawtooth', 0.2, 0, 60); noise(0.15, 0.14, 0, 150); break;
+      case 'sparkle': tone(1320, 0.05, 'triangle', 0.07, 0.12); tone(1760, 0.07, 'triangle', 0.06, 0.17); tone(2093, 0.1, 'triangle', 0.05, 0.22); break;
       case 'tick': tone(880, 0.025, 'square', 0.06); break;
       case 'flip': tone(340, 0.04, 'triangle', 0.08); break;
       case 'whoosh': noise(0.08, 0.07, 0, 1200); tone(500, 0.08, 'sine', 0.05, 0, 200); break;

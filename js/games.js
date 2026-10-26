@@ -1,5 +1,5 @@
 // Mini-games. Each game gets a Session (scoring, combo, feedback) and resolves when finished.
-import { h, put, en, shuffle, sample, sleep, clamp, toast, posHe, overlaps } from './util.js';
+import { h, put, en, shuffle, sample, sleep, clamp, toast, posHe, overlaps, reduced } from './util.js';
 import { S, answer, gainXp, gainCoins, comboMult, save } from './store.js';
 import { playWord, playUrl, sfx, stop as stopAudio } from './audio.js';
 import { D, W, distractors, stageSentences, scrambleWord, phraseTiles, themeOf, isEarly, TRACKS } from './data.js';
@@ -85,6 +85,7 @@ export class Session {
     S.stats.bestCombo = Math.max(S.stats.bestCombo, this.combo);
     const x = 10 * comboMult(this.combo); this.xp += x; this.coins += 1; gainXp(x); gainCoins(1);
     sfx(this.combo >= 3 ? 'combo' : 'ok', this.combo); this.float('+' + x, el);
+    if (untimed()) this.cheer(el);   // review #2: extra reward feedback for grades 1–3
     if (el) { el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop'); }
     if ([3, 6, 10, 15, 20].includes(this.combo) || (this.combo >= 25 && this.combo % 5 === 0)) {
       this.burst(this.combo >= 15 ? `🔥 ${this.combo} ברצף!` : `קומבו ×${comboMult(this.combo)}!`);
@@ -115,6 +116,17 @@ export class Session {
     const r = (el || this.body).getBoundingClientRect();
     const f = h('div.floaty', text); f.style.left = r.left + r.width / 2 + 'px'; f.style.top = r.top + 'px';
     document.body.append(f); setTimeout(() => f.remove(), 900);
+  }
+  cheer(el) {
+    const r = (el || this.body).getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    if (!reduced()) for (let k = 0; k < 7; k++) {
+      const a = k / 7 * Math.PI * 2 + Math.random() * .6, d = 60 + Math.random() * 50;
+      const p = h('div.spark', ['⭐', '🌟', '✨', '💫'][k % 4]); p.style.left = cx + 'px'; p.style.top = cy + 'px';
+      p.style.setProperty('--dx', Math.cos(a) * d + 'px'); p.style.setProperty('--dy', Math.sin(a) * d + 'px');
+      document.body.append(p); setTimeout(() => p.remove(), 800);
+    }
+    if (this.ok % 2 === 1 && ![3, 6, 10, 15, 20].includes(this.combo)) { const P = ['כל הכבוד!', 'מעולה!', 'יופי!', 'אלופים!', 'וואו!', 'נהדר!']; this.burst(P[(this.ok >> 1) % P.length] + ' ' + ['🎉', '🌈', '🏆', '🥳'][(this.ok >> 1) % 4]); }
+    sfx('sparkle');
   }
   burst(text) { const b = h('div.burst', text); this.body.append(b); setTimeout(() => b.remove(), 1000); }
   summary(extra = {}) {
