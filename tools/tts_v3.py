@@ -116,7 +116,7 @@ if __name__ == '__main__':
             d = dst(n, lang)
             if not os.path.exists(d):
                 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', src, '-af',
-                    'silenceremove=start_periods=1:start_threshold=-60dB:start_silence=0.12,areverse,silenceremove=start_periods=1:start_threshold=-60dB:start_silence=0.15,areverse,loudnorm=I=-18:TP=-1.5:LRA=11',
+                    'silenceremove=start_periods=1:start_threshold=-60dB:start_silence=0.12,areverse,silenceremove=start_periods=1:start_threshold=-60dB:start_silence=0.15,areverse,loudnorm=I=-18:TP=-1.5:LRA=11,adelay=95:all=1',
                     '-ac', '1', '-ar', '22050', '-c:a', 'libmp3lame', '-b:a', '32k', '-map_metadata', '-1', d], check=True)
             out.setdefault(str(n), {})['a' + lang[0]] = n
         json.dump(out, open(os.path.join(ROOT, 'tools/src/clips_v3.json'), 'w'))

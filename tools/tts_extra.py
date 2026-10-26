@@ -7,7 +7,7 @@ from concurrent.futures import ThreadPoolExecutor
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 exec(open(os.path.join(ROOT, 'tools/tts_v3.py')).read().split("if __name__")[0].replace('__file__', repr(os.path.join(ROOT, 'tools/tts_v3.py'))))
 X = os.path.join(ROOT, 'tools/src/extra'); CL = f'{X}/clips.json'
-NORM = 'silenceremove=start_periods=1:start_threshold=-60dB:start_silence=0.12,areverse,silenceremove=start_periods=1:start_threshold=-60dB:start_silence=0.15,areverse,loudnorm=I=-18:TP=-1.5:LRA=11'
+NORM = 'silenceremove=start_periods=1:start_threshold=-60dB:start_silence=0.12,areverse,silenceremove=start_periods=1:start_threshold=-60dB:start_silence=0.15,areverse,loudnorm=I=-18:TP=-1.5:LRA=11,adelay=95:all=1'   # R4: ElevenLabs raws start ~30 ms before speech, so pad to >=120 ms lead
 SAY = json.load(open(f'{X}/say.json')) if os.path.exists(f'{X}/say.json') else {'en': {}, 'he': {}}   # respellings / carriers
 def text(lang, n, t):
     if n in SAY.get(lang, {}): return SAY[lang][n]

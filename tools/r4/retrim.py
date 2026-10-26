@@ -13,19 +13,24 @@ def span(p):
 def pad(src,dst,ms):
     subprocess.run(['ffmpeg','-v','error','-y','-i',src,'-af',f'adelay={int(ms)}:all=1','-ac','1','-ar','22050','-c:a','libmp3lame','-b:a','32k','-map_metadata','-1',dst],check=True)
 def one(a):
+    try: return one_(a)
+    except Exception as e: return {'a':a,'mode':'error','err':str(e)[-120:]}
+def one_(a):
     cur=f'{R}/audio/en/{a:04d}.mp3'; d=f'{OUT}/{a:04d}.mp3'; c=span(cur); r={'a':a,'lead0':round(c[0]),'core0':round(c[1]-c[0])}
     s,_=source(a) if a not in SKIP else (None,None)
     if s:
-        proc(s,d); n=span(d); r.update(mode='raw',lead=round(n[0]),core=round(n[1]-n[0]))
-        if abs(r['core']-r['core0'])<=80 and n[0]>=110: return r
-        r['mode']='raw-mismatch'
-    if c[0]>=120: r.update(mode='keep',lead=round(c[0])); os.path.exists(d) and os.remove(d); return r
+        proc(s,d); n=span(d); r.update(rlead=round(n[0]),rcore=round(n[1]-n[0]))
+        if abs(r['rcore']-r['core0'])<=80:
+            if n[0]<115: t=d+'.tmp.mp3'; os.replace(d,t); pad(t,d,125-n[0]); os.remove(t); n=span(d)
+            r.update(mode='raw',lead=round(n[0]),core=round(n[1]-n[0])); return r
+        r['mode']='mismatch-'
+    if c[0]>=115: r.update(mode='keep',lead=round(c[0])); os.path.exists(d) and os.remove(d); return r
     pad(cur,d,125-c[0]); n=span(d); r.update(mode=r.get('mode','')+'pad',lead=round(n[0]),core=round(n[1]-n[0])); return r
 if __name__=='__main__':
     files=sorted(int(os.path.basename(f)[:-4]) for f in glob.glob(R+'/audio/en/*.mp3'))
     L=f'{OUT}.jsonl'; done={json.loads(l)['a'] for l in open(L)} if os.path.exists(L) else set()
     todo=[a for a in files if a not in done]; print('todo',len(todo),flush=True)
-    with ProcessPoolExecutor(7) as ex, open(L,'a') as f:
+    with ProcessPoolExecutor(int(os.environ.get('J','6'))) as ex, open(L,'a') as f:
         for i,r in enumerate(ex.map(one,todo,chunksize=8)):
             f.write(json.dumps(r)+'\n')
             if i%500==0: f.flush(); print(i,flush=True)
