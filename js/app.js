@@ -1,7 +1,7 @@
 // English Quest – screens & navigation
 import { $, h, put, en, shuffle, dayNum, fmtDay, toast, download, nWords, reduced, posHe } from './util.js';
 import { S, save, on, T, stageRec, today, dueWords, level, levelXp, gainCoins, touchStreak, streakNow, checkAch, ACH, isMastered, replaceState, resetAll, exportState, unlock, ensureDaily, bumpDaily, beatRival, AURAS, TITLES, profiles, curProfileId, createProfile, switchProfile, leaveProfile, deleteProfile } from './store.js';
-import { setOnTrackLoad, TRACKS, GRADES, GRADE_GROUPS, LEVELS, levelsFor, validLevel, isEarly, gradeTracks, themeOf, gradeLabel, WORLDS, worldsFor, isAdultTrack, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
+import { setOnTrackLoad, TRACKS, GRADES, GRADE_GROUPS, LEVELS, levelsFor, validLevel, isEarly, gradeTracks, themeOf, gradeLabel, WORLDS, worldsFor, worldAt, isAdultTrack, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
 import { sayUi, untimed, GAMES, practiceFor, missionPool, theme, Session, intro, match, listen, pics, scramble, fill, memory, blitz, boss, forms, formsPool, familyItems, reading, talk, cards, typing } from './games.js';
 import * as B from './backup.js';
 import { playWord, sfx, prefetch, stop as stopAudio, hasClip, audioUrl, onRobo } from './audio.js';
@@ -52,10 +52,24 @@ on((type, d) => {
 
 // ---------- shared bits ----------
 // a derived track whose stage layout changed (eq-3.4: confusable words split, known words moved to fast review):
-// stage stars are reset once; word progress is keyed by n and is kept.
+// word progress is keyed by n and is kept; stage stars are carried over by words (review #2 #12): a new stage is
+// cleared when every old stage holding its words was cleared, with the lowest of their star counts.
+export function remapStages(old, prev, stages) {
+  const where = new Map(); prev.forEach((s, i) => s.forEach(n => where.set(n, i))); const out = {};
+  stages.forEach((s, j) => {
+    const olds = [...new Set(s.map(n => where.get(n)).filter(i => i != null))]; if (!olds.length) return;
+    const recs = olds.map(i => old[i]);
+    if (recs.every(r => r && r.cleared)) out[j] = { games: {}, stars: Math.min(...recs.map(r => r.stars || 0)), cleared: true, plays: Math.max(...recs.map(r => r.plays || 0)) };
+  });
+  return out;
+}
 setOnTrackLoad(d => {
   if (!d.layout || !S.profile) return; const t = T(d.track);
-  if (t.layout !== d.layout) { if (Object.keys(t.stages).length) t.stages = {}; t.layout = d.layout; save(); }
+  if (t.layout !== d.layout) {
+    const had = Object.keys(t.stages).length;
+    if (had) t.stages = d.prev && (t.layout || '') === d.prev.layout ? remapStages(t.stages, d.prev.stages, d.stages) : {};
+    t.layout = d.layout; save();
+  }
 });
 const isUnlocked = i => i === 0 || stageRec(i - 1).cleared || (D.fast != null && i >= D.fast);   // fast-review stages (words known from the MoE Bands) are optional
 const currentStage = () => { let i = 0; while (i < D.stages.length - 1 && stageRec(i).cleared) i++; return i; };
@@ -131,16 +145,27 @@ function trackToggle() {
 }
 
 // ---------- world map ----------
+// review #2 (fun & feel, post-12): adult-style progress on the word list instead of only islands and coins
+const LIST_LABEL = { acad: 'רשימת NAWL', tech: 'אנגלית טכנית', c1: 'רמת C1 (CEFR)', c2: 'רמת C2 (CEFR)' };
+function adultProgress() {
+  const N = D.words.length, recs = D.words.map(w => T().words[w.n]), seen = recs.filter(Boolean).length, m = recs.filter(isMastered).length;
+  const pct = Math.round(m / N * 100), next = [10, 25, 50, 75, 100].find(x => x > pct) || 100;
+  const chapters = Array.from({ length: D.worlds }, (_, wi) => wi).filter(wi => { const a = wi * PER_WORLD, b = Math.min(D.stages.length, a + PER_WORLD); for (let i = a; i < b; i++) if (!stageRec(i).cleared) return false; return true; }).length;
+  return h('div.aprog', h('div.aprow', h('b', '📈 ', LIST_LABEL[D.track] || 'הרשימה'), h('span', `${m}/${N} מילים בשליטה · ${pct}%`)),
+    h('div.abar', h('div', { style: { width: pct + '%' } }), h('i', { style: { insetInlineStart: next + '%' } })),
+    h('div.muted.small', `נלמדו ${seen} · פרקים שהושלמו ${chapters}/${D.worlds} · היעד הבא: ${next}% מהרשימה`));
+}
 function mapView() {
   const cur = currentStage(); const due = dueWords(); const daily = ensureDaily();
   const path = h('div.map');
   for (let wi = 0; wi < D.worlds; wi++) {
-    const WL = worldsFor(D.track), W0 = WL[wi % WL.length], adult = isAdultTrack(D.track), from = wi * PER_WORLD, to = Math.min(D.stages.length, from + PER_WORLD);
+    const W0 = worldAt(wi), fastCh = D.fast != null && wi * PER_WORLD >= D.fast, adult = isAdultTrack(D.track), from = wi * PER_WORLD, to = Math.min(D.stages.length, from + PER_WORLD);
     const cleared = Array.from({ length: to - from }, (_, k) => stageRec(from + k).cleared).filter(Boolean).length;
     const locked = !isUnlocked(from);
     const sec = h('section.world' + (locked ? '.locked' : ''), { style: { '--c1': W0.bg[0], '--c2': W0.bg[1] } },
       h('div.wbanner', h('span.wicon', W0.icon), h('div', h('small', `${adult ? 'פרק' : 'אי'} ${wi + 1}`), h('b', W0.name)), h('span.wprog', `${cleared}/${to - from}`)),
       W0.story && h('p.wstory', W0.story));
+    const sepAt = fastCh ? -1 : D.fast;   // a ⚡ chapter already says so in its banner
     for (let i = from; i < to; i++) {
       const r = stageRec(i), un = isUnlocked(i), k = i - from;
       const off = Math.sin(k * 1.1) * 32;
@@ -149,7 +174,7 @@ function mapView() {
         onclick: () => un ? (sfx('tap'), go('#/stage/' + i)) : (sfx('bad'), toast('🔒 נצחו את הבוס של השלב הקודם')) },
         h('span.num', un ? (D.fast != null && i >= D.fast ? '⚡' + (i + 1) : i + 1) : '🔒'), r.cleared && h('span.nstars', starsTxt(r.stars)),
         i === cur && h('span.me', S.profile.avatar), i === cur && h('span.bubble', r.plays ? 'ממשיכים!' : 'התחילו כאן!'));
-      if (i === D.fast) sec.append(h('div.fastsep', '⚡ חזרה מהירה – מילים שכבר פגשתם ברשימות של משרד החינוך. פתוח תמיד, אפשר לדלג.'));
+      if (i === sepAt) sec.append(h('div.fastsep', '⚡ חזרה מהירה – מילים שכבר פגשתם ברשימות של משרד החינוך. פתוח תמיד, אפשר לדלג.'));
       sec.append(node);
     }
     sec.append(h('div.gate', h('span.gboss', W0.boss), h('small', `${adult ? 'אתגר הפרק' : 'בוס האי'}: ${W0.bossName}`)));
@@ -173,6 +198,7 @@ function mapView() {
       h('div.dico', daily.done ? '✅' : '☀️'),
       h('div', { style: { flex: 1 } }, h('b', 'אתגר היום', sayUi(11100)), h('div.muted.small', daily.label || ''),
         h('div.dbar', h('div', { style: { width: (daily.progress / daily.target * 100) + '%' } })))),
+    isAdultTrack(D.track) && adultProgress(),
     h('div.mapbar',
       h('button.btn.primary.cta', { onclick: () => { sfx('whoosh'); go('#/stage/' + cur); } }, `▶ משימה · שלב ${cur + 1}`), sayUi(11099),
       h('button.btn.review' + (due.length ? '.has' : ''), { onclick: () => due.length ? go('#/review') : toast('אין מילים לחזרה – שחקו! 🎮') }, '🔁', due.length ? h('b.badge', due.length) : null)),
@@ -523,7 +549,7 @@ function parentView() {
     h('h3', 'פעילות ב־14 הימים האחרונים (XP)'),
     h('div.chart', days.map(d => h('div.barc', h('div.bar', { style: { height: ((S.days[d]?.xp || 0) / mx) * 100 + '%' }, title: `${S.days[d]?.xp || 0} XP` }), h('small', fmtDay(d))))),
     h('h3', 'התקדמות לפי עולם'),
-    h('div.wprogs', Array.from({ length: D.worlds }, (_, wi) => { const from = wi * PER_WORLD, to = Math.min(D.stages.length, from + PER_WORLD), c = Array.from({ length: to - from }, (_, k) => stageRec(from + k).cleared).filter(Boolean).length; const WL = worldsFor(D.track), Wd = WL[wi % WL.length];
+    h('div.wprogs', Array.from({ length: D.worlds }, (_, wi) => { const from = wi * PER_WORLD, to = Math.min(D.stages.length, from + PER_WORLD), c = Array.from({ length: to - from }, (_, k) => stageRec(from + k).cleared).filter(Boolean).length; const Wd = worldAt(wi);
       return h('div.wp', h('span', `${Wd.icon} ${Wd.name}`), h('div.pbar', h('div', { style: { width: c / (to - from) * 100 + '%' } })), h('small', `${c}/${to - from}`)); })),
     h('h3', 'המילים הקשות ביותר'),
     hard.length ? h('table.hard', h('tr', h('th', 'מילה'), h('th', 'פירוש'), h('th', '✓'), h('th', '✗')), hard.map(([w, r]) => h('tr', h('td', en(w.en)), h('td', w.he), h('td', r.ok), h('td', r.bad)))) : h('p.muted', 'עוד אין טעויות 🙂'),

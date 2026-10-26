@@ -64,7 +64,11 @@ export const WORLDS_ADULT = [
   { name: 'כנס בינלאומי', icon: '🌐', bg: ['#065f46', '#064e3b'], boss: '🎤', bossName: 'הרצאת מליאה', story: 'להבין דוברים מכל העולם.' },
   { name: 'מערכת העיתון', icon: '📰', bg: ['#7c2d12', '#431407'], boss: '🖋️', bossName: 'מאמר מערכת', story: 'אוצר מילים של עיתונות איכות.' },
   { name: 'ארכיון', icon: '🗂️', bg: ['#57534e', '#292524'], boss: '📖', bossName: 'כתב יד נדיר', story: 'מילים נדירות ומדויקות.' },
+  { name: 'אולם ההרצאות', icon: '🎙️', bg: ['#9d174d', '#500724'], boss: '📋', bossName: 'מבחן סוף סמסטר', story: 'להבין הרצאה שלמה באנגלית.' },
+  { name: 'משרד ההייטק', icon: '💼', bg: ['#3730a3', '#1e1b4b'], boss: '📊', bossName: 'מצגת למשקיעים', story: 'אנגלית של ישיבות, מיילים ומצגות.' },
 ];
+/** review #2 #11: chapters made only of fast-review (⚡) stages get their own theme instead of repeating a world */
+export const FAST_WORLD = { name: 'חזרה מהירה', icon: '⚡', bg: ['#854d0e', '#422006'], boss: '⏱️', bossName: 'סבב בזק', story: 'מילים שכבר פגשתם ברשימות של משרד החינוך. פתוח תמיד, אפשר לדלג.' };
 export const isAdultTrack = t => ['acad', 'tech', 'c1', 'c2'].includes(t);
 export const worldsFor = t => isAdultTrack(t) ? WORLDS_ADULT : WORLDS;
 export const PER_WORLD = 8;
@@ -88,7 +92,15 @@ export async function loadTrack(track) {
 export const W = n => D.byN.get(+n);
 export const stageWords = i => D.stages[i].map(W);
 export const worldOf = i => Math.floor(i / PER_WORLD);
-export const world = i => { const L = worldsFor(D && D.track); return L[worldOf(i) % L.length]; };
+export function worldAt(wi) {
+  const L = worldsFor(D && D.track);
+  if (D && D.fast != null && isAdultTrack(D.track) && wi * PER_WORLD >= D.fast) {
+    const f0 = Math.ceil(D.fast / PER_WORLD), nf = D.worlds - f0;
+    return { ...FAST_WORLD, name: FAST_WORLD.name + (nf > 1 ? ` ${wi - f0 + 1}/${nf}` : '') };
+  }
+  return L[wi % L.length];
+}
+export const world = i => worldAt(worldOf(i));
 
 /** k wrong options for word w (field = 'he' | 'en'), same part of speech first, never a synonym/duplicate */
 export function distractors(w, k = 3, field = 'he', prefer = []) {
