@@ -83,6 +83,7 @@ def cloze(track, words, stages):
     if not os.path.exists(f): return {}
     import random
     by = {norm(w['en']): w for w in words}; st = {n: i for i, s in enumerate(stages) for n in s}
+    BAN = {(int(n), norm(o)) for n, o in lines('cloze_ban.txt')} if os.path.exists(f'{X}/cloze_ban.txt') else set()   # near-synonyms (lint_cloze.py + review)
     P = lambda w: re.split(r'[ ,/]', w['pos'])[0]
     out = {}
     for en, s in lines(f'sent_{track}.txt'):
@@ -94,6 +95,7 @@ def cloze(track, words, stages):
         elif re.search(r'\ba ___', s, re.I): pool = [x for x in pool if not V(x['en'])] or pool
         if len(pool) < 3: pool = [x for x in words if x is not w and P(x) == P(w) and not overlaps(x, w) and V(x['en']) == V(w['en'])]
         if len(pool) < 3: pool = [x for x in words if x is not w and not overlaps(x, w) and ' ' not in x['en']]   # rare POS (prep)
+        pool = [x for x in pool if (w['n'], norm(x['en'])) not in BAN]
         r = random.Random(w['n']); o = [x['en'] for x in r.sample(pool, 3)]
         out.setdefault(str(w['n']), []).append({'s': s, 'a': w['en'], 'o': o})
     return out
@@ -101,6 +103,8 @@ def out(track, source, words, stages, fast=None):
     assert len({w['n'] for w in words}) == len(words), track
     d = {'track': track, 'source': source, 'derived': True, 'stages': stages, 'words': words, 'sent': cloze(track, words, stages), 'read': [], 'talk': []}
     if fast is not None and fast < len(stages): d['fast'] = fast; d['layout'] = LAYOUT
+    pf = f'{X}/layout_prev_{track}.json'   # review #2 #12: the previous stage layout, so the app can carry stage stars over by words
+    if 'layout' in d and os.path.exists(pf): d['prev'] = json.load(open(pf))
     json.dump(d, open(f'{ROOT}/data/{track}.json', 'w'), ensure_ascii=False, separators=(',', ':'))
     print(track, len(words), 'words', len(stages), 'stages', len(d['sent']), 'sent', 'fast from', fast, 'known', sum(1 for w in words if w.get('k')))
 def lines(f): return [l.rstrip('\n').split('|') for l in open(f'{X}/{f}', encoding='utf-8') if l.strip() and not l.startswith('#')]
