@@ -1,6 +1,8 @@
 # check.py out.jsonl [ids...] : automatic dual check of EN clips (review #4, same method as the reviewer's run.py/an.py):
 #  word test  = faster-whisper small.en (int8, beam 5, 0.5 s/0.7 s zero pad); medium.en second opinion when small misses
 #  sound test = wav2vec2-lv-60-espeak phonemes: first phoneme must match the first letter (b m p d l r n t s f k)
+#  robust sound test: the CTC phoneme model flips b<->v/d with 5-10 ms framing shifts of the SAME audio (measured), so the
+#               onset is also voted over 5 leading pads (0.40/0.45/0.50/0.55/0.60 s); onset_robust = majority
 #  lead       = ms before first sample > 2% of peak (16 kHz)
 # Default set: every EN clip in data/*.json whose word is alphabetic and <=4 letters. Resumable (skips done clips).
 import sys,os,json,glob,re,subprocess,difflib,numpy as np,torch
@@ -45,8 +47,11 @@ def judge(path,w,always_medium=False):
     s=_tr(M['sm'],x); m=''
     if always_medium or not word_ok(w,s):
         M['md']=M['md'] or WhisperModel('medium.en',device='cpu',compute_type='int8',cpu_threads=4); m=_tr(M['md'],x)
-    with torch.no_grad(): ph=M['tk'].batch_decode(M['mod'](M['fe'](x,sampling_rate=16000,return_tensors='pt').input_values).logits.argmax(-1))[0]
-    return {'en':w,'small':s,'medium':m,'ph':ph,'word_small':word_ok(w,s),'word_any':word_ok(w,s) or word_ok(w,m),'onset':onset_ok(w,ph),'lead':round(lead,1)}
+    def P(x):
+        with torch.no_grad(): return M['tk'].batch_decode(M['mod'](M['fe'](x,sampling_rate=16000,return_tensors='pt').input_values).logits.argmax(-1))[0]
+    ph=P(x); votes=[onset_ok(w,P(np.concatenate([np.zeros(int(p*16000),np.float32),y,np.zeros(11200,np.float32)]))) for p in (0.4,0.45,0.55,0.6)]+[onset_ok(w,ph)]
+    rob=None if votes[-1] is None else sum(v is True for v in votes)>=3
+    return {'onset_votes':sum(v is True for v in votes),'onset_robust':rob,'en':w,'small':s,'medium':m,'ph':ph,'word_small':word_ok(w,s),'word_any':word_ok(w,s) or word_ok(w,m),'onset':onset_ok(w,ph),'lead':round(lead,1)}
 if __name__=='__main__':
     out=sys.argv[1]; M=clips(); ids=[int(x) for x in sys.argv[2:]] or sorted(M)
     done={json.loads(l)['clip'] for l in open(out)} if os.path.exists(out) else set(); fo=open(out,'a')

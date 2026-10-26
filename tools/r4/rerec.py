@@ -5,7 +5,7 @@ import sys,os,json,shutil,subprocess; sys.path.insert(0,'/workspace/eq-tts/r3')
 from lib import *; from dbl import second
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__))); from check import judge
 def score(word,f):
-    j=judge(f,word,True); return 2*j['word_small']+j['word_any']+2*(j['onset'] is not False), f"{j['small']}/{j['medium']}/{j['ph']}"
+    j=judge(f,word,True); return 2*j['word_small']+j['word_any']+2*(j['onset_robust'] is not False), f"{j['small']}/{j['medium']}/{j['ph']}"
 FULL=5
 OUT='/workspace/eq-tts/r4/rerec'; os.makedirs(OUT,exist_ok=True)
 CAP=int(os.environ.get('CAP_ROUND','400'))

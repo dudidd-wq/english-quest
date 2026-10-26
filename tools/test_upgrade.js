@@ -33,18 +33,20 @@ const swap = () => execSync(`ln -sfn ${ROOT} ${TMP}/cur`);
     await page.waitForSelector('.mapv .hud', { timeout: 20000 });
     await page.evaluate(async () => { const s = await import('./js/store.js'); s.S.xp = 4321; s.T('b1c1').words[6005] = { b: 3, due: 99999, ok: 4, bad: 1, seen: 1 }; s.save(true); });
     await page.waitForFunction(() => navigator.serviceWorker.controller, null, { timeout: 20000 });
+    const NEWV0 = fs.readFileSync(ROOT + '/sw.js', 'utf8').match(/VERSION = '([^']+)'/)[1];
     R.swBefore = await page.evaluate(async () => (await caches.keys()).join(','));
     swap();
     await page.evaluate(async () => { const r = await navigator.serviceWorker.getRegistration(); await r.update(); });
     R.served = execSync(`curl -s ${BASE}/cur/sw.js | head -2 | tail -1`).toString().trim();
     R.upd = await page.evaluate(async () => { const r = await navigator.serviceWorker.getRegistration(); try { await r.update(); } catch (e) { return 'ERR ' + e.message; } const w = r.installing || r.waiting; if (!w) return 'no new worker'; return await new Promise(res => { const f = () => { if (w.state === 'activated' || w.state === 'redundant') res(w.state); }; w.addEventListener('statechange', f); f(); setTimeout(() => res('timeout ' + w.state), 60000); }); });
-    for (let t = 0; t < 60; t++) { R.keys = await page.evaluate(async () => (await caches.keys()).join(',')); if (/eq-3\.4\.0/.test(R.keys)) break; if (t % 10 === 9) await page.evaluate(async () => (await navigator.serviceWorker.getRegistration()).update().catch(e => e.message)); await sleep(1000); }
+    for (let t = 0; t < 60; t++) { R.keys = await page.evaluate(async () => (await caches.keys()).join(',')); if (R.keys.includes('eq-shell-' + NEWV0)) break; if (t % 10 === 9) await page.evaluate(async () => (await navigator.serviceWorker.getRegistration()).update().catch(e => e.message)); await sleep(1000); }
     R.reg = await page.evaluate(async () => { const r = await navigator.serviceWorker.getRegistration(); return [r.installing, r.waiting, r.active].map(w => w && w.state + ':' + w.scriptURL.slice(-12)).join('|'); });
     await page.reload({ waitUntil: 'networkidle' }); await sleep(2000); await page.reload({ waitUntil: 'networkidle' });
     await page.waitForSelector('.mapv .hud', { timeout: 20000 });
     R.swAfter = await page.evaluate(async () => (await caches.keys()).join(','));
     R.kept = await page.evaluate(async () => { const s = await import('./js/store.js'); return { name: s.S.profile?.name, xp: s.S.xp, w6005: s.T('b1c1').words[6005]?.ok }; });
     const NEWV = fs.readFileSync(ROOT + '/sw.js', 'utf8').match(/VERSION = '([^']+)'/)[1]; if (!R.swAfter.includes('eq-shell-' + NEWV)) fail('new SW cache missing: ' + R.swAfter);
+    const AUD = fs.readFileSync(ROOT + '/sw.js', 'utf8').match(/AUDIO = '([^']+)'/)[1]; if (R.swAfter.split(',').some(k => k.startsWith('eq-audio-') && k !== AUD)) fail('stale audio cache kept: ' + R.swAfter);
     if (R.kept.xp !== 4321 || R.kept.w6005 !== 4 || R.kept.name !== 'נועה') fail('progress lost ' + JSON.stringify(R.kept));
     await ctx.setOffline(true);
     await page.reload({ waitUntil: 'load' }); await page.waitForSelector('.mapv .hud', { timeout: 20000 }).catch(() => fail('offline map'));
