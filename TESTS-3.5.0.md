@@ -11,3 +11,4 @@ Run against https://dudidd-wq.github.io/english-quest/ (SW eq-3.5.0), tools/test
 | 2026-10-26 07:25 | mobile grades 8–12 | 6 | 0 | ERRORS 0 / EXIT 0 |
 | 2026-10-26 07:32 | desktop grades 8–12 | 6 | 0 | ERRORS 0 / EXIT 0 |
 | 2026-10-26 07:38 | mobile post 12 acad/tech/C1/C2 | 5 | 0 | ERRORS 0 / EXIT 0 |
+| 2026-10-26 07:44 | desktop post 12 acad/tech/C1/C2 | 5 | 0 | ERRORS 0 / EXIT 0 |
