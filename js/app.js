@@ -33,6 +33,7 @@ function confetti(n = 70) {
 }
 const banners = [];
 function banner(icon, title, sub) {
+  if (kidsTiny()) { title = '🎉'; sub = (sub || '').replace(/[^\p{Extended_Pictographic}\uFE0F\s]/gu, '').trim() || null; }   // grades 1–2 can't read yet: icons only (review #4)
   banners.push([icon, title, sub]); if (banners.length === 1) showBanner();
 }
 function showBanner() {
@@ -42,7 +43,7 @@ function showBanner() {
 }
 on((type, d) => {
   if (type === 'level') { sfx('level'); confetti(40); banner('⬆️', `עליתם לרמה ${d}!`, 'כל הכבוד, ממשיכים ככה'); }
-  if (type === 'goal') { sfx('win'); banner('🎯', 'הגעתם ליעד היומי!', '+25 מטבעות 🪙'); }
+  if (type === 'goal') { sfx('win'); kidsTiny() ? banner('🎯', '🎉', '🪙🪙🪙') : banner('🎯', 'הגעתם ליעד היומי!', '+25 מטבעות 🪙'); }   // grades 1–2: icons only (review #4)
   if (type === 'ach') { sfx('coin'); banner(d[1], `הישג חדש: ${d[2]}`, d[3] + ' · +15 🪙'); }
   if (type === 'freeze') banner('🧊', 'הקפאת הרצף הצילה את הרצף שלכם!');
   if (type === 'daily') { sfx('streak'); confetti(50); banner('☀️', 'אתגר היום הושלם!', '+40 מטבעות 🪙'); }
@@ -81,7 +82,7 @@ function hud() {
   const title = S.cosmetics?.title || '';
   return h('header.hud',
     h('button.avatar-btn' + (aura !== 'none' ? '.aura-' + aura : ''), { 'aria-label': `${L} – הפרופיל שלי (רמה ${L})`, onclick: () => go('#/me') }, h('span.av', S.profile.avatar), h('span.lvl', L)),
-    h('div.xpbox', h('div.xpline', h('b', S.profile.name + (title ? ' · ' + title : '')), h('span', `רמה ${L}`)), h('div.xpbar', h('div', { style: { width: ((S.xp - a) / (b - a)) * 100 + '%' } })), h('small', { dir: 'ltr', style: { display: 'block', textAlign: 'right' } }, `${S.xp - a} / ${b - a} XP`)),
+    h('div.xpbox', h('div.xpline', h('b', S.profile.name + (title ? ' · ' + title : '')), !kidsTiny() && h('span', `רמה ${L}`)), h('div.xpbar', h('div', { style: { width: ((S.xp - a) / (b - a)) * 100 + '%' } })), !kidsTiny() && h('small', { dir: 'ltr', style: { display: 'block', textAlign: 'right' } }, `${S.xp - a} / ${b - a} XP`)),   // grades 1–2: bar only, no level/XP text
     h('div.stat', { title: 'רצף ימים' }, h('span', streakNow() ? '🔥' : '🩶'), h('b', streakNow())),
     h('div.stat', { title: 'מטבעות' }, h('span', '🪙'), h('b', S.coins)),
     h('div.goal', { title: 'יעד יומי', style: { '--p': gp * 360 + 'deg' } }, h('span', gp >= 1 ? '✅' : '🎯')));

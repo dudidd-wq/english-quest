@@ -12,9 +12,12 @@ const wipe = p => p.evaluate(() => new Promise(r => { localStorage.clear(); cons
     await p.click(g > 100 ? 'button.gradebtn.wide' : `button.gradebtn[aria-label="כיתה ${HE[g]}"]`);
     if (g > 100) { await p.waitForSelector('button.track-card'); await p.locator('button.track-card', { hasText: LEVEL[g] }).click(); }
     await p.fill('input.name', 'r3'); await p.click('button.avpick'); await p.waitForSelector('.mapv .hud', { timeout: 15000 });
-    const r = await p.evaluate(async () => { const g = await import('./js/games.js'); return { daily: !!document.querySelector('.daily-card'), rival: !!document.querySelector('.rival-chip'), practice: g.practiceFor(0), text: document.body.innerText }; });
+    const r = await p.evaluate(async () => { const g = await import('./js/games.js'); return { hud: document.querySelector('.hud')?.innerText || '', daily: !!document.querySelector('.daily-card'), rival: !!document.querySelector('.rival-chip'), practice: g.practiceFor(0), text: document.body.innerText }; });
     out[g] = { daily: r.daily, rival: r.rival, practice: r.practice.join(',') };
     if (g === 2 && (r.daily || r.rival)) errs.push('g2 banners shown');
+    if (g === 2 && /XP|רמה/.test(r.hud)) errs.push('g2 HUD shows level/XP text');   // review #4 #4
+    if (g === 5 && !/XP/.test(r.hud)) errs.push('g5 HUD lost XP text');
+    if (g === 2) { const t = await p.evaluate(async () => { const s = await import('./js/store.js'); s.gainXp(s.S.settings.goal + 5); await new Promise(r => setTimeout(r, 400)); return document.querySelector('.banner')?.innerText || 'none'; }).catch(() => 'n/a'); out.goalBanner = t.replace(/\s+/g, ' '); if (/[א-ת]/.test(t)) errs.push('g2 goal banner has text'); }
     if (g === 5 && !(r.daily && r.rival)) errs.push('g5 banners missing');
     if (g === 3 && r.practice.includes('scramble')) errs.push('g3 scramble at stage 1');
     if (g === 132 && !/שורת הפקודה/.test(r.text)) errs.push('tech theme missing');
