@@ -1,0 +1,1799 @@
+{"a": 11, "w": "ache", "s": "Ache", "p": "\u0259\u026a \u0261", "ok_s": true, "ok_p": true}
+{"a": 28, "w": "aim", "s": "AIM", "p": "e\u026a m", "ok_s": true, "ok_p": true}
+{"a": 40, "w": "and", "s": "and", "p": "\u025b n d", "ok_s": true, "ok_p": true}
+{"a": 49, "w": "Arab", "s": "Arab", "p": "\u00e6 \u0279 \u0259 b", "ok_s": true, "ok_p": true}
+{"a": 50, "w": "area", "s": "area", "p": "\u025b \u0279 i \u0259", "ok_s": true, "ok_p": true}
+{"a": 51, "w": "army", "s": "Army", "p": "\u0251\u02d0\u0279 m i", "ok_s": true, "ok_p": true}
+{"a": 59, "w": "ask", "s": "Ask", "p": "a s k", "ok_s": true, "ok_p": true}
+{"a": 60, "w": "at", "s": "at", "p": "a t", "ok_s": true, "ok_p": true}
+{"a": 71, "w": "away", "s": "", "p": "\u0250 w e\u026a", "ok_s": false, "ok_p": true, "m": "", "ok_m": false}
+{"a": 72, "w": "back", "s": "back.", "p": "b \u00e6 k", "ok_s": true, "ok_p": true}
+{"a": 74, "w": "bad", "s": "bad", "p": "b \u00e6 d", "ok_s": true, "ok_p": true}
+{"a": 75, "w": "baker", "s": "Baker", "p": "b e\u026a k \u025a", "ok_s": true, "ok_p": true}
+{"a": 76, "w": "balloon", "s": "balloon", "p": "b \u0259 l u\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 77, "w": "bar", "s": "bar", "p": "b \u0251\u02d0", "ok_s": true, "ok_p": true}
+{"a": 78, "w": "barbecue", "s": "Barbecue", "p": "b \u0251\u02d0\u0279 b \u026a k u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 79, "w": "baseball", "s": "Baseball", "p": "b e\u026a s b \u0251\u02d0 l", "ok_s": true, "ok_p": true}
+{"a": 80, "w": "basket", "s": "That's it for this video.  I'll see you next time.  Bye!", "p": "d \u00e6 s k \u026a t", "ok_s": false, "ok_p": false, "m": "Basket", "ok_m": true}
+{"a": 81, "w": "battery", "s": "", "p": "b \u00e6 \u027e \u025a \u0279 i", "ok_s": false, "ok_p": true, "m": "Battery", "ok_m": true}
+{"a": 82, "w": "battle", "s": "Battle", "p": "b \u00e6 r \u0259l", "ok_s": true, "ok_p": true}
+{"a": 96, "w": "be", "s": "B.", "p": "b i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 97, "w": "bear", "s": "bear", "p": "b e\u026a", "ok_s": true, "ok_p": true}
+{"a": 98, "w": "beauty", "s": "beauty", "p": "b j u\u02d0 \u027e i", "ok_s": true, "ok_p": true}
+{"a": 99, "w": "Bedouin", "s": "Bedouin", "p": "b \u025b d u\u02d0 \u026a n", "ok_s": true, "ok_p": true}
+{"a": 100, "w": "bedtime", "s": "Bedtime", "p": "b \u025b d t a\u026a m", "ok_s": true, "ok_p": true}
+{"a": 101, "w": "behave", "s": "Behave", "p": "b i\u02d0 h e\u026a v", "ok_s": true, "ok_p": true}
+{"a": 102, "w": "behavior", "s": "Behavior", "p": "b i\u02d0 h e\u026a v j \u025a", "ok_s": true, "ok_p": true}
+{"a": 103, "w": "belief", "s": "", "p": "\u00f0 \u0259 l i\u02d0 f", "ok_s": false, "ok_p": false, "m": "belief", "ok_m": true}
+{"a": 105, "w": "below", "s": "Below", "p": "b \u1d7b l o\u028a", "ok_s": true, "ok_p": true}
+{"a": 106, "w": "beside", "s": "Beside", "p": "b \u026a s a\u026a d", "ok_s": true, "ok_p": true}
+{"a": 108, "w": "Bible", "s": "Bible", "p": "b a\u026a b \u0259l", "ok_s": true, "ok_p": true}
+{"a": 109, "w": "blanket", "s": "blanket", "p": "b l \u00e6 \u014b k \u026a t", "ok_s": true, "ok_p": true}
+{"a": 111, "w": "blood", "s": "BLOOD", "p": "b l \u028c d", "ok_s": true, "ok_p": true}
+{"a": 112, "w": "blow", "s": "BLOW", "p": "b l o\u028a", "ok_s": true, "ok_p": true}
+{"a": 113, "w": "body", "s": "Body", "p": "b \u0251\u02d0 d i", "ok_s": true, "ok_p": true}
+{"a": 114, "w": "boil", "s": "Boil", "p": "b o\u028a l", "ok_s": true, "ok_p": true}
+{"a": 115, "w": "book", "s": "book", "p": "b \u0254 k", "ok_s": true, "ok_p": true}
+{"a": 116, "w": "boot", "s": "BOOT", "p": "b u\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 117, "w": "border", "s": "BORDER", "p": "b \u0254\u02d0\u0279 d \u025a", "ok_s": true, "ok_p": true}
+{"a": 118, "w": "borrow", "s": "Borrow", "p": "b \u0251\u02d0 \u0279 o\u028a", "ok_s": true, "ok_p": true}
+{"a": 119, "w": "boss", "s": "BOSS", "p": "b \u0251 s", "ok_s": true, "ok_p": true}
+{"a": 120, "w": "bowl", "s": "BOOM", "p": "b o\u02d0", "ok_s": false, "ok_p": true, "m": "bowl", "ok_m": true}
+{"a": 121, "w": "boyfriend", "s": "boyfriend", "p": "b o\u026a f \u0279 \u025b n d", "ok_s": true, "ok_p": true}
+{"a": 122, "w": "brain", "s": "Brain", "p": "b \u0279 e\u026a n", "ok_s": true, "ok_p": true}
+{"a": 123, "w": "branch", "s": "branch", "p": "b \u0279 \u00e6 n t\u0283", "ok_s": true, "ok_p": true}
+{"a": 124, "w": "brave", "s": "Brave", "p": "b \u0279 e\u026a v", "ok_s": true, "ok_p": true}
+{"a": 125, "w": "break", "s": "BREAK.", "p": "b \u0279 e\u026a k", "ok_s": true, "ok_p": true}
+{"a": 127, "w": "bridge", "s": "brjjjjjjjjj", "p": "b \u0279 \u026a d\u0292", "ok_s": false, "ok_p": true, "m": "Thank", "ok_m": false}
+{"a": 129, "w": "broken", "s": "Broken.", "p": "b \u0279 o\u028a k \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 130, "w": "burn", "s": "Burn.", "p": "b \u025c\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 131, "w": "business", "s": "Business", "p": "b \u026a z n \u026a s", "ok_s": true, "ok_p": true}
+{"a": 132, "w": "but", "s": "But", "p": "b a t", "ok_s": true, "ok_p": true}
+{"a": 133, "w": "by", "s": "Bye.", "p": "b a\u026a", "ok_s": true, "ok_p": true}
+{"a": 134, "w": "by", "s": "Bye.", "p": "b a\u026a", "ok_s": true, "ok_p": true}
+{"a": 139, "w": "call", "s": "Call.", "p": "k \u0251u5", "ok_s": true, "ok_p": true}
+{"a": 141, "w": "calm", "s": "Calm", "p": "k \u0251\u02d0 m", "ok_s": true, "ok_p": true}
+{"a": 142, "w": "can", "s": "can", "p": "k \u025b n", "ok_s": true, "ok_p": true}
+{"a": 148, "w": "cap", "s": "CAB", "p": "k \u0251\u02d0 p", "ok_s": false, "ok_p": true, "m": "CAP", "ok_m": true}
+{"a": 150, "w": "card", "s": "C.A.R.I.S.  C.A.R.I.S.", "p": "k \u0251\u02d0\u0279 d", "ok_s": false, "ok_p": true, "m": "Card.", "ok_m": true}
+{"a": 151, "w": "care", "s": "care.", "p": "k \u025b", "ok_s": true, "ok_p": true}
+{"a": 152, "w": "care", "s": "care", "p": "k \u025b", "ok_s": true, "ok_p": true}
+{"a": 158, "w": "case", "s": "Case", "p": "k e\u026a s", "ok_s": true, "ok_p": true}
+{"a": 159, "w": "case", "s": "Case", "p": "k e\u026a s", "ok_s": true, "ok_p": true}
+{"a": 160, "w": "cash", "s": "Cash", "p": "k a \u0283", "ok_s": true, "ok_p": true}
+{"a": 167, "w": "cent", "s": "Scent", "p": "s \u025b n t", "ok_s": false, "ok_p": true, "m": "Scent", "ok_m": false}
+{"a": 178, "w": "chat", "s": "chat", "p": "t\u0283 a t", "ok_s": true, "ok_p": true}
+{"a": 181, "w": "chef", "s": "Chef", "p": "\u0283 a f", "ok_s": true, "ok_p": true}
+{"a": 183, "w": "chip", "s": "Chip.", "p": "\u0283 \u026a p", "ok_s": true, "ok_p": true}
+{"a": 189, "w": "clap", "s": "Clap", "p": "k l \u025b p", "ok_s": true, "ok_p": true}
+{"a": 195, "w": "code", "s": "Code", "p": "k o\u028a d", "ok_s": true, "ok_p": true}
+{"a": 196, "w": "coin", "s": "COIN", "p": "k o\u026a n", "ok_s": true, "ok_p": true}
+{"a": 197, "w": "cold", "s": "Cold", "p": "k o\u028a l d", "ok_s": true, "ok_p": true}
+{"a": 198, "w": "comb", "s": "COME", "p": "k \u028c m", "ok_s": false, "ok_p": true, "m": "Comb.", "ok_m": true}
+{"a": 218, "w": "copy", "s": "COPY", "p": "k \u0251\u02d0 p i", "ok_s": true, "ok_p": true}
+{"a": 219, "w": "corn", "s": "CORN", "p": "k \u0254\u02d0\u0279 n", "ok_s": true, "ok_p": true}
+{"a": 232, "w": "cry", "s": "Cry", "p": "k \u0279 a\u026a", "ok_s": true, "ok_p": true}
+{"a": 240, "w": "deal", "s": "DEAL", "p": "d i\u02d0 o\u028a", "ok_s": true, "ok_p": true}
+{"a": 259, "w": "dig", "s": "DIG", "p": "d \u026a \u0261", "ok_s": true, "ok_p": true}
+{"a": 265, "w": "dirt", "s": "DIRT", "p": "d \u025c\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 271, "w": "dish", "s": "Dish", "p": "d \u026a", "ok_s": true, "ok_p": true}
+{"a": 273, "w": "do", "s": "Do", "p": "d u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 278, "w": "drop", "s": "Drop", "p": "d \u0279 \u0251\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 279, "w": "drum", "s": "drum", "p": "d \u0279 \u028c m", "ok_s": true, "ok_p": true}
+{"a": 281, "w": "duck", "s": "Duck.", "p": "d a k", "ok_s": true, "ok_p": true}
+{"a": 282, "w": "due", "s": "Do", "p": "d u\u02d0", "ok_s": false, "ok_p": true, "m": "do", "ok_m": false}
+{"a": 283, "w": "duty", "s": "Duty", "p": "d u\u02d0 \u0279 i", "ok_s": true, "ok_p": true}
+{"a": 285, "w": "earn", "s": "urn", "p": "\u025a n", "ok_s": false, "ok_p": true, "m": "earn", "ok_m": true}
+{"a": 305, "w": "euro", "s": "Euro", "p": "j \u1d7b \u0279 o\u028a", "ok_s": true, "ok_p": true}
+{"a": 306, "w": "even", "s": "Even", "p": "i\u02d0 v \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 313, "w": "exit", "s": "Exit", "p": "\u025b \u0261 z \u026a t", "ok_s": true, "ok_p": true}
+{"a": 321, "w": "face", "s": "face", "p": "f e\u026a s", "ok_s": true, "ok_p": true}
+{"a": 323, "w": "fair", "s": "FAIR", "p": "f \u025b", "ok_s": true, "ok_p": true}
+{"a": 324, "w": "fair", "s": "FAIR", "p": "f \u025b", "ok_s": true, "ok_p": true}
+{"a": 326, "w": "fall", "s": "Fall", "p": "f \u0251\u02d0", "ok_s": true, "ok_p": true}
+{"a": 330, "w": "fan", "s": "FAN", "p": "t \u025b n", "ok_s": true, "ok_p": true}
+{"a": 333, "w": "fear", "s": "fear", "p": "f i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 335, "w": "feel", "s": "feel", "p": "f i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 338, "w": "fine", "s": "Fine.", "p": "f a\u026a n", "ok_s": true, "ok_p": true}
+{"a": 339, "w": "fine", "s": "Fine.", "p": "f a\u026a n", "ok_s": true, "ok_p": true}
+{"a": 341, "w": "fish", "s": "fish", "p": "f \u026a \u0283", "ok_s": true, "ok_p": true}
+{"a": 343, "w": "fit", "s": "FIT", "p": "f \u026a t", "ok_s": true, "ok_p": true}
+{"a": 344, "w": "fix", "s": "Fix", "p": "f \u026a k s", "ok_s": true, "ok_p": true}
+{"a": 345, "w": "flag", "s": "flag", "p": "f l \u00e6 \u0261", "ok_s": true, "ok_p": true}
+{"a": 346, "w": "flat", "s": "Flat", "p": "f l \u00e6 t", "ok_s": true, "ok_p": true}
+{"a": 349, "w": "fog", "s": "FOG", "p": "f \u0251\u02d0 \u0261", "ok_s": true, "ok_p": true}
+{"a": 351, "w": "for", "s": "4.", "p": "f uo5", "ok_s": false, "ok_p": true, "m": "4.", "ok_m": false}
+{"a": 353, "w": "form", "s": "Form.", "p": "f \u0254\u02d0\u0279 m", "ok_s": true, "ok_p": true}
+{"a": 356, "w": "free", "s": "FREE!", "p": "f \u0279 i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 357, "w": "free", "s": "", "p": "f \u0279 i\u02d0", "ok_s": false, "ok_p": true, "m": "free.", "ok_m": true}
+{"a": 363, "w": "from", "s": "From", "p": "f \u0279 \u028c m", "ok_s": true, "ok_p": true}
+{"a": 366, "w": "fur", "s": "fur", "p": "f o5", "ok_s": true, "ok_p": true}
+{"a": 368, "w": "gain", "s": "Gain", "p": "\u0261 e\u026a n", "ok_s": true, "ok_p": true}
+{"a": 369, "w": "gap", "s": "gap", "p": "\u0261 \u00e6 p", "ok_s": true, "ok_p": true}
+{"a": 371, "w": "gas", "s": "Gas", "p": "\u0261 \u00e6 s", "ok_s": true, "ok_p": true}
+{"a": 385, "w": "god", "s": "God", "p": "\u0261 \u0251\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 386, "w": "gold", "s": "Gold.", "p": "\u0261 o\u028a l d", "ok_s": true, "ok_p": true}
+{"a": 387, "w": "gold", "s": "Gold", "p": "\u0261 o\u028a l d", "ok_s": true, "ok_p": true}
+{"a": 399, "w": "guy", "s": "guy", "p": "\u0261 a\u026a", "ok_s": true, "ok_p": true}
+{"a": 400, "w": "gym", "s": "gym", "p": "d\u0292 \u026a m", "ok_s": true, "ok_p": true}
+{"a": 402, "w": "hall", "s": "Huh.", "p": "x \u0251u5", "ok_s": false, "ok_p": false, "m": "hall", "ok_m": true}
+{"a": 405, "w": "hard", "s": "hard", "p": "h \u0251\u02d0\u0279 d", "ok_s": true, "ok_p": true}
+{"a": 408, "w": "hate", "s": "hate", "p": "h e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 413, "w": "head", "s": "Head", "p": "h \u025b d", "ok_s": true, "ok_p": true}
+{"a": 424, "w": "hero", "s": "Hero", "p": "h i\u02d0 \u0279 o\u028a", "ok_s": true, "ok_p": true}
+{"a": 426, "w": "hide", "s": "HIDE", "p": "h a\u026a d", "ok_s": true, "ok_p": true}
+{"a": 427, "w": "high", "s": "Hi", "p": "x \u02515", "ok_s": false, "ok_p": false, "m": "Hi", "ok_m": false}
+{"a": 438, "w": "hug", "s": "HUG", "p": "h a \u0261", "ok_s": true, "ok_p": true}
+{"a": 444, "w": "hurt", "s": "HURT", "p": "h \u025c\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 445, "w": "idea", "s": "Idea", "p": "a\u026a d i\u02d0 \u0250", "ok_s": true, "ok_p": true}
+{"a": 447, "w": "if", "s": "IF", "p": "\u026a f", "ok_s": true, "ok_p": true}
+{"a": 448, "w": "if", "s": "If", "p": "\u026a f", "ok_s": true, "ok_p": true}
+{"a": 451, "w": "ill", "s": "ill", "p": "", "ok_s": true, "ok_p": true}
+{"a": 461, "w": "in", "s": "In", "p": "\u026a n", "ok_s": true, "ok_p": true}
+{"a": 462, "w": "in", "s": "In", "p": "\u026a n", "ok_s": true, "ok_p": true}
+{"a": 463, "w": "in", "s": "In", "p": "\u026a n", "ok_s": true, "ok_p": true}
+{"a": 464, "w": "in", "s": "In", "p": "\u026a n", "ok_s": true, "ok_p": true}
+{"a": 465, "w": "in", "s": "In", "p": "\u026a n", "ok_s": true, "ok_p": true}
+{"a": 493, "w": "item", "s": "Item", "p": "a\u026a d \u028c m", "ok_s": true, "ok_p": true}
+{"a": 495, "w": "jail", "s": "jail", "p": "d\u0292 e\u026a", "ok_s": true, "ok_p": true}
+{"a": 496, "w": "jazz", "s": "Jazz.", "p": "d\u0292 a z", "ok_s": true, "ok_p": true}
+{"a": 497, "w": "Jew", "s": "Jew", "p": "d\u0292 y5", "ok_s": true, "ok_p": true}
+{"a": 499, "w": "job", "s": "job", "p": "d\u0292 \u0251\u02d0 b", "ok_s": true, "ok_p": true}
+{"a": 500, "w": "join", "s": "Join!", "p": "d\u0292 o\u026a n", "ok_s": true, "ok_p": true}
+{"a": 501, "w": "joke", "s": "Joke", "p": "d\u0292 o\u028a k", "ok_s": true, "ok_p": true}
+{"a": 502, "w": "joy", "s": "Joy.", "p": "d\u0292 o\u026a", "ok_s": true, "ok_p": true}
+{"a": 505, "w": "just", "s": "Just.", "p": "d\u0292 \u028c s t", "ok_s": true, "ok_p": true}
+{"a": 506, "w": "just", "s": "Just.", "p": "d\u0292 \u028c s t", "ok_s": true, "ok_p": true}
+{"a": 508, "w": "kick", "s": "kick", "p": "k \u026a", "ok_s": true, "ok_p": true}
+{"a": 511, "w": "kite", "s": "kite", "p": "t a\u026a t", "ok_s": true, "ok_p": true}
+{"a": 512, "w": "know", "s": "No.", "p": "n o\u028a", "ok_s": false, "ok_p": true, "m": "No.", "ok_m": false}
+{"a": 514, "w": "lake", "s": "Lake", "p": "l e\u026a k", "ok_s": true, "ok_p": true}
+{"a": 515, "w": "lamp", "s": "LAMP", "p": "l \u00e6 m p", "ok_s": true, "ok_p": true}
+{"a": 516, "w": "land", "s": "Land", "p": "l \u00e6 n d", "ok_s": true, "ok_p": true}
+{"a": 517, "w": "land", "s": "Land", "p": "l \u00e6 n d", "ok_s": true, "ok_p": true}
+{"a": 522, "w": "law", "s": "law, law.", "p": "l \u0251", "ok_s": false, "ok_p": true, "m": "Law", "ok_m": true}
+{"a": 524, "w": "lead", "s": "LEAD.", "p": "l i\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 525, "w": "leaf", "s": "leaf", "p": "l i\u02d0 f", "ok_s": true, "ok_p": true}
+{"a": 529, "w": "left", "s": "Left", "p": "l \u025b f t", "ok_s": true, "ok_p": true}
+{"a": 532, "w": "lend", "s": "Lend", "p": "l \u00e6 n d", "ok_s": true, "ok_p": true}
+{"a": 538, "w": "lick", "s": "Lick", "p": "l \u026a k", "ok_s": true, "ok_p": true}
+{"a": 539, "w": "lift", "s": "Lift", "p": "l \u026a f t", "ok_s": true, "ok_p": true}
+{"a": 540, "w": "lift", "s": "Lift", "p": "l \u026a f t", "ok_s": true, "ok_p": true}
+{"a": 541, "w": "like", "s": "LIKE", "p": "l a\u026a k", "ok_s": true, "ok_p": true}
+{"a": 543, "w": "line", "s": "LINE", "p": "l a\u026a n", "ok_s": true, "ok_p": true}
+{"a": 544, "w": "lion", "s": "Lion", "p": "l a\u026a \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 548, "w": "lock", "s": "LOCK", "p": "l a k", "ok_s": true, "ok_p": true}
+{"a": 549, "w": "long", "s": "long", "p": "l \u0251 \u014b", "ok_s": true, "ok_p": true}
+{"a": 555, "w": "lose", "s": "LOSE", "p": "l u\u02d0 z", "ok_s": true, "ok_p": true}
+{"a": 556, "w": "loud", "s": "LOUD", "p": "l a\u028a d", "ok_s": true, "ok_p": true}
+{"a": 557, "w": "love", "s": "Love", "p": "l \u028c v", "ok_s": true, "ok_p": true}
+{"a": 558, "w": "love", "s": "Love", "p": "l \u028c v", "ok_s": true, "ok_p": true}
+{"a": 560, "w": "luck", "s": "Luck", "p": "l \u028c k", "ok_s": true, "ok_p": true}
+{"a": 561, "w": "luck", "s": "Luck", "p": "l \u028c k", "ok_s": true, "ok_p": true}
+{"a": 564, "w": "machine", "s": "machine", "p": "m \u0259 \u0283 i\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 565, "w": "magic", "s": "magic", "p": "m \u00e6 d\u0292 \u026a k", "ok_s": true, "ok_p": true}
+{"a": 566, "w": "magic", "s": "magic", "p": "m \u00e6 d\u0292 \u026a k", "ok_s": true, "ok_p": true}
+{"a": 567, "w": "mail", "s": "mail", "p": "m e\u026a l", "ok_s": true, "ok_p": true}
+{"a": 568, "w": "main", "s": "Maine", "p": "m e\u026a n", "ok_s": false, "ok_p": true, "m": "Maine", "ok_m": false}
+{"a": 569, "w": "mainly", "s": "Mainly.", "p": "m e\u026a n l i", "ok_s": true, "ok_p": true}
+{"a": 572, "w": "manage", "s": "Manage", "p": "m \u00e6 n \u026a d\u0292", "ok_s": true, "ok_p": true}
+{"a": 573, "w": "map", "s": "Map?", "p": "m a p", "ok_s": true, "ok_p": true}
+{"a": 574, "w": "marry", "s": "Mary", "p": "m \u025b \u0279 i", "ok_s": false, "ok_p": true, "m": "Mary", "ok_m": false}
+{"a": 575, "w": "match", "s": "Match", "p": "m \u00e6 t", "ok_s": true, "ok_p": true}
+{"a": 576, "w": "maximum", "s": "maximum", "p": "n \u00e6 k s \u026a m \u0259 m", "ok_s": true, "ok_p": false, "m": "Maximum", "ok_m": true}
+{"a": 577, "w": "measure", "s": "MEASURE", "p": "m \u025b \u0292 \u025a", "ok_s": true, "ok_p": true}
+{"a": 578, "w": "medal", "s": "Nettle", "p": "n e r o", "ok_s": false, "ok_p": false, "m": "metal", "ok_m": false}
+{"a": 579, "w": "medicine", "s": "Medicine.", "p": "m \u025b d \u026a s \u026a \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 580, "w": "medicine", "s": "Medicine.", "p": "m \u025b d \u026a s \u026a \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 581, "w": "medium", "s": "medium", "p": "m i\u02d0 d i \u028c m", "ok_s": true, "ok_p": true}
+{"a": 582, "w": "meet", "s": "Neat", "p": "m i\u02d0 t", "ok_s": false, "ok_p": true, "m": "NEAT", "ok_m": false}
+{"a": 583, "w": "memory", "s": "MEMORY", "p": "m \u025b m \u025a \u0279 i", "ok_s": true, "ok_p": true}
+{"a": 584, "w": "midday", "s": "mid-day", "p": "m \u026a d d e\u026a", "ok_s": true, "ok_p": true}
+{"a": 585, "w": "midnight", "s": "MIDNIGHT", "p": "m \u026a d n a\u026a t", "ok_s": true, "ok_p": true}
+{"a": 586, "w": "military", "s": "Military", "p": "m \u026a l \u026a t \u025b \u0279 i", "ok_s": true, "ok_p": true}
+{"a": 587, "w": "mind", "s": "MIND", "p": "m a\u026a n d", "ok_s": true, "ok_p": true}
+{"a": 588, "w": "minimum", "s": "minimum", "p": "m e n \u0259 m a m", "ok_s": true, "ok_p": true}
+{"a": 589, "w": "mirror", "s": "Mirror", "p": "m \u026a \u0279 \u025a", "ok_s": true, "ok_p": true}
+{"a": 590, "w": "Miss", "s": "Miss.", "p": "m e s", "ok_s": true, "ok_p": true}
+{"a": 591, "w": "modern", "s": "Modern", "p": "m \u0251\u02d0 d \u025a n", "ok_s": true, "ok_p": true}
+{"a": 592, "w": "moment", "s": "MOMENT", "p": "m o\u028a m \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 594, "w": "mosque", "s": "M.O.S.K.", "p": "m \u0251\u02d0 s k", "ok_s": false, "ok_p": true, "m": "Mosque", "ok_m": true}
+{"a": 595, "w": "most", "s": "MOST", "p": "m o\u028a s t", "ok_s": true, "ok_p": true}
+{"a": 596, "w": "mostly", "s": "Mostly.", "p": "m o\u028a s t l i", "ok_s": true, "ok_p": true}
+{"a": 597, "w": "mouse", "s": "MOUSE", "p": "m a\u028a s", "ok_s": true, "ok_p": true}
+{"a": 598, "w": "move", "s": "MOVE", "p": "m u\u02d0 v", "ok_s": true, "ok_p": true}
+{"a": 600, "w": "murder", "s": "Murder.", "p": "m \u025c\u02d0 d \u025a", "ok_s": true, "ok_p": true}
+{"a": 601, "w": "muscle", "s": "muscle", "p": "m a s \u0254", "ok_s": true, "ok_p": true}
+{"a": 602, "w": "musical", "s": "musical", "p": "m j u\u02d0 z \u026a k \u0259l", "ok_s": true, "ok_p": true}
+{"a": 603, "w": "musician", "s": "Musician", "p": "m j u\u02d0 z \u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 604, "w": "myself", "s": "myself", "p": "m a\u026a s \u025b l f", "ok_s": true, "ok_p": true}
+{"a": 605, "w": "name", "s": "Name", "p": "n e\u026a m", "ok_s": true, "ok_p": true}
+{"a": 609, "w": "near", "s": "near", "p": "n i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 616, "w": "note", "s": "note", "p": "n o\u028a t", "ok_s": true, "ok_p": true}
+{"a": 620, "w": "noun", "s": "Noun", "p": "n a\u028a n", "ok_s": true, "ok_p": true}
+{"a": 623, "w": "of", "s": "of", "p": "a v", "ok_s": true, "ok_p": true}
+{"a": 626, "w": "off", "s": "Off.", "p": "a", "ok_s": true, "ok_p": true}
+{"a": 627, "w": "off", "s": "Off.", "p": "a", "ok_s": true, "ok_p": true}
+{"a": 630, "w": "oh", "s": "Oh.", "p": "\u0251u5", "ok_s": true, "ok_p": true}
+{"a": 631, "w": "old", "s": "Old", "p": "o\u028a l d", "ok_s": true, "ok_p": true}
+{"a": 637, "w": "one", "s": "1.", "p": "w \u028c n", "ok_s": false, "ok_p": true, "m": "1.", "ok_m": false}
+{"a": 640, "w": "open", "s": "Open", "p": "o\u028a p \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 641, "w": "open", "s": "Open", "p": "o\u028a p \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 654, "w": "over", "s": "Over", "p": "o\u028a v \u025a", "ok_s": true, "ok_p": true}
+{"a": 655, "w": "over", "s": "Over", "p": "o\u028a v \u025a", "ok_s": true, "ok_p": true}
+{"a": 656, "w": "owe", "s": "O", "p": "a\u028a", "ok_s": false, "ok_p": true, "m": "O", "ok_m": false}
+{"a": 658, "w": "package", "s": "package", "p": "p \u00e6 k \u026a d\u0292", "ok_s": true, "ok_p": true}
+{"a": 659, "w": "pain", "s": "PAIN", "p": "p e\u026a n", "ok_s": true, "ok_p": true}
+{"a": 661, "w": "palace", "s": "Palace", "p": "p \u00e6 l \u026a s", "ok_s": true, "ok_p": true}
+{"a": 662, "w": "parcel", "s": "parcel", "p": "p \u0251\u02d0\u0279 s \u0259l", "ok_s": true, "ok_p": true}
+{"a": 664, "w": "pass", "s": "Pass", "p": "p \u00e6 s", "ok_s": true, "ok_p": true}
+{"a": 665, "w": "passenger", "s": "passenger", "p": "p \u00e6 s \u026a n d\u0292 \u025a", "ok_s": true, "ok_p": true}
+{"a": 666, "w": "passport", "s": "Passport", "p": "p \u00e6 s p \u0254\u02d0\u0279 t", "ok_s": true, "ok_p": true}
+{"a": 667, "w": "path", "s": "PATH", "p": "p \u00e6 \u03b8", "ok_s": true, "ok_p": true}
+{"a": 668, "w": "patient", "s": "patient", "p": "p e\u026a \u0283 \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 669, "w": "pattern", "s": "pattern", "p": "p \u00e6 d \u025a n", "ok_s": true, "ok_p": true}
+{"a": 670, "w": "peace", "s": "Peace.", "p": "p i\u02d0 s", "ok_s": true, "ok_p": true}
+{"a": 671, "w": "pear", "s": "PAIR", "p": "p \u025b", "ok_s": true, "ok_p": true}
+{"a": 672, "w": "pension", "s": "pension", "p": "p \u025b n \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 673, "w": "pepper", "s": "Pepper", "p": "p \u025b p \u025a", "ok_s": true, "ok_p": true}
+{"a": 674, "w": "performance", "s": "Performance", "p": "p \u025a f \u0254\u02d0\u0279 m \u0259 n s", "ok_s": true, "ok_p": true}
+{"a": 675, "w": "period", "s": "period", "p": "p \u026a \u0279 i \u1d7b d", "ok_s": true, "ok_p": true}
+{"a": 676, "w": "personal", "s": "Personal", "p": "p \u025c\u02d0 s \u0259 n \u0259l", "ok_s": true, "ok_p": true}
+{"a": 677, "w": "petrol", "s": "petrol", "p": "p \u025b t \u0279 o\u028a l", "ok_s": true, "ok_p": true}
+{"a": 678, "w": "physical", "s": "physical", "p": "f \u026a z \u026a k \u0259l", "ok_s": true, "ok_p": false, "m": "physical", "ok_m": true}
+{"a": 679, "w": "physics", "s": "Physics", "p": "f \u026a z \u026a k s", "ok_s": true, "ok_p": false, "m": "Physics", "ok_m": true}
+{"a": 680, "w": "piano", "s": "piano", "p": "p i a n o", "ok_s": true, "ok_p": true}
+{"a": 682, "w": "piece", "s": "Peace.", "p": "p i\u02d0 s", "ok_s": true, "ok_p": true}
+{"a": 683, "w": "pillow", "s": "Pillow", "p": "th \u025b l a\u028a", "ok_s": true, "ok_p": false, "m": "pillow", "ok_m": true}
+{"a": 684, "w": "play", "s": "play", "p": "p l e\u026a", "ok_s": true, "ok_p": true}
+{"a": 685, "w": "playground", "s": "Playground", "p": "p l e\u026a \u0261 \u0279 a\u028a n d", "ok_s": true, "ok_p": true}
+{"a": 686, "w": "please", "s": "Please.", "p": "p l i\u02d0 z", "ok_s": true, "ok_p": true}
+{"a": 687, "w": "pleased", "s": "Pleaseed", "p": "p l i\u02d0 z d", "ok_s": false, "ok_p": true, "m": "Pleased.", "ok_m": true}
+{"a": 688, "w": "pleasure", "s": "Pleasure", "p": "p l \u025b \u0292 \u025a", "ok_s": true, "ok_p": true}
+{"a": 689, "w": "poem", "s": "poem", "p": "p o\u028a \u0259 m", "ok_s": true, "ok_p": true}
+{"a": 690, "w": "point", "s": "POINT", "p": "p o\u026a n t", "ok_s": true, "ok_p": true}
+{"a": 691, "w": "point", "s": "POINT", "p": "p o\u026a n t", "ok_s": true, "ok_p": true}
+{"a": 692, "w": "polite", "s": "polite", "p": "p \u0259 l a\u026a t", "ok_s": true, "ok_p": true}
+{"a": 693, "w": "poor", "s": "POUR", "p": "p u2", "ok_s": true, "ok_p": true}
+{"a": 694, "w": "popcorn", "s": "popcorn", "p": "p \u0251\u02d0 p k \u0254\u02d0\u0279 n", "ok_s": true, "ok_p": true}
+{"a": 695, "w": "position", "s": "position", "p": "p \u0259 z \u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 696, "w": "possibility", "s": "Possibility", "p": "p \u0251\u02d0 s \u0259 b \u026a l \u1d7b \u027e i", "ok_s": true, "ok_p": true}
+{"a": 697, "w": "post", "s": "Post", "p": "p o\u028a s t", "ok_s": true, "ok_p": true}
+{"a": 698, "w": "potential", "s": "POTENTIAL", "p": "p \u0259 t \u025b n \u0283 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 699, "w": "powerful", "s": "powerful", "p": "p a\u028a \u025a f \u0259l", "ok_s": true, "ok_p": true}
+{"a": 700, "w": "preparation", "s": "Preparation", "p": "\u0279 \u025b p \u025a \u0279 e\u026a \u0283 \u0259 n", "ok_s": true, "ok_p": false, "m": "Preparation", "ok_m": true}
+{"a": 701, "w": "press", "s": "Press.", "p": "p \u0279 \u025b s", "ok_s": true, "ok_p": true}
+{"a": 702, "w": "prison", "s": "Prison", "p": "p \u0279 \u026a z \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 703, "w": "private", "s": "private", "p": "p \u0279 a\u026a v \u026a t", "ok_s": true, "ok_p": true}
+{"a": 705, "w": "professional", "s": "Professional", "p": "p \u0279 \u0259 f \u025b \u0283 \u0259 n \u0259l", "ok_s": true, "ok_p": true}
+{"a": 706, "w": "program", "s": "Program", "p": "p \u0279 o\u028a \u0261 \u0279 \u00e6 m", "ok_s": true, "ok_p": true}
+{"a": 707, "w": "promise", "s": "Promise.", "p": "p \u0279 \u0251\u02d0 m \u026a s", "ok_s": true, "ok_p": true}
+{"a": 708, "w": "property", "s": "PROPERTY", "p": "p \u0279 \u028c p \u025a \u027e i", "ok_s": true, "ok_p": true}
+{"a": 709, "w": "proposal", "s": "Proposal", "p": "p \u0279 \u0259 p o\u028a z \u0259l", "ok_s": true, "ok_p": true}
+{"a": 710, "w": "protect", "s": "protect", "p": "p \u0279 \u0259 t \u025b k t", "ok_s": true, "ok_p": true}
+{"a": 711, "w": "proud", "s": "Proud", "p": "p \u0279 a\u028a d", "ok_s": true, "ok_p": true}
+{"a": 712, "w": "prove", "s": "Prove", "p": "p \u0279 u\u02d0 v", "ok_s": true, "ok_p": true}
+{"a": 713, "w": "public", "s": "public", "p": "p \u028c b l \u026a k", "ok_s": true, "ok_p": true}
+{"a": 714, "w": "puppy", "s": "puppy", "p": "ph \u02515 p i", "ok_s": true, "ok_p": true}
+{"a": 715, "w": "pure", "s": "pure", "p": "p u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 716, "w": "purple", "s": "Purple", "p": "p \u025c\u02d0 p \u0259l", "ok_s": true, "ok_p": true}
+{"a": 717, "w": "purpose", "s": "Purpose", "p": "p \u025c\u02d0 p \u0259 s", "ok_s": true, "ok_p": true}
+{"a": 718, "w": "purse", "s": "purse", "p": "p \u025c\u02d0 s", "ok_s": true, "ok_p": true}
+{"a": 719, "w": "push", "s": "PUSH", "p": "p \u0254 \u0283", "ok_s": true, "ok_p": true}
+{"a": 728, "w": "puzzle", "s": "Puzzle", "p": "p \u028c z \u0259l", "ok_s": true, "ok_p": true}
+{"a": 734, "w": "race", "s": "Race", "p": "\u0279 e\u026a s", "ok_s": true, "ok_p": true}
+{"a": 736, "w": "rat", "s": "rat", "p": "\u0279 \u025b t", "ok_s": true, "ok_p": true}
+{"a": 740, "w": "real", "s": "real", "p": "\u0279 i\u02d0 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 759, "w": "rich", "s": "Rich", "p": "\u0279 \u026a", "ok_s": true, "ok_p": true}
+{"a": 761, "w": "ring", "s": "Ring.", "p": "\u0279 \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 762, "w": "rock", "s": "Rock", "p": "\u0279 \u0251\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 763, "w": "rock", "s": "Rock", "p": "\u0279 \u0251\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 764, "w": "role", "s": "Roll", "p": "\u0279 o\u028a", "ok_s": false, "ok_p": true, "m": "roll", "ok_m": false}
+{"a": 765, "w": "roll", "s": "Roll", "p": "\u0279 o\u028a", "ok_s": true, "ok_p": true}
+{"a": 767, "w": "row", "s": "Rho", "p": "\u0279 o\u028a", "ok_s": false, "ok_p": true, "m": "Row", "ok_m": true}
+{"a": 768, "w": "safe", "s": "SAFE", "p": "s e\u026a f", "ok_s": true, "ok_p": true}
+{"a": 772, "w": "save", "s": "Save", "p": "s e\u026a v", "ok_s": true, "ok_p": true}
+{"a": 788, "w": "set", "s": "Set", "p": "s \u025b t", "ok_s": true, "ok_p": true}
+{"a": 789, "w": "sex", "s": "Sex", "p": "s \u025b k s", "ok_s": true, "ok_p": true}
+{"a": 796, "w": "ship", "s": "SHIP", "p": "\u0283 \u026a p", "ok_s": true, "ok_p": true}
+{"a": 800, "w": "shut", "s": "SHUT", "p": "\u0283 \u028c t", "ok_s": true, "ok_p": true}
+{"a": 801, "w": "shy", "s": "shy", "p": "s. ai5", "ok_s": true, "ok_p": true}
+{"a": 802, "w": "side", "s": "Side", "p": "s a\u026a d", "ok_s": true, "ok_p": true}
+{"a": 810, "w": "sink", "s": "Sink", "p": "s \u026a \u014b k", "ok_s": true, "ok_p": true}
+{"a": 811, "w": "sir", "s": "Sir.", "p": "s \u025a", "ok_s": true, "ok_p": true}
+{"a": 815, "w": "ski", "s": "Ski", "p": "s k i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 818, "w": "slim", "s": "slim", "p": "s l \u026a m", "ok_s": true, "ok_p": true}
+{"a": 822, "w": "so", "s": "So", "p": "s ou5", "ok_s": true, "ok_p": true}
+{"a": 825, "w": "soft", "s": "soft", "p": "s \u0251\u02d0 f t", "ok_s": true, "ok_p": true}
+{"a": 830, "w": "sort", "s": "SORT", "p": "s \u0254\u02d0\u0279 t", "ok_s": true, "ok_p": true}
+{"a": 833, "w": "spot", "s": "SPOT", "p": "s p \u0251\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 837, "w": "star", "s": "star", "p": "s t \u0251\u02d0\u0279", "ok_s": true, "ok_p": true}
+{"a": 839, "w": "stay", "s": "STAY", "p": "s t e\u026a", "ok_s": true, "ok_p": true}
+{"a": 841, "w": "step", "s": "Step", "p": "s t \u025b p", "ok_s": true, "ok_p": true}
+{"a": 845, "w": "stop", "s": "Stop.", "p": "s t \u0251\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 846, "w": "stop", "s": "Stop.", "p": "s t \u0251\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 859, "w": "suit", "s": "Suit", "p": "s u\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 864, "w": "swim", "s": "Swim.", "p": "s w \u026a m", "ok_s": true, "ok_p": true}
+{"a": 866, "w": "take", "s": "TAKE", "p": "t e\u026a k", "ok_s": true, "ok_p": true}
+{"a": 874, "w": "team", "s": "Team.", "p": "t i\u02d0 m", "ok_s": true, "ok_p": true}
+{"a": 875, "w": "tear", "s": "Tear", "p": "t e\u026a", "ok_s": true, "ok_p": true}
+{"a": 879, "w": "tell", "s": "TELL", "p": "th i\u02515", "ok_s": true, "ok_p": true}
+{"a": 884, "w": "text", "s": "text", "p": "t \u025b k s t", "ok_s": true, "ok_p": true}
+{"a": 886, "w": "that", "s": "That.", "p": "\u00f0 \u00e6 t", "ok_s": true, "ok_p": true}
+{"a": 887, "w": "that", "s": "That.", "p": "\u00f0 \u00e6 t", "ok_s": true, "ok_p": true}
+{"a": 903, "w": "then", "s": "Then", "p": "v \u025b n", "ok_s": true, "ok_p": true}
+{"a": 916, "w": "tie", "s": "Thai", "p": "th \u02515", "ok_s": false, "ok_p": true, "m": "Tie", "ok_m": true}
+{"a": 917, "w": "tie", "s": "Thai", "p": "th \u02515", "ok_s": false, "ok_p": true, "m": "tie", "ok_m": true}
+{"a": 918, "w": "time", "s": "Time.", "p": "t a\u026a m", "ok_s": true, "ok_p": true}
+{"a": 920, "w": "tin", "s": "Tin", "p": "t \u026a n", "ok_s": true, "ok_p": true}
+{"a": 921, "w": "tiny", "s": "TINY", "p": "t a\u026a n i", "ok_s": true, "ok_p": true}
+{"a": 923, "w": "to", "s": "2", "p": "th y5", "ok_s": false, "ok_p": true, "m": "2", "ok_m": false}
+{"a": 926, "w": "toe", "s": "Toe", "p": "th ou5", "ok_s": true, "ok_p": true}
+{"a": 932, "w": "top", "s": "Top", "p": "t \u0251\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 936, "w": "tour", "s": "tour", "p": "t u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 943, "w": "tram", "s": "Tran", "p": "t \u0279 \u00e6 m", "ok_s": false, "ok_p": true, "m": "Tram", "ok_m": true}
+{"a": 950, "w": "try", "s": "Try", "p": "t \u0279 a\u026a", "ok_s": true, "ok_p": true}
+{"a": 953, "w": "tune", "s": "tune", "p": "t u\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 954, "w": "turn", "s": "Turn.", "p": "t \u025c\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 956, "w": "ugly", "s": "Ugly", "p": "\u028c \u0261 l i", "ok_s": true, "ok_p": true}
+{"a": 959, "w": "unit", "s": "UNIT", "p": "j u\u02d0 n \u026a t", "ok_s": true, "ok_p": true}
+{"a": 965, "w": "use", "s": "Use", "p": "j u\u02d0 z", "ok_s": true, "ok_p": true}
+{"a": 973, "w": "vote", "s": "Vote", "p": "v o\u028a t", "ok_s": true, "ok_p": true}
+{"a": 974, "w": "warm", "s": "Warm.", "p": "w \u0254\u02d0\u0279 m", "ok_s": true, "ok_p": true}
+{"a": 975, "w": "warn", "s": "Worn", "p": "w \u0254\u02d0\u0279 n", "ok_s": false, "ok_p": true, "m": "WARN", "ok_m": true}
+{"a": 977, "w": "wave", "s": "wave", "p": "w e\u026a v", "ok_s": true, "ok_p": true}
+{"a": 978, "w": "we", "s": "we", "p": "w i5", "ok_s": true, "ok_p": true}
+{"a": 982, "w": "well", "s": "Well.", "p": "w \u025b", "ok_s": true, "ok_p": true}
+{"a": 984, "w": "wet", "s": "Wet", "p": "w \u025b t", "ok_s": true, "ok_p": true}
+{"a": 995, "w": "wild", "s": "WILD", "p": "w a\u026a d", "ok_s": true, "ok_p": true}
+{"a": 996, "w": "wild", "s": "WILD", "p": "w a\u026a d", "ok_s": true, "ok_p": true}
+{"a": 998, "w": "wing", "s": "Wing.", "p": "w \u026a", "ok_s": true, "ok_p": true}
+{"a": 999, "w": "wish", "s": "WISH", "p": "w \u026a \u0283", "ok_s": true, "ok_p": true}
+{"a": 1001, "w": "wool", "s": "Woah", "p": "w \u0289", "ok_s": false, "ok_p": true, "m": "Whoa!", "ok_m": false}
+{"a": 1002, "w": "work", "s": "Work", "p": "w \u025c\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 1025, "w": "act", "s": "Act", "p": "\u00e6 k t", "ok_s": true, "ok_p": true}
+{"a": 1029, "w": "add", "s": "Add", "p": "a d", "ok_s": true, "ok_p": true}
+{"a": 1036, "w": "aid", "s": "Aid", "p": "e\u026a d", "ok_s": true, "ok_p": true}
+{"a": 1037, "w": "aim", "s": "AIM", "p": "e\u026a m", "ok_s": true, "ok_p": true}
+{"a": 1052, "w": "any", "s": "any", "p": "\u028c n i", "ok_s": true, "ok_p": true}
+{"a": 1064, "w": "area", "s": "area", "p": "\u025b \u0279 i \u0259", "ok_s": true, "ok_p": true}
+{"a": 1068, "w": "as", "s": "As", "p": "\u00e6 z", "ok_s": true, "ok_p": true}
+{"a": 1095, "w": "babysit", "s": "Babysit", "p": "b e\u026a b i s \u026a t", "ok_s": true, "ok_p": true}
+{"a": 1096, "w": "balance", "s": "Balance", "p": "b \u00e6 l \u0259 n s", "ok_s": true, "ok_p": true}
+{"a": 1097, "w": "bandage", "s": "bandage", "p": "b \u00e6 n d \u026a d\u0292", "ok_s": true, "ok_p": true}
+{"a": 1098, "w": "barber", "s": "barber", "p": "b \u0251\u02d0\u0279 b \u025a", "ok_s": true, "ok_p": true}
+{"a": 1100, "w": "base", "s": "Base", "p": "v e\u026a s", "ok_s": true, "ok_p": false, "m": "Base", "ok_m": true}
+{"a": 1101, "w": "basic", "s": "basic", "p": "b e\u026a s \u026a k", "ok_s": true, "ok_p": true}
+{"a": 1102, "w": "basin", "s": "Basin", "p": "b e\u026a s \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 1103, "w": "basis", "s": "basis", "p": "b e\u026a s \u026a s", "ok_s": true, "ok_p": true}
+{"a": 1104, "w": "battle", "s": "Battle.", "p": "b \u00e6 r \u0259l", "ok_s": true, "ok_p": true}
+{"a": 1118, "w": "bean", "s": "Bean", "p": "b i\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 1119, "w": "bear", "s": "bear", "p": "b e\u026a", "ok_s": true, "ok_p": true}
+{"a": 1120, "w": "beat", "s": "beat", "p": "v i\u02d0 t", "ok_s": true, "ok_p": false, "m": "beat", "ok_m": true}
+{"a": 1122, "w": "bee", "s": "B", "p": "b i", "ok_s": true, "ok_p": true}
+{"a": 1123, "w": "beef", "s": "BEEF", "p": "b i\u02d0 f", "ok_s": true, "ok_p": true}
+{"a": 1124, "w": "before", "s": "The Four", "p": "\u00f0 \u0259 f \u0254\u02d0\u0279", "ok_s": false, "ok_p": false, "m": "before.", "ok_m": true}
+{"a": 1126, "w": "belong", "s": "Belong", "p": "b \u0259 l \u0254 \u014b", "ok_s": true, "ok_p": true}
+{"a": 1128, "w": "belt", "s": "Belt", "p": "b \u025b l t", "ok_s": true, "ok_p": true}
+{"a": 1129, "w": "beneath", "s": "The Neath", "p": "b \u026a n i\u02d0 \u03b8", "ok_s": false, "ok_p": true, "m": "beneath", "ok_m": true}
+{"a": 1130, "w": "benefit", "s": "benefit", "p": "b \u025b n \u0259 f \u026a t", "ok_s": true, "ok_p": true}
+{"a": 1131, "w": "beyond", "s": "Beyond.", "p": "b i\u02d0 j \u0254 n d", "ok_s": true, "ok_p": true}
+{"a": 1132, "w": "bill", "s": "bill", "p": "d i\u025b5", "ok_s": true, "ok_p": false, "m": "bill", "ok_m": true}
+{"a": 1133, "w": "billion", "s": "Billions.", "p": "d \u026a l \u0259 n z", "ok_s": false, "ok_p": false, "m": "Billions.", "ok_m": false}
+{"a": 1134, "w": "bin", "s": "BIN", "p": "v \u026a n", "ok_s": true, "ok_p": false, "m": "bin", "ok_m": true}
+{"a": 1136, "w": "birth", "s": "BIRTH", "p": "b \u025c\u02d0 \u03b8", "ok_s": true, "ok_p": true}
+{"a": 1137, "w": "bite", "s": "bite", "p": "b a\u026a t", "ok_s": true, "ok_p": true}
+{"a": 1138, "w": "blame", "s": "Blame", "p": "b l e\u026a m", "ok_s": true, "ok_p": true}
+{"a": 1139, "w": "blank", "s": "blank", "p": "b l \u00e6 \u014b k", "ok_s": true, "ok_p": true}
+{"a": 1140, "w": "blind", "s": "blind", "p": "b l a\u026a n d", "ok_s": true, "ok_p": true}
+{"a": 1141, "w": "block", "s": "Block", "p": "b l \u0251\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 1142, "w": "blog", "s": "BLOG", "p": "b l \u0251\u02d0 \u0261", "ok_s": true, "ok_p": true}
+{"a": 1144, "w": "board", "s": "Bored", "p": "b \u0254\u02d0\u0279 d", "ok_s": true, "ok_p": true}
+{"a": 1145, "w": "board", "s": "Bored", "p": "b \u0254\u02d0\u0279 d", "ok_s": true, "ok_p": true}
+{"a": 1146, "w": "bomb", "s": "BOMB", "p": "b \u0251\u02d0 m", "ok_s": true, "ok_p": true}
+{"a": 1147, "w": "bone", "s": "BONE", "p": "b o\u028a n", "ok_s": true, "ok_p": true}
+{"a": 1148, "w": "bookcase", "s": "Bookcase", "p": "b \u028a k k e\u026a s", "ok_s": true, "ok_p": true}
+{"a": 1149, "w": "bother", "s": "BOTHER", "p": "b \u0251\u02d0 \u00f0 \u025a", "ok_s": true, "ok_p": true}
+{"a": 1150, "w": "bottom", "s": "Bottom", "p": "b \u0251\u02d0 r \u0259 m", "ok_s": true, "ok_p": true}
+{"a": 1153, "w": "breath", "s": "Breath", "p": "b \u0279 \u025b \u03b8", "ok_s": true, "ok_p": true}
+{"a": 1154, "w": "brief", "s": "Brief", "p": "b \u0279 i\u02d0 f", "ok_s": true, "ok_p": true}
+{"a": 1156, "w": "broad", "s": "Broad.", "p": "b \u0279 \u0251\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 1157, "w": "broadcast", "s": "broadcast", "p": "b \u0279 \u0251\u02d0 d k \u00e6 s t", "ok_s": true, "ok_p": true}
+{"a": 1158, "w": "brush", "s": "Brush", "p": "b \u0279 \u028c \u0283", "ok_s": true, "ok_p": true}
+{"a": 1159, "w": "budget", "s": "Budget", "p": "b \u028c d\u0292 \u026a t", "ok_s": true, "ok_p": true}
+{"a": 1160, "w": "builder", "s": "builder", "p": "b \u026a l d \u025a", "ok_s": true, "ok_p": true}
+{"a": 1161, "w": "burger", "s": "Burger", "p": "b \u025c\u02d0 \u0261 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 1162, "w": "burn", "s": "Burn.", "p": "b \u025c\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 1163, "w": "business", "s": "Business", "p": "b \u026a z n \u026a s", "ok_s": true, "ok_p": true}
+{"a": 1164, "w": "butterfly", "s": "butterfly", "p": "b \u028c \u027e \u025a f l a\u026a", "ok_s": true, "ok_p": true}
+{"a": 1165, "w": "button", "s": "button", "p": "b \u028c t \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 1166, "w": "by", "s": "Bye.", "p": "b a\u026a", "ok_s": true, "ok_p": true}
+{"a": 1173, "w": "cage", "s": "Cage", "p": "k e\u026a d\u0292", "ok_s": true, "ok_p": true}
+{"a": 1175, "w": "camp", "s": "Camp.", "p": "k e\u026a m p", "ok_s": true, "ok_p": true}
+{"a": 1176, "w": "can", "s": "can", "p": "k \u025b n", "ok_s": true, "ok_p": true}
+{"a": 1184, "w": "care", "s": "", "p": "k \u025b", "ok_s": false, "ok_p": true, "m": "Care", "ok_m": true}
+{"a": 1189, "w": "case", "s": "Case", "p": "k e\u026a s", "ok_s": true, "ok_p": true}
+{"a": 1190, "w": "cast", "s": "Caste", "p": "k \u00e6 s t", "ok_s": false, "ok_p": true, "m": "cast", "ok_m": true}
+{"a": 1214, "w": "chin", "s": "Chin", "p": "t\u0283 \u026a n", "ok_s": true, "ok_p": true}
+{"a": 1225, "w": "code", "s": "Code", "p": "k o\u028a d", "ok_s": true, "ok_p": true}
+{"a": 1267, "w": "cool", "s": "Cool!", "p": "k u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 1277, "w": "crew", "s": "crew", "p": "k \u0279 u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 1291, "w": "cut", "s": "Cut", "p": "k \u028c t", "ok_s": true, "ok_p": true}
+{"a": 1296, "w": "damn", "s": "Damn.", "p": "d e\u02d0 \u0254 m", "ok_s": true, "ok_p": true}
+{"a": 1297, "w": "dark", "s": "Dark.", "p": "d \u0251\u02d0\u0279 k", "ok_s": true, "ok_p": true}
+{"a": 1298, "w": "data", "s": "Data", "p": "d e\u026a \u027e \u025a", "ok_s": true, "ok_p": true}
+{"a": 1311, "w": "deny", "s": "Deny", "p": "d \u1d7b n a\u026a", "ok_s": true, "ok_p": true}
+{"a": 1322, "w": "diet", "s": "diet", "p": "d a\u026a \u0259 t", "ok_s": true, "ok_p": true}
+{"a": 1328, "w": "dish", "s": "Dish", "p": "d \u026a", "ok_s": true, "ok_p": true}
+{"a": 1331, "w": "dive", "s": "Dive", "p": "d a\u026a v", "ok_s": true, "ok_p": true}
+{"a": 1338, "w": "dot", "s": ".", "p": "d \u0251\u02d0 t", "ok_s": false, "ok_p": true, "m": "dot", "ok_m": true}
+{"a": 1346, "w": "drug", "s": "Drug", "p": "d \u0279 \u028c \u0261", "ok_s": true, "ok_p": true}
+{"a": 1347, "w": "drug", "s": "Drug", "p": "d \u0279 \u028c \u0261", "ok_s": true, "ok_p": true}
+{"a": 1349, "w": "dust", "s": "Dust", "p": "d \u028c s t", "ok_s": true, "ok_p": true}
+{"a": 1350, "w": "duty", "s": "DUTY", "p": "d u\u02d0 \u0279 i", "ok_s": true, "ok_p": true}
+{"a": 1354, "w": "edge", "s": "Edge", "p": "\u025b d\u0292", "ok_s": true, "ok_p": true}
+{"a": 1377, "w": "even", "s": "Even.", "p": "i\u02d0 v \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 1399, "w": "fail", "s": "FAIL", "p": "f e\u026a", "ok_s": true, "ok_p": true}
+{"a": 1400, "w": "fair", "s": "FAIR", "p": "f \u025b", "ok_s": true, "ok_p": true}
+{"a": 1402, "w": "fall", "s": "fall", "p": "f \u0251\u02d0", "ok_s": true, "ok_p": true}
+{"a": 1403, "w": "fall", "s": "fall", "p": "f \u0251\u02d0", "ok_s": true, "ok_p": true}
+{"a": 1407, "w": "fee", "s": "C.", "p": "s i5", "ok_s": false, "ok_p": true, "m": "C", "ok_m": false}
+{"a": 1408, "w": "feel", "s": "feel", "p": "f i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 1417, "w": "few", "s": "Phew", "p": "f i\u02d0", "ok_s": false, "ok_p": true, "m": "few", "ok_m": true}
+{"a": 1421, "w": "file", "s": "File", "p": "f ai5 j", "ok_s": true, "ok_p": true}
+{"a": 1425, "w": "fire", "s": "Fire", "p": "f a\u026a \u025a", "ok_s": true, "ok_p": true}
+{"a": 1429, "w": "flow", "s": "Flow", "p": "f l o\u028a", "ok_s": true, "ok_p": true}
+{"a": 1432, "w": "for", "s": "4.", "p": "f uo5", "ok_s": false, "ok_p": true, "m": "4.", "ok_m": false}
+{"a": 1441, "w": "form", "s": "Form", "p": "f \u0254\u02d0\u0279 m", "ok_s": true, "ok_p": true}
+{"a": 1446, "w": "from", "s": "From", "p": "f \u0279 \u028c m", "ok_s": true, "ok_p": true}
+{"a": 1447, "w": "fry", "s": "Fry", "p": "f \u0279 a\u026a", "ok_s": true, "ok_p": true}
+{"a": 1448, "w": "fuel", "s": "fuel", "p": "f u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 1456, "w": "gay", "s": "Gay", "p": "\u0261 e\u026a", "ok_s": true, "ok_p": true}
+{"a": 1473, "w": "goal", "s": "goal", "p": "\u0261 o\u02d0 l", "ok_s": true, "ok_p": true}
+{"a": 1481, "w": "grow", "s": "GROW", "p": "\u0261 \u0279 o\u028a", "ok_s": true, "ok_p": true}
+{"a": 1495, "w": "heat", "s": "HEAT", "p": "h i\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 1497, "w": "high", "s": "Hi", "p": "x \u02515", "ok_s": false, "ok_p": false, "m": "Hi.", "ok_m": false}
+{"a": 1499, "w": "hire", "s": "higher", "p": "h a\u026a \u025a", "ok_s": false, "ok_p": true, "m": "Higher", "ok_m": false}
+{"a": 1500, "w": "hire", "s": "Higher.", "p": "h a\u026a \u025a", "ok_s": false, "ok_p": true, "m": "Higher", "ok_m": false}
+{"a": 1502, "w": "hit", "s": "Hit", "p": "h \u026a t", "ok_s": true, "ok_p": true}
+{"a": 1508, "w": "hot", "s": "Hot", "p": "h a d", "ok_s": true, "ok_p": true}
+{"a": 1513, "w": "hurt", "s": "HURT", "p": "h \u025c\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 1519, "w": "if", "s": "If", "p": "\u026a f", "ok_s": true, "ok_p": true}
+{"a": 1549, "w": "into", "s": "into", "p": "\u026a n t u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 1552, "w": "iron", "s": "Iron", "p": "a\u026a \u025a n", "ok_s": true, "ok_p": true}
+{"a": 1554, "w": "jar", "s": "jar", "p": "d\u0292 \u0251\u02d0\u0279", "ok_s": true, "ok_p": true}
+{"a": 1555, "w": "jet", "s": "JET", "p": "d\u0292 \u025b t", "ok_s": true, "ok_p": true}
+{"a": 1556, "w": "join", "s": "Join", "p": "d\u0292 o\u026a n", "ok_s": true, "ok_p": true}
+{"a": 1562, "w": "key", "s": "qi", "p": "th i5", "ok_s": false, "ok_p": true, "m": "T", "ok_m": false}
+{"a": 1564, "w": "kind", "s": "Kind", "p": "k a\u026a n d", "ok_s": true, "ok_p": true}
+{"a": 1567, "w": "lab", "s": "Lab", "p": "l a b", "ok_s": true, "ok_p": true}
+{"a": 1571, "w": "lady", "s": "LADY", "p": "l e\u026a d i", "ok_s": true, "ok_p": true}
+{"a": 1572, "w": "last", "s": "Last", "p": "l \u00e6 s t", "ok_s": true, "ok_p": true}
+{"a": 1576, "w": "law", "s": "law", "p": "l \u0251", "ok_s": true, "ok_p": true}
+{"a": 1579, "w": "lead", "s": "LEAD", "p": "l i\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 1587, "w": "lie", "s": "LIE", "p": "l a\u026a", "ok_s": true, "ok_p": true}
+{"a": 1588, "w": "life", "s": "Life", "p": "l a\u026a", "ok_s": true, "ok_p": true}
+{"a": 1589, "w": "lift", "s": "Lift", "p": "l \u026a f t", "ok_s": true, "ok_p": true}
+{"a": 1591, "w": "link", "s": "link", "p": "l \u026a \u014b k", "ok_s": true, "ok_p": true}
+{"a": 1594, "w": "live", "s": "Live", "p": "l \u026a v", "ok_s": true, "ok_p": true}
+{"a": 1596, "w": "loss", "s": "Loss", "p": "l \u0251\u02d0 s", "ok_s": true, "ok_p": true}
+{"a": 1597, "w": "low", "s": "Low", "p": "l a\u028a", "ok_s": true, "ok_p": true}
+{"a": 1598, "w": "mad", "s": "M.A.D.", "p": "m \u00e6 d", "ok_s": true, "ok_p": true}
+{"a": 1599, "w": "major", "s": "major", "p": "m e\u026a d\u0292 \u025a", "ok_s": true, "ok_p": true}
+{"a": 1600, "w": "majority", "s": "majority", "p": "m \u0259 d\u0292 \u0279 \u1d7b \u027e i", "ok_s": true, "ok_p": true}
+{"a": 1601, "w": "make", "s": "Make", "p": "m e\u026a k", "ok_s": true, "ok_p": true}
+{"a": 1605, "w": "male", "s": "Nail", "p": "m e\u026a l", "ok_s": false, "ok_p": true, "m": "male", "ok_m": true}
+{"a": 1606, "w": "mall", "s": "", "p": "m a\u02d0", "ok_s": false, "ok_p": true, "m": "mall", "ok_m": true}
+{"a": 1607, "w": "manage", "s": "MANAGE", "p": "m \u00e6 n \u026a d\u0292", "ok_s": true, "ok_p": true}
+{"a": 1608, "w": "marathon", "s": "Marathon", "p": "m \u025b \u0279 \u0259 \u03b8 \u0254 n", "ok_s": true, "ok_p": true}
+{"a": 1609, "w": "master", "s": "Master", "p": "m \u00e6 s t \u025a", "ok_s": true, "ok_p": true}
+{"a": 1610, "w": "match", "s": "Match", "p": "m \u00e6 t", "ok_s": true, "ok_p": true}
+{"a": 1611, "w": "material", "s": "Material", "p": "m \u0259 t \u026a \u0279 i \u0259l", "ok_s": true, "ok_p": true}
+{"a": 1612, "w": "mathematics", "s": "Mathematics", "p": "m \u00e6 \u03b8 m \u00e6 r \u026a k s", "ok_s": true, "ok_p": true}
+{"a": 1613, "w": "matter", "s": "Matter.", "p": "m \u00e6 \u027e \u025a", "ok_s": true, "ok_p": true}
+{"a": 1614, "w": "mean", "s": "Mean", "p": "m i\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 1615, "w": "mean", "s": "Mean", "p": "m i\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 1616, "w": "meanwhile", "s": "meanwhile", "p": "m i\u02d0 n w a\u026a", "ok_s": true, "ok_p": true}
+{"a": 1617, "w": "metal", "s": "metal", "p": "m e r \u0254", "ok_s": true, "ok_p": true}
+{"a": 1618, "w": "method", "s": "Nuffid", "p": "n a f \u025b d", "ok_s": false, "ok_p": false, "m": "Method", "ok_m": true}
+{"a": 1619, "w": "meter", "s": "meter", "p": "m i\u02d0 d \u025a", "ok_s": true, "ok_p": true}
+{"a": 1620, "w": "might", "s": "might", "p": "m a\u026a t", "ok_s": true, "ok_p": true}
+{"a": 1621, "w": "mile", "s": "mile", "p": "m a\u026a", "ok_s": true, "ok_p": true}
+{"a": 1622, "w": "mind", "s": "MIND", "p": "m a\u026a n d", "ok_s": true, "ok_p": true}
+{"a": 1623, "w": "mind", "s": "MIND", "p": "m a\u026a n d", "ok_s": true, "ok_p": true}
+{"a": 1624, "w": "minister", "s": "Minister", "p": "m \u026a n \u026a s t \u025a", "ok_s": true, "ok_p": true}
+{"a": 1625, "w": "minor", "s": "minor", "p": "m a\u026a n \u025a", "ok_s": true, "ok_p": true}
+{"a": 1626, "w": "miss", "s": "Miss.", "p": "m e s", "ok_s": true, "ok_p": true}
+{"a": 1628, "w": "missing", "s": "Missing.", "p": "m \u026a s \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 1629, "w": "mix", "s": "Mix.", "p": "m \u025b k s", "ok_s": true, "ok_p": true}
+{"a": 1630, "w": "model", "s": "Model", "p": "m \u0251\u02d0 r \u0259l", "ok_s": true, "ok_p": true}
+{"a": 1631, "w": "model", "s": "Model", "p": "m \u0251\u02d0 r \u0259l", "ok_s": true, "ok_p": true}
+{"a": 1632, "w": "motor", "s": "Motor", "p": "m o\u028a \u027e \u025a", "ok_s": true, "ok_p": true}
+{"a": 1633, "w": "myth", "s": "Myth", "p": "m \u026a \u03b8", "ok_s": true, "ok_p": true}
+{"a": 1634, "w": "near", "s": "near", "p": "n i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 1638, "w": "next", "s": "Next", "p": "n \u025b k s t", "ok_s": true, "ok_p": true}
+{"a": 1641, "w": "nor", "s": "NORF", "p": "n o\u028a", "ok_s": false, "ok_p": true, "m": "Hello everyone, welcome back to my channel", "ok_m": false}
+{"a": 1646, "w": "now", "s": "now", "p": "n a\u028a", "ok_s": true, "ok_p": true}
+{"a": 1650, "w": "obey", "s": "Obey", "p": "o\u028a b e\u026a", "ok_s": true, "ok_p": true}
+{"a": 1654, "w": "odd", "s": "Odd", "p": "\u0251 d", "ok_s": true, "ok_p": true}
+{"a": 1655, "w": "of", "s": "of", "p": "a v", "ok_s": true, "ok_p": true}
+{"a": 1661, "w": "one", "s": "1.", "p": "w \u028c n", "ok_s": false, "ok_p": true, "m": "1.", "ok_m": false}
+{"a": 1662, "w": "one", "s": "1.", "p": "w \u028c n", "ok_s": false, "ok_p": true, "m": "1.", "ok_m": false}
+{"a": 1665, "w": "open", "s": "Open", "p": "o\u028a p \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 1669, "w": "or", "s": "or", "p": "uo5", "ok_s": true, "ok_p": true}
+{"a": 1676, "w": "out", "s": "Out", "p": "a\u028a t", "ok_s": true, "ok_p": true}
+{"a": 1682, "w": "oven", "s": "Oven", "p": "a v \u026a n", "ok_s": true, "ok_p": true}
+{"a": 1683, "w": "over", "s": "Over", "p": "o\u028a v \u025a", "ok_s": true, "ok_p": true}
+{"a": 1685, "w": "own", "s": "own", "p": "o\u028a n", "ok_s": true, "ok_p": true}
+{"a": 1686, "w": "pan", "s": "pan", "p": "p e\u026a n", "ok_s": true, "ok_p": true}
+{"a": 1687, "w": "pants", "s": "Pants", "p": "p \u00e6 n s", "ok_s": true, "ok_p": true}
+{"a": 1688, "w": "paragraph", "s": "Paragraph", "p": "p \u025b \u0279 \u0259 \u0261 \u0279 f", "ok_s": true, "ok_p": true}
+{"a": 1689, "w": "park", "s": "park", "p": "p \u0251\u02d0\u0279 k", "ok_s": true, "ok_p": true}
+{"a": 1690, "w": "parliament", "s": "Parliament", "p": "p \u0251\u02d0\u0279 l \u0259 m \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 1691, "w": "partner", "s": "Partner", "p": "p \u0251\u02d0\u0279 t n \u025a", "ok_s": true, "ok_p": true}
+{"a": 1692, "w": "party", "s": "Party", "p": "p \u0251\u02d0\u0279 \u027e i", "ok_s": true, "ok_p": true}
+{"a": 1693, "w": "pass", "s": "Pass", "p": "p \u00e6 s", "ok_s": true, "ok_p": true}
+{"a": 1695, "w": "password", "s": "password", "p": "p \u00e6 s w \u025c\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 1696, "w": "pay", "s": "Pay", "p": "p e\u026a", "ok_s": true, "ok_p": true}
+{"a": 1698, "w": "pepper", "s": "Pepper", "p": "p \u025b p \u025a", "ok_s": true, "ok_p": true}
+{"a": 1699, "w": "per", "s": "purr", "p": "ph o5", "ok_s": false, "ok_p": true, "m": "per", "ok_m": true}
+{"a": 1701, "w": "perfectly", "s": "Perfectly.", "p": "p \u025c\u02d0 f \u025b k t l i", "ok_s": true, "ok_p": true}
+{"a": 1702, "w": "perform", "s": "PERFORM", "p": "p \u025a f \u0254\u02d0\u0279 m", "ok_s": true, "ok_p": true}
+{"a": 1703, "w": "period", "s": "period", "p": "p \u026a \u0279 i \u1d7b d", "ok_s": true, "ok_p": true}
+{"a": 1704, "w": "permanent", "s": "permanent", "p": "p \u025c\u02d0 m \u026a n \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 1706, "w": "persuade", "s": "Persuade", "p": "p \u025a s w e\u026a d", "ok_s": true, "ok_p": true}
+{"a": 1707, "w": "photocopy", "s": "Photocopy", "p": "f o\u028a \u027e o\u028a k \u0251\u02d0 p i", "ok_s": true, "ok_p": false, "m": "Photocopy.", "ok_m": true}
+{"a": 1708, "w": "photographer", "s": "photographer", "p": "f \u0259 t \u0251\u02d0 \u0261 \u0279 f \u025a", "ok_s": true, "ok_p": false, "m": "photographer", "ok_m": true}
+{"a": 1709, "w": "phrase", "s": "phrase", "p": "f \u0279 e\u026a z", "ok_s": true, "ok_p": false, "m": "Phrase", "ok_m": true}
+{"a": 1710, "w": "pie", "s": "pie", "p": "ph a\u026a", "ok_s": true, "ok_p": true}
+{"a": 1711, "w": "pile", "s": "Pile", "p": "p a\u026a", "ok_s": true, "ok_p": true}
+{"a": 1712, "w": "pipe", "s": "pipe", "p": "p a\u026a p", "ok_s": true, "ok_p": true}
+{"a": 1713, "w": "place", "s": "Place", "p": "p l e\u026a s", "ok_s": true, "ok_p": true}
+{"a": 1714, "w": "plain", "s": "plane", "p": "p l e\u026a n", "ok_s": true, "ok_p": true}
+{"a": 1715, "w": "plan", "s": "PLAN", "p": "p l \u00e6 n", "ok_s": true, "ok_p": true}
+{"a": 1716, "w": "play", "s": "play", "p": "p l e\u026a", "ok_s": true, "ok_p": true}
+{"a": 1719, "w": "plenty", "s": "plenty", "p": "p l \u025b n t i", "ok_s": true, "ok_p": true}
+{"a": 1720, "w": "plural", "s": "plural", "p": "p l \u025a \u0279 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 1721, "w": "poet", "s": "Poet", "p": "p o\u028a \u026a t", "ok_s": true, "ok_p": true}
+{"a": 1722, "w": "point", "s": "POINT", "p": "p o\u026a n t", "ok_s": true, "ok_p": true}
+{"a": 1723, "w": "point", "s": "POINT", "p": "p o\u026a n t", "ok_s": true, "ok_p": true}
+{"a": 1724, "w": "politics", "s": "Politics", "p": "p \u0251\u02d0 l \u026a t \u026a k s", "ok_s": true, "ok_p": true}
+{"a": 1725, "w": "poor", "s": "POUR", "p": "p u2", "ok_s": true, "ok_p": true}
+{"a": 1726, "w": "pop", "s": "POP", "p": "p \u0251\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 1727, "w": "port", "s": "Port", "p": "p \u0254\u02d0\u0279 t", "ok_s": true, "ok_p": true}
+{"a": 1728, "w": "positive", "s": "positive", "p": "p \u0251\u02d0 z \u026a \u027e \u026a v", "ok_s": true, "ok_p": true}
+{"a": 1729, "w": "possibly", "s": "Possibly.", "p": "p \u0251\u02d0 s \u026a b l i", "ok_s": true, "ok_p": true}
+{"a": 1730, "w": "post", "s": "Post", "p": "p o\u028a s t", "ok_s": true, "ok_p": true}
+{"a": 1731, "w": "postpone", "s": "Post-Pwn", "p": "p o\u028a s t p o\u028a n", "ok_s": false, "ok_p": true, "m": "Postpone.", "ok_m": true}
+{"a": 1732, "w": "pot", "s": "pot", "p": "p \u0251\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 1733, "w": "power", "s": "power", "p": "p a\u028a \u025a", "ok_s": true, "ok_p": true}
+{"a": 1734, "w": "power", "s": "Power", "p": "p a\u028a \u025a", "ok_s": true, "ok_p": true}
+{"a": 1735, "w": "practical", "s": "Practical", "p": "p \u0279 \u00e6 k t \u026a k \u0259l", "ok_s": true, "ok_p": true}
+{"a": 1736, "w": "presence", "s": "presence", "p": "p \u0279 \u025b z \u0259 n t s", "ok_s": true, "ok_p": true}
+{"a": 1737, "w": "pretty", "s": "Pretty", "p": "p \u0279 \u026a \u027e i", "ok_s": true, "ok_p": true}
+{"a": 1738, "w": "previous", "s": "previous", "p": "p \u0279 i\u02d0 v i \u0259 s", "ok_s": true, "ok_p": true}
+{"a": 1739, "w": "prince", "s": "Prince", "p": "p \u0279 \u026a n s", "ok_s": true, "ok_p": true}
+{"a": 1740, "w": "print", "s": "print", "p": "p \u0279 \u026a n t", "ok_s": true, "ok_p": true}
+{"a": 1741, "w": "process", "s": "process", "p": "p \u0279 \u0251\u02d0 s \u025b s", "ok_s": true, "ok_p": true}
+{"a": 1742, "w": "profit", "s": "profit", "p": "p \u0279 \u0251\u02d0 f \u026a t", "ok_s": true, "ok_p": true}
+{"a": 1743, "w": "program", "s": "Program", "p": "p \u0279 o\u028a \u0261 \u0279 \u00e6 m", "ok_s": true, "ok_p": true}
+{"a": 1744, "w": "progress", "s": "Progress", "p": "p \u0279 \u0251\u02d0 \u0261 \u0279 \u025b s", "ok_s": true, "ok_p": true}
+{"a": 1745, "w": "pronounce", "s": "Pronounce", "p": "p \u0279 \u0259 n a\u028a n s", "ok_s": true, "ok_p": true}
+{"a": 1746, "w": "proper", "s": "proper", "p": "p \u0279 \u0251\u02d0 p \u025a", "ok_s": true, "ok_p": true}
+{"a": 1747, "w": "property", "s": "PROPERTY", "p": "p \u0279 \u028c p \u025a \u027e i", "ok_s": true, "ok_p": true}
+{"a": 1748, "w": "provide", "s": "provide", "p": "p \u0279 \u0259 v a\u026a d", "ok_s": true, "ok_p": true}
+{"a": 1749, "w": "public", "s": "public", "p": "p \u028c b l \u026a k", "ok_s": true, "ok_p": true}
+{"a": 1750, "w": "publish", "s": "Publish", "p": "p \u028c b l \u026a \u0283", "ok_s": true, "ok_p": true}
+{"a": 1755, "w": "rare", "s": "Rare", "p": "\u0279 e\u026a", "ok_s": true, "ok_p": true}
+{"a": 1756, "w": "rate", "s": "rate", "p": "\u0279 e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 1757, "w": "rate", "s": "rate", "p": "\u0279 e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 1760, "w": "real", "s": "Reel", "p": "\u0279 i\u02d0 \u0259l", "ok_s": false, "ok_p": true, "m": "Real", "ok_m": true}
+{"a": 1779, "w": "ride", "s": "Ride", "p": "\u0279 a\u026a d", "ok_s": true, "ok_p": true}
+{"a": 1781, "w": "rise", "s": "Rise", "p": "\u0279 a\u026a z", "ok_s": true, "ok_p": true}
+{"a": 1783, "w": "roll", "s": "Roll", "p": "\u0279 o\u028a", "ok_s": true, "ok_p": true}
+{"a": 1784, "w": "root", "s": "root", "p": "\u0279 u\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 1785, "w": "rose", "s": "Rose.", "p": "\u0279 o\u028a z", "ok_s": true, "ok_p": true}
+{"a": 1791, "w": "sail", "s": "SAIL", "p": "s e\u026a", "ok_s": true, "ok_p": true}
+{"a": 1792, "w": "sale", "s": "SAIL", "p": "s e\u026a l", "ok_s": false, "ok_p": true, "m": "sale", "ok_m": true}
+{"a": 1793, "w": "sand", "s": "Sand", "p": "s \u00e6 n d", "ok_s": true, "ok_p": true}
+{"a": 1794, "w": "save", "s": "Save", "p": "s e\u026a v", "ok_s": true, "ok_p": true}
+{"a": 1796, "w": "say", "s": "Say", "p": "s ei5", "ok_s": true, "ok_p": true}
+{"a": 1803, "w": "see", "s": "C.", "p": "s i\u02d0", "ok_s": false, "ok_p": true, "m": "C", "ok_m": false}
+{"a": 1805, "w": "seed", "s": "Seed", "p": "s i\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 1806, "w": "seek", "s": "seek", "p": "s i\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 1816, "w": "sew", "s": "So...", "p": "s o\u028a", "ok_s": false, "ok_p": true, "m": "sew", "ok_m": true}
+{"a": 1823, "w": "shop", "s": "Shop", "p": "\u0283 \u0251\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 1826, "w": "show", "s": "Show", "p": "s. \u0251u5", "ok_s": true, "ok_p": true}
+{"a": 1828, "w": "sign", "s": "Sign", "p": "s a\u026a n", "ok_s": true, "ok_p": true}
+{"a": 1834, "w": "site", "s": "Sight", "p": "s a\u026a t", "ok_s": false, "ok_p": true, "m": "site", "ok_m": true}
+{"a": 1836, "w": "skin", "s": "skin.", "p": "s k \u026a n", "ok_s": true, "ok_p": true}
+{"a": 1837, "w": "so", "s": "So", "p": "s ou5", "ok_s": true, "ok_p": true}
+{"a": 1842, "w": "soft", "s": "soft", "p": "s \u0251\u02d0 f t", "ok_s": true, "ok_p": true}
+{"a": 1847, "w": "soul", "s": "Seoul", "p": "s ou5", "ok_s": false, "ok_p": true, "m": "soul", "ok_m": true}
+{"a": 1863, "w": "step", "s": "Step", "p": "s t \u025b p", "ok_s": true, "ok_p": true}
+{"a": 1865, "w": "stir", "s": "Stir.", "p": "s t \u025a", "ok_s": true, "ok_p": true}
+{"a": 1878, "w": "such", "s": "such", "p": "s \u028c t\u0283", "ok_s": true, "ok_p": true}
+{"a": 1882, "w": "sum", "s": "Some", "p": "s \u028c m", "ok_s": false, "ok_p": true, "m": "sum", "ok_m": true}
+{"a": 1895, "w": "tag", "s": "tag", "p": "t a \u0261", "ok_s": true, "ok_p": true}
+{"a": 1902, "w": "talk", "s": "TALK", "p": "t \u0251\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 1904, "w": "task", "s": "TASK", "p": "t \u00e6 s k", "ok_s": true, "ok_p": true}
+{"a": 1905, "w": "tax", "s": "Tax", "p": "t \u00e6 k s", "ok_s": true, "ok_p": true}
+{"a": 1913, "w": "tent", "s": "Tent", "p": "t \u025b n t", "ok_s": true, "ok_p": true}
+{"a": 1914, "w": "term", "s": "TERM", "p": "t \u025c\u02d0 m", "ok_s": true, "ok_p": true}
+{"a": 1916, "w": "test", "s": "Test", "p": "t \u025b s t", "ok_s": true, "ok_p": true}
+{"a": 1917, "w": "the", "s": "The", "p": "z a5", "ok_s": true, "ok_p": true}
+{"a": 1925, "w": "then", "s": "Then", "p": "v \u025b n", "ok_s": true, "ok_p": true}
+{"a": 1927, "w": "they", "s": "They", "p": "\u00f0 e\u026a", "ok_s": true, "ok_p": true}
+{"a": 1935, "w": "time", "s": "Time.", "p": "t a\u026a m", "ok_s": true, "ok_p": true}
+{"a": 1936, "w": "tip", "s": "TIP", "p": "t \u026a p", "ok_s": true, "ok_p": true}
+{"a": 1939, "w": "to", "s": "2", "p": "th y5", "ok_s": false, "ok_p": true, "m": "2", "ok_m": false}
+{"a": 1942, "w": "tone", "s": "TONE", "p": "t o\u028a n", "ok_s": true, "ok_p": true}
+{"a": 1943, "w": "tool", "s": "TOOL", "p": "t u5", "ok_s": true, "ok_p": true}
+{"a": 1945, "w": "tour", "s": "tour", "p": "t u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 1958, "w": "type", "s": "", "p": "t a\u026a p", "ok_s": false, "ok_p": true, "m": "Type", "ok_m": true}
+{"a": 1966, "w": "up", "s": "Up", "p": "a b", "ok_s": true, "ok_p": true}
+{"a": 1972, "w": "use", "s": "Use.", "p": "j u\u02d0 z", "ok_s": true, "ok_p": true}
+{"a": 1989, "w": "weak", "s": "Week", "p": "w i\u02d0 k", "ok_s": false, "ok_p": true, "m": "weak", "ok_m": true}
+{"a": 1997, "w": "who", "s": "Who?", "p": "x", "ok_s": true, "ok_p": true}
+{"a": 1999, "w": "win", "s": "Win.", "p": "w \u026a n", "ok_s": true, "ok_p": true}
+{"a": 2000, "w": "wipe", "s": "Wipe", "p": "w a\u026a p", "ok_s": true, "ok_p": true}
+{"a": 2005, "w": "wood", "s": "WOOD", "p": "w \u0289 d", "ok_s": true, "ok_p": true}
+{"a": 2006, "w": "work", "s": "Work.", "p": "w \u025c\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 2007, "w": "work", "s": "Work", "p": "w \u025c\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 2011, "w": "wrap", "s": "wrap", "p": "\u0279 \u00e6 p", "ok_s": true, "ok_p": true}
+{"a": 2014, "w": "yet", "s": "Yet.", "p": "j a t", "ok_s": true, "ok_p": true}
+{"a": 2016, "w": "zone", "s": "ZONE", "p": "z o\u028a n", "ok_s": true, "ok_p": true}
+{"a": 5013, "w": "bag", "s": "BAG", "p": "b \u025b \u0261", "ok_s": true, "ok_p": true}
+{"a": 5016, "w": "bed", "s": "BED", "p": "b \u025b d", "ok_s": true, "ok_p": true}
+{"a": 5017, "w": "best", "s": "Best", "p": "b \u025b s t", "ok_s": true, "ok_p": true}
+{"a": 5018, "w": "big", "s": "BIG", "p": "b \u026a \u0261", "ok_s": true, "ok_p": true}
+{"a": 5019, "w": "bit", "s": "BIT", "p": "b \u026a t", "ok_s": true, "ok_p": true}
+{"a": 5020, "w": "both", "s": "Both.", "p": "b o\u028a \u03b8", "ok_s": true, "ok_p": true}
+{"a": 5021, "w": "box", "s": "Box", "p": "b \u0251\u02d0 k s", "ok_s": true, "ok_p": true}
+{"a": 5022, "w": "boy", "s": "boy", "p": "b o\u026a", "ok_s": true, "ok_p": true}
+{"a": 5023, "w": "bus", "s": "Bus", "p": "b a s", "ok_s": true, "ok_p": true}
+{"a": 5028, "w": "cat", "s": "cat", "p": "k \u00e6 t", "ok_s": true, "ok_p": true}
+{"a": 5030, "w": "cost", "s": "Cost", "p": "k \u0251\u02d0 s t", "ok_s": true, "ok_p": true}
+{"a": 5032, "w": "dad", "s": "DAD", "p": "d \u025b d", "ok_s": true, "ok_p": true}
+{"a": 5033, "w": "desk", "s": "DESK", "p": "d \u025b s k", "ok_s": true, "ok_p": true}
+{"a": 5038, "w": "dog", "s": "DOG", "p": "d \u0251\u02d0 \u0261", "ok_s": true, "ok_p": true}
+{"a": 5039, "w": "egg", "s": "Egg", "p": "\u025b \u0261", "ok_s": true, "ok_p": true}
+{"a": 5040, "w": "end", "s": "END", "p": "\u025b n d", "ok_s": true, "ok_p": true}
+{"a": 5042, "w": "fact", "s": "fact", "p": "f \u00e6 k t", "ok_s": true, "ok_p": true}
+{"a": 5044, "w": "fast", "s": "fast", "p": "f \u00e6 s t", "ok_s": true, "ok_p": true}
+{"a": 5046, "w": "film", "s": "Film", "p": "f \u026a l m", "ok_s": true, "ok_p": true}
+{"a": 5051, "w": "fun", "s": "Fun", "p": "f \u028c n", "ok_s": true, "ok_p": true}
+{"a": 5052, "w": "get", "s": "Get", "p": "\u0261 \u025b t", "ok_s": true, "ok_p": true}
+{"a": 5054, "w": "gift", "s": "gift", "p": "\u0261 \u026a f t", "ok_s": true, "ok_p": true}
+{"a": 5055, "w": "glad", "s": "GLAAD", "p": "\u0261 l \u00e6 d", "ok_s": false, "ok_p": true, "m": "glad", "ok_m": true}
+{"a": 5056, "w": "go", "s": "Go!", "p": "\u0261 a\u028a", "ok_s": true, "ok_p": true}
+{"a": 5062, "w": "half", "s": "HALF", "p": "h \u0251\u02d0", "ok_s": true, "ok_p": true}
+{"a": 5063, "w": "hand", "s": "HAND", "p": "h \u025b n d", "ok_s": true, "ok_p": true}
+{"a": 5065, "w": "hat", "s": "hat", "p": "h a t", "ok_s": true, "ok_p": true}
+{"a": 5066, "w": "have", "s": "Have", "p": "h a v", "ok_s": true, "ok_p": true}
+{"a": 5068, "w": "he", "s": "He", "p": "x i5", "ok_s": true, "ok_p": false, "m": "He.", "ok_m": true}
+{"a": 5070, "w": "help", "s": "Help", "p": "h \u025b l p", "ok_s": true, "ok_p": true}
+{"a": 5071, "w": "her", "s": "her", "p": "x o5", "ok_s": true, "ok_p": false, "m": "her", "ok_m": true}
+{"a": 5072, "w": "him", "s": "him", "p": "h \u026a m", "ok_s": true, "ok_p": true}
+{"a": 5080, "w": "I", "s": "I", "p": "a\u026a", "ok_s": true, "ok_p": true}
+{"a": 5094, "w": "it", "s": "It", "p": "\u026a t", "ok_s": true, "ok_p": true}
+{"a": 5097, "w": "its", "s": "It's", "p": "\u026a s", "ok_s": true, "ok_p": true}
+{"a": 5101, "w": "kid", "s": "kid", "p": "k \u026a d", "ok_s": true, "ok_p": true}
+{"a": 5104, "w": "let", "s": "Let", "p": "l \u025b t", "ok_s": true, "ok_p": true}
+{"a": 5108, "w": "lost", "s": "Lost.", "p": "l \u0251\u02d0 s t", "ok_s": true, "ok_p": true}
+{"a": 5109, "w": "lot", "s": "a lot.", "p": "l a t", "ok_s": false, "ok_p": true, "m": "lot", "ok_m": true}
+{"a": 5111, "w": "man", "s": "Man", "p": "m \u025b n", "ok_s": true, "ok_p": true}
+{"a": 5112, "w": "me", "s": "me", "p": "m i5", "ok_s": true, "ok_p": true}
+{"a": 5113, "w": "milk", "s": "milk", "p": "m \u026a l k", "ok_s": true, "ok_p": true}
+{"a": 5118, "w": "net", "s": "net", "p": "n \u025b t", "ok_s": true, "ok_p": true}
+{"a": 5121, "w": "no", "s": "No.", "p": "n o\u028a", "ok_s": true, "ok_p": true}
+{"a": 5124, "w": "not", "s": "Not.", "p": "n \u0251\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 5127, "w": "on", "s": "On.", "p": "\u0251 n", "ok_s": true, "ok_p": true}
+{"a": 5129, "w": "past", "s": "PAST", "p": "p \u00e6 s t", "ok_s": true, "ok_p": true}
+{"a": 5130, "w": "pen", "s": "PEN", "p": "p \u025b n", "ok_s": true, "ok_p": true}
+{"a": 5131, "w": "pencil", "s": "Pencil", "p": "p \u025b n s \u0259l", "ok_s": true, "ok_p": true}
+{"a": 5132, "w": "pet", "s": "PET", "p": "p \u025b t", "ok_s": true, "ok_p": true}
+{"a": 5134, "w": "plus", "s": "Plus.", "p": "p l \u028c s", "ok_s": true, "ok_p": true}
+{"a": 5135, "w": "red", "s": "Red", "p": "\u0279 \u025b d", "ok_s": true, "ok_p": true}
+{"a": 5136, "w": "rent", "s": "Rent", "p": "\u0279 \u025b n t", "ok_s": true, "ok_p": true}
+{"a": 5137, "w": "rest", "s": "Rest.", "p": "\u0279 \u025b s t", "ok_s": true, "ok_p": true}
+{"a": 5138, "w": "run", "s": "Run", "p": "\u0279 \u028c n", "ok_s": true, "ok_p": true}
+{"a": 5139, "w": "sad", "s": "sad", "p": "s \u00e6 d", "ok_s": true, "ok_p": true}
+{"a": 5142, "w": "send", "s": "SEND", "p": "s \u025b n d", "ok_s": true, "ok_p": true}
+{"a": 5144, "w": "sit", "s": "Sit", "p": "s \u026a t", "ok_s": true, "ok_p": true}
+{"a": 5145, "w": "six", "s": "", "p": "s \u026a k s", "ok_s": false, "ok_p": true, "m": "6.", "ok_m": false}
+{"a": 5152, "w": "sun", "s": "Sun", "p": "s \u028c n", "ok_s": true, "ok_p": true}
+{"a": 5158, "w": "ten", "s": "10", "p": "t \u025b n", "ok_s": false, "ok_p": true, "m": "10.", "ok_m": false}
+{"a": 5160, "w": "than", "s": "then", "p": "v \u025b n", "ok_s": false, "ok_p": true, "m": "Van", "ok_m": false}
+{"a": 5166, "w": "them", "s": "them", "p": "\u00f0 \u025b m", "ok_s": true, "ok_p": true}
+{"a": 5170, "w": "this", "s": "This.", "p": "\u00f0 \u026a s", "ok_s": true, "ok_p": true}
+{"a": 5178, "w": "trip", "s": "T.", "p": "t \u0279 \u026a p", "ok_s": false, "ok_p": true, "m": "Trip", "ok_m": true}
+{"a": 5180, "w": "us", "s": "us", "p": "a s", "ok_s": true, "ok_p": true}
+{"a": 5194, "w": "yes", "s": "Yes.", "p": "j \u025b s", "ok_s": true, "ok_p": true}
+{"a": 5196, "w": "you", "s": "you", "p": "j y5", "ok_s": true, "ok_p": true}
+{"a": 6010, "w": "age", "s": "Age", "p": "e\u026a d\u0292", "ok_s": true, "ok_p": true}
+{"a": 6011, "w": "ago", "s": "A go.", "p": "\u0250 \u0261 a\u028a l", "ok_s": true, "ok_p": true}
+{"a": 6012, "w": "air", "s": "Air", "p": "\u025b", "ok_s": true, "ok_p": true}
+{"a": 6016, "w": "also", "s": "Also.", "p": "\u0254\u02d0 l s o\u028a", "ok_s": true, "ok_p": true}
+{"a": 6032, "w": "arm", "s": "ARM", "p": "\u0251\u02d0\u0279 m", "ok_s": true, "ok_p": true}
+{"a": 6033, "w": "art", "s": "Art", "p": "\u0251\u02d0\u0279 t", "ok_s": true, "ok_p": true}
+{"a": 6038, "w": "baby", "s": "baby", "p": "b e\u026a b i", "ok_s": true, "ok_p": true}
+{"a": 6040, "w": "badly", "s": "badly", "p": "b \u00e6 d l i", "ok_s": true, "ok_p": true}
+{"a": 6041, "w": "bake", "s": "Bake", "p": "b e\u026a k", "ok_s": true, "ok_p": true}
+{"a": 6042, "w": "ball", "s": "Ball", "p": "b \u0251\u02d0", "ok_s": true, "ok_p": true}
+{"a": 6043, "w": "banana", "s": "banana", "p": "b \u0259 n \u025b n \u0259", "ok_s": true, "ok_p": true}
+{"a": 6044, "w": "band", "s": "Banned", "p": "b \u00e6 n d", "ok_s": false, "ok_p": true, "m": "Band.", "ok_m": true}
+{"a": 6045, "w": "bank", "s": "Bank", "p": "b \u025b \u014b k", "ok_s": true, "ok_p": true}
+{"a": 6046, "w": "bath", "s": "Bath", "p": "b a \u03b8", "ok_s": true, "ok_p": true}
+{"a": 6047, "w": "bath", "s": "Bath", "p": "b a \u03b8", "ok_s": true, "ok_p": true}
+{"a": 6050, "w": "beach", "s": "Beach", "p": "b i\u02d0 t\u0283", "ok_s": true, "ok_p": true}
+{"a": 6051, "w": "beautiful", "s": "beautiful", "p": "b j u\u02d0 \u027e \u1d7b f \u0259l", "ok_s": true, "ok_p": true}
+{"a": 6052, "w": "because", "s": "Because", "p": "b \u026a k \u0251\u02d0 z", "ok_s": true, "ok_p": true}
+{"a": 6054, "w": "begin", "s": "Begin.", "p": "b \u026a \u0261 \u026a n", "ok_s": true, "ok_p": true}
+{"a": 6055, "w": "behind", "s": "behind", "p": "b i\u02d0 h a\u026a n d", "ok_s": true, "ok_p": true}
+{"a": 6057, "w": "best", "s": "Best", "p": "b \u025b s t", "ok_s": true, "ok_p": true}
+{"a": 6058, "w": "better", "s": "Better.", "p": "b \u025b \u027e \u025a", "ok_s": true, "ok_p": true}
+{"a": 6059, "w": "between", "s": "BETWEEN", "p": "b \u026a t w i\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 6060, "w": "bird", "s": "BIRD", "p": "b \u025c\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 6061, "w": "birthday", "s": "BIRTHDAY", "p": "b \u025c\u02d0 \u03b8 d e\u026a", "ok_s": true, "ok_p": true}
+{"a": 6062, "w": "biscuit", "s": "Biscuit", "p": "b \u026a s k \u026a t", "ok_s": true, "ok_p": true}
+{"a": 6063, "w": "black", "s": "Black", "p": "b l \u00e6 k", "ok_s": true, "ok_p": true}
+{"a": 6064, "w": "blouse", "s": "Blouse", "p": "b l a\u028a s", "ok_s": true, "ok_p": true}
+{"a": 6065, "w": "blue", "s": "Blue", "p": "b l u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 6067, "w": "boat", "s": "BOAT", "p": "b o\u028a t", "ok_s": true, "ok_p": true}
+{"a": 6070, "w": "bottle", "s": "Bottle", "p": "b \u0251\u02d0 r \u0259l", "ok_s": true, "ok_p": true}
+{"a": 6071, "w": "bread", "s": "Bread", "p": "b \u0279 \u025b d", "ok_s": true, "ok_p": true}
+{"a": 6072, "w": "breakfast", "s": "breakfast", "p": "b \u0279 \u025b k f \u0259 s t", "ok_s": true, "ok_p": true}
+{"a": 6073, "w": "bring", "s": "Bring.", "p": "b \u0279 \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 6074, "w": "brother", "s": "BROTHER", "p": "b \u0279 \u028c \u00f0 \u025a", "ok_s": true, "ok_p": true}
+{"a": 6075, "w": "brown", "s": "Brown", "p": "b \u0279 a\u028a n", "ok_s": true, "ok_p": true}
+{"a": 6076, "w": "build", "s": "BUILD", "p": "b \u026a l d", "ok_s": true, "ok_p": true}
+{"a": 6077, "w": "busy", "s": "Busy", "p": "b \u026a z i", "ok_s": true, "ok_p": true}
+{"a": 6078, "w": "butter", "s": "butter", "p": "b \u028c \u027e \u025a", "ok_s": true, "ok_p": true}
+{"a": 6080, "w": "bye", "s": "Bye!", "p": "b a\u026a", "ok_s": true, "ok_p": true}
+{"a": 6081, "w": "cake", "s": "Cake", "p": "k e\u026a k", "ok_s": true, "ok_p": true}
+{"a": 6085, "w": "car", "s": "car", "p": "k \u0251\u02d0\u0279", "ok_s": true, "ok_p": true}
+{"a": 6098, "w": "city", "s": "City", "p": "s s \u026a \u027e i", "ok_s": true, "ok_p": true}
+{"a": 6106, "w": "club", "s": "CLUB", "p": "k l \u028c b", "ok_s": true, "ok_p": true}
+{"a": 6107, "w": "coat", "s": "coat", "p": "k o\u028a t", "ok_s": true, "ok_p": true}
+{"a": 6112, "w": "come", "s": "Come.", "p": "k \u028c m", "ok_s": true, "ok_p": true}
+{"a": 6117, "w": "cook", "s": "Cook", "p": "k \u0254 k", "ok_s": true, "ok_p": true}
+{"a": 6122, "w": "cow", "s": "Cow", "p": "k a\u028a", "ok_s": true, "ok_p": true}
+{"a": 6123, "w": "cup", "s": "cup", "p": "k \u0251\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 6127, "w": "date", "s": "Date", "p": "d e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 6129, "w": "day", "s": "DAY", "p": "d e\u026a", "ok_s": true, "ok_p": true}
+{"a": 6139, "w": "door", "s": "door", "p": "d o\u028a", "ok_s": true, "ok_p": true}
+{"a": 6140, "w": "down", "s": "Down.", "p": "d a\u028a n", "ok_s": true, "ok_p": true}
+{"a": 6141, "w": "draw", "s": "DRAW", "p": "d \u0279 \u0251\u02d0", "ok_s": true, "ok_p": true}
+{"a": 6146, "w": "dry", "s": "Dry", "p": "d \u0279 a\u026a", "ok_s": true, "ok_p": true}
+{"a": 6147, "w": "ear", "s": "Ear", "p": "i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 6150, "w": "east", "s": "East", "p": "i\u02d0 s t", "ok_s": true, "ok_p": true}
+{"a": 6151, "w": "eat", "s": "Eat", "p": "i\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 6163, "w": "eye", "s": "I", "p": "a\u026a", "ok_s": false, "ok_p": true, "m": "I", "ok_m": false}
+{"a": 6167, "w": "far", "s": "FAR", "p": "f", "ok_s": true, "ok_p": true}
+{"a": 6168, "w": "farm", "s": "farm", "p": "f \u0251\u02d0\u0279 m", "ok_s": true, "ok_p": true}
+{"a": 6170, "w": "fast", "s": "fast", "p": "f \u00e6 s t", "ok_s": true, "ok_p": true}
+{"a": 6172, "w": "fat", "s": "fat", "p": "f \u00e6 t", "ok_s": true, "ok_p": true}
+{"a": 6179, "w": "find", "s": "FIND", "p": "f a\u026a n d", "ok_s": true, "ok_p": true}
+{"a": 6185, "w": "five", "s": "5", "p": "f a\u026a v", "ok_s": false, "ok_p": true, "m": "5", "ok_m": false}
+{"a": 6189, "w": "fly", "s": "FLY", "p": "f l a\u026a", "ok_s": true, "ok_p": true}
+{"a": 6190, "w": "food", "s": "Food", "p": "f u\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 6191, "w": "foot", "s": "foot", "p": "f \u028a t", "ok_s": true, "ok_p": true}
+{"a": 6194, "w": "fork", "s": "Fork.", "p": "f o\u02d0\u0279 k", "ok_s": true, "ok_p": true}
+{"a": 6196, "w": "four", "s": "4", "p": "f uo5", "ok_s": false, "ok_p": true, "m": "4.", "ok_m": false}
+{"a": 6203, "w": "game", "s": "Game", "p": "\u0261 e\u026a m", "ok_s": true, "ok_p": true}
+{"a": 6207, "w": "girl", "s": "girl.", "p": "\u0261 \u025a \u0279", "ok_s": true, "ok_p": true}
+{"a": 6208, "w": "give", "s": "give", "p": "\u0261 \u026a v", "ok_s": true, "ok_p": true}
+{"a": 6214, "w": "good", "s": "Good.", "p": "\u0261 \u028c d", "ok_s": true, "ok_p": true}
+{"a": 6222, "w": "gray", "s": "gray", "p": "\u0261 \u0279 e\u026a", "ok_s": true, "ok_p": true}
+{"a": 6227, "w": "hair", "s": "Hair", "p": "h ei5", "ok_s": true, "ok_p": true}
+{"a": 6230, "w": "have", "s": "Have", "p": "h a v", "ok_s": true, "ok_p": true}
+{"a": 6232, "w": "hear", "s": "here", "p": "x i5", "ok_s": false, "ok_p": false, "m": "", "ok_m": false}
+{"a": 6235, "w": "help", "s": "Help", "p": "h \u025b l p", "ok_s": true, "ok_p": true}
+{"a": 6236, "w": "here", "s": "here", "p": "x i5", "ok_s": true, "ok_p": false, "m": "Here.", "ok_m": true}
+{"a": 6237, "w": "hers", "s": "Hers", "p": "h \u025c\u02d0 z", "ok_s": true, "ok_p": true}
+{"a": 6238, "w": "hey", "s": "Hey.", "p": "x ei5", "ok_s": true, "ok_p": false, "m": "Hey!", "ok_m": true}
+{"a": 6239, "w": "hi", "s": "Hi", "p": "x ai5", "ok_s": true, "ok_p": false, "m": "Hi", "ok_m": true}
+{"a": 6240, "w": "his", "s": "His", "p": "h \u026a z", "ok_s": true, "ok_p": true}
+{"a": 6241, "w": "hold", "s": "HOLD", "p": "h o\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 6243, "w": "home", "s": "Home", "p": "h o\u028a m", "ok_s": true, "ok_p": true}
+{"a": 6249, "w": "how", "s": "How?", "p": "x \u0251u5", "ok_s": true, "ok_p": false, "m": "How?", "ok_m": true}
+{"a": 6260, "w": "it", "s": "It", "p": "\u026a t", "ok_s": true, "ok_p": true}
+{"a": 6264, "w": "July", "s": "July", "p": "d\u0292 u\u02d0 l a\u026a", "ok_s": true, "ok_p": true}
+{"a": 6265, "w": "June", "s": "June", "p": "d\u0292 u\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 6267, "w": "keep", "s": "Keep", "p": "k i\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 6268, "w": "king", "s": "King", "p": "k \u026a n", "ok_s": true, "ok_p": true}
+{"a": 6270, "w": "knee", "s": "Knee", "p": "n i", "ok_s": true, "ok_p": true}
+{"a": 6276, "w": "late", "s": "Late", "p": "l e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 6280, "w": "leg", "s": "leg", "p": "l \u025b \u0261", "ok_s": true, "ok_p": true}
+{"a": 6292, "w": "look", "s": "Look.", "p": "l \u0254 k", "ok_s": true, "ok_p": true}
+{"a": 6296, "w": "many", "s": "MANY", "p": "m \u025b n i", "ok_s": true, "ok_p": true}
+{"a": 6297, "w": "March", "s": "March", "p": "m \u0251\u02d0\u0279 t\u0283", "ok_s": true, "ok_p": true}
+{"a": 6298, "w": "May", "s": "May", "p": "m e\u026a", "ok_s": true, "ok_p": true}
+{"a": 6299, "w": "meal", "s": "meal", "p": "m i o", "ok_s": true, "ok_p": true}
+{"a": 6300, "w": "meat", "s": "Meet", "p": "m i\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 6302, "w": "minute", "s": "minute", "p": "m \u026a n \u026a t", "ok_s": true, "ok_p": true}
+{"a": 6304, "w": "mobile", "s": "Mobile", "p": "n o\u028a b \u0259l", "ok_s": true, "ok_p": false, "m": "Mobile", "ok_m": true}
+{"a": 6305, "w": "Monday", "s": "Monday", "p": "m \u028c n d e\u026a", "ok_s": true, "ok_p": true}
+{"a": 6306, "w": "monkey", "s": "monkey", "p": "m \u028c \u014b k i", "ok_s": true, "ok_p": true}
+{"a": 6307, "w": "month", "s": "MONTH", "p": "m \u028c n \u03b8", "ok_s": true, "ok_p": true}
+{"a": 6308, "w": "more", "s": "more", "p": "m \u0254\u02d0\u0279", "ok_s": true, "ok_p": true}
+{"a": 6309, "w": "morning", "s": "Morning", "p": "m \u0254\u02d0\u0279 n \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 6310, "w": "mother", "s": "mother", "p": "m \u028c \u00f0 \u025a", "ok_s": true, "ok_p": true}
+{"a": 6311, "w": "mouth", "s": "Mouth", "p": "m a\u028a \u03b8", "ok_s": true, "ok_p": true}
+{"a": 6312, "w": "movie", "s": "movie", "p": "m \u0289 v i", "ok_s": true, "ok_p": true}
+{"a": 6313, "w": "music", "s": "Music", "p": "m j u\u02d0 z \u026a k", "ok_s": true, "ok_p": true}
+{"a": 6314, "w": "my", "s": "my", "p": "m a\u026a", "ok_s": true, "ok_p": true}
+{"a": 6317, "w": "neck", "s": "Neck", "p": "n \u025b k", "ok_s": true, "ok_p": true}
+{"a": 6318, "w": "need", "s": "Need", "p": "n i\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 6320, "w": "new", "s": "New", "p": "n u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 6322, "w": "nice", "s": "Nice!", "p": "n a\u026a s", "ok_s": true, "ok_p": true}
+{"a": 6324, "w": "nine", "s": "9", "p": "n a\u026a n", "ok_s": false, "ok_p": true, "m": "9.", "ok_m": false}
+{"a": 6329, "w": "nose", "s": "nose", "p": "n o\u028a z", "ok_s": true, "ok_p": true}
+{"a": 6339, "w": "on", "s": "On.", "p": "\u0251 n", "ok_s": true, "ok_p": true}
+{"a": 6340, "w": "on", "s": "On.", "p": "\u0251 n", "ok_s": true, "ok_p": true}
+{"a": 6342, "w": "once", "s": "once", "p": "w \u028c n s", "ok_s": true, "ok_p": true}
+{"a": 6344, "w": "only", "s": "Only.", "p": "o\u028a n l i", "ok_s": true, "ok_p": true}
+{"a": 6347, "w": "our", "s": "Hour", "p": "a\u028a \u025a", "ok_s": false, "ok_p": true, "m": "hour", "ok_m": false}
+{"a": 6348, "w": "ours", "s": "Ours", "p": "a\u028a \u025a z", "ok_s": true, "ok_p": true}
+{"a": 6350, "w": "page", "s": "page", "p": "p e\u026a d\u0292", "ok_s": true, "ok_p": true}
+{"a": 6351, "w": "paper", "s": "paper", "p": "p e\u026a p \u025a", "ok_s": true, "ok_p": true}
+{"a": 6352, "w": "parent", "s": "parent", "p": "p \u025b \u0279 \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 6356, "w": "past", "s": "P.A.S.T.", "p": "p \u00e6 s t", "ok_s": true, "ok_p": true}
+{"a": 6357, "w": "people", "s": "people.", "p": "p i\u02d0 p \u0259l", "ok_s": true, "ok_p": true}
+{"a": 6358, "w": "picnic", "s": "picnic", "p": "t e k n \u025b k", "ok_s": true, "ok_p": false, "m": "picnic", "ok_m": true}
+{"a": 6359, "w": "picture", "s": "PICTURE", "p": "p \u026a k t\u0283 \u025a", "ok_s": true, "ok_p": true}
+{"a": 6360, "w": "pink", "s": "Pink", "p": "p \u026a \u014b k", "ok_s": true, "ok_p": true}
+{"a": 6361, "w": "pizza", "s": "pizza", "p": "p i\u02d0 s \u0259", "ok_s": true, "ok_p": true}
+{"a": 6363, "w": "plant", "s": "plant", "p": "p l \u00e6 n t", "ok_s": true, "ok_p": true}
+{"a": 6364, "w": "plate", "s": "Plate", "p": "p l e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 6366, "w": "player", "s": "player", "p": "p l e\u026a \u025a", "ok_s": true, "ok_p": true}
+{"a": 6369, "w": "potato", "s": "Potato", "p": "p \u0259 t e\u026a \u027e o\u028a", "ok_s": true, "ok_p": true}
+{"a": 6370, "w": "present", "s": "present", "p": "p \u0279 \u025b z \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 6371, "w": "price", "s": "Price", "p": "p \u0279 a\u026a s", "ok_s": true, "ok_p": true}
+{"a": 6372, "w": "problem", "s": "Problem.", "p": "p \u0279 \u0251\u02d0 b l \u0259 m", "ok_s": true, "ok_p": true}
+{"a": 6373, "w": "pupil", "s": "pupil", "p": "p u\u02d0 p \u0259l", "ok_s": true, "ok_p": true}
+{"a": 6377, "w": "rain", "s": "RAIN", "p": "\u0279 e\u026a n", "ok_s": true, "ok_p": true}
+{"a": 6379, "w": "read", "s": "Read", "p": "\u0279 i\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 6383, "w": "rice", "s": "Rice", "p": "\u0279 a\u026a s", "ok_s": true, "ok_p": true}
+{"a": 6388, "w": "road", "s": "ROAD", "p": "\u0279 o\u028a d", "ok_s": true, "ok_p": true}
+{"a": 6389, "w": "room", "s": "Room", "p": "\u0279 u\u02d0 m", "ok_s": true, "ok_p": true}
+{"a": 6391, "w": "salt", "s": "salt", "p": "s \u0251\u02d0 l t", "ok_s": true, "ok_p": true}
+{"a": 6393, "w": "sea", "s": "C.", "p": "s i\u02d0", "ok_s": false, "ok_p": true, "m": "C", "ok_m": false}
+{"a": 6394, "w": "seat", "s": "Seat", "p": "s i\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 6404, "w": "she", "s": "She", "p": "s. i5", "ok_s": true, "ok_p": true}
+{"a": 6406, "w": "shoe", "s": "Shoe", "p": "y5", "ok_s": true, "ok_p": true}
+{"a": 6411, "w": "sick", "s": "SICK", "p": "s \u026a k", "ok_s": true, "ok_p": true}
+{"a": 6413, "w": "sing", "s": "sing", "p": "s \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 6418, "w": "sky", "s": "sky", "p": "s k a\u026a", "ok_s": true, "ok_p": true}
+{"a": 6419, "w": "slow", "s": "SLOW", "p": "s l o\u028a", "ok_s": true, "ok_p": true}
+{"a": 6422, "w": "some", "s": "Some", "p": "s \u028c m", "ok_s": true, "ok_p": true}
+{"a": 6428, "w": "son", "s": "Sun", "p": "s \u028c n", "ok_s": false, "ok_p": true, "m": "sun", "ok_m": false}
+{"a": 6429, "w": "song", "s": "Song", "p": "s \u0254 \u014b", "ok_s": true, "ok_p": true}
+{"a": 6430, "w": "soon", "s": "Soon.", "p": "s u\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 6453, "w": "tea", "s": "T.", "p": "th i5", "ok_s": false, "ok_p": true, "m": "T", "ok_m": false}
+{"a": 6462, "w": "thin", "s": "thin", "p": "s \u026a n", "ok_s": true, "ok_p": true}
+{"a": 6468, "w": "this", "s": "This.", "p": "\u00f0 \u026a s", "ok_s": true, "ok_p": true}
+{"a": 6478, "w": "too", "s": "2", "p": "t\u0255h y5", "ok_s": false, "ok_p": true, "m": "two", "ok_m": false}
+{"a": 6483, "w": "tree", "s": "tree", "p": "t \u0279 i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 6489, "w": "two", "s": "2", "p": "t\u0255h y5", "ok_s": false, "ok_p": true, "m": "2", "ok_m": false}
+{"a": 6496, "w": "verb", "s": "verb", "p": "v \u025c\u02d0 b", "ok_s": true, "ok_p": true}
+{"a": 6497, "w": "very", "s": "Very.", "p": "v \u025b \u0279 i", "ok_s": true, "ok_p": true}
+{"a": 6500, "w": "wait", "s": "wait", "p": "w e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 6503, "w": "walk", "s": "walk", "p": "w \u0251\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 6504, "w": "wall", "s": "Wahl", "p": "w \u02515", "ok_s": false, "ok_p": true, "m": "wall", "ok_m": true}
+{"a": 6505, "w": "want", "s": "want", "p": "w \u028c n t", "ok_s": true, "ok_p": true}
+{"a": 6507, "w": "wash", "s": "WASH", "p": "w a \u0283", "ok_s": true, "ok_p": true}
+{"a": 6511, "w": "way", "s": "way", "p": "w ei5", "ok_s": true, "ok_p": true}
+{"a": 6513, "w": "wear", "s": "Where?", "p": "w e\u026a", "ok_s": false, "ok_p": true, "m": "Where?", "ok_m": false}
+{"a": 6516, "w": "week", "s": "week", "p": "w i\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 6519, "w": "west", "s": "WEST", "p": "w \u025b s t", "ok_s": true, "ok_p": true}
+{"a": 6520, "w": "what", "s": "What?", "p": "w \u028c t", "ok_s": true, "ok_p": true}
+{"a": 6521, "w": "when", "s": "when", "p": "w \u025b n", "ok_s": true, "ok_p": true}
+{"a": 6525, "w": "why", "s": "Why?", "p": "w ai5", "ok_s": true, "ok_p": true}
+{"a": 6526, "w": "wife", "s": "Wife", "p": "w a\u026a f", "ok_s": true, "ok_p": true}
+{"a": 6528, "w": "wind", "s": "Wind", "p": "w \u026a n d", "ok_s": true, "ok_p": true}
+{"a": 6531, "w": "wine", "s": "Wine", "p": "w a\u026a n", "ok_s": true, "ok_p": true}
+{"a": 6534, "w": "with", "s": "With", "p": "w \u026a \u03b8", "ok_s": true, "ok_p": true}
+{"a": 6536, "w": "word", "s": "Word", "p": "w \u025c\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 6544, "w": "year", "s": "year", "p": "j i5", "ok_s": true, "ok_p": true}
+{"a": 6548, "w": "your", "s": "Your.", "p": "j ou5", "ok_s": true, "ok_p": true}
+{"a": 6549, "w": "zoo", "s": "", "p": "z u\u02d0", "ok_s": false, "ok_p": true, "m": "Zoo", "ok_m": true}
+{"a": 7015, "w": "all", "s": "All", "p": "\u0251\u02d0", "ok_s": true, "ok_p": true}
+{"a": 7037, "w": "bathroom", "s": "Bathroom", "p": "b \u00e6 \u03b8 \u0279 u\u02d0 m", "ok_s": true, "ok_p": true}
+{"a": 7040, "w": "beard", "s": "beard", "p": "b i\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 7042, "w": "bedroom", "s": "BEDROOM", "p": "b \u025b d \u0279 u\u02d0 m", "ok_s": true, "ok_p": true}
+{"a": 7043, "w": "beer", "s": "Beer", "p": "b i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 7044, "w": "believe", "s": "BELIEVE", "p": "b \u0259 l i\u02d0 v", "ok_s": true, "ok_p": true}
+{"a": 7045, "w": "better", "s": "Better.", "p": "b \u025b \u027e \u025a", "ok_s": true, "ok_p": true}
+{"a": 7046, "w": "bicycle", "s": "BICYCLE", "p": "b a\u026a s \u026a k \u0259l", "ok_s": true, "ok_p": true}
+{"a": 7047, "w": "big", "s": "BIG", "p": "b \u026a \u0261", "ok_s": true, "ok_p": true}
+{"a": 7049, "w": "both", "s": "Both.", "p": "b o\u028a \u03b8", "ok_s": true, "ok_p": true}
+{"a": 7053, "w": "bright", "s": "Bright", "p": "b \u0279 a\u026a t", "ok_s": true, "ok_p": true}
+{"a": 7054, "w": "bring", "s": "Bring.", "p": "b \u0279 \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 7055, "w": "buy", "s": "Bye.", "p": "b a\u026a", "ok_s": true, "ok_p": true}
+{"a": 7086, "w": "cook", "s": "Cook", "p": "k \u0254 k", "ok_s": true, "ok_p": true}
+{"a": 7096, "w": "cup", "s": "Cup", "p": "k \u0251\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 7098, "w": "date", "s": "Date", "p": "d e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 7099, "w": "dead", "s": "Dead", "p": "d \u025b d", "ok_s": true, "ok_p": true}
+{"a": 7100, "w": "dear", "s": "Dear", "p": "d i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 7103, "w": "deep", "s": "DEEP", "p": "d i\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 7108, "w": "die", "s": "Die", "p": "d a\u026a", "ok_s": true, "ok_p": true}
+{"a": 7116, "w": "doll", "s": "doll", "p": "d \u0251\u02d0 l", "ok_s": true, "ok_p": true}
+{"a": 7119, "w": "down", "s": "Down.", "p": "d a\u028a n", "ok_s": true, "ok_p": true}
+{"a": 7123, "w": "each", "s": "Each", "p": "i\u02d0 t\u0283", "ok_s": true, "ok_p": true}
+{"a": 7125, "w": "easy", "s": "Easy.", "p": "i\u02d0 z i", "ok_s": true, "ok_p": true}
+{"a": 7130, "w": "else", "s": "Else.", "p": "\u025b l s", "ok_s": true, "ok_p": true}
+{"a": 7136, "w": "ever", "s": "Ever.", "p": "\u025b v \u025a", "ok_s": true, "ok_p": true}
+{"a": 7139, "w": "exam", "s": "exam", "p": "\u025b \u0261 z \u00e6 n", "ok_s": true, "ok_p": true}
+{"a": 7151, "w": "far", "s": "FAR", "p": "f", "ok_s": true, "ok_p": true}
+{"a": 7152, "w": "feed", "s": "Feed", "p": "f i\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 7155, "w": "fill", "s": "fill", "p": "s", "ok_s": true, "ok_p": true}
+{"a": 7157, "w": "find", "s": "FIND", "p": "f a\u026a n d", "ok_s": true, "ok_p": true}
+{"a": 7159, "w": "find", "s": "FIND", "p": "f a\u026a n d", "ok_s": true, "ok_p": true}
+{"a": 7174, "w": "full", "s": "Full", "p": "f ou5", "ok_s": true, "ok_p": true}
+{"a": 7175, "w": "fun", "s": "fun", "p": "f \u028c n", "ok_s": true, "ok_p": true}
+{"a": 7176, "w": "gate", "s": "Gate", "p": "\u0261 e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 7183, "w": "give", "s": "give", "p": "\u0261 \u026a v", "ok_s": true, "ok_p": true}
+{"a": 7189, "w": "gram", "s": "GRAM", "p": "\u0261 \u0279 \u00e6 m", "ok_s": true, "ok_p": true}
+{"a": 7197, "w": "gun", "s": "gun", "p": "\u0261 \u028c n", "ok_s": true, "ok_p": true}
+{"a": 7200, "w": "hand", "s": "HAND", "p": "h \u025b n d", "ok_s": true, "ok_p": true}
+{"a": 7201, "w": "hang", "s": "HANG", "p": "h \u025b \u014b", "ok_s": true, "ok_p": true}
+{"a": 7210, "w": "hear", "s": "here", "p": "x i5", "ok_s": false, "ok_p": false, "m": "Here.", "ok_m": false}
+{"a": 7214, "w": "hill", "s": "hill", "p": "x i\u025b5", "ok_s": true, "ok_p": false, "m": "hill", "ok_m": true}
+{"a": 7216, "w": "hole", "s": "whole", "p": "x", "ok_s": false, "ok_p": false, "m": "whole", "ok_m": false}
+{"a": 7219, "w": "hope", "s": "HOPE", "p": "h o\u028a p", "ok_s": true, "ok_p": true}
+{"a": 7220, "w": "hour", "s": "Hour", "p": "a\u028a \u025a", "ok_s": true, "ok_p": false, "m": "hour", "ok_m": true}
+{"a": 7222, "w": "huge", "s": "Huge", "p": "h u\u02d0 d\u0292", "ok_s": true, "ok_p": true}
+{"a": 7226, "w": "ice", "s": "Ice", "p": "a\u026a s", "ok_s": true, "ok_p": true}
+{"a": 7242, "w": "jam", "s": "JAN", "p": "d\u0292 \u025b n", "ok_s": false, "ok_p": true, "m": "Jan", "ok_m": false}
+{"a": 7246, "w": "jump", "s": "jump", "p": "d\u0292 \u028c m p", "ok_s": true, "ok_p": true}
+{"a": 7249, "w": "keep", "s": "Keep", "p": "k i\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 7253, "w": "kill", "s": "Kill", "p": "k \u026a", "ok_s": true, "ok_p": true}
+{"a": 7255, "w": "kiss", "s": "KISS", "p": "k \u026a s", "ok_s": true, "ok_p": true}
+{"a": 7262, "w": "lazy", "s": "Lazy", "p": "l e\u026a z i", "ok_s": true, "ok_p": true}
+{"a": 7269, "w": "less", "s": "Less", "p": "l \u025b s", "ok_s": true, "ok_p": true}
+{"a": 7276, "w": "lip", "s": "lip", "p": "l \u026a p", "ok_s": true, "ok_p": true}
+{"a": 7277, "w": "list", "s": "List", "p": "l \u026a s t", "ok_s": true, "ok_p": true}
+{"a": 7283, "w": "look", "s": "Look.", "p": "l \u0254 k", "ok_s": true, "ok_p": true}
+{"a": 7292, "w": "magazine", "s": "magazine", "p": "m \u00e6 \u0261 \u0259 z i\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 7295, "w": "mark", "s": "mark", "p": "m \u0251\u02d0\u0279 k", "ok_s": true, "ok_p": true}
+{"a": 7296, "w": "market", "s": "Mark it", "p": "m \u0251\u02d0\u0279 k \u026a t", "ok_s": false, "ok_p": true, "m": "Mark it", "ok_m": false}
+{"a": 7297, "w": "married", "s": "married", "p": "m \u025b \u0279 i d", "ok_s": true, "ok_p": true}
+{"a": 7298, "w": "may", "s": "nay", "p": "m e\u026a", "ok_s": false, "ok_p": true, "m": "n\u00e9e", "ok_m": false}
+{"a": 7299, "w": "maybe", "s": "Maybe.", "p": "m e\u026a b i", "ok_s": true, "ok_p": true}
+{"a": 7301, "w": "medical", "s": "medical", "p": "m \u025b d \u026a k \u0259l", "ok_s": true, "ok_p": true}
+{"a": 7302, "w": "meeting", "s": "MEETING", "p": "m i\u02d0 \u027e \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 7303, "w": "member", "s": "Number", "p": "n \u025b m b \u025a", "ok_s": false, "ok_p": false, "m": "Remember", "ok_m": false}
+{"a": 7305, "w": "message", "s": "message", "p": "m \u025b s \u026a d\u0292", "ok_s": true, "ok_p": true}
+{"a": 7306, "w": "middle", "s": "knittle", "p": "n e r \u0254", "ok_s": false, "ok_p": false, "m": "middle", "ok_m": true}
+{"a": 7307, "w": "million", "s": "Millions.", "p": "m \u026a l \u0259 n z", "ok_s": false, "ok_p": true, "m": "millions", "ok_m": false}
+{"a": 7308, "w": "mine", "s": "MINE", "p": "m a\u026a n", "ok_s": true, "ok_p": true}
+{"a": 7309, "w": "minute", "s": "minute", "p": "m \u026a n \u026a t", "ok_s": true, "ok_p": true}
+{"a": 7311, "w": "mistake", "s": "mistake", "p": "m \u026a s t e\u026a k", "ok_s": true, "ok_p": true}
+{"a": 7314, "w": "money", "s": "money", "p": "m \u028c n i", "ok_s": true, "ok_p": true}
+{"a": 7316, "w": "mountain", "s": "mountain", "p": "m a\u028a n t \u026a n", "ok_s": true, "ok_p": true}
+{"a": 7319, "w": "Mr", "s": "mr.", "p": "m \u026a s t \u025a", "ok_s": true, "ok_p": true}
+{"a": 7320, "w": "Mrs", "s": "Missus.", "p": "m \u025b s \u1d7b z", "ok_s": true, "ok_p": true}
+{"a": 7321, "w": "much", "s": "much", "p": "m \u028c t\u0283", "ok_s": true, "ok_p": true}
+{"a": 7322, "w": "mug", "s": "Mug", "p": "m a \u0261", "ok_s": true, "ok_p": true}
+{"a": 7323, "w": "museum", "s": "Museum", "p": "m j u\u02d0 z i\u02d0 \u0259 m", "ok_s": true, "ok_p": true}
+{"a": 7324, "w": "must", "s": "Must", "p": "m \u028c s t", "ok_s": true, "ok_p": true}
+{"a": 7329, "w": "need", "s": "Need", "p": "n i\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 7332, "w": "new", "s": "New", "p": "n u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 7333, "w": "news", "s": "News.", "p": "n u\u02d0 z", "ok_s": true, "ok_p": true}
+{"a": 7336, "w": "no", "s": "No.", "p": "n o\u028a", "ok_s": true, "ok_p": true}
+{"a": 7338, "w": "none", "s": "None.", "p": "n \u028c n", "ok_s": true, "ok_p": true}
+{"a": 7339, "w": "noon", "s": "Noon", "p": "n u\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 7342, "w": "not", "s": "Not.", "p": "n \u0251\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 7352, "w": "oil", "s": "oil", "p": "\u0254\u02d0\u0279 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 7353, "w": "OK", "s": "Okay.", "p": "\u0254 k e\u026a", "ok_s": false, "ok_p": true, "m": "Okay.", "ok_m": false}
+{"a": 7355, "w": "on", "s": "On.", "p": "\u0251 n", "ok_s": true, "ok_p": true}
+{"a": 7356, "w": "once", "s": "once", "p": "w \u028c n s", "ok_s": true, "ok_p": true}
+{"a": 7360, "w": "only", "s": "Only.", "p": "o\u028a n l i", "ok_s": true, "ok_p": true}
+{"a": 7371, "w": "pack", "s": "Pack", "p": "p \u00e6 k", "ok_s": true, "ok_p": true}
+{"a": 7372, "w": "paint", "s": "Paint", "p": "p e\u026a n t", "ok_s": true, "ok_p": true}
+{"a": 7373, "w": "pair", "s": "PAIR", "p": "p e\u026a", "ok_s": true, "ok_p": true}
+{"a": 7374, "w": "part", "s": "Part", "p": "p \u0251\u02d0\u0279 t", "ok_s": true, "ok_p": true}
+{"a": 7375, "w": "part", "s": "Part", "p": "p \u0251\u02d0\u0279 t", "ok_s": true, "ok_p": true}
+{"a": 7379, "w": "perfect", "s": "Perfect.", "p": "p \u025c\u02d0 f \u025b k t", "ok_s": true, "ok_p": true}
+{"a": 7380, "w": "perhaps", "s": "Perhaps.", "p": "p \u025a h \u00e6 p s", "ok_s": true, "ok_p": true}
+{"a": 7381, "w": "person", "s": "", "p": "p \u025c\u02d0 s \u0259 n", "ok_s": false, "ok_p": true, "m": "Person", "ok_m": true}
+{"a": 7382, "w": "phone", "s": "phone", "p": "f o\u028a n", "ok_s": true, "ok_p": false, "m": "phone", "ok_m": true}
+{"a": 7383, "w": "photo", "s": "Photo", "p": "f o\u028a d o\u028a", "ok_s": true, "ok_p": false, "m": "Photo", "ok_m": true}
+{"a": 7384, "w": "pick", "s": "Pick", "p": "p \u026a k", "ok_s": true, "ok_p": true}
+{"a": 7386, "w": "picture", "s": "PICTURE", "p": "p \u026a k t\u0283 \u025a", "ok_s": true, "ok_p": true}
+{"a": 7388, "w": "pig", "s": "PIG", "p": "p e \u0261", "ok_s": true, "ok_p": true}
+{"a": 7389, "w": "pilot", "s": "Pilot", "p": "p a\u026a l \u0259 t", "ok_s": true, "ok_p": true}
+{"a": 7392, "w": "plastic", "s": "Plastic", "p": "p l \u00e6 s t \u026a k", "ok_s": true, "ok_p": true}
+{"a": 7393, "w": "platform", "s": "Platform", "p": "p l \u00e6 t f \u0254\u02d0\u0279 m", "ok_s": true, "ok_p": true}
+{"a": 7395, "w": "pleasant", "s": "Pleasant", "p": "p l \u025b z \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 7396, "w": "pocket", "s": "pocket", "p": "p \u0251\u02d0 k \u026a t", "ok_s": true, "ok_p": true}
+{"a": 7398, "w": "police", "s": "Police", "p": "p \u0259 l i\u02d0 s", "ok_s": true, "ok_p": true}
+{"a": 7400, "w": "popular", "s": "popular", "p": "p \u0251\u02d0 p j u\u02d0 l \u025a", "ok_s": true, "ok_p": true}
+{"a": 7401, "w": "possible", "s": "possible", "p": "p \u0251\u02d0 s \u026a b \u0259l", "ok_s": true, "ok_p": true}
+{"a": 7402, "w": "pour", "s": "POUR", "p": "p u5", "ok_s": true, "ok_p": true}
+{"a": 7403, "w": "practice", "s": "practice", "p": "p \u0279 \u00e6 k t \u026a s", "ok_s": true, "ok_p": true}
+{"a": 7404, "w": "prefer", "s": "PREFER", "p": "p \u0279 \u1d7b f \u025c\u02d0", "ok_s": true, "ok_p": true}
+{"a": 7405, "w": "prepare", "s": "PREPARE", "p": "p \u0279 \u1d7b p e\u026a", "ok_s": true, "ok_p": true}
+{"a": 7406, "w": "president", "s": "President", "p": "p \u0279 \u025b z \u026a d \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 7408, "w": "prize", "s": "prize", "p": "p \u0279 a\u026a z", "ok_s": true, "ok_p": true}
+{"a": 7409, "w": "probably", "s": "Probably.", "p": "p \u0279 \u028c b \u0259 b l i", "ok_s": true, "ok_p": true}
+{"a": 7411, "w": "project", "s": "project", "p": "p \u0279 \u0251\u02d0 d\u0292 \u025b k t", "ok_s": true, "ok_p": true}
+{"a": 7412, "w": "pull", "s": "Pull", "p": "p ou5", "ok_s": true, "ok_p": true}
+{"a": 7422, "w": "quiz", "s": "Quiz", "p": "k w \u026a z", "ok_s": true, "ok_p": true}
+{"a": 7443, "w": "roof", "s": "ROOF", "p": "\u0279 u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 7448, "w": "same", "s": "Same", "p": "s e\u026a m", "ok_s": true, "ok_p": true}
+{"a": 7456, "w": "sell", "s": "cell", "p": "s \u0251u5", "ok_s": false, "ok_p": true, "m": "Cell", "ok_m": false}
+{"a": 7464, "w": "sick", "s": "SICK", "p": "s \u026a k", "ok_s": true, "ok_p": true}
+{"a": 7468, "w": "size", "s": "Size", "p": "s a\u026a z", "ok_s": true, "ok_p": true}
+{"a": 7474, "w": "snow", "s": "snow", "p": "s n o\u028a", "ok_s": true, "ok_p": true}
+{"a": 7475, "w": "soap", "s": "Soap", "p": "s o\u028a p", "ok_s": true, "ok_p": true}
+{"a": 7476, "w": "sock", "s": "Sock", "p": "s \u0251\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 7479, "w": "soup", "s": "Soup", "p": "s u\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 7504, "w": "sure", "s": "Sure.", "p": "\u0283 u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 7515, "w": "tall", "s": "Tall", "p": "th \u0251u5", "ok_s": true, "ok_p": true}
+{"a": 7517, "w": "taxi", "s": "taxi", "p": "t \u00e6 k s i", "ok_s": true, "ok_p": true}
+{"a": 7539, "w": "this", "s": "This.", "p": "\u00f0 \u026a s", "ok_s": true, "ok_p": true}
+{"a": 7544, "w": "tidy", "s": "tidy", "p": "t a\u026a d i", "ok_s": true, "ok_p": true}
+{"a": 7546, "w": "till", "s": "till", "p": "th \u026a", "ok_s": true, "ok_p": true}
+{"a": 7553, "w": "town", "s": "TOWN", "p": "t a\u028a n", "ok_s": true, "ok_p": true}
+{"a": 7554, "w": "toy", "s": "toy", "p": "t o\u026a", "ok_s": true, "ok_p": true}
+{"a": 7555, "w": "true", "s": "True", "p": "t \u0279", "ok_s": true, "ok_p": true}
+{"a": 7559, "w": "twin", "s": "twin", "p": "t w \u026a n", "ok_s": true, "ok_p": true}
+{"a": 7574, "w": "walk", "s": "walk", "p": "w \u0251\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 7575, "w": "war", "s": "War", "p": "w \u0254\u02d0\u0279", "ok_s": true, "ok_p": true}
+{"a": 7578, "w": "way", "s": "way", "p": "w ei5", "ok_s": true, "ok_p": true}
+{"a": 7582, "w": "what", "s": "What?", "p": "w \u028c t", "ok_s": true, "ok_p": true}
+{"a": 7586, "w": "wide", "s": "WIDE", "p": "w a\u026a d", "ok_s": true, "ok_p": true}
+{"a": 7587, "w": "will", "s": "Will", "p": "w \u025b l", "ok_s": true, "ok_p": true}
+{"a": 7599, "w": "you", "s": "you", "p": "j y5", "ok_s": true, "ok_p": true}
+{"a": 7601, "w": "zero", "s": "Zero.", "p": "z i \u0279 o\u028a", "ok_s": true, "ok_p": true}
+{"a": 8015, "w": "age", "s": "Age", "p": "e\u026a d\u0292", "ok_s": true, "ok_p": true}
+{"a": 8051, "w": "bank", "s": "Bank", "p": "b \u025b \u014b k", "ok_s": true, "ok_p": true}
+{"a": 8053, "w": "barely", "s": "barely", "p": "b \u025b \u0279 l i", "ok_s": true, "ok_p": true}
+{"a": 8054, "w": "bargain", "s": "bargain", "p": "b \u0251\u02d0\u0279 \u0261 \u026a n", "ok_s": true, "ok_p": true}
+{"a": 8055, "w": "barrier", "s": "barrier", "p": "b \u025b \u0279 i \u025a", "ok_s": true, "ok_p": true}
+{"a": 8057, "w": "bay", "s": "They", "p": "b e\u026a", "ok_s": false, "ok_p": true, "m": "bay", "ok_m": true}
+{"a": 8066, "w": "behind", "s": "behind", "p": "b i\u02d0 h a\u026a n d", "ok_s": true, "ok_p": true}
+{"a": 8069, "w": "bell", "s": "Bell", "p": "d a\u028a", "ok_s": true, "ok_p": false, "m": "bell", "ok_m": true}
+{"a": 8070, "w": "bench", "s": "bench", "p": "d \u025b n t", "ok_s": true, "ok_p": false, "m": "bench", "ok_m": true}
+{"a": 8071, "w": "bend", "s": "BEND", "p": "b \u025b n d", "ok_s": true, "ok_p": true}
+{"a": 8072, "w": "besides", "s": "Besides.", "p": "b \u026a s a\u026a d z", "ok_s": true, "ok_p": true}
+{"a": 8073, "w": "biology", "s": "Biology", "p": "b a\u026a \u0251\u02d0 l \u0259 d\u0292 i", "ok_s": true, "ok_p": true}
+{"a": 8074, "w": "bitter", "s": "Bitter", "p": "b \u026a \u027e \u025a", "ok_s": true, "ok_p": true}
+{"a": 8078, "w": "boiled", "s": "Boiled", "p": "b o\u028a l d", "ok_s": true, "ok_p": true}
+{"a": 8079, "w": "bold", "s": "Bold", "p": "b o\u028a l d", "ok_s": true, "ok_p": true}
+{"a": 8082, "w": "brake", "s": "BREAK", "p": "b \u0279 e\u026a k", "ok_s": true, "ok_p": true}
+{"a": 8084, "w": "breast", "s": "breast", "p": "b \u0279 \u025b s t", "ok_s": true, "ok_p": true}
+{"a": 8085, "w": "breeze", "s": "Breeze", "p": "b \u0279 i\u02d0 z", "ok_s": true, "ok_p": true}
+{"a": 8086, "w": "brick", "s": "Brick", "p": "b \u0279 \u026a k", "ok_s": true, "ok_p": true}
+{"a": 8087, "w": "brilliant", "s": "Brilliant!", "p": "\u0279 \u026a l \u0259 n t", "ok_s": true, "ok_p": false, "m": "Brilliant!", "ok_m": true}
+{"a": 8088, "w": "brilliant", "s": "Brilliant!", "p": "\u0279 \u026a l \u0259 n t", "ok_s": true, "ok_p": false, "m": "Brilliant!", "ok_m": true}
+{"a": 8090, "w": "bucket", "s": "BUCKET", "p": "b \u028c k \u026a t", "ok_s": true, "ok_p": true}
+{"a": 8091, "w": "bug", "s": "BUG", "p": "b a \u0261", "ok_s": true, "ok_p": true}
+{"a": 8092, "w": "bull", "s": "bull", "p": "b o\u02d0", "ok_s": true, "ok_p": true}
+{"a": 8093, "w": "bunch", "s": "Bunch", "p": "b \u028c n t", "ok_s": true, "ok_p": true}
+{"a": 8095, "w": "bury", "s": "berry", "p": "b \u025b \u0279 i", "ok_s": true, "ok_p": true}
+{"a": 8096, "w": "butcher", "s": "Butcher", "p": "b \u028c t\u0283 \u025a", "ok_s": true, "ok_p": true}
+{"a": 8097, "w": "cab", "s": "CAB", "p": "k \u00e6 b", "ok_s": true, "ok_p": true}
+{"a": 8107, "w": "cave", "s": "Cave", "p": "k e\u026a v", "ok_s": true, "ok_p": true}
+{"a": 8140, "w": "cope", "s": "COPE", "p": "k o\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 8150, "w": "cure", "s": "CURE", "p": "k u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 8156, "w": "date", "s": "Date", "p": "d e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 8157, "w": "deaf", "s": "Deaf", "p": "d \u025b \u03b8", "ok_s": true, "ok_p": true}
+{"a": 8158, "w": "debt", "s": "Debt", "p": "d \u025b t", "ok_s": true, "ok_p": true}
+{"a": 8160, "w": "deck", "s": "Deck", "p": "d \u025b k", "ok_s": true, "ok_p": true}
+{"a": 8193, "w": "disk", "s": "DISC", "p": "d \u026a s k", "ok_s": false, "ok_p": true, "m": "Disk", "ok_m": true}
+{"a": 8203, "w": "done", "s": "Done.", "p": "d \u028c n", "ok_s": true, "ok_p": true}
+{"a": 8256, "w": "fare", "s": "FAIR", "p": "f e\u026a", "ok_s": false, "ok_p": true, "m": "Fair", "ok_m": false}
+{"a": 8268, "w": "firm", "s": "Firm", "p": "f \u025a m", "ok_s": true, "ok_p": true}
+{"a": 8273, "w": "flu", "s": "Flue", "p": "l u\u02d0", "ok_s": false, "ok_p": true, "m": "Flu", "ok_m": true}
+{"a": 8274, "w": "fly", "s": "FLY", "p": "f l a\u026a", "ok_s": true, "ok_p": true}
+{"a": 8277, "w": "fold", "s": "Fold", "p": "f o\u028a l d", "ok_s": true, "ok_p": true}
+{"a": 8278, "w": "folk", "s": "Folk", "p": "s o\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 8280, "w": "fool", "s": "Fool", "p": "f u5", "ok_s": true, "ok_p": true}
+{"a": 8298, "w": "gate", "s": "Gate", "p": "\u0261 e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 8304, "w": "get", "s": "Get", "p": "\u0261 \u025b t", "ok_s": true, "ok_p": true}
+{"a": 8318, "w": "grab", "s": "grab", "p": "\u0261 \u0279 \u00e6 b", "ok_s": true, "ok_p": true}
+{"a": 8328, "w": "heel", "s": "heal", "p": "\u0255 i5 j \u0251u5", "ok_s": false, "ok_p": false, "m": "heal", "ok_m": false}
+{"a": 8329, "w": "hell", "s": "Hell", "p": "x \u0251u5", "ok_s": true, "ok_p": false, "m": "hell", "ok_m": true}
+{"a": 8339, "w": "hunt", "s": "Hunt", "p": "h \u028c n t", "ok_s": true, "ok_p": true}
+{"a": 8341, "w": "hut", "s": "HUT", "p": "h a d", "ok_s": true, "ok_p": true}
+{"a": 8384, "w": "jam", "s": "JAN", "p": "d\u0292 \u025b n", "ok_s": false, "ok_p": true, "m": "Jan", "ok_m": false}
+{"a": 8385, "w": "jog", "s": "Jog", "p": "d\u0292 \u0251\u02d0 \u0261", "ok_s": true, "ok_p": true}
+{"a": 8388, "w": "jump", "s": "jump", "p": "d\u0292 \u028c m p", "ok_s": true, "ok_p": true}
+{"a": 8389, "w": "jury", "s": "JURY", "p": "d\u0292 \u025a \u0279 i", "ok_s": true, "ok_p": true}
+{"a": 8394, "w": "keen", "s": "Keen", "p": "k i\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 8395, "w": "keep", "s": "Keep", "p": "k i\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 8398, "w": "kit", "s": "KIT", "p": "k \u026a t", "ok_s": true, "ok_p": true}
+{"a": 8399, "w": "knit", "s": "Knit", "p": "n \u026a t", "ok_s": true, "ok_p": true}
+{"a": 8401, "w": "lack", "s": "LACK", "p": "l a k", "ok_s": true, "ok_p": true}
+{"a": 8424, "w": "load", "s": "LOAD", "p": "l o\u028a d", "ok_s": true, "ok_p": true}
+{"a": 8425, "w": "loaf", "s": "Loaf", "p": "l o\u028a", "ok_s": true, "ok_p": true}
+{"a": 8426, "w": "loan", "s": "LONE", "p": "l o\u028a n", "ok_s": false, "ok_p": true, "m": "loan", "ok_m": true}
+{"a": 8431, "w": "look", "s": "Look.", "p": "l \u0254 k", "ok_s": true, "ok_p": true}
+{"a": 8438, "w": "madam", "s": "madam", "p": "m \u00e6 d \u0259 m", "ok_s": true, "ok_p": true}
+{"a": 8439, "w": "magnificent", "s": "Magnificent.", "p": "m \u00e6 \u0261 n \u026a f \u026a s \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 8444, "w": "maker", "s": "MAKER", "p": "m e\u026a k \u025a", "ok_s": true, "ok_p": true}
+{"a": 8445, "w": "mark", "s": "mark", "p": "m \u0251\u02d0\u0279 k", "ok_s": true, "ok_p": true}
+{"a": 8446, "w": "marriage", "s": "marriage", "p": "m \u00e6 \u0279 \u026a d\u0292", "ok_s": true, "ok_p": true}
+{"a": 8447, "w": "marvelous", "s": "Marvelous.", "p": "m \u0251\u02d0\u0279 v \u1d7b l \u0259 s", "ok_s": true, "ok_p": true}
+{"a": 8448, "w": "mask", "s": "M.A.S.K.", "p": "m \u00e6 s k", "ok_s": true, "ok_p": true}
+{"a": 8449, "w": "mate", "s": "mate", "p": "m e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 8451, "w": "mayor", "s": "Mayor", "p": "m e\u026a \u025a", "ok_s": true, "ok_p": true}
+{"a": 8453, "w": "means", "s": "means", "p": "m i\u02d0 n z", "ok_s": true, "ok_p": true}
+{"a": 8455, "w": "melt", "s": "Melt", "p": "n \u025b l t", "ok_s": true, "ok_p": false, "m": "melt", "ok_m": true}
+{"a": 8456, "w": "membership", "s": "Membership", "p": "m \u025b m b \u025a \u0283 \u026a p", "ok_s": true, "ok_p": true}
+{"a": 8457, "w": "mend", "s": "MEND", "p": "m \u025b n d", "ok_s": true, "ok_p": true}
+{"a": 8458, "w": "mention", "s": "MENTION", "p": "m \u025b n \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 8459, "w": "mess", "s": "Mess", "p": "m a s", "ok_s": true, "ok_p": true}
+{"a": 8460, "w": "message", "s": "MESSAGE", "p": "m \u025b s \u026a d\u0292", "ok_s": true, "ok_p": true}
+{"a": 8465, "w": "misunderstand", "s": "Misunderstand", "p": "m \u026a s \u028c n d \u025a s t \u00e6 n d", "ok_s": true, "ok_p": true}
+{"a": 8467, "w": "mixture", "s": "mixture", "p": "m \u026a k s t\u0283 \u025a", "ok_s": true, "ok_p": true}
+{"a": 8468, "w": "modest", "s": "Modest", "p": "m \u0251\u02d0 d \u026a s t", "ok_s": true, "ok_p": true}
+{"a": 8469, "w": "monster", "s": "monster", "p": "m \u0251\u02d0 n s t \u025a", "ok_s": true, "ok_p": true}
+{"a": 8470, "w": "monthly", "s": "monthly", "p": "m \u028c n \u03b8 l i", "ok_s": true, "ok_p": true}
+{"a": 8471, "w": "mood", "s": "Mood", "p": "m u\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 8472, "w": "moral", "s": "moral", "p": "m \u0254\u02d0\u0279 \u0279 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 8474, "w": "must", "s": "Must", "p": "m \u028c s t", "ok_s": true, "ok_p": true}
+{"a": 8475, "w": "mystery", "s": "mystery", "p": "m \u026a s t \u025a \u0279 i", "ok_s": true, "ok_p": true}
+{"a": 8483, "w": "navy", "s": "Navy", "p": "n e\u026a v i", "ok_s": true, "ok_p": true}
+{"a": 8484, "w": "neat", "s": "Neat", "p": "n i\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 8497, "w": "nut", "s": "nut", "p": "n \u0251\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 8505, "w": "oil", "s": "oil", "p": "\u0254\u02d0\u0279 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 8512, "w": "once", "s": "once", "p": "w \u028c n s", "ok_s": true, "ok_p": true}
+{"a": 8524, "w": "pace", "s": "P.A.C.E", "p": "p e\u026a s", "ok_s": true, "ok_p": true}
+{"a": 8525, "w": "pack", "s": "PAC", "p": "p \u00e6 k", "ok_s": false, "ok_p": true, "m": "Pack", "ok_m": true}
+{"a": 8526, "w": "painful", "s": "painful", "p": "p e\u026a n f \u0259l", "ok_s": true, "ok_p": true}
+{"a": 8527, "w": "pale", "s": "pale", "p": "p e\u026a", "ok_s": true, "ok_p": true}
+{"a": 8528, "w": "participate", "s": "Participate.", "p": "p \u0251\u02d0\u0279 t \u026a s \u026a p e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 8529, "w": "particular", "s": "Particular", "p": "p \u025a t \u026a k j u\u02d0 l \u025a", "ok_s": true, "ok_p": true}
+{"a": 8532, "w": "passage", "s": "PASSAGE", "p": "p \u00e6 s \u026a d\u0292", "ok_s": true, "ok_p": true}
+{"a": 8533, "w": "past", "s": "PAST", "p": "p \u00e6 s t", "ok_s": true, "ok_p": true}
+{"a": 8535, "w": "pause", "s": "Pause", "p": "p \u0251\u02d0 z", "ok_s": true, "ok_p": true}
+{"a": 8536, "w": "pavement", "s": "Pavement", "p": "p e\u026a v m \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 8537, "w": "peaceful", "s": "Peaceful", "p": "p i\u02d0 s f \u0259l", "ok_s": true, "ok_p": true}
+{"a": 8538, "w": "peak", "s": "Peek", "p": "p i\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 8539, "w": "peculiar", "s": "Peculiar", "p": "p \u0259 k u\u02d0 l \u025a", "ok_s": true, "ok_p": true}
+{"a": 8540, "w": "penalty", "s": "Penalty", "p": "p \u025b n \u0259l l t i", "ok_s": true, "ok_p": true}
+{"a": 8542, "w": "personality", "s": "Personality", "p": "p \u025c\u02d0 s \u0259 n \u00e6 l \u1d7b \u027e i", "ok_s": true, "ok_p": true}
+{"a": 8543, "w": "personally", "s": "Personally.", "p": "p \u025c\u02d0 s \u0259 n \u0259l l i", "ok_s": true, "ok_p": true}
+{"a": 8544, "w": "pill", "s": "Pill", "p": "th i\u025b5", "ok_s": true, "ok_p": false, "m": "pill", "ok_m": true}
+{"a": 8545, "w": "pin", "s": "pin", "p": "p \u026a n", "ok_s": true, "ok_p": true}
+{"a": 8546, "w": "pity", "s": "Pity", "p": "p \u026a \u027e i", "ok_s": true, "ok_p": true}
+{"a": 8548, "w": "planet", "s": "PLANET", "p": "p l \u00e6 n \u026a t", "ok_s": true, "ok_p": true}
+{"a": 8549, "w": "planning", "s": "Planning", "p": "p l \u00e6 n \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 8550, "w": "plant", "s": "plant", "p": "p l \u00e6 n t", "ok_s": true, "ok_p": true}
+{"a": 8551, "w": "plot", "s": "PLOT", "p": "p l \u0251\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 8555, "w": "policy", "s": "Policy", "p": "p \u0251\u02d0 l \u0259 s i", "ok_s": true, "ok_p": true}
+{"a": 8556, "w": "pollution", "s": "Pollution", "p": "p \u0259 l u\u02d0 \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 8557, "w": "popular", "s": "popular", "p": "p \u0251\u02d0 p j u\u02d0 l \u025a", "ok_s": true, "ok_p": true}
+{"a": 8558, "w": "population", "s": "population", "p": "p \u0251\u02d0 p j u\u02d0 l e\u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 8562, "w": "pour", "s": "POUR", "p": "p u5", "ok_s": true, "ok_p": true}
+{"a": 8563, "w": "powder", "s": "Powder", "p": "p a\u028a d \u025a", "ok_s": true, "ok_p": true}
+{"a": 8564, "w": "pray", "s": "Pray", "p": "p \u0279 e\u026a", "ok_s": true, "ok_p": true}
+{"a": 8565, "w": "preference", "s": "Preference", "p": "p \u0279 \u025b f \u0279 \u0259 n s", "ok_s": true, "ok_p": true}
+{"a": 8566, "w": "pregnant", "s": "Pregnant", "p": "p \u0279 \u025b \u0261 n \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 8567, "w": "preposition", "s": "preposition", "p": "p \u0279 \u0251\u02d0 p \u0259 z \u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 8569, "w": "pressure", "s": "Pressure", "p": "p \u0279 \u025b \u0283 \u025a", "ok_s": true, "ok_p": true}
+{"a": 8570, "w": "prevent", "s": "PREVENT", "p": "p \u0279 \u026a v \u025b n t", "ok_s": true, "ok_p": true}
+{"a": 8571, "w": "pride", "s": "Pride", "p": "p \u0279 a\u026a d", "ok_s": true, "ok_p": true}
+{"a": 8572, "w": "priest", "s": "Priest", "p": "p \u0279 i\u02d0 s t", "ok_s": true, "ok_p": true}
+{"a": 8573, "w": "prime", "s": "Prime.", "p": "p \u0279 a\u026a m", "ok_s": true, "ok_p": true}
+{"a": 8574, "w": "principal", "s": "PRINCIPLE", "p": "p \u0279 \u026a n s \u026a p \u0259l", "ok_s": false, "ok_p": true, "m": "principle", "ok_m": false}
+{"a": 8575, "w": "priority", "s": "Priority", "p": "p \u0279 a\u026a \u0254\u02d0\u0279 \u0279 \u026a \u027e i", "ok_s": true, "ok_p": true}
+{"a": 8577, "w": "probable", "s": "probable", "p": "p \u0279 \u0251\u02d0 b \u0259 b \u0259l", "ok_s": true, "ok_p": true}
+{"a": 8579, "w": "profession", "s": "PROFESSION", "p": "p \u0279 \u0259 f \u025b \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 8580, "w": "professor", "s": "Professor", "p": "p \u0279 \u0259 f \u025b s \u025a", "ok_s": true, "ok_p": true}
+{"a": 8581, "w": "promote", "s": "PROMOTE", "p": "p \u0279 \u0259 m o\u028a t", "ok_s": true, "ok_p": true}
+{"a": 8582, "w": "proof", "s": "PROOF", "p": "p \u0279 u\u02d0 f", "ok_s": true, "ok_p": true}
+{"a": 8583, "w": "propose", "s": "PROPOSE", "p": "p \u0279 \u0259 p o\u028a z", "ok_s": true, "ok_p": true}
+{"a": 8584, "w": "proposed", "s": "Proposed.", "p": "p \u0279 \u0259 p o\u028a z d", "ok_s": true, "ok_p": true}
+{"a": 8585, "w": "protest", "s": "Protest", "p": "p \u0279 o\u028a t \u025b s t", "ok_s": true, "ok_p": true}
+{"a": 8587, "w": "psychology", "s": "Psychology", "p": "s a\u026a k \u0251\u02d0 l \u0259 d\u0292 i", "ok_s": true, "ok_p": false, "m": "Psychology", "ok_m": true}
+{"a": 8589, "w": "pump", "s": "PUMP", "p": "p \u028c m p", "ok_s": true, "ok_p": true}
+{"a": 8590, "w": "punish", "s": "Punish", "p": "p \u028c n \u026a \u0283", "ok_s": true, "ok_p": true}
+{"a": 8599, "w": "quit", "s": "Quit", "p": "k w \u026a t", "ok_s": true, "ok_p": true}
+{"a": 8604, "w": "raw", "s": "raw", "p": "\u0279 \u0251u5", "ok_s": true, "ok_p": true}
+{"a": 8642, "w": "risk", "s": "Risk", "p": "\u0279 \u026a s k", "ok_s": true, "ok_p": true}
+{"a": 8643, "w": "rob", "s": "Rob", "p": "\u0279 \u0251\u02d0 b", "ok_s": true, "ok_p": true}
+{"a": 8646, "w": "room", "s": "Room", "p": "\u0279 u\u02d0 m", "ok_s": true, "ok_p": true}
+{"a": 8647, "w": "rope", "s": "ROPE", "p": "\u0279 o\u028a p", "ok_s": true, "ok_p": true}
+{"a": 8652, "w": "rude", "s": "Rude", "p": "\u0279 u\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 8653, "w": "rule", "s": "Rule", "p": "\u0279 u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 8654, "w": "rule", "s": "Rule", "p": "\u0279 u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 8655, "w": "run", "s": "Run.", "p": "\u0279 \u028c n", "ok_s": true, "ok_p": true}
+{"a": 8658, "w": "rush", "s": "Rush", "p": "\u0279 a", "ok_s": true, "ok_p": true}
+{"a": 8693, "w": "sigh", "s": "Sigh", "p": "s a\u026a", "ok_s": true, "ok_p": true}
+{"a": 8697, "w": "silk", "s": "Silk", "p": "s \u026a l k", "ok_s": true, "ok_p": true}
+{"a": 8705, "w": "slip", "s": "SLIP", "p": "s l \u026a p", "ok_s": true, "ok_p": true}
+{"a": 8715, "w": "sore", "s": "Soar", "p": "s o\u028a", "ok_s": false, "ok_p": true, "m": "Soar", "ok_m": false}
+{"a": 8731, "w": "spy", "s": "Spy", "p": "s p a\u026a", "ok_s": true, "ok_p": true}
+{"a": 8774, "w": "tail", "s": "tail", "p": "t e\u026a", "ok_s": true, "ok_p": true}
+{"a": 8786, "w": "tap", "s": "Tap", "p": "t \u0251\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 8826, "w": "tube", "s": "tube", "p": "t u\u02d0 b", "ok_s": true, "ok_p": true}
+{"a": 8833, "w": "undo", "s": "Undo", "p": "\u028c n d u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 8852, "w": "van", "s": "Van", "p": "v \u025b n", "ok_s": true, "ok_p": true}
+{"a": 8853, "w": "vary", "s": "Very", "p": "v \u025b \u0279 i", "ok_s": false, "ok_p": true, "m": "Very.", "ok_m": false}
+{"a": 8855, "w": "via", "s": "via", "p": "\u00f0 i", "ok_s": true, "ok_p": true}
+{"a": 8857, "w": "view", "s": "View", "p": "v i", "ok_s": true, "ok_p": true}
+{"a": 8870, "w": "web", "s": "Web", "p": "w \u025b b", "ok_s": true, "ok_p": true}
+{"a": 8878, "w": "whom", "s": "Whom.", "p": "h u\u02d0 m", "ok_s": true, "ok_p": true}
+{"a": 8880, "w": "will", "s": "Will", "p": "w \u025b l", "ok_s": true, "ok_p": true}
+{"a": 8881, "w": "wise", "s": "WISE", "p": "w a\u026a z", "ok_s": true, "ok_p": true}
+{"a": 9021, "w": "arms", "s": "arms", "p": "\u0251\u02d0\u0279 m z", "ok_s": true, "ok_p": true}
+{"a": 9048, "w": "backup", "s": "Backup", "p": "b \u00e6 k \u028c p", "ok_s": true, "ok_p": true}
+{"a": 9050, "w": "ban", "s": "BAN", "p": "b \u00e6 n", "ok_s": true, "ok_p": true}
+{"a": 9051, "w": "bare", "s": "There.", "p": "\u00f0 e\u026a", "ok_s": false, "ok_p": false, "m": "There.", "ok_m": false}
+{"a": 9052, "w": "basement", "s": "Basement", "p": "b e\u026a s m \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 9089, "w": "beforehand", "s": "Beforehand", "p": "b \u1d7b f \u0254\u02d0\u0279 h \u00e6 n d", "ok_s": true, "ok_p": true}
+{"a": 9090, "w": "beg", "s": "Beg", "p": "v \u025b \u0261", "ok_s": true, "ok_p": false, "m": "beg", "ok_m": true}
+{"a": 9091, "w": "belongings", "s": "Belongings", "p": "b \u1d7b l \u0251\u02d0 \u014b \u026a \u014b z", "ok_s": true, "ok_p": true}
+{"a": 9096, "w": "bold", "s": "Bold", "p": "b o\u028a l d", "ok_s": true, "ok_p": true}
+{"a": 9097, "w": "bond", "s": "BOND", "p": "b \u0251\u02d0 n d", "ok_s": true, "ok_p": true}
+{"a": 9098, "w": "bonus", "s": "BONUS", "p": "b o\u028a n \u0259 s", "ok_s": true, "ok_p": true}
+{"a": 9099, "w": "booklet", "s": "booklet", "p": "b \u028a k l \u026a t", "ok_s": true, "ok_p": true}
+{"a": 9100, "w": "boost", "s": "Boost", "p": "b u\u02d0 s t", "ok_s": true, "ok_p": true}
+{"a": 9102, "w": "bounce", "s": "BOUNCE", "p": "b a\u028a n s", "ok_s": true, "ok_p": true}
+{"a": 9103, "w": "bow", "s": "Bow.", "p": "b a\u028a", "ok_s": true, "ok_p": true}
+{"a": 9104, "w": "brand", "s": "Brand", "p": "b \u0279 \u00e6 n d", "ok_s": true, "ok_p": true}
+{"a": 9110, "w": "bright", "s": "Bright", "p": "b \u0279 a\u026a t", "ok_s": true, "ok_p": true}
+{"a": 9113, "w": "browse", "s": "Browse", "p": "b \u0279 a\u028a z", "ok_s": true, "ok_p": true}
+{"a": 9114, "w": "bullet", "s": "BULLET", "p": "b \u028c l \u026a t", "ok_s": true, "ok_p": true}
+{"a": 9118, "w": "burst", "s": "Burst.", "p": "b \u025c\u02d0 s t", "ok_s": true, "ok_p": true}
+{"a": 9119, "w": "bush", "s": "Bush", "p": "b \u0254 \u0283", "ok_s": true, "ok_p": true}
+{"a": 9137, "w": "cell", "s": "cell", "p": "s \u0251u5", "ok_s": true, "ok_p": true}
+{"a": 9148, "w": "chew", "s": "2", "p": "t\u0255h y5", "ok_s": false, "ok_p": true, "m": "2.", "ok_m": false}
+{"a": 9150, "w": "chop", "s": "CHOP", "p": "t\u0283 \u0251 p", "ok_s": true, "ok_p": true}
+{"a": 9152, "w": "cite", "s": "Sight", "p": "s a\u026a t", "ok_s": false, "ok_p": true, "m": "site", "ok_m": false}
+{"a": 9160, "w": "clip", "s": "", "p": "k l \u026a p", "ok_s": false, "ok_p": true, "m": "Clip.", "ok_m": true}
+{"a": 9163, "w": "clue", "s": "Clue", "p": "k l u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 9164, "w": "coal", "s": "Coal", "p": "kh ou5", "ok_s": true, "ok_p": true}
+{"a": 9222, "w": "cute", "s": "cute", "p": "k u\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 9225, "w": "damp", "s": "DAMP", "p": "d \u00e6 m p", "ok_s": true, "ok_p": true}
+{"a": 9226, "w": "dare", "s": "DARE", "p": "d e\u026a", "ok_s": true, "ok_p": true}
+{"a": 9229, "w": "dash", "s": "dash", "p": "d \u00e6 \u0283", "ok_s": true, "ok_p": true}
+{"a": 9231, "w": "dawn", "s": "Dawn", "p": "d \u0251 n", "ok_s": true, "ok_p": true}
+{"a": 9239, "w": "deep", "s": "Deep", "p": "d i\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 9240, "w": "deep", "s": "Deep", "p": "d i\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 9241, "w": "deer", "s": "deer", "p": "d i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 9278, "w": "dose", "s": "Dose", "p": "d o\u028a s", "ok_s": true, "ok_p": true}
+{"a": 9280, "w": "drag", "s": "drag", "p": "d \u0279 \u00e6 \u0261", "ok_s": true, "ok_p": true}
+{"a": 9288, "w": "dull", "s": "Dull", "p": "d \u028c l", "ok_s": true, "ok_p": true}
+{"a": 9289, "w": "dumb", "s": "Dumb.", "p": "d \u028c m", "ok_s": true, "ok_p": true}
+{"a": 9295, "w": "ease", "s": "ease", "p": "i z", "ok_s": true, "ok_p": true}
+{"a": 9297, "w": "edit", "s": "Edit", "p": "\u025b d \u026a t", "ok_s": true, "ok_p": true}
+{"a": 9311, "w": "envy", "s": "Envy", "p": "\u025b n v i", "ok_s": true, "ok_p": true}
+{"a": 9313, "w": "era", "s": "era", "p": "\u025b \u0279 \u028c", "ok_s": true, "ok_p": true}
+{"a": 9319, "w": "evil", "s": "Evil", "p": "i\u02d0 v \u0259l", "ok_s": true, "ok_p": true}
+{"a": 9341, "w": "fade", "s": "Fade", "p": "f e\u026a d", "ok_s": true, "ok_p": true}
+{"a": 9350, "w": "fame", "s": "Fame.", "p": "f e\u026a m", "ok_s": true, "ok_p": true}
+{"a": 9354, "w": "fat", "s": "fat", "p": "f \u00e6 t", "ok_s": true, "ok_p": true}
+{"a": 9355, "w": "fate", "s": "Fate", "p": "f e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 9375, "w": "flip", "s": "FLIP", "p": "l \u026a p", "ok_s": true, "ok_p": true}
+{"a": 9377, "w": "FOMO", "s": "FOMO", "p": "s o m o", "ok_s": true, "ok_p": true}
+{"a": 9386, "w": "fork", "s": "Fork.", "p": "f o\u02d0\u0279 k", "ok_s": true, "ok_p": true}
+{"a": 9392, "w": "fox", "s": "FOX", "p": "f \u0251\u02d0 k s", "ok_s": true, "ok_p": true}
+{"a": 9403, "w": "gang", "s": "GANG", "p": "\u0261 \u025b \u014b", "ok_s": true, "ok_p": true}
+{"a": 9409, "w": "get", "s": "Get", "p": "\u0261 \u025b t", "ok_s": true, "ok_p": true}
+{"a": 9420, "w": "glue", "s": "Glue", "p": "\u0261 l u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 9425, "w": "good", "s": "Good.", "p": "\u0261 \u028c d", "ok_s": true, "ok_p": true}
+{"a": 9432, "w": "grip", "s": "grip", "p": "\u0261 \u0279 \u026a p", "ok_s": true, "ok_p": true}
+{"a": 9438, "w": "hack", "s": "HACK", "p": "h a k", "ok_s": true, "ok_p": true}
+{"a": 9444, "w": "harm", "s": "HARM", "p": "h \u0251\u02d0\u0279 m", "ok_s": true, "ok_p": true}
+{"a": 9450, "w": "heal", "s": "heal", "p": "\u0255 i5 j iou2", "ok_s": true, "ok_p": false, "m": "heal", "ok_m": true}
+{"a": 9452, "w": "help", "s": "Help", "p": "h \u025b l p", "ok_s": true, "ok_p": true}
+{"a": 9453, "w": "herb", "s": "herb", "p": "\u025c\u02d0 b", "ok_s": true, "ok_p": false, "m": "herb", "ok_m": true}
+{"a": 9459, "w": "hint", "s": "Hint", "p": "h \u026a n t", "ok_s": true, "ok_p": true}
+{"a": 9460, "w": "hip", "s": "hip", "p": "h \u00f8 p", "ok_s": true, "ok_p": true}
+{"a": 9463, "w": "hook", "s": "Hook", "p": "h \u0254 k", "ok_s": true, "ok_p": true}
+{"a": 9464, "w": "host", "s": "Host", "p": "h o\u028a s t", "ok_s": true, "ok_p": true}
+{"a": 9467, "w": "hunt", "s": "Hunt", "p": "h \u028c n t", "ok_s": true, "ok_p": true}
+{"a": 9549, "w": "jaw", "s": "jaw", "p": "t\u0255 \u0251u5", "ok_s": true, "ok_p": true}
+{"a": 9570, "w": "lamb", "s": "LAM", "p": "l \u00e6 m", "ok_s": false, "ok_p": true, "m": "lamb", "ok_m": true}
+{"a": 9572, "w": "lane", "s": "Lane", "p": "l e\u026a n", "ok_s": true, "ok_p": true}
+{"a": 9573, "w": "lap", "s": "LAP", "p": "l a p", "ok_s": true, "ok_p": true}
+{"a": 9584, "w": "leak", "s": "LEAK", "p": "l i\u02d0 k", "ok_s": true, "ok_p": true}
+{"a": 9597, "w": "load", "s": "LOAD", "p": "l o\u028a d", "ok_s": true, "ok_p": true}
+{"a": 9610, "w": "lung", "s": "LUNG", "p": "l a \u014b", "ok_s": true, "ok_p": true}
+{"a": 9613, "w": "magnetic", "s": "magnetic", "p": "n \u028c \u0261 n \u025b r \u026a k", "ok_s": true, "ok_p": false, "m": "Magnetic", "ok_m": true}
+{"a": 9614, "w": "maintain", "s": "Maintain", "p": "m e\u026a n t e\u026a n", "ok_s": true, "ok_p": true}
+{"a": 9626, "w": "manipulate", "s": "manipulate", "p": "m \u0259 n \u026a p j u\u02d0 l e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 9627, "w": "manner", "s": "MANNER", "p": "m \u00e6 n \u025a", "ok_s": true, "ok_p": true}
+{"a": 9628, "w": "manner", "s": "MANNER", "p": "m \u00e6 n \u025a", "ok_s": true, "ok_p": true}
+{"a": 9629, "w": "manners", "s": "MANNERS", "p": "m \u00e6 n \u025a z", "ok_s": true, "ok_p": true}
+{"a": 9630, "w": "manufacture", "s": "MANUFACTURE", "p": "m \u00e6 n j u\u02d0 f \u00e6 k t\u0283 \u025a", "ok_s": true, "ok_p": true}
+{"a": 9631, "w": "march", "s": "March", "p": "m \u0251\u02d0\u0279 t\u0283", "ok_s": true, "ok_p": true}
+{"a": 9632, "w": "march", "s": "March.", "p": "m \u0251\u02d0\u0279 t\u0283", "ok_s": true, "ok_p": true}
+{"a": 9633, "w": "mark", "s": "mark", "p": "m \u0251\u02d0\u0279 k", "ok_s": true, "ok_p": true}
+{"a": 9634, "w": "marketing", "s": "Marketing", "p": "m \u0251\u02d0\u0279 k \u026a \u027e \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 9635, "w": "massive", "s": "Massive.", "p": "m \u00e6 s \u026a v", "ok_s": true, "ok_p": true}
+{"a": 9638, "w": "mature", "s": "Mature", "p": "m \u0259 t\u0283 u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 9640, "w": "measurement", "s": "Measurement", "p": "m \u025b \u0292 \u025a m \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 9641, "w": "mental", "s": "mental", "p": "m \u025b n t \u0259l", "ok_s": true, "ok_p": true}
+{"a": 9642, "w": "mild", "s": "Mild", "p": "m a\u026a d", "ok_s": true, "ok_p": true}
+{"a": 9643, "w": "mine", "s": "MINE", "p": "m a\u026a n", "ok_s": true, "ok_p": true}
+{"a": 9644, "w": "minimize", "s": "Minimize", "p": "m \u026a n \u0259 m a\u026a z", "ok_s": true, "ok_p": true}
+{"a": 9645, "w": "minority", "s": "minority", "p": "m a\u026a n \u0254\u02d0\u0279 \u0279 \u1d7b \u027e i", "ok_s": true, "ok_p": true}
+{"a": 9646, "w": "miracle", "s": "miracle", "p": "m \u026a \u0279 \u026a k \u0259l", "ok_s": true, "ok_p": true}
+{"a": 9647, "w": "mission", "s": "Mission", "p": "m \u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 9650, "w": "modest", "s": "Modest", "p": "m \u0251\u02d0 d \u026a s t", "ok_s": true, "ok_p": true}
+{"a": 9651, "w": "monument", "s": "Monument", "p": "m \u0251\u02d0 n u\u02d0 m \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 9654, "w": "moreover", "s": "Moreover...", "p": "m \u0254\u02d0\u0279 \u0279 o\u028a v \u025a", "ok_s": true, "ok_p": true}
+{"a": 9655, "w": "motive", "s": "Motive", "p": "m o\u028a \u027e \u026a v", "ok_s": true, "ok_p": true}
+{"a": 9656, "w": "movement", "s": "MOVEMENT", "p": "m u\u02d0 v m \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 9657, "w": "moving", "s": "MOVING", "p": "m u\u02d0 v \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 9658, "w": "mud", "s": "MUD", "p": "m \u028c d", "ok_s": true, "ok_p": true}
+{"a": 9659, "w": "mutual", "s": "Mutual", "p": "m u\u02d0 t\u0283 u\u02d0 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 9660, "w": "nail", "s": "Nail", "p": "n e\u026a l", "ok_s": true, "ok_p": true}
+{"a": 9661, "w": "nail", "s": "Nail", "p": "n e\u026a l", "ok_s": true, "ok_p": true}
+{"a": 9665, "w": "need", "s": "Need", "p": "n i\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 9677, "w": "nod", "s": "Nod", "p": "n \u0251\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 9699, "w": "omit", "s": "Omit", "p": "o\u028a m \u026a t", "ok_s": true, "ok_p": true}
+{"a": 9717, "w": "oral", "s": "oral", "p": "o\u028a \u0279 o\u028a", "ok_s": true, "ok_p": true}
+{"a": 9731, "w": "owl", "s": "owl", "p": "\u0251u5 w o\u025c", "ok_s": true, "ok_p": true}
+{"a": 9734, "w": "panic", "s": "Panic!", "p": "p \u00e6 n \u026a k", "ok_s": true, "ok_p": true}
+{"a": 9735, "w": "papers", "s": "Papers", "p": "p e\u026a p \u025a z", "ok_s": true, "ok_p": true}
+{"a": 9736, "w": "parade", "s": "parade", "p": "p \u025a \u0279 e\u026a d", "ok_s": true, "ok_p": true}
+{"a": 9737, "w": "pardon", "s": "Pardon.", "p": "p \u0251\u02d0\u0279 d \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 9738, "w": "partial", "s": "partial", "p": "p \u0251\u02d0\u0279 \u0283 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 9744, "w": "passion", "s": "Passion", "p": "p \u00e6 \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 9748, "w": "pedestrian", "s": "Pedestrian", "p": "p \u0259 d \u025b s t \u0279 i \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 9749, "w": "peel", "s": "Peel", "p": "i5 iou2", "ok_s": true, "ok_p": false, "m": "Peel.", "ok_m": true}
+{"a": 9750, "w": "peer", "s": "peer", "p": "i5", "ok_s": true, "ok_p": false, "m": "peer", "ok_m": true}
+{"a": 9751, "w": "perspective", "s": "Perspective", "p": "p \u025a s p \u025b k t \u026a v", "ok_s": true, "ok_p": true}
+{"a": 9752, "w": "pharmacy", "s": "Pharmacy", "p": "f \u0251\u02d0\u0279 m \u0259 s i", "ok_s": true, "ok_p": false, "m": "Pharmacy", "ok_m": true}
+{"a": 9753, "w": "phase", "s": "Phase", "p": "f e\u026a z", "ok_s": true, "ok_p": false, "m": "Phase", "ok_m": true}
+{"a": 9754, "w": "phenomenon", "s": "Phenomenon", "p": "f \u026a n \u0251\u02d0 m \u026a n \u0251\u02d0 n", "ok_s": true, "ok_p": false, "m": "Phenomenon.", "ok_m": true}
+{"a": 9755, "w": "philosophy", "s": "Philosophy", "p": "f \u026a l \u0251\u02d0 s \u0259 f i", "ok_s": true, "ok_p": false, "m": "Philosophy", "ok_m": true}
+{"a": 9758, "w": "picture", "s": "PICTURE", "p": "p \u026a k t\u0283 \u025a", "ok_s": true, "ok_p": true}
+{"a": 9763, "w": "poison", "s": "Poison", "p": "p o\u026a z \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 9764, "w": "pond", "s": "Pond", "p": "p \u0251\u02d0 n d", "ok_s": true, "ok_p": true}
+{"a": 9765, "w": "pope", "s": "Pope", "p": "p o\u028a p", "ok_s": true, "ok_p": true}
+{"a": 9766, "w": "popularity", "s": "Popularity", "p": "p \u0251\u02d0 p j u\u02d0 l \u00e6 \u0279 \u1d7b \u027e i", "ok_s": true, "ok_p": true}
+{"a": 9767, "w": "portion", "s": "portion", "p": "p \u0254\u02d0\u0279 \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 9768, "w": "portrait", "s": "Portrait", "p": "p \u0254\u02d0\u0279 t \u0279 \u0259 t", "ok_s": true, "ok_p": true}
+{"a": 9771, "w": "possession", "s": "Possession", "p": "p \u0259 z \u025b \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 9772, "w": "poverty", "s": "Poverty", "p": "p \u0251\u02d0 v \u025a \u027e i", "ok_s": true, "ok_p": true}
+{"a": 9773, "w": "practically", "s": "Practically", "p": "p \u0279 \u00e6 k t \u026a k l i", "ok_s": true, "ok_p": true}
+{"a": 9774, "w": "praise", "s": "Praise", "p": "p \u0279 e\u026a z", "ok_s": true, "ok_p": true}
+{"a": 9775, "w": "precious", "s": "precious", "p": "p \u0279 \u025b \u0259 s", "ok_s": true, "ok_p": true}
+{"a": 9776, "w": "precise", "s": "precise", "p": "p \u0279 \u1d7b s a\u026a s", "ok_s": true, "ok_p": true}
+{"a": 9777, "w": "predict", "s": "PREDICT", "p": "p \u0279 \u0259 d \u026a k t", "ok_s": true, "ok_p": true}
+{"a": 9778, "w": "prejudice", "s": "Prejudice", "p": "p \u0279 \u025b d\u0292 \u1d7b d \u026a s", "ok_s": true, "ok_p": true}
+{"a": 9779, "w": "preliminary", "s": "Preliminary", "p": "\u0279 \u026a l \u026a m \u026a n \u025b \u0279 i", "ok_s": true, "ok_p": false, "m": "Preliminary.", "ok_m": true}
+{"a": 9780, "w": "prescription", "s": "Prescription", "p": "p \u0279 \u026a s k \u0279 \u026a p \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 9782, "w": "presentation", "s": "Presentation", "p": "p \u0279 \u025b z \u026a n t e\u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 9783, "w": "preserve", "s": "Preserve", "p": "p \u0279 \u026a z \u025a v", "ok_s": true, "ok_p": true}
+{"a": 9784, "w": "presidential", "s": "Presidential.", "p": "p \u0279 \u025b z \u026a d \u025b n \u0283 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 9785, "w": "presumably", "s": "presumably.", "p": "p \u0279 \u1d7b z u\u02d0 m \u0259 b l i", "ok_s": true, "ok_p": true}
+{"a": 9786, "w": "pretend", "s": "Pretend", "p": "p \u0279 \u026a t \u025b n d", "ok_s": true, "ok_p": true}
+{"a": 9788, "w": "primarily", "s": "Primarily.", "p": "p \u0279 a\u026a m \u025b \u0279 \u1d7b l i", "ok_s": true, "ok_p": true}
+{"a": 9789, "w": "primitive", "s": "Primitive", "p": "p \u0279 \u026a m \u026a \u027e \u026a v", "ok_s": true, "ok_p": true}
+{"a": 9790, "w": "principle", "s": "PRINCIPLE", "p": "\u0279 \u026a n s \u026a p \u0259l", "ok_s": true, "ok_p": false, "m": "principle", "ok_m": true}
+{"a": 9791, "w": "prior", "s": "prior", "p": "p \u0279 e\u026a \u025a", "ok_s": true, "ok_p": true}
+{"a": 9792, "w": "probability", "s": "Probability", "p": "p \u0279 \u028c b \u0259 b \u026a l \u1d7b \u027e i", "ok_s": true, "ok_p": true}
+{"a": 9793, "w": "procedure", "s": "Procedure", "p": "p \u0279 \u0259 s i\u02d0 d\u0292 \u025a", "ok_s": true, "ok_p": true}
+{"a": 9795, "w": "production", "s": "Production", "p": "p \u0279 \u0259 d \u028c k \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 9796, "w": "proficiency", "s": "Proficiency", "p": "p \u0279 \u0259 f \u026a \u0283 \u0259 n s i", "ok_s": true, "ok_p": true}
+{"a": 9797, "w": "profile", "s": "profile", "p": "p \u0279 o\u028a f a\u026a l", "ok_s": true, "ok_p": true}
+{"a": 9798, "w": "profile", "s": "PROFILE", "p": "p \u0279 o\u028a f a\u026a l", "ok_s": true, "ok_p": true}
+{"a": 9800, "w": "promising", "s": "Promising.", "p": "p \u0279 \u0251\u02d0 m \u026a s \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 9801, "w": "promote", "s": "PROMOTE", "p": "p \u0279 \u0259 m o\u028a t", "ok_s": true, "ok_p": true}
+{"a": 9802, "w": "proportion", "s": "Proportion", "p": "p \u0279 \u0259 p \u0254\u02d0\u0279 \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 9803, "w": "propose", "s": "PROPOSE", "p": "p \u0279 \u0259 p o\u028a z", "ok_s": true, "ok_p": true}
+{"a": 9806, "w": "prospect", "s": "Prospect", "p": "p \u0279 \u0251\u02d0 s p \u025b k t", "ok_s": true, "ok_p": true}
+{"a": 9807, "w": "protective", "s": "protective", "p": "p \u0279 \u0259 t \u025b k t \u026a v", "ok_s": true, "ok_p": true}
+{"a": 9810, "w": "publicity", "s": "Publicity", "p": "p \u028c b l \u026a s \u026a \u027e i", "ok_s": true, "ok_p": true}
+{"a": 9814, "w": "punch", "s": "punch", "p": "p \u028c n t\u0283", "ok_s": true, "ok_p": true}
+{"a": 9815, "w": "punctual", "s": "punctual", "p": "p \u028c \u014b k t\u0283 u\u02d0 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 9816, "w": "purchase", "s": "Purchase", "p": "p \u025c\u02d0 t\u0283 \u026a s", "ok_s": true, "ok_p": true}
+{"a": 9827, "w": "rank", "s": "rank", "p": "\u0279 \u00e6 \u014b k", "ok_s": true, "ok_p": true}
+{"a": 9828, "w": "rape", "s": "RAPE", "p": "\u0279 e\u026a p", "ok_s": true, "ok_p": true}
+{"a": 9833, "w": "rear", "s": "Rear", "p": "\u0279 i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 9876, "w": "ripe", "s": "RIPE", "p": "\u0279 a\u026a p", "ok_s": true, "ok_p": true}
+{"a": 9882, "w": "rub", "s": "Rub", "p": "\u0279 a b", "ok_s": true, "ok_p": true}
+{"a": 9883, "w": "ruin", "s": "Ruin", "p": "\u0279 u\u02d0 \u026a n", "ok_s": true, "ok_p": true}
+{"a": 9885, "w": "run", "s": "Run", "p": "\u0279 \u028c n", "ok_s": true, "ok_p": true}
+{"a": 9902, "w": "self", "s": "Self", "p": "s \u025b l f", "ok_s": true, "ok_p": true}
+{"a": 9904, "w": "send", "s": "SEND", "p": "s \u025b n d", "ok_s": true, "ok_p": true}
+{"a": 9925, "w": "sit", "s": "Sit", "p": "s \u026a t", "ok_s": true, "ok_p": true}
+{"a": 9926, "w": "slam", "s": "See you next time.", "p": "s l \u00e6 m", "ok_s": false, "ok_p": true, "m": "SLAM", "ok_m": true}
+{"a": 9931, "w": "soil", "s": "Soil", "p": "s o\u026a", "ok_s": true, "ok_p": true}
+{"a": 9937, "w": "spam", "s": "Spam", "p": "s p \u025b m", "ok_s": true, "ok_p": true}
+{"a": 10001, "w": "tale", "s": "tail", "p": "t e\u026a", "ok_s": false, "ok_p": true, "m": "tail", "ok_m": false}
+{"a": 10031, "w": "thus", "s": "Thus.", "p": "\u00f0 a s", "ok_s": true, "ok_p": true}
+{"a": 10032, "w": "tide", "s": "Tied", "p": "t a\u026a d", "ok_s": false, "ok_p": true, "m": "Tied", "ok_m": false}
+{"a": 10045, "w": "trap", "s": "Trap", "p": "t \u0279 \u00e6 p", "ok_s": true, "ok_p": true}
+{"a": 10046, "w": "tray", "s": "tray", "p": "t \u0279 e\u026a", "ok_s": true, "ok_p": true}
+{"a": 10062, "w": "upon", "s": "Upon", "p": "\u0250 p \u0251\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 10074, "w": "ward", "s": "Ward", "p": "w o\u028a d", "ok_s": true, "ok_p": true}
+{"a": 10078, "w": "when", "s": "when", "p": "w \u025b n", "ok_s": true, "ok_p": true}
+{"a": 10090, "w": "wire", "s": "Wire", "p": "w a\u026a \u025a", "ok_s": true, "ok_p": true}
+{"a": 10094, "w": "wolf", "s": "WOLF", "p": "\u0254", "ok_s": true, "ok_p": true}
+{"a": 10098, "w": "yawn", "s": "Yawn", "p": "j \u0251 n", "ok_s": true, "ok_p": true}
+{"a": 10099, "w": "yell", "s": "Yell", "p": "j a\u028a", "ok_s": true, "ok_p": true}
+{"a": 11002, "w": "live", "s": "Live", "p": "l a\u026a v", "ok_s": true, "ok_p": true}
+{"a": 11003, "w": "tear", "s": "Tear", "p": "t i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 11004, "w": "use", "s": "We use.", "p": "j u\u02d0 s", "ok_s": false, "ok_p": true, "m": "Use", "ok_m": true}
+{"a": 11012, "w": "progress", "s": "Progress.", "p": "p \u0279 \u0259 \u0261 \u0279 \u025b s", "ok_s": true, "ok_p": true}
+{"a": 11013, "w": "present", "s": "Present", "p": "p \u0279 \u1d7b z \u025b n t", "ok_s": true, "ok_p": true}
+{"a": 11015, "w": "produce", "s": "Produce", "p": "p \u0279 \u0259 d u\u02d0 s", "ok_s": true, "ok_p": true}
+{"a": 11016, "w": "permit", "s": "Permit", "p": "p \u025a m \u026a t", "ok_s": true, "ok_p": true}
+{"a": 11018, "w": "protest", "s": "Protest", "p": "p \u0279 o\u028a t \u025b s t", "ok_s": true, "ok_p": true}
+{"a": 11020, "w": "mixed", "s": "mixed", "p": "m \u026a k s t", "ok_s": true, "ok_p": true}
+{"a": 11021, "w": "hull", "s": "hul", "p": "x \u0251u5", "ok_s": false, "ok_p": false, "m": "hoe", "ok_m": false}
+{"a": 30004, "w": "backward", "s": "backward", "p": "b \u00e6 k w \u025a d", "ok_s": true, "ok_p": true}
+{"a": 30005, "w": "bodily", "s": "Bodily", "p": "b \u0251\u02d0 d \u1d7b l i", "ok_s": true, "ok_p": true}
+{"a": 30019, "w": "machinery", "s": "Machinery", "p": "m \u0259 \u0283 i\u02d0 n \u025a \u0279 i", "ok_s": true, "ok_p": true}
+{"a": 30020, "w": "marker", "s": "Marker", "p": "m \u0251\u02d0\u0279 k \u025a", "ok_s": true, "ok_p": true}
+{"a": 30021, "w": "meaningful", "s": "Meaningful", "p": "m i\u02d0 n \u026a \u014b f \u0259l l", "ok_s": true, "ok_p": true}
+{"a": 30029, "w": "pardon", "s": "Pardon.", "p": "p \u0251\u02d0\u0279 d \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 30030, "w": "parental", "s": "parental", "p": "p \u025a \u0279 \u025b n t \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30032, "w": "partially", "s": "Partially", "p": "p \u0251\u02d0\u0279 \u0283 \u0259 l i", "ok_s": true, "ok_p": true}
+{"a": 30033, "w": "photographic", "s": "Photographic", "p": "f o\u028a \u027e \u0259 \u0261 \u0279 \u00e6 f \u026a k", "ok_s": true, "ok_p": false, "m": "Photographic", "ok_m": true}
+{"a": 30034, "w": "planner", "s": "Planner", "p": "p l \u00e6 n t \u025a", "ok_s": true, "ok_p": true}
+{"a": 30035, "w": "problematic", "s": "Problematic", "p": "p \u0279 \u0251\u02d0 b l \u0259 m \u00e6 \u027e \u026a k", "ok_s": true, "ok_p": true}
+{"a": 30061, "w": "bang", "s": "BANG!", "p": "b \u025b \u014b", "ok_s": true, "ok_p": true}
+{"a": 30062, "w": "bat", "s": "Bat", "p": "b \u025b t", "ok_s": true, "ok_p": true}
+{"a": 30064, "w": "bleed", "s": "BLEED", "p": "b l i\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 30065, "w": "bound", "s": "Bound.", "p": "b a\u028a n d", "ok_s": true, "ok_p": true}
+{"a": 30066, "w": "broadly", "s": "Broadly", "p": "b \u0279 \u0251\u02d0 d l i", "ok_s": true, "ok_p": true}
+{"a": 30087, "w": "cure", "s": "CURE", "p": "k u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 30096, "w": "flip", "s": "Flip", "p": "l \u026a p", "ok_s": true, "ok_p": true}
+{"a": 30117, "w": "lump", "s": "LUMP", "p": "l \u028c m p", "ok_s": true, "ok_p": true}
+{"a": 30118, "w": "mathematical", "s": "Mathematical", "p": "m \u00e6 \u03b8 m \u00e6 \u027e \u026a k \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30119, "w": "memorize", "s": "memorize", "p": "m \u025b m \u025a \u0279 a\u026a z", "ok_s": true, "ok_p": true}
+{"a": 30120, "w": "minus", "s": "Minus.", "p": "m a\u026a n \u0259 s", "ok_s": true, "ok_p": true}
+{"a": 30123, "w": "nest", "s": "Nest", "p": "n \u025b s t", "ok_s": true, "ok_p": true}
+{"a": 30126, "w": "periodic", "s": "Periodic", "p": "p \u026a \u0279 i \u0251\u02d0 d \u026a k", "ok_s": true, "ok_p": true}
+{"a": 30127, "w": "physically", "s": "physically", "p": "f \u026a z \u026a k l i", "ok_s": true, "ok_p": false, "m": "physically.", "ok_m": true}
+{"a": 30128, "w": "plug", "s": "PLUG", "p": "p l \u028c \u0261", "ok_s": true, "ok_p": true}
+{"a": 30129, "w": "politically", "s": "Politically", "p": "p \u0259 l \u026a \u027e \u026a k l i", "ok_s": true, "ok_p": true}
+{"a": 30130, "w": "positively", "s": "positively", "p": "p \u0251\u02d0 z \u026a t \u026a v l i", "ok_s": true, "ok_p": true}
+{"a": 30131, "w": "presume", "s": "Presume", "p": "p \u0279 \u1d7b z j u\u02d0 m", "ok_s": true, "ok_p": true}
+{"a": 30132, "w": "processor", "s": "Processor", "p": "p \u0279 \u0251\u02d0 s \u025b s \u025a", "ok_s": true, "ok_p": true}
+{"a": 30133, "w": "productive", "s": "Productive", "p": "p \u0279 \u0259 d \u028c k t \u026a v", "ok_s": true, "ok_p": true}
+{"a": 30134, "w": "productivity", "s": "Productivity", "p": "p \u0279 o\u028a d \u028c k t \u026a v \u026a \u027e i", "ok_s": true, "ok_p": true}
+{"a": 30135, "w": "progression", "s": "Progression", "p": "p \u0279 \u0259 \u0261 \u0279 \u025b \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 30136, "w": "progressive", "s": "Progressive", "p": "p \u0279 \u0259 \u0261 \u0279 \u025b s \u026a v", "ok_s": true, "ok_p": true}
+{"a": 30137, "w": "projection", "s": "Projection", "p": "p \u0279 \u0259 d\u0292 \u025b k \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 30141, "w": "punishment", "s": "Punishment", "p": "p \u028c n \u026a \u0283 m \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 30142, "w": "purely", "s": "Purely.", "p": "p o\u02d0\u0279 \u0279 \u1d7b l i", "ok_s": true, "ok_p": true}
+{"a": 30144, "w": "ray", "s": "Rey", "p": "\u0279 e\u026a", "ok_s": false, "ok_p": true, "m": "ray", "ok_m": true}
+{"a": 30166, "w": "tech", "s": "Tech", "p": "t \u025b k", "ok_s": true, "ok_p": true}
+{"a": 30184, "w": "acid", "s": "acid", "p": "\u00e6 s \u026a d", "ok_s": true, "ok_p": true}
+{"a": 30203, "w": "atom", "s": "Adam", "p": "a r \u0259 m", "ok_s": false, "ok_p": true, "m": "atom", "ok_m": true}
+{"a": 30206, "w": "bacteria", "s": "Bacteria", "p": "b \u00e6 k t \u026a \u0279 i \u0259", "ok_s": true, "ok_p": true}
+{"a": 30207, "w": "bacterial", "s": "Bacterial", "p": "b \u00e6 k t \u026a \u0279 i \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30209, "w": "beam", "s": "Beam", "p": "b i\u02d0 m", "ok_s": true, "ok_p": true}
+{"a": 30210, "w": "behavioral", "s": "Behavioral", "p": "b i\u02d0 h e\u026a v j \u025a \u0279 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30280, "w": "emit", "s": "Emit", "p": "\u026a m \u026a t", "ok_s": true, "ok_p": true}
+{"a": 30337, "w": "manipulation", "s": "Manipulation", "p": "m \u0259 n \u026a p j u\u02d0 l e\u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 30338, "w": "manual", "s": "MANUAL", "p": "m \u00e6 n u\u02d0 w \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30339, "w": "marginal", "s": "Marginal", "p": "m \u0251\u02d0\u0279 d\u0292 \u026a n \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30340, "w": "mechanic", "s": "mechanic", "p": "m \u0259 k \u00e6 n \u026a k", "ok_s": true, "ok_p": true}
+{"a": 30341, "w": "mechanical", "s": "mechanical", "p": "m \u0259 k \u00e6 n \u026a k \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30342, "w": "media", "s": "Media", "p": "m i d i \u0250", "ok_s": true, "ok_p": true}
+{"a": 30343, "w": "merge", "s": "merge", "p": "m \u025c\u02d0 d\u0292", "ok_s": true, "ok_p": true}
+{"a": 30344, "w": "methodology", "s": "Methodology", "p": "m \u025b \u03b8 \u0259 d \u0251\u02d0 l \u0259 d\u0292 i", "ok_s": true, "ok_p": true}
+{"a": 30345, "w": "migrate", "s": "Migrate", "p": "m a\u026a \u0261 \u0279 e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 30346, "w": "migration", "s": "Migration", "p": "m a\u026a \u0261 \u0279 e\u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 30347, "w": "missile", "s": "Missile", "p": "m \u026a s \u0254", "ok_s": true, "ok_p": true}
+{"a": 30348, "w": "mobility", "s": "mobility", "p": "m o\u028a b \u026a l \u1d7b \u027e i", "ok_s": true, "ok_p": true}
+{"a": 30349, "w": "modification", "s": "Modification", "p": "m \u0251\u02d0 d \u026a f \u026a k e\u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 30350, "w": "molecular", "s": "molecular", "p": "m \u0259 l \u025b k j \u028a l \u025a", "ok_s": true, "ok_p": true}
+{"a": 30351, "w": "molecule", "s": "Molecule", "p": "m \u0251\u02d0 l \u026a k u\u02d0", "ok_s": true, "ok_p": true}
+{"a": 30352, "w": "morality", "s": "Morality", "p": "m \u0254\u02d0\u0279 \u0279 \u00e6 l \u1d7b \u027e i", "ok_s": true, "ok_p": true}
+{"a": 30353, "w": "mortality", "s": "Mortality", "p": "m \u0254\u02d0\u0279 t \u00e6 l \u1d7b \u027e i", "ok_s": true, "ok_p": true}
+{"a": 30364, "w": "peasant", "s": "Peasant", "p": "p \u025b z \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 30365, "w": "philosopher", "s": "Philosopher", "p": "f \u026a l \u0251\u02d0 s \u0259 f \u025a", "ok_s": true, "ok_p": false, "m": "Philosopher", "ok_m": true}
+{"a": 30366, "w": "philosophical", "s": "Philosophical", "p": "f \u026a l \u0259 s \u0251\u02d0 f \u026a k \u0259l", "ok_s": true, "ok_p": false, "m": "Philosophical", "ok_m": true}
+{"a": 30368, "w": "practitioner", "s": "Practitioner", "p": "p \u0279 \u00e6 k t \u026a \u0283 \u0259 n \u025a", "ok_s": true, "ok_p": true}
+{"a": 30369, "w": "precede", "s": "Precede", "p": "p \u0279 o\u028a s i\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 30370, "w": "prediction", "s": "prediction", "p": "p \u0279 \u0259 d \u026a k \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 30371, "w": "probe", "s": "Probe", "p": "\u0279 o\u028a b", "ok_s": true, "ok_p": false, "m": "Probe", "ok_m": true}
+{"a": 30372, "w": "profound", "s": "profound", "p": "p \u0279 o\u028a f a\u028a n d", "ok_s": true, "ok_p": true}
+{"a": 30373, "w": "prominent", "s": "Prominent", "p": "p \u0279 \u0251\u02d0 m \u026a n \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 30374, "w": "psychiatric", "s": "psychiatric", "p": "s a\u026a k i \u00e6 t \u0279 \u026a k", "ok_s": true, "ok_p": false, "m": "Psychiatric", "ok_m": true}
+{"a": 30375, "w": "psychologist", "s": "Psychologist", "p": "s a\u026a k \u0251\u02d0 l \u0259 d\u0292 \u026a s t", "ok_s": true, "ok_p": false, "m": "Psychologist", "ok_m": true}
+{"a": 30402, "w": "sin", "s": "Sin", "p": "s \u026a n", "ok_s": true, "ok_p": true}
+{"a": 30421, "w": "ton", "s": "ton", "p": "t \u0251 n", "ok_s": true, "ok_p": true}
+{"a": 30453, "w": "barrel", "s": "barrel", "p": "b \u025b \u0279 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30455, "w": "biologist", "s": "Biologist", "p": "b a\u026a \u0251\u02d0 l \u0259 d\u0292 \u026a s t", "ok_s": true, "ok_p": true}
+{"a": 30457, "w": "bizarre", "s": "bizarre", "p": "b \u026a z \u0251\u02d0\u0279", "ok_s": true, "ok_p": true}
+{"a": 30459, "w": "bubble", "s": "bubble", "p": "b \u028c b \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30460, "w": "bulk", "s": "Bulk", "p": "b \u028c l k", "ok_s": true, "ok_p": true}
+{"a": 30462, "w": "bundle", "s": "bundle", "p": "b \u028c n d \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30474, "w": "clay", "s": "clay", "p": "p l e\u026a", "ok_s": true, "ok_p": true}
+{"a": 30489, "w": "cord", "s": "Chord", "p": "k \u0254\u02d0\u0279 d", "ok_s": false, "ok_p": true, "m": "Chord", "ok_m": false}
+{"a": 30536, "w": "goat", "s": "GOAT", "p": "\u0261 o\u028a t", "ok_s": true, "ok_p": true}
+{"a": 30538, "w": "grid", "s": "GRID", "p": "\u0261 \u0279 \u026a d", "ok_s": true, "ok_p": true}
+{"a": 30539, "w": "gut", "s": "Gut.", "p": "\u0261 a t", "ok_s": true, "ok_p": true}
+{"a": 30572, "w": "limb", "s": "Limb.", "p": "l \u026a m", "ok_s": true, "ok_p": true}
+{"a": 30577, "w": "loop", "s": "LOOP", "p": "l u\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 30579, "w": "magnitude", "s": "Magnitude", "p": "m \u00e6 \u0261 n \u026a t u\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 30580, "w": "manuscript", "s": "Manuscript", "p": "m \u00e6 n j u\u02d0 s k \u0279 \u026a p t", "ok_s": true, "ok_p": true}
+{"a": 30581, "w": "marble", "s": "marble", "p": "m \u0251\u02d0\u0279 b \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30582, "w": "matrix", "s": "Matrix", "p": "m e\u026a t \u0279 \u026a k s", "ok_s": true, "ok_p": true}
+{"a": 30583, "w": "maximize", "s": "MAXIMIZE", "p": "n \u00e6 k s \u026a m a\u026a z", "ok_s": true, "ok_p": false, "m": "Maximize", "ok_m": true}
+{"a": 30584, "w": "mediate", "s": "Mediate", "p": "m i\u02d0 d i e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 30585, "w": "metaphor", "s": "Metaphor", "p": "m \u025b d \u0259 f o\u028a \u0254\u02d0\u0279", "ok_s": true, "ok_p": true}
+{"a": 30586, "w": "mineral", "s": "mineral", "p": "m \u026a n \u025a \u0279 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30587, "w": "minimal", "s": "Minimal", "p": "m e n \u028c m a", "ok_s": true, "ok_p": true}
+{"a": 30589, "w": "momentum", "s": "Momentum", "p": "m o\u028a m \u025b n t \u0259 m", "ok_s": true, "ok_p": true}
+{"a": 30590, "w": "monetary", "s": "monetary", "p": "m \u0251\u02d0 n \u026a t \u025b \u0279 i", "ok_s": true, "ok_p": true}
+{"a": 30591, "w": "monopoly", "s": "Monopoly", "p": "m \u0259 n \u0251\u02d0 p \u0259 l i", "ok_s": true, "ok_p": true}
+{"a": 30592, "w": "multiply", "s": "Multiply", "p": "m \u028c l t \u026a p l a\u026a", "ok_s": true, "ok_p": true}
+{"a": 30597, "w": "norm", "s": "Norm", "p": "n o\u02d0\u0279 m", "ok_s": true, "ok_p": true}
+{"a": 30605, "w": "paradox", "s": "Paradox.", "p": "p \u025b \u0279 \u0259 d \u0251\u02d0 k s", "ok_s": true, "ok_p": true}
+{"a": 30606, "w": "parameter", "s": "parameter", "p": "p \u025a \u0279 \u00e6 m \u026a \u027e \u025a", "ok_s": true, "ok_p": true}
+{"a": 30607, "w": "particle", "s": "Particle", "p": "p \u0251\u02d0\u0279 \u027e \u026a k \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30608, "w": "peripheral", "s": "Peripheral", "p": "p \u025a \u0279 \u026a f \u025a \u0279 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30609, "w": "physician", "s": "Physician", "p": "f \u026a z \u026a \u0283 \u0259 n", "ok_s": true, "ok_p": false, "m": "Physician", "ok_m": true}
+{"a": 30611, "w": "plural", "s": "plural", "p": "p l \u025a \u0279 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30612, "w": "polar", "s": "Polar", "p": "p o\u028a l \u025a", "ok_s": true, "ok_p": true}
+{"a": 30613, "w": "portfolio", "s": "Portfolio", "p": "p \u0254\u02d0\u0279 t f o\u028a l i o\u028a", "ok_s": true, "ok_p": true}
+{"a": 30614, "w": "portray", "s": "Portray", "p": "p \u0254\u02d0\u0279 t \u0279 e\u026a", "ok_s": true, "ok_p": true}
+{"a": 30615, "w": "portrayal", "s": "Portrayal", "p": "p \u0254\u02d0\u0279 t \u0279 e\u026a \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30616, "w": "poster", "s": "poster", "p": "p o\u028a s t \u025a", "ok_s": true, "ok_p": true}
+{"a": 30617, "w": "predator", "s": "predator", "p": "k \u0279 \u025b d \u1d7b \u027e \u025a", "ok_s": true, "ok_p": false, "m": "predator", "ok_m": true}
+{"a": 30618, "w": "predominantly", "s": "Predominantly.", "p": "p \u0279 \u026a d \u0251\u02d0 m \u026a n \u0259 n t l i", "ok_s": true, "ok_p": true}
+{"a": 30621, "w": "prevalence", "s": "Prevalence", "p": "p \u0279 \u025b v \u0259 l \u0259 n s", "ok_s": true, "ok_p": true}
+{"a": 30622, "w": "prey", "s": "Pray", "p": "p \u0279 e\u026a", "ok_s": true, "ok_p": true}
+{"a": 30624, "w": "proposition", "s": "Proposition", "p": "p \u0279 \u0251\u02d0 p \u0259 z \u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 30625, "w": "protocol", "s": "Protocol", "p": "p \u0279 o\u028a \u027e \u0259 k \u0251\u02d0 l", "ok_s": true, "ok_p": true}
+{"a": 30626, "w": "pulse", "s": "PULSE", "p": "p \u0254 s", "ok_s": true, "ok_p": true}
+{"a": 30628, "w": "rack", "s": "RAC", "p": "\u0279 \u0251\u02d0 k", "ok_s": false, "ok_p": true, "m": "Rack", "ok_m": true}
+{"a": 30647, "w": "skip", "s": "skip", "p": "s k \u026a p", "ok_s": true, "ok_p": true}
+{"a": 30648, "w": "slot", "s": "SLOT", "p": "s l \u0251\u02d0 t", "ok_s": true, "ok_p": true}
+{"a": 30650, "w": "span", "s": "SPAN", "p": "s p \u00e6 n", "ok_s": true, "ok_p": true}
+{"a": 30688, "w": "vein", "s": "Vein.", "p": "v e\u026a n", "ok_s": true, "ok_p": true}
+{"a": 30703, "w": "axis", "s": "Access", "p": "\u00e6 k s \u0259 s", "ok_s": false, "ok_p": true, "m": "axis", "ok_m": true}
+{"a": 30704, "w": "bracket", "s": "bracket", "p": "b \u0279 \u00e6 k \u026a t", "ok_s": true, "ok_p": true}
+{"a": 30707, "w": "cone", "s": "Cone", "p": "k \u0254 n", "ok_s": true, "ok_p": true}
+{"a": 30710, "w": "cue", "s": "Q", "p": "i5", "ok_s": false, "ok_p": true, "m": "Q", "ok_m": false}
+{"a": 30720, "w": "dye", "s": "Die.", "p": "d a\u026a", "ok_s": false, "ok_p": true, "m": "Die.", "ok_m": false}
+{"a": 30732, "w": "hawk", "s": "HAWK", "p": "h \u0254 k", "ok_s": true, "ok_p": true}
+{"a": 30736, "w": "ion", "s": "Ion", "p": "a\u026a \u0251 n", "ok_s": true, "ok_p": true}
+{"a": 30740, "w": "maternal", "s": "Maternal", "p": "m \u0259 t \u025c\u02d0 n \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30741, "w": "membrane", "s": "nembrane", "p": "n \u025b m b \u0279 e\u026a n", "ok_s": false, "ok_p": false, "m": "membrane", "ok_m": true}
+{"a": 30742, "w": "messenger", "s": "MESSENGER", "p": "m \u025b s \u026a n d\u0292 \u025a", "ok_s": true, "ok_p": true}
+{"a": 30743, "w": "motif", "s": "motif", "p": "m o\u028a t i\u02d0 \u03b8", "ok_s": true, "ok_p": true}
+{"a": 30744, "w": "multinational", "s": "Multinational.", "p": "m \u028c l t i n \u00e6 \u0283 \u0259 n \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30745, "w": "mutation", "s": "Mutation", "p": "m j u\u02d0 t e\u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 30748, "w": "node", "s": "NODE", "p": "n o\u028a d", "ok_s": true, "ok_p": true}
+{"a": 30758, "w": "par", "s": "PAR", "p": "p \u0251\u02d0\u0279", "ok_s": true, "ok_p": true}
+{"a": 30759, "w": "paradigm", "s": "paradigm", "p": "p \u025b \u0279 \u0259 d a\u026a m", "ok_s": true, "ok_p": true}
+{"a": 30761, "w": "pest", "s": "Pest", "p": "p \u025b s t", "ok_s": true, "ok_p": true}
+{"a": 30762, "w": "pesticide", "s": "Pesticide", "p": "p \u025b s t \u0259 s a\u026a d", "ok_s": true, "ok_p": true}
+{"a": 30763, "w": "plantation", "s": "Plantation", "p": "p l \u00e6 n t e\u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 30764, "w": "plausible", "s": "plausible", "p": "p l \u0251\u02d0 z \u1d7b b \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30765, "w": "pragmatic", "s": "Pragmatic", "p": "p \u0279 \u00e6 \u0261 m \u00e6 \u027e \u026a k", "ok_s": true, "ok_p": true}
+{"a": 30766, "w": "precipitate", "s": "precipitate", "p": "p \u0279 \u026a s \u026a p \u026a t e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 30767, "w": "precipitation", "s": "Precipitation", "p": "p \u0279 \u026a s \u026a p \u026a t e\u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 30779, "w": "slab", "s": "Slab", "p": "s l \u00e6 b", "ok_s": true, "ok_p": true}
+{"a": 30786, "w": "swap", "s": "Swap", "p": "s w a p", "ok_s": true, "ok_p": true}
+{"a": 30805, "w": "binary", "s": "binary", "p": "v a\u026a n \u025a \u0279 i", "ok_s": true, "ok_p": false, "m": "Binary", "ok_m": true}
+{"a": 30819, "w": "fin", "s": "", "p": "\u03b8 \u026a n", "ok_s": false, "ok_p": true, "m": "fin", "ok_m": true}
+{"a": 30821, "w": "flux", "s": "Flux", "p": "f l \u028c k s", "ok_s": true, "ok_p": true}
+{"a": 30829, "w": "mentor", "s": "Mentor", "p": "m e n t o\u028a", "ok_s": true, "ok_p": true}
+{"a": 30830, "w": "mercury", "s": "Mercury", "p": "m \u025c\u02d0 k \u0259l \u0279 i", "ok_s": true, "ok_p": true}
+{"a": 30831, "w": "metabolism", "s": "Metabolism", "p": "m \u0259 t \u00e6 b \u1d7b l \u026a z \u0259 m", "ok_s": true, "ok_p": true}
+{"a": 30832, "w": "mole", "s": "more", "p": "m o\u02d0", "ok_s": false, "ok_p": true, "m": "mole", "ok_m": true}
+{"a": 30838, "w": "partition", "s": "Partition", "p": "p \u0251\u02d0\u0279 t \u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 30839, "w": "physiological", "s": "Physiological", "p": "f \u026a z i \u0259 l \u0251\u02d0 d\u0292 \u026a k \u0259l", "ok_s": true, "ok_p": false, "m": "Physiological", "ok_m": true}
+{"a": 30857, "w": "bilingual", "s": "Bilingual", "p": "b a\u026a l \u026a \u014b \u0261 w \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30869, "w": "marrow", "s": "Marrow", "p": "m \u00e6 \u0279 o\u028a", "ok_s": true, "ok_p": true}
+{"a": 30870, "w": "millimeter", "s": "millimeter", "p": "m \u026a l \u0259 m i\u02d0 \u027e \u025a", "ok_s": true, "ok_p": true}
+{"a": 30871, "w": "morphological", "s": "Morphological", "p": "m o\u02d0\u0279 f \u1d7b l \u0251\u02d0 d\u0292 \u026a k \u0259l", "ok_s": true, "ok_p": true}
+{"a": 30872, "w": "morphology", "s": "Morphology", "p": "m o\u02d0\u0279 \u03b8 \u0251\u02d0 l \u0259 d\u0292 i", "ok_s": true, "ok_p": true}
+{"a": 30876, "w": "phenomenal", "s": "Phenomenal.", "p": "f \u0259 n \u0251\u02d0 m \u026a n \u0259l", "ok_s": true, "ok_p": false, "m": "Phenomenal.", "ok_m": true}
+{"a": 30877, "w": "phosphate", "s": "Phosphate", "p": "f \u0251\u02d0 s f e\u026a t", "ok_s": true, "ok_p": false, "m": "phosphate", "ok_m": true}
+{"a": 30878, "w": "potassium", "s": "potassium", "p": "p \u0259 t \u00e6 s i \u0259 m", "ok_s": true, "ok_p": true}
+{"a": 30879, "w": "primer", "s": "Primer", "p": "p \u0279 a\u026a m \u025a", "ok_s": true, "ok_p": true}
+{"a": 30880, "w": "proton", "s": "proton", "p": "p \u0279 o\u028a t \u0251\u02d0 n", "ok_s": true, "ok_p": true}
+{"a": 30891, "w": "biodiversity", "s": "Biodiversity", "p": "b a\u026a o\u028a d \u1d7b v \u025c\u02d0 s \u026a \u027e i", "ok_s": true, "ok_p": true}
+{"a": 30899, "w": "phonological", "s": "Phonological", "p": "f o\u028a n \u0259 l \u0251\u02d0 d\u0292 \u026a k \u0259l", "ok_s": true, "ok_p": false, "m": "Phonological.", "ok_m": true}
+{"a": 30900, "w": "postgraduate", "s": "Postgraduate", "p": "p o\u028a s t \u0261 \u0279 \u00e6 d\u0292 u\u02d0 \u026a t", "ok_s": true, "ok_p": true}
+{"a": 30921, "w": "parenthesis", "s": "parenthesis", "p": "p \u025a \u0279 \u025b n \u03b8 \u0259 s i z", "ok_s": true, "ok_p": true}
+{"a": 30927, "w": "mid", "s": "Mid?", "p": "m e d", "ok_s": true, "ok_p": true}
+{"a": 30930, "w": "breakdown", "s": "BREAK DOWN", "p": "b \u0279 e\u026a k d a\u028a n", "ok_s": true, "ok_p": true}
+{"a": 30940, "w": "pathway", "s": "Pathway", "p": "p \u00e6 \u03b8 w e\u026a", "ok_s": true, "ok_p": true}
+{"a": 30949, "w": "micro", "s": "micro", "p": "m a\u026a k \u0279 o\u028a", "ok_s": true, "ok_p": true}
+{"a": 30952, "w": "pi", "s": "pie", "p": "\u02515", "ok_s": true, "ok_p": false, "m": "\u03c0", "ok_m": false}
+{"a": 30953, "w": "pole", "s": "poll", "p": "p o\u028a l", "ok_s": true, "ok_p": true}
+{"a": 31008, "w": "app", "s": "App", "p": "a b", "ok_s": true, "ok_p": true}
+{"a": 31017, "w": "atom", "s": "Adam", "p": "a r \u0259 m", "ok_s": false, "ok_p": true, "m": "atom", "ok_m": true}
+{"a": 31024, "w": "background", "s": "Background", "p": "b \u00e6 k \u0279 a\u028a n d", "ok_s": true, "ok_p": true}
+{"a": 31027, "w": "bandwidth", "s": "Bandwidth", "p": "b \u00e6 n d w \u026a \u00f0", "ok_s": true, "ok_p": true}
+{"a": 31029, "w": "barcode", "s": "barcode", "p": "v \u0251\u02d0 k o\u028a d", "ok_s": true, "ok_p": false, "m": "barcode", "ok_m": true}
+{"a": 31031, "w": "baseline", "s": "baseline", "p": "b e\u026a s l a\u026a n", "ok_s": true, "ok_p": true}
+{"a": 31032, "w": "batch", "s": "Batch", "p": "b \u00e6 t", "ok_s": true, "ok_p": true}
+{"a": 31033, "w": "beacon", "s": "Beacon", "p": "b i\u02d0 k \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 31034, "w": "benchmark", "s": "Benchmark", "p": "b \u025b n t\u0283 m \u0251\u02d0\u0279 k", "ok_s": true, "ok_p": true}
+{"a": 31035, "w": "bias", "s": "bias", "p": "b a\u026a \u0259 s", "ok_s": true, "ok_p": true}
+{"a": 31037, "w": "binary", "s": "binary", "p": "v a\u026a n \u025a \u0279 i", "ok_s": true, "ok_p": false, "m": "Binary", "ok_m": true}
+{"a": 31038, "w": "bind", "s": "Bind.", "p": "b a\u026a n d", "ok_s": true, "ok_p": true}
+{"a": 31039, "w": "biometric", "s": "Biometric", "p": "b a\u026a o\u028a m \u025b t \u0279 \u026a k", "ok_s": true, "ok_p": true}
+{"a": 31042, "w": "bookmark", "s": "Bookmark", "p": "b \u028a k m \u0251\u02d0\u0279 k", "ok_s": true, "ok_p": true}
+{"a": 31043, "w": "bottleneck", "s": "Bottleneck", "p": "b \u0251\u02d0 d \u0259l n \u025b k", "ok_s": true, "ok_p": true}
+{"a": 31048, "w": "brightness", "s": "Brightness", "p": "b \u0279 a\u026a t n \u0259 s", "ok_s": true, "ok_p": true}
+{"a": 31051, "w": "buffer", "s": "buffer", "p": "b \u028c f \u025a", "ok_s": true, "ok_p": true}
+{"a": 31053, "w": "build", "s": "BUILD", "p": "b \u026a l d", "ok_s": true, "ok_p": true}
+{"a": 31055, "w": "byte", "s": "bite", "p": "b a\u026a t", "ok_s": false, "ok_p": true, "m": "bite", "ok_m": false}
+{"a": 31059, "w": "call", "s": "CALM", "p": "kh \u0251u5", "ok_s": false, "ok_p": true, "m": "call", "ok_m": true}
+{"a": 31127, "w": "feed", "s": "Feed", "p": "f i\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 31137, "w": "fold", "s": "FOLD", "p": "f o\u028a l d", "ok_s": true, "ok_p": true}
+{"a": 31146, "w": "hash", "s": "hash", "p": "h a \u0283", "ok_s": true, "ok_p": true}
+{"a": 31152, "w": "host", "s": "Host", "p": "h o\u028a s t", "ok_s": true, "ok_p": true}
+{"a": 31153, "w": "idle", "s": "EIDL", "p": "a\u026a r \u0254", "ok_s": false, "ok_p": true, "m": "EIDLE", "ok_m": false}
+{"a": 31171, "w": "join", "s": "Join.", "p": "d\u0292 o\u026a n", "ok_s": true, "ok_p": true}
+{"a": 31173, "w": "jump", "s": "jump", "p": "d\u0292 \u028c m p", "ok_s": true, "ok_p": true}
+{"a": 31183, "w": "link", "s": "link", "p": "l \u026a \u014b k", "ok_s": true, "ok_p": true}
+{"a": 31188, "w": "log", "s": "Log", "p": "l \u0251\u02d0 \u0261", "ok_s": true, "ok_p": true}
+{"a": 31193, "w": "loop", "s": "LOOP", "p": "l u\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 31196, "w": "maintainer", "s": "Maintainer", "p": "m e\u026a n t e\u026a n \u025a", "ok_s": true, "ok_p": true}
+{"a": 31197, "w": "malicious", "s": "Malicious.", "p": "m \u0259 l \u026a \u0283 \u0259 s", "ok_s": true, "ok_p": true}
+{"a": 31198, "w": "manual", "s": "MANUAL", "p": "m \u00e6 n u\u02d0 w \u0259l", "ok_s": true, "ok_p": true}
+{"a": 31204, "w": "matrix", "s": "Matrix.", "p": "m e\u026a t \u0279 \u026a k s", "ok_s": true, "ok_p": true}
+{"a": 31205, "w": "maximize", "s": "Maximize.", "p": "n \u00e6 k s \u026a m a\u026a z", "ok_s": true, "ok_p": false, "m": "Maximize", "ok_m": true}
+{"a": 31206, "w": "media", "s": "Media", "p": "m i d i \u0250", "ok_s": true, "ok_p": true}
+{"a": 31208, "w": "merge", "s": "merge", "p": "m \u025c\u02d0 d\u0292", "ok_s": true, "ok_p": true}
+{"a": 31210, "w": "metadata", "s": "Metadata", "p": "m \u025b \u027e \u0259 d e\u026a \u027e \u0250", "ok_s": true, "ok_p": true}
+{"a": 31211, "w": "microcontroller", "s": "Microcontroller", "p": "m a\u026a k \u0279 o\u028a k \u0259 n t \u0279 o\u028a l \u025a", "ok_s": true, "ok_p": true}
+{"a": 31212, "w": "migrate", "s": "Migrate", "p": "m a\u026a \u0261 \u0279 e\u026a t", "ok_s": true, "ok_p": true}
+{"a": 31214, "w": "mode", "s": "MODE", "p": "m o\u028a d", "ok_s": true, "ok_p": true}
+{"a": 31216, "w": "modular", "s": "Modular", "p": "m \u0251\u02d0 d\u0292 u\u02d0 l \u025a", "ok_s": true, "ok_p": true}
+{"a": 31217, "w": "module", "s": "module", "p": "m a d\u0292 u\u02d0 o\u02d0", "ok_s": true, "ok_p": true}
+{"a": 31218, "w": "monitor", "s": "MONITOR", "p": "m \u0251\u02d0 n \u026a t \u025a", "ok_s": true, "ok_p": true}
+{"a": 31221, "w": "multiplex", "s": "multiplex", "p": "m \u028c l t i p l \u025b k s", "ok_s": true, "ok_p": true}
+{"a": 31224, "w": "node", "s": "NODE", "p": "n o\u028a d", "ok_s": true, "ok_p": true}
+{"a": 31240, "w": "pair", "s": "P.A.R.", "p": "p e\u026a", "ok_s": false, "ok_p": true, "m": "Pear", "ok_m": true}
+{"a": 31241, "w": "paradigm", "s": "paradigm", "p": "p \u025b \u0279 \u0259 d a\u026a m", "ok_s": true, "ok_p": true}
+{"a": 31242, "w": "parameter", "s": "parameter", "p": "p \u025a \u0279 \u00e6 m \u026a \u027e \u025a", "ok_s": true, "ok_p": true}
+{"a": 31245, "w": "partition", "s": "Partition", "p": "p \u0251\u02d0\u0279 t \u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 31246, "w": "pass", "s": "Pass", "p": "p \u00e6 s", "ok_s": true, "ok_p": true}
+{"a": 31248, "w": "patch", "s": "Patch", "p": "p \u00e6 t\u0283", "ok_s": true, "ok_p": true}
+{"a": 31250, "w": "payload", "s": "Payload", "p": "p e\u026a l o\u028a d", "ok_s": true, "ok_p": true}
+{"a": 31252, "w": "persistence", "s": "Persistence", "p": "p \u025a s \u026a s t \u0259 n s", "ok_s": true, "ok_p": true}
+{"a": 31255, "w": "pixel", "s": "pixel", "p": "p \u025b k s \u0254", "ok_s": true, "ok_p": true}
+{"a": 31258, "w": "pop", "s": "POP", "p": "p \u0251\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 31259, "w": "port", "s": "Port", "p": "p \u0254\u02d0\u0279 t", "ok_s": true, "ok_p": true}
+{"a": 31260, "w": "pose", "s": "pose", "p": "p o\u028a z", "ok_s": true, "ok_p": true}
+{"a": 31263, "w": "practise", "s": "Practice", "p": "p \u0279 \u00e6 k t \u026a s", "ok_s": false, "ok_p": true, "m": "practice", "ok_m": false}
+{"a": 31264, "w": "predicate", "s": "predicate", "p": "p \u0279 \u025b d \u026a k \u0259 t", "ok_s": true, "ok_p": true}
+{"a": 31265, "w": "preemption", "s": "Preemption", "p": "p \u0279 i\u02d0 \u025b m p \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 31267, "w": "probe", "s": "Probe", "p": "\u0279 o\u028a b", "ok_s": true, "ok_p": false, "m": "Probe", "ok_m": true}
+{"a": 31269, "w": "processor", "s": "Processor", "p": "p \u0279 \u0251\u02d0 s \u025b s \u025a", "ok_s": true, "ok_p": true}
+{"a": 31271, "w": "programme", "s": "program", "p": "p \u0279 o\u028a \u0261 \u0279 \u00e6 m", "ok_s": false, "ok_p": true, "m": "Program.", "ok_m": false}
+{"a": 31272, "w": "programming", "s": "Programming", "p": "p \u0279 o\u028a \u0261 \u0279 \u00e6 m \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 31273, "w": "propagation", "s": "Propagation", "p": "p \u0279 \u0251\u02d0 p \u0259 \u0261 e\u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 31274, "w": "protocol", "s": "Protocol", "p": "p \u0279 o\u028a \u027e \u0259 k \u0251\u02d0 l", "ok_s": true, "ok_p": true}
+{"a": 31275, "w": "prototype", "s": "Prototype", "p": "p \u0279 o\u028a d o\u028a t a\u026a p", "ok_s": true, "ok_p": true}
+{"a": 31277, "w": "pulse", "s": "PULSE", "p": "p \u0254 s", "ok_s": true, "ok_p": true}
+{"a": 31279, "w": "put", "s": "PUT", "p": "p \u0254 t", "ok_s": true, "ok_p": true}
+{"a": 31316, "w": "scan", "s": "scan", "p": "s k \u00e6 n", "ok_s": true, "ok_p": true}
+{"a": 31359, "w": "swap", "s": "Swap", "p": "s w a p", "ok_s": true, "ok_p": true}
+{"a": 31367, "w": "tap", "s": "Tap", "p": "t \u0251\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 31403, "w": "user", "s": "user", "p": "j u\u02d0 z \u025a", "ok_s": true, "ok_p": true}
+{"a": 32003, "w": "plane", "s": "plane", "p": "p l e\u026a n", "ok_s": true, "ok_p": true}
+{"a": 32007, "w": "marvel", "s": "MARVEL", "p": "m \u0251\u02d0\u0279 v \u0259l", "ok_s": true, "ok_p": true}
+{"a": 32010, "w": "ally", "s": "Allie", "p": "a\u02d0 l i", "ok_s": false, "ok_p": true, "m": "alley", "ok_m": false}
+{"a": 32011, "w": "ore", "s": "or", "p": "uo5", "ok_s": false, "ok_p": true, "m": "or", "ok_m": false}
+{"a": 32012, "w": "merit", "s": "merit", "p": "m \u025b \u0279 \u026a t", "ok_s": true, "ok_p": true}
+{"a": 32013, "w": "provincial", "s": "Provincial", "p": "p \u0279 \u0259 v \u026a n \u0283 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 32016, "w": "bout", "s": "BOUT", "p": "b a\u028a t", "ok_s": true, "ok_p": true}
+{"a": 32017, "w": "echo", "s": "ECHO", "p": "\u025b k o\u028a", "ok_s": true, "ok_p": true}
+{"a": 32019, "w": "merger", "s": "Merger", "p": "m \u025c\u02d0 d\u0292 \u025a", "ok_s": true, "ok_p": true}
+{"a": 32023, "w": "prone", "s": "Prone", "p": "p \u0279 o\u028a n", "ok_s": true, "ok_p": true}
+{"a": 32024, "w": "wax", "s": "Wax", "p": "w \u00e6 k s", "ok_s": true, "ok_p": true}
+{"a": 32033, "w": "predecessor", "s": "Predecessor", "p": "p \u0279 \u025b d \u026a s \u025b s \u025a", "ok_s": true, "ok_p": true}
+{"a": 32039, "w": "phantom", "s": "Phantom", "p": "f \u00e6 n t \u0259 m", "ok_s": true, "ok_p": false, "m": "phantom", "ok_m": true}
+{"a": 32042, "w": "mesh", "s": "Nesh", "p": "m \u025b \u0283", "ok_s": false, "ok_p": true, "m": "mesh", "ok_m": true}
+{"a": 32043, "w": "paramount", "s": "Paramount", "p": "p \u025b \u0279 \u0259 m a\u028a n t", "ok_s": true, "ok_p": true}
+{"a": 32048, "w": "proprietary", "s": "Proprietary", "p": "p \u0279 \u0259 p \u0279 a\u026a \u0259 t \u025b \u0279 i", "ok_s": true, "ok_p": true}
+{"a": 32050, "w": "helm", "s": "Helm", "p": "h \u025b l m", "ok_s": true, "ok_p": true}
+{"a": 32051, "w": "posture", "s": "Posture.", "p": "p \u0251\u02d0 s t\u0283 \u025a", "ok_s": true, "ok_p": true}
+{"a": 32053, "w": "rift", "s": "Rift", "p": "\u0279 \u026a f t", "ok_s": true, "ok_p": true}
+{"a": 32054, "w": "gale", "s": "Gail", "p": "\u0261 e\u026a l", "ok_s": false, "ok_p": true, "m": "Gail", "ok_m": false}
+{"a": 32057, "w": "proliferation", "s": "Proliferation", "p": "p \u0279 \u0259 l \u026a f \u025a \u0279 e\u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 32060, "w": "proportional", "s": "Proportional", "p": "p \u0279 \u0259 p \u0283 \u0259 n \u0259l", "ok_s": true, "ok_p": true}
+{"a": 32067, "w": "blitz", "s": "Blitz.", "p": "b l \u026a s", "ok_s": true, "ok_p": true}
+{"a": 32073, "w": "menace", "s": "Menace", "p": "m \u025b n \u026a s", "ok_s": true, "ok_p": true}
+{"a": 32077, "w": "brink", "s": "Brink", "p": "b \u0279 \u026a \u014b k", "ok_s": true, "ok_p": true}
+{"a": 32079, "w": "mediation", "s": "Mediation", "p": "m i\u02d0 d i e\u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 32080, "w": "procedural", "s": "procedural", "p": "p \u0279 \u0259 s i\u02d0 d\u0292 \u025a \u0279 \u0259l", "ok_s": true, "ok_p": true}
+{"a": 32082, "w": "profitability", "s": "Profitability", "p": "p \u0279 \u0251\u02d0 f \u026a \u027e \u0259 b \u026a l \u1d7b \u027e i", "ok_s": true, "ok_p": true}
+{"a": 32087, "w": "myriad", "s": "Myriad", "p": "m \u026a \u0279 i \u1d7b d", "ok_s": true, "ok_p": true}
+{"a": 32100, "w": "bogus", "s": "bogus", "p": "b o\u028a \u0261 \u025b s", "ok_s": true, "ok_p": true}
+{"a": 32117, "w": "melancholy", "s": "Nell and Cauley", "p": "m \u025b l \u0259 n k \u0254 l i", "ok_s": false, "ok_p": true, "m": "Melancholy.", "ok_m": true}
+{"a": 32118, "w": "meteorological", "s": "Meteorological", "p": "m i\u02d0 d \u025a \u0279 \u0259 l \u0251\u02d0 d\u0292 \u026a k \u0259l", "ok_s": true, "ok_p": true}
+{"a": 32119, "w": "pervasive", "s": "Pervasive", "p": "p \u025a v e\u026a s \u026a v", "ok_s": true, "ok_p": true}
+{"a": 32120, "w": "punitive", "s": "Punitive", "p": "p j u\u02d0 n \u0259 t \u026a v", "ok_s": true, "ok_p": true}
+{"a": 32123, "w": "beneficiary", "s": "Beneficiary", "p": "b \u025b n \u026a f \u026a \u0283 i \u025b \u0279 i", "ok_s": true, "ok_p": true}
+{"a": 32128, "w": "palate", "s": "Palette", "p": "p \u00e6 l \u026a t", "ok_s": false, "ok_p": true, "m": "Palette", "ok_m": false}
+{"a": 32129, "w": "pedestal", "s": "Pedestal", "p": "p \u025b d \u026a s t \u0259l", "ok_s": true, "ok_p": true}
+{"a": 32131, "w": "malice", "s": "Malice", "p": "n \u00e6 l \u026a s", "ok_s": true, "ok_p": false, "m": "malice", "ok_m": true}
+{"a": 32139, "w": "maverick", "s": "Maverick", "p": "n \u00e6 v \u0279 \u026a k", "ok_s": true, "ok_p": false, "m": "Maverick", "ok_m": true}
+{"a": 32141, "w": "baroque", "s": "Baroque", "p": "b \u0259 \u0279 o\u028a k", "ok_s": true, "ok_p": true}
+{"a": 32144, "w": "philanthropy", "s": "Philanthropy", "p": "f \u026a l \u00e6 n \u03b8 \u0279 \u0259 p i", "ok_s": true, "ok_p": false, "m": "Philanthropy", "ok_m": true}
+{"a": 32151, "w": "perch", "s": "perch", "p": "p \u025c\u02d0 t\u0283", "ok_s": true, "ok_p": true}
+{"a": 32160, "w": "parasitic", "s": "Parasitic", "p": "p \u00e6 \u0279 \u0259 s \u026a \u027e \u026a k", "ok_s": true, "ok_p": true}
+{"a": 32167, "w": "brood", "s": "Brood", "p": "b \u0279 u\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 32171, "w": "blight", "s": "Blight", "p": "b l a\u026a t", "ok_s": true, "ok_p": true}
+{"a": 32176, "w": "meticulous", "s": "Meticulous.", "p": "m \u0259 t \u026a k u\u02d0 l \u0259 s", "ok_s": true, "ok_p": true}
+{"a": 32182, "w": "meteorology", "s": "Meteorology", "p": "m i\u02d0 d i \u025a \u0279 \u0251\u02d0 l \u0259 d\u0292 i", "ok_s": true, "ok_p": true}
+{"a": 32186, "w": "mercantile", "s": "Mercantile", "p": "m \u025c\u02d0 k \u0259 n t a\u026a l", "ok_s": true, "ok_p": true}
+{"a": 32187, "w": "philanthropic", "s": "Philanthropic", "p": "f \u026a l \u0259 n \u03b8 \u0279 \u0251\u02d0 p \u026a k", "ok_s": true, "ok_p": false, "m": "Philanthropic.", "ok_m": true}
+{"a": 32188, "w": "prolong", "s": "Prolong", "p": "p \u0279 o\u028a l \u0254 \u014b", "ok_s": true, "ok_p": true}
+{"a": 32196, "w": "plume", "s": "Plume", "p": "p l u\u02d0 m", "ok_s": true, "ok_p": true}
+{"a": 32197, "w": "provocation", "s": "provocation", "p": "p \u0279 \u0251\u02d0 v \u0259 k e\u026a \u0283 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 32201, "w": "barometer", "s": "barometer", "p": "b \u025a \u0279 \u0251\u02d0 m \u026a \u027e \u025a", "ok_s": true, "ok_p": true}
+{"a": 32203, "w": "menacing", "s": "Menacing.", "p": "m \u025b n \u026a s \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 32206, "w": "promenade", "s": "Promenade", "p": "p \u0279 \u0251\u02d0 m \u0259 n e\u026a d", "ok_s": true, "ok_p": true}
+{"a": 32208, "w": "skim", "s": "skim", "p": "s k \u026a m", "ok_s": true, "ok_p": true}
+{"a": 32215, "w": "rife", "s": "Rife", "p": "\u0279 a\u026a \u03b8", "ok_s": true, "ok_p": true}
+{"a": 32225, "w": "modernism", "s": "Modernism", "p": "m \u0251\u02d0 d \u025a n \u026a z \u0259 m", "ok_s": true, "ok_p": true}
+{"a": 32226, "w": "pluck", "s": "pluck", "p": "p l \u028c k", "ok_s": true, "ok_p": true}
+{"a": 32227, "w": "proverbial", "s": "proverbial", "p": "p \u0279 \u0259 v \u025c\u02d0 b i \u0259l", "ok_s": true, "ok_p": true}
+{"a": 32230, "w": "burgeoning", "s": "burgeoning", "p": "b \u025c\u02d0 d\u0292 \u0259 n \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 32234, "w": "mediocrity", "s": "Mediocrity", "p": "m i\u02d0 d i \u0251\u02d0 k \u0279 \u0259 \u027e i", "ok_s": true, "ok_p": true}
+{"a": 32235, "w": "philanthropist", "s": "Philanthropist", "p": "f \u026a l \u00e6 n \u03b8 \u0279 \u0259 p \u026a s t", "ok_s": true, "ok_p": false, "m": "philanthropist", "ok_m": true}
+{"a": 32244, "w": "monastic", "s": "monastic", "p": "m \u0259 n \u00e6 s t \u026a k", "ok_s": true, "ok_p": true}
+{"a": 32245, "w": "parable", "s": "parable", "p": "t \u025b \u0279 \u0259 b \u0259l", "ok_s": true, "ok_p": false, "m": "Parable", "ok_m": true}
+{"a": 32255, "w": "meticulously", "s": "Meticulously.", "p": "m \u026a t \u026a k j u\u02d0 l \u0259 s l i", "ok_s": true, "ok_p": true}
+{"a": 32259, "w": "banish", "s": "BANISH", "p": "b \u00e6 n \u026a \u0283", "ok_s": true, "ok_p": true}
+{"a": 32264, "w": "brim", "s": "Brim", "p": "b \u0279 \u026a m", "ok_s": true, "ok_p": true}
+{"a": 32268, "w": "palatable", "s": "Palatable", "p": "p \u00e6 l \u0259 \u027e \u0259 b \u0259l", "ok_s": true, "ok_p": true}
+{"a": 32274, "w": "materialism", "s": "Materialism", "p": "m \u0259 t \u026a \u0279 i \u0259l l \u026a z \u0259 m", "ok_s": true, "ok_p": true}
+{"a": 32275, "w": "parochial", "s": "parochial", "p": "p \u025a \u0279 o\u028a k i \u0259l", "ok_s": true, "ok_p": true}
+{"a": 32277, "w": "belligerent", "s": "belligerent", "p": "b \u1d7b l \u026a d\u0292 \u025a \u0279 \u0259 n t", "ok_s": true, "ok_p": true}
+{"a": 32278, "w": "ebb", "s": "ebb", "p": "\u025b b", "ok_s": true, "ok_p": true}
+{"a": 32281, "w": "magnate", "s": "MAGNAIT", "p": "m \u00e6 \u0261 n e\u026a t", "ok_s": false, "ok_p": true, "m": "magnate", "ok_m": true}
+{"a": 32282, "w": "poise", "s": "poise", "p": "p o\u026a z", "ok_s": true, "ok_p": true}
+{"a": 32291, "w": "mariner", "s": "Mariner", "p": "m \u025b \u0279 \u1d7b n \u025a", "ok_s": true, "ok_p": true}
+{"a": 32292, "w": "methodological", "s": "Methodological", "p": "m \u025b \u03b8 \u0259 d \u0259 l \u0251\u02d0 d\u0292 \u026a k \u0259l", "ok_s": true, "ok_p": true}
+{"a": 33009, "w": "mechanism", "s": "Mechanism", "p": "m \u025b k \u0259 n \u026a z \u0259 m", "ok_s": true, "ok_p": true}
+{"a": 33019, "w": "provisions", "s": "Provisions", "p": "p \u0279 \u0259 v \u026a \u0292 \u0259 n z", "ok_s": true, "ok_p": true}
+{"a": 33029, "w": "peninsula", "s": "Peninsula", "p": "p \u0259 n \u026a n s \u0259l l \u0259", "ok_s": true, "ok_p": true}
+{"a": 33033, "w": "precision", "s": "Precision", "p": "p \u0279 \u026a s \u026a \u0292 \u0259 n", "ok_s": true, "ok_p": true}
+{"a": 33038, "w": "clan", "s": "clan", "p": "k l \u00e6 n", "ok_s": true, "ok_p": true}
+{"a": 33040, "w": "portable", "s": "Portable", "p": "p \u0254\u02d0\u0279 \u027e \u0259 b \u0259l", "ok_s": true, "ok_p": true}
+{"a": 33043, "w": "amid", "s": "amid", "p": "a m \u025b d", "ok_s": true, "ok_p": true}
+{"a": 33045, "w": "acre", "s": "Acre", "p": "e\u026a k \u025a", "ok_s": true, "ok_p": true}
+{"a": 33046, "w": "bloom", "s": "Bloom", "p": "b l u\u02d0 m", "ok_s": true, "ok_p": true}
+{"a": 33051, "w": "pioneer", "s": "Pioneer", "p": "p a\u026a \u0259 n i\u02d0", "ok_s": true, "ok_p": true}
+{"a": 33054, "w": "tomb", "s": "TUM", "p": "t u\u02d0 m", "ok_s": false, "ok_p": true, "m": "Tomb", "ok_m": true}
+{"a": 33057, "w": "gem", "s": "Gem", "p": "d\u0292 \u025b m", "ok_s": true, "ok_p": true}
+{"a": 33058, "w": "prospective", "s": "Prospective", "p": "p \u0279 \u0259 s p \u025b k t \u026a v", "ok_s": true, "ok_p": true}
+{"a": 33069, "w": "premise", "s": "Prenis", "p": "p \u0279 \u025b m \u026a s", "ok_s": false, "ok_p": true, "m": "premise", "ok_m": true}
+{"a": 33073, "w": "privileged", "s": "Privileged.", "p": "p \u0279 \u026a v l \u026a d\u0292 d", "ok_s": true, "ok_p": true}
+{"a": 33078, "w": "bliss", "s": "Bliss.", "p": "b l \u026a s", "ok_s": true, "ok_p": true}
+{"a": 33082, "w": "bypass", "s": "bypass", "p": "b a\u026a p \u00e6 s", "ok_s": true, "ok_p": true}
+{"a": 33091, "w": "calf", "s": "CAF", "p": "k a f", "ok_s": false, "ok_p": true, "m": "calf", "ok_m": true}
+{"a": 33093, "w": "meaningless", "s": "Meaningless", "p": "m i\u02d0 n \u026a \u014b l \u0259 s", "ok_s": true, "ok_p": true}
+{"a": 33094, "w": "apt", "s": "Abt", "p": "\u00e6 p t", "ok_s": false, "ok_p": true, "m": "Apt", "ok_m": true}
+{"a": 33096, "w": "plaque", "s": "Plaque", "p": "p l \u025b k", "ok_s": true, "ok_p": true}
+{"a": 33097, "w": "purity", "s": "Purity", "p": "p \u025c\u02d0 \u0279 \u026a \u027e i", "ok_s": true, "ok_p": true}
+{"a": 33099, "w": "mutually", "s": "Mutually.", "p": "m u\u02d0 t\u0283 u\u02d0 \u028c l i", "ok_s": true, "ok_p": true}
+{"a": 33103, "w": "muscular", "s": "Muscular.", "p": "m \u028c s k j u\u02d0 l \u025a", "ok_s": true, "ok_p": true}
+{"a": 33104, "w": "protagonist", "s": "Protagonist", "p": "p \u0279 o\u028a t \u00e6 \u0261 \u0259 n \u026a s t", "ok_s": true, "ok_p": true}
+{"a": 33115, "w": "mythology", "s": "Mythology", "p": "m \u026a \u03b8 \u0251\u02d0 l \u0259 d\u0292 i", "ok_s": true, "ok_p": true}
+{"a": 33121, "w": "fuse", "s": "Fuse", "p": "f j u\u02d0 z", "ok_s": true, "ok_p": true}
+{"a": 33125, "w": "pigeon", "s": "Pigeon", "p": "p \u026a d\u0292 \u026a n", "ok_s": true, "ok_p": true}
+{"a": 33132, "w": "prolific", "s": "Prolific", "p": "p \u0279 o\u028a l \u026a f \u026a k", "ok_s": true, "ok_p": true}
+{"a": 33139, "w": "plumbing", "s": "Plumbing", "p": "p l \u028c m \u026a \u014b", "ok_s": true, "ok_p": true}
+{"a": 33148, "w": "wary", "s": "wary", "p": "w \u025b \u0279 i", "ok_s": true, "ok_p": true}
+{"a": 33161, "w": "numb", "s": "Numb", "p": "n a m", "ok_s": true, "ok_p": true}
+{"a": 33162, "w": "plaster", "s": "Plaster", "p": "p l \u00e6 s t \u025a", "ok_s": true, "ok_p": true}
+{"a": 33164, "w": "reap", "s": "Reap.", "p": "\u0279 i\u02d0 p", "ok_s": true, "ok_p": true}
+{"a": 33171, "w": "benign", "s": "The Nine", "p": "\u00f0 \u0259 n a\u026a n", "ok_s": false, "ok_p": false, "m": "The Nine", "ok_m": false}
+{"a": 33172, "w": "boast", "s": "Boast.", "p": "b o\u028a s t", "ok_s": true, "ok_p": true}
+{"a": 33175, "w": "parasite", "s": "Parasite", "p": "p \u00e6 \u0279 \u0259 s a\u026a t", "ok_s": true, "ok_p": true}
+{"a": 33176, "w": "profoundly", "s": "profoundly", "p": "p \u0279 o\u028a f a\u028a n d l i", "ok_s": true, "ok_p": true}
+{"a": 33180, "w": "avid", "s": "Avid", "p": "a v e\u02d0 d", "ok_s": true, "ok_p": true}
+{"a": 40874, "w": "null", "s": "Nul", "p": "n u \u026d\u02b2 i", "ok_s": false, "ok_p": true, "m": "null", "ok_m": true}
+{"a": 41227, "w": "null", "s": "Nul", "p": "n u \u026d\u02b2 i", "ok_s": false, "ok_p": true, "m": "null", "ok_m": true}
+{"a": 42009, "w": "mere", "s": "Miam", "p": "m i \u028c", "ok_s": false, "ok_p": true, "m": "Mia", "ok_m": false}
