@@ -58,6 +58,8 @@ export function practiceFor(i) {
   return ['match', 'listen', 'scramble', ...fill, 'memory', 'blitz'];
 }
 export const missionPool = i => early() ? ['pics', 'memory'] : theme() === 'kids' ? ['match', 'listen', 'memory'] : theme() === 'bagrut' ? practiceFor(i).filter(g => ['fill', 'forms', 'blitz', 'match'].includes(g)) : ['match', 'blitz', 'listen', 'scramble'];
+// review #5: grades 1–2 can't read yet – no XP numbers, turn counter or combo text in games (icons only)
+const tiny = () => +(S.profile?.grade || 7) <= 2;
 const label = w => w.en + (w.m ? ` (${w.m})` : '');
 
 /** One play of one game: owns the top bar, combo, XP, and the result summary. */
@@ -67,7 +69,7 @@ export class Session {
     const g = GAMES[game];
     this.bar = h('div.gbar-fill');
     this.comboEl = h('div.combo', { 'aria-live': 'polite' });
-    this.xpEl = h('div.gxp', '0 XP');
+    this.xpEl = tiny() ? h('div.gxp.kstars', { 'aria-hidden': 'true' }) : h('div.gxp', '0 XP');
     this.body = h('div.gbody');
     put(root, h('div.game.g-' + game,
       h('div.gtop',
@@ -86,11 +88,11 @@ export class Session {
     this.ok++; this.combo++; this.maxCombo = Math.max(this.maxCombo, this.combo);
     S.stats.bestCombo = Math.max(S.stats.bestCombo, this.combo);
     const x = Math.round(10 * Math.min(comboMult(this.combo), this.comboCap || 4) * (this.xpScale || 1)); this.xp += x; this.coins += 1; gainXp(x); gainCoins(1);
-    sfx(this.combo >= 3 ? 'combo' : 'ok', this.combo); this.float('+' + x, el);
+    sfx(this.combo >= 3 ? 'combo' : 'ok', this.combo); this.float(tiny() ? '⭐' : '+' + x, el);
     if (untimed()) this.cheer(el);   // review #2: extra reward feedback for grades 1–3
     if (el) { el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop'); }
     if ([3, 6, 10, 15, 20].includes(this.combo) || (this.combo >= 25 && this.combo % 5 === 0)) {
-      this.burst(this.combo >= 15 ? `🔥 ${this.combo} ברצף!` : `קומבו ×${comboMult(this.combo)}!`);
+      this.burst(tiny() ? '🔥🔥🔥' : this.combo >= 15 ? `🔥 ${this.combo} ברצף!` : `קומבו ×${comboMult(this.combo)}!`);
       this.juice(true);
     }
     this.showCombo();
@@ -110,8 +112,9 @@ export class Session {
     if (!good) root.classList.add('screen-shake');
   }
   showCombo() {
-    this.xpEl.textContent = this.xp + ' XP';
     const m = comboMult(this.combo);
+    if (tiny()) { this.xpEl.textContent = '⭐'.repeat(Math.min(this.ok, 5)); put(this.comboEl, this.combo >= 2 && h('span.chip' + (m > 1 ? '.hot.m' + m : ''), '🔥'.repeat(Math.min(this.combo, 5)))); return; }
+    this.xpEl.textContent = this.xp + ' XP';
     put(this.comboEl, this.combo >= 2 && h('span.chip' + (m > 1 ? '.hot.m' + m : ''), `🔥 ${this.combo}`, m > 1 && h('b', ` ×${m}`)));
   }
   float(text, el) {
@@ -127,7 +130,7 @@ export class Session {
       p.style.setProperty('--dx', Math.cos(a) * d + 'px'); p.style.setProperty('--dy', Math.sin(a) * d + 'px');
       document.body.append(p); setTimeout(() => p.remove(), 800);
     }
-    if (this.ok % 2 === 1 && ![3, 6, 10, 15, 20].includes(this.combo)) { const P = ['כל הכבוד!', 'מעולה!', 'יופי!', 'אלופים!', 'וואו!', 'נהדר!']; this.burst(P[(this.ok >> 1) % P.length] + ' ' + ['🎉', '🌈', '🏆', '🥳'][(this.ok >> 1) % 4]); }
+    if (this.ok % 2 === 1 && ![3, 6, 10, 15, 20].includes(this.combo)) { const P = ['כל הכבוד!', 'מעולה!', 'יופי!', 'אלופים!', 'וואו!', 'נהדר!']; this.burst((tiny() ? '' : P[(this.ok >> 1) % P.length] + ' ') + ['🎉', '🌈', '🏆', '🥳'][(this.ok >> 1) % 4]); }
     sfx('sparkle');
   }
   burst(text) { const b = h('div.burst', text); this.body.append(b); setTimeout(() => b.remove(), 1000); }
@@ -417,7 +420,7 @@ export async function memory(sess, words) {
         if (pairs === ws.length) sess.later(resolve, 700);
       } else { busy = true; sess.combo = 0; sess.showCombo(); sess.later(() => { a.classList.remove('open'); c.classList.remove('open'); busy = false; }, 850); }
     };
-    put(sess.body, h('div.memory', h('div.mhead', h('span.qhint', 'מצאו את הזוגות', sayUi(11103)), h('span.moves', 'תורות: ', movesEl)), grid));
+    put(sess.body, h('div.memory', h('div.mhead', h('span.qhint', 'מצאו את הזוגות', sayUi(11103)), !tiny() && h('span.moves', 'תורות: ', movesEl)), grid));
   });
   const acc = clamp(1 - (moves - ws.length) / (ws.length * 2), 0, 1);
   return sess.summary({ acc, ok: ws.length, bad: 0, stars: moves <= 9 ? 3 : moves <= 13 ? 2 : 1, note: `🃏 ${moves} תורות (הכי טוב אפשרי: 6)`, memory: moves <= 10 });

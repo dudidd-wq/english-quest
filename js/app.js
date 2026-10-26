@@ -160,8 +160,7 @@ function adultProgress() {
 const kidsTiny = () => +(S.profile?.grade || 7) <= 2;
 function mapView() {
   const cur = currentStage(); const due = dueWords(); const daily = ensureDaily();
-  // review #3 #6: grades 1–2 can't read yet – no text banners (rival, daily challenge) until 3 stages are cleared
-  const tinyEarly = kidsTiny() && D.stages.filter((_, k) => stageRec(k).cleared).length < 3;
+  // review #3 #6 / #5: grades 1–2 can't read yet – no rival card or daily-challenge card at all (was: until 3 stages cleared)
   const path = h('div.map');
   for (let wi = 0; wi < D.worlds; wi++) {
     const W0 = worldAt(wi), fastCh = D.fast != null && wi * PER_WORLD >= D.fast, adult = isAdultTrack(D.track), from = wi * PER_WORLD, to = Math.min(D.stages.length, from + PER_WORLD);
@@ -198,8 +197,8 @@ function mapView() {
       D.read.length > 0 && h('button.btn.small', { onclick: () => go('#/study/reading') }, '📰 קטע קריאה'),
       familyItems(D.words).length >= 4 && h('button.btn.small', { onclick: () => go('#/study/forms') }, '🧩 משפחות מילים'),
       h('button.btn.small', { onclick: () => go('#/study') }, '📚 כל המילים')),
-    !tinyEarly && h('div.rival-chip', '👻 יריב מקומי: ', S.rival.name, ...(untimed() ? [] : [' · בליץ ', S.rival.bestBlitz]), ' · קומבו ', S.rival.bestCombo, sayUi(11101)),
-    !tinyEarly && h('div.daily-card' + (daily.done ? '.done' : ''), { onclick: dailyGo },
+    !kidsTiny() && h('div.rival-chip', '👻 יריב מקומי: ', S.rival.name, ...(untimed() ? [] : [' · בליץ ', S.rival.bestBlitz]), ' · קומבו ', S.rival.bestCombo, sayUi(11101)),
+    !kidsTiny() && h('div.daily-card' + (daily.done ? '.done' : ''), { onclick: dailyGo },
       h('div.dico', daily.done ? '✅' : '☀️'),
       h('div', { style: { flex: 1 } }, h('b', 'אתגר היום', sayUi(11100)), h('div.muted.small', daily.label || ''),
         h('div.dbar', h('div', { style: { width: (daily.progress / daily.target * 100) + '%' } })))),
@@ -374,7 +373,7 @@ function finishGame(i, g, res) {
       h('div', h('b', '+' + (res.coins + coinsBonus)), h('small', '🪙 מטבעות')),
       res.ok + res.bad > 0 && g !== 'intro' && h('div', h('b', Math.round(res.acc * 100) + '%'), h('small', 'דיוק')),
       res.maxCombo >= 2 && h('div', h('b', '🔥' + res.maxCombo), h('small', 'קומבו'))),
-    res.note && h('p.note', res.note),
+    res.note && !kidsTiny() && h('p.note', res.note),
     cleared && i + 1 < D.stages.length && h('p.unlock', `🔓 שלב ${i + 2} נפתח!`),
     missed.length > 0 && h('div.missed', h('h4', 'מילים לחזרה:'), missed.map(w => { const b = h('button.chip.wchip', { onclick: () => playWord(w, 'en', b) }, h('span', w.e), en(w.en), h('small', w.he)); return b; })),
     h('div.rbtns',
