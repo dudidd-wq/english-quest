@@ -49,7 +49,7 @@ self.addEventListener('fetch', e => {
       const cache = await caches.open(AUDIO); const key = new Request(url.href);
       let res = await cache.match(key);
       if (!res) {
-        try { const net = await fetch(key); if (!net.ok) return net; await cache.put(key, net.clone()); res = net; }
+        try { const net = await fetch(key, { cache: 'no-cache' }); if (!net.ok) return net; await cache.put(key, net.clone()); res = net; }
         catch { return new Response('', { status: 504 }); }
       }
       return rangeResponse(req, res);
