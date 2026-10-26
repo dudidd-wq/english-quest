@@ -52,12 +52,12 @@ All words, parts of speech and the Productive/Receptive split come from the Lexi
 
 | Track | File | Words in app |
 |---|---|---|
-| Pre-Band I | https://meyda.education.gov.il/files/Mazkirut_Pedagogit/English/CurriculumFilesAugust21/LexicalBand1.xlsx | 198 |
+| Pre-Band I | https://meyda.education.gov.il/files/Mazkirut_Pedagogit/English/CurriculumFilesAugust21/LexicalBand1.pdf (we built from the .xlsx edition, same lists; the .xlsx URL is no longer served) | 198 |
 | Band I · Core I | (same file) | 549 |
 | Band I · Core II | (same file) | 601 |
 | Band II · Core I | https://meyda.education.gov.il/files/Mazkirut_Pedagogit/English/CurriculumFilesAugust21/LexicalBand2.xlsx | 1014 |
 | Band II · Core II | (same file) | 1002 |
-| Band III · Core I | https://meyda.education.gov.il/files/Mazkirut_Pedagogit/English/CurriculumFilesAugust21/LexicalBand3.xlsx | 886 |
+| Band III · Core I | https://meyda.education.gov.il/files/Mazkirut_Pedagogit/English/CurriculumFilesAugust21/LexicalBand3.pdf (we built from the .xlsx edition, same lists; the .xlsx URL is no longer served) | 886 |
 | Band III · Core II | (same file) | 1100 |
 
 **Bagrut List A–D labels on Band III Core I words.** These are official, from the Ministry's bagrut word lists:
@@ -65,6 +65,9 @@ All words, parts of speech and the Productive/Receptive split come from the Lexi
 - https://meyda.education.gov.il/files/Mazkirut_Pedagogit/English/4Lists/LISTB12.12.21.xlsx
 - https://meyda.education.gov.il/files/Mazkirut_Pedagogit/English/4Lists/LISTC12.12.21.xlsx
 - https://meyda.education.gov.il/files/Pop/0files/english/Chativa-Elyona/Bagrut/LIST-D.xlsx (List D, Winter 2026)
+- Index of the current band and list files: https://meyda.education.gov.il/files/Pop/0files/english/Chativa-Elyona/Bagrut/bandsLists.pdf (linked from the Ministry's teacher portal, https://pop.education.gov.il/tchumey_daat/english/chativa-elyona/bagrut-exam/teachers-resource-materials/)
+
+**Link check, 26 Oct 2026 (review #4).** LexicalBand1.pdf, LexicalBand2.xlsx, LexicalBand3.pdf, LISTA/LISTB xlsx and bandsLists.pdf load. LexicalBand1.xlsx, LexicalBand3.xlsx, LISTC12.12.21.xlsx and LIST-D.xlsx now return the Ministry's "404" page, even though the Ministry's own index still links to them. The lists in the app were taken from those files while they were online. The PDFs above have the same Band I and Band III content; we spot-checked this ourselves and the reviewer did too.
 
 The app's counts are the rows in each file. The Table 5 figures (200 / 1200 / 2000 / 900 / 1100) are the curriculum's rounded targets.
 

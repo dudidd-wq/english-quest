@@ -494,7 +494,7 @@ async function setGrade(grade, lv) {
   save(true); applyTheme(); await loadTrack(S.profile.track); go('#/map');
 }
 const SRC = 'https://meyda.education.gov.il/files/Mazkirut_Pedagogit/English/CurriculumFilesAugust21/';
-const ABOUT = `<p><b>רשימות המילים</b> – רשמיות, מהרשימות הלקסיקליות של משרד החינוך (English Curriculum 2020): <a href="${SRC}LexicalBand1.xlsx" target="_blank" rel="noopener" lang="en">Band I (+ Pre-Band I)</a>, <a href="${SRC}LexicalBand2.xlsx" target="_blank" rel="noopener" lang="en">Band II</a>, <a href="${SRC}LexicalBand3.xlsx" target="_blank" rel="noopener" lang="en">Band III</a>. סימון List A–D ב־Band III Core I לפי פרסום המזכירות הפדגוגית.</p>
+const ABOUT = `<p><b>רשימות המילים</b> – רשמיות, מהרשימות הלקסיקליות של משרד החינוך (English Curriculum 2020): <a href="${SRC}LexicalBand1.pdf" target="_blank" rel="noopener" lang="en">Band I (+ Pre-Band I)</a>, <a href="${SRC}LexicalBand2.xlsx" target="_blank" rel="noopener" lang="en">Band II</a>, <a href="${SRC}LexicalBand3.pdf" target="_blank" rel="noopener" lang="en">Band III</a>. סימון List A–D ב־Band III Core I לפי פרסום המזכירות הפדגוגית.</p>
 <p><b>התאמה לכיתות</b> – לפי טבלאות 4–5 בתוכנית הלימודים (<a href="https://education.biu.ac.il/sites/education/files/shared/curriculum2020Elementary.pdf" target="_blank" rel="noopener" lang="en">English Curriculum 2020</a>):</p>
 <ul><li>ד׳: Pre-Band I (ג׳ / תחילת ד׳) ← Band I Core I (ד׳ – אמצע ה׳)</li><li>ה׳: Band I Core I / Core II (המעבר באמצע השנה)</li><li>ו׳: Band I Core II (אמצע ה׳ – סוף ו׳)</li>
 <li>ז׳: Band II Core I · ח׳: Core I / Core II (המעבר באמצע השנה) · ט׳: Band II Core II</li>

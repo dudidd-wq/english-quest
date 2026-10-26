@@ -109,7 +109,7 @@ def read_sent(paths, valid):
 OLD = json.load(open(os.path.join(ROOT, 'data/g7.json'))), json.load(open(os.path.join(ROOT, 'data/g9.json')))
 OLD_SENT = {**OLD[0]['sent'], **OLD[1]['sent']}        # v2 sentences (built by tools/build_data.py)
 SRCN = {'pre1': 'Pre-Band I', 'b1c1': 'Band I · Core I', 'b1c2': 'Band I · Core II', 'g7': 'Band II · Core I', 'g9': 'Band II · Core II', 'b3c1': 'Band III · Core I', 'b3c2': 'Band III · Core II'}
-FILE = {'pre1': 'LexicalBand1.xlsx', 'b1c1': 'LexicalBand1.xlsx', 'b1c2': 'LexicalBand1.xlsx', 'g7': 'LexicalBand2.xlsx', 'g9': 'LexicalBand2.xlsx', 'b3c1': 'LexicalBand3.xlsx', 'b3c2': 'LexicalBand3.xlsx'}
+FILE = {'pre1': 'LexicalBand1.pdf', 'b1c1': 'LexicalBand1.pdf', 'b1c2': 'LexicalBand1.pdf', 'g7': 'LexicalBand2.xlsx', 'g9': 'LexicalBand2.xlsx', 'b3c1': 'LexicalBand3.pdf', 'b3c2': 'LexicalBand3.pdf'}   # review #4: the .xlsx URLs now 404
 READ = json.load(open(os.path.join(ROOT, 'tools/src/reading.json'))) if os.path.exists(os.path.join(ROOT, 'tools/src/reading.json')) else {}
 TALK = {'g7': [], 'g9': []}   # conversation items from band2-study (parts 1–10 = Core I, 11–20 = Core II)
 for it in json.load(open(os.path.join(ROOT, 'tools/src/talk_band2.json')))['items']:
