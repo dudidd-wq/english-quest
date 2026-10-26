@@ -1,0 +1,318 @@
+{
+ "note": "eq-3.8.0 per-clip voice record. Default voice everywhere else: ElevenLabs \"Matilda\" (XrExE9yKIg1WjnnlVkGX), model eleven_v4.",
+ "clips": {
+  "en/71132": {
+   "replaces": "en/1132",
+   "word": "bill",
+   "voice": "Alice",
+   "voice_id": "Xb7hH8MSUJpSbSDYk0k2",
+   "text": "Bill.",
+   "words": [
+    "b3c2#9094",
+    "g9#1132"
+   ],
+   "before_score": 0,
+   "after_score": 5,
+   "sim_to_matilda": 0.935,
+   "lead_in": 148.3,
+   "lufs_in": -18.1,
+   "pad_ms": 0,
+   "gain_db": 0,
+   "lead": 148.4,
+   "lufs": -18.7
+  },
+  "en/78057": {
+   "replaces": "en/58057",
+   "word": "bay",
+   "voice": "Alice",
+   "voice_id": "Xb7hH8MSUJpSbSDYk0k2",
+   "text": "Bay!",
+   "words": [
+    "b3c1#8057"
+   ],
+   "before_score": 2,
+   "after_score": 5,
+   "sim_to_matilda": 0.908,
+   "lead_in": 130.2,
+   "lufs_in": -18.2,
+   "pad_ms": 0,
+   "gain_db": 0,
+   "lead": 130.2,
+   "lufs": -18.6
+  },
+  "en/72009": {
+   "replaces": "en/62009",
+   "word": "mere",
+   "voice": "Alice",
+   "voice_id": "Xb7hH8MSUJpSbSDYk0k2",
+   "text": "Mere.",
+   "words": [
+    "c2#32009"
+   ],
+   "before_score": 2,
+   "after_score": 3,
+   "sim_to_matilda": 0.926,
+   "lead_in": 95.0,
+   "lufs_in": -18.4,
+   "pad_ms": 35,
+   "gain_db": 0,
+   "lead": 130.0,
+   "lufs": -19.6
+  },
+  "en/70578": {
+   "replaces": "en/578",
+   "word": "medal",
+   "voice": "Alice",
+   "voice_id": "Xb7hH8MSUJpSbSDYk0k2",
+   "text": "Medal, as in a gold medal.",
+   "words": [
+    "g7#578"
+   ],
+   "before_score": 2,
+   "after_score": 5,
+   "sim_to_matilda": 0.696,
+   "lead_in": 143.7,
+   "lufs_in": -20.3,
+   "pad_ms": 0,
+   "gain_db": 2.1,
+   "lead": 143.7,
+   "lufs": -18.6
+  },
+  "en/70402": {
+   "replaces": "en/50402",
+   "word": "hall",
+   "voice": "Bella",
+   "voice_id": "hpp4J3VqNfWAUOO0d1Us",
+   "text": "Hall, as in a long hall.",
+   "words": [
+    "b1c2#7199",
+    "g7#402"
+   ],
+   "before_score": 2,
+   "after_score": 5,
+   "sim_to_matilda": 0.933,
+   "lead_in": 141.3,
+   "lufs_in": -18.7,
+   "pad_ms": 0,
+   "gain_db": 0,
+   "lead": 141.3,
+   "lufs": -19.3
+  },
+  "en/71417": {
+   "replaces": "en/1417",
+   "word": "few",
+   "voice": "Bella",
+   "voice_id": "hpp4J3VqNfWAUOO0d1Us",
+   "text": "Few, as in a few apples.",
+   "words": [
+    "g9#1417"
+   ],
+   "before_score": 3,
+   "after_score": 5,
+   "sim_to_matilda": 0.879,
+   "lead_in": 134.1,
+   "lufs_in": -19.3,
+   "pad_ms": 0,
+   "gain_db": 1.1,
+   "lead": 134.1,
+   "lufs": -18.6
+  },
+  "en/78853": {
+   "replaces": "en/8853",
+   "word": "vary",
+   "voice": "Sarah",
+   "voice_id": "EXAVITQu4vr4xnSDxMaL",
+   "text": "Vary, as in to vary the colors.",
+   "words": [
+    "b3c1#8853"
+   ],
+   "before_score": 2,
+   "after_score": 5,
+   "sim_to_matilda": 0.811,
+   "lead_in": 122.1,
+   "lufs_in": -18.2,
+   "pad_ms": 8,
+   "gain_db": 0,
+   "lead": 130.1,
+   "lufs": -18.8
+  },
+  "en/79148": {
+   "replaces": "en/9148",
+   "word": "chew",
+   "voice": "Alice",
+   "voice_id": "Xb7hH8MSUJpSbSDYk0k2",
+   "text": "Chew.",
+   "words": [
+    "b3c2#9148"
+   ],
+   "before_score": 2,
+   "after_score": 5,
+   "sim_to_matilda": 0.892,
+   "lead_in": 156.2,
+   "lufs_in": -18.7,
+   "pad_ms": 0,
+   "gain_db": 0,
+   "lead": 156.2,
+   "lufs": -19.4
+  },
+  "en/77306": {
+   "replaces": "en/7306",
+   "word": "middle",
+   "voice": "Alice",
+   "voice_id": "Xb7hH8MSUJpSbSDYk0k2",
+   "text": "Middle.",
+   "words": [
+    "b1c2#7306"
+   ],
+   "before_score": 0,
+   "after_score": 5,
+   "sim_to_matilda": 0.939,
+   "lead_in": 139.3,
+   "lufs_in": -18.2,
+   "pad_ms": 0,
+   "gain_db": 0,
+   "lead": 139.4,
+   "lufs": -18.6
+  },
+  "en/79192": {
+   "replaces": "en/9192",
+   "word": "considerate",
+   "voice": "Sarah",
+   "voice_id": "EXAVITQu4vr4xnSDxMaL",
+   "text": "con-sid-er-ate.",
+   "words": [
+    "b3c2#9192"
+   ],
+   "before_score": 2,
+   "after_score": 5,
+   "sim_to_matilda": 0.898,
+   "lead_in": 137.0,
+   "lufs_in": -18.5,
+   "pad_ms": 0,
+   "gain_db": 0,
+   "lead": 137.1,
+   "lufs": -18.9
+  },
+  "en/76050": {
+   "replaces": "en/6050",
+   "word": "beach",
+   "voice": "Alice",
+   "voice_id": "Xb7hH8MSUJpSbSDYk0k2",
+   "text": "beach.",
+   "words": [
+    "b1c1#6050"
+   ],
+   "before_score": 3,
+   "after_score": 5,
+   "sim_to_matilda": 0.883,
+   "lead_in": 116.2,
+   "lufs_in": -18.2,
+   "pad_ms": 14,
+   "gain_db": 0,
+   "lead": 130.2,
+   "lufs": -18.3
+  },
+  "en/78070": {
+   "replaces": "en/8070",
+   "word": "bench",
+   "voice": "Sarah",
+   "voice_id": "EXAVITQu4vr4xnSDxMaL",
+   "text": "bench.",
+   "words": [
+    "b3c1#8070"
+   ],
+   "before_score": 3,
+   "after_score": 5,
+   "sim_to_matilda": 0.95,
+   "lead_in": 126.5,
+   "lufs_in": -17.9,
+   "pad_ms": 4,
+   "gain_db": 0,
+   "lead": 130.5,
+   "lufs": -18.4
+  },
+  "en/78438": {
+   "replaces": "en/8438",
+   "word": "madam",
+   "voice": "Bella",
+   "voice_id": "hpp4J3VqNfWAUOO0d1Us",
+   "text": "Madam.",
+   "words": [
+    "b3c1#8438"
+   ],
+   "before_score": 3,
+   "after_score": 5,
+   "sim_to_matilda": 0.918,
+   "lead_in": 148.9,
+   "lufs_in": -17.8,
+   "pad_ms": 0,
+   "gain_db": 0,
+   "lead": 148.9,
+   "lufs": -18.2
+  },
+  "en/80333": {
+   "replaces": "en/50333",
+   "voice": "Matilda",
+   "voice_id": "XrExE9yKIg1WjnnlVkGX",
+   "text": "(re-pad)",
+   "words": [
+    "b3c2#9357",
+    "g7#333"
+   ],
+   "lead_in": 112.1,
+   "lufs_in": -18.7,
+   "pad_ms": 18,
+   "gain_db": 0,
+   "lead": 130.0,
+   "lufs": -19.6
+  },
+  "en/80130": {
+   "replaces": "en/50130",
+   "voice": "Matilda",
+   "voice_id": "XrExE9yKIg1WjnnlVkGX",
+   "text": "(re-pad)",
+   "words": [
+    "g7#130"
+   ],
+   "lead_in": 116.6,
+   "lufs_in": -18.2,
+   "pad_ms": 13,
+   "gain_db": 0,
+   "lead": 129.6,
+   "lufs": -18.6
+  },
+  "en/81162": {
+   "replaces": "en/51162",
+   "voice": "Matilda",
+   "voice_id": "XrExE9yKIg1WjnnlVkGX",
+   "text": "(re-pad)",
+   "words": [
+    "g9#1162"
+   ],
+   "lead_in": 116.6,
+   "lufs_in": -18.2,
+   "pad_ms": 13,
+   "gain_db": 0,
+   "lead": 129.6,
+   "lufs": -18.6
+  }
+ },
+ "weak": [
+  "bare",
+  "bay",
+  "beach",
+  "bench",
+  "bill",
+  "chew",
+  "considerate",
+  "few",
+  "hall",
+  "hard",
+  "hull",
+  "madam",
+  "medal",
+  "mere",
+  "middle",
+  "vary"
+ ]
+}
