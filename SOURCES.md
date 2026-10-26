@@ -92,6 +92,8 @@ Two Band III Core II items are kept in the word list but left out of games. This
 
 For all five tracks the Hebrew and emoji were written for the app (derived). Sources are in `tools/src/extra/*.txt`. When a word already exists in an MoE list with the same sense, its Hebrew and clips are reused. Share-alike: the derived lists `data/acad.json` and `data/c2.json` are offered under CC BY-SA 4.0, with attribution as above.
 
+*Part of speech in `c2` follows the Octanove entry; e.g. **ally** is listed there as a verb, so its gloss is the verb sense only.*
+
 ## 3. Derived content (written for the app, not from the Ministry)
 - **Hebrew translations and emoji hints** for Pre-Band I, Band I and Band III. Band II translations come from band2-study.
 - **Example sentences** ("השלמת משפט"):
@@ -121,6 +123,7 @@ For all five tracks the Hebrew and emoji were written for the app (derived). Sou
   - Hebrew: Latin examples removed, niqqud added for one-letter prefixes and ambiguous words.
   - Manual overrides cover about 80 items, such as "a, an" and "neither… nor".
 - **Processing (same as band2-study):** trim silence, loudness normalised to −18 LUFS, mono 22.05 kHz 32 kbps MP3. Files are at `audio/en|he/<n>.mp3`.
+  - Since eq-3.7.0 (review #4) every clip also starts with **≥120 ms of silence** (a 95 ms `adelay` after trimming, more where needed), so the first sound is not clipped when playback starts.
 - **QA:**
   - Every English clip was transcribed locally with Whisper small.en. Median similarity was 1.0.
   - 89 clips that Whisper could not read (mostly single short words and numbers) were re-checked with ElevenLabs Scribe. The remaining mismatches are homophones (eye/I, sea/C, tea/T, wear/where, queue/Q, bare/bear) or "i.e." read as "that is".
@@ -148,6 +151,16 @@ For all five tracks the Hebrew and emoji were written for the app (derived). Sou
   - Fixes always use new file numbers (n+10000), so no stale cached audio can play.
   - **Homograph / pronunciation QA (eq-3.4, after review #1):** a Hebrew clip says one *reading*, but text-level STT cannot tell חֶבֶל (rope) from חֲבָל (pity). So every Hebrew gloss of all tracks (6,673 distinct gloss/clip pairs) was vocalised with Dicta Nakdan and reviewed by hand; 138 homograph risks were flagged (`tools/qa/he_homograph_flags.txt`). Each flagged clip was transcribed to phonemes (wav2vec2-lv-60-espeak) and compared with the correct and the competing reading. 62 clips that said (or could say) the wrong reading – incl. rope, key/developer, eminence, cord, marble, headquarters (×2), container, connector, correlation, descriptor, ore, hungry/hunger, thirst/thirsty – were re-recorded from niqqud text (`he/11033–11097`, list with phoneme scores in `tools/qa/he_pron_rerecord.json`) and re-checked the same way. Shared clips were split so a clip is shared only by identical Hebrew (`python3 tools/qa_he_pron.py check`: 0 violations over 6,491 Hebrew clips). Cost ≈400 TTS credits.
   - Cost: **≈8,670 TTS + ≈385 STT credits** (≈9.06k of the 15,000 cap).
+- **Re-processing and the file-number rule:**
+  - Rule: a clip whose *recording* changes gets a **new file number** (remapped in `tools/audio_fix.json` / `tools/src/extra/clips.json`), so a stale cached copy can never play. Progress is keyed by word number, so it is unaffected.
+  - Exception (eq-3.7.0): the lead-silence padding re-encoded **all** clips **in place** (same file names, same recordings). The service worker's audio cache was renamed `eq-audio-v1` → **`eq-audio-v2`** at that release, so every device drops the old copies once. A handful of in-place re-records are listed in `sw.js` `REFRESH` and evicted on activate.
+  - eq-3.8.0 follows the rule again: the fear/burn re-pads are new files (`en/80333`, `en/80130`, `en/81162`).
+- **Alternate voices for weak words (eq-3.8.0, review #5, requested by Dudi):** a few short words stayed hard to hear in Matilda's voice (e.g. *middle* heard as "niddle", *medal* as "metal", *bill*, *bay*, *mere*, *hall*, *few*, *vary*, *chew*, *considerate* (too fast), *beach*, *bench*, *madam*). Only those clips use another ElevenLabs premade voice (`eleven_v4`): **Alice** (Xb7hH8MSUJpSbSDYk0k2), **Bella** (hpp4J3VqNfWAUOO0d1Us) or **Sarah** (EXAVITQu4vr4xnSDxMaL). Matilda is still used everywhere else.
+  - Method: 2–3 voices × 2 takes per word, and a context phrase where a bare word was ambiguous ("Hall, as in a long hall."). Each take was scored with Whisper small.en + medium.en (two passes) and a wav2vec2 first-sound vote over 5 offsets. The best take that beat the current clip won; ties went to the voice closest to Matilda (WavLM speaker similarity). Then loudness was matched and the lead padded to ≥120 ms.
+  - Final check: Whisper small.en, medium.en and large-v3-turbo, before and after (`tools/r5/verify3.py`).
+  - Per-clip record (voice, id, text, scores, similarity, LUFS, lead): `tools/voices.json`. New files: `audio/en/7xxxx` (70000 + n mod 10000).
+  - Licence: ElevenLabs premade voices, used under the account's plan like Matilda/Tomer. ElevenLabs says default voices may stop being available for *new* generation after 31 Dec 2026; the files already made are not affected.
+  - Cost: **≈1,030 TTS credits** for the trials and takes (within the 13.5k cap Dudi set for the review rounds).
 - **Offline:** audio is not precached. Each clip is cached on first play, and the "אני" tab can download a whole list for offline use. The browser voice (🤖) remains only as a fallback, if a file fails to load.
 
 | Track | EN clips | HE clips |
