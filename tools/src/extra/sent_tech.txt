@@ -1,0 +1,35 @@
+# author-written cloze sentences for tech (derived, eq-3.4); format: word|sentence with ___
+acknowledge|The server must ___ each message it receives.
+anomaly|The monitoring tool flagged an ___ in the network traffic.
+attribute|Each HTML element can have an ___ such as id or class.
+automate|We wrote a script to ___ the daily backups.
+bias|The training data had a ___ toward English speakers.
+bookmark|You can ___ this page to find it again later.
+compile|You need to ___ the code before you can run it.
+compress|We ___ large images so the page loads faster.
+debug|It took two hours to ___ the program and find the error.
+decrypt|Only the receiver has the key to ___ the message.
+firmware|Update the router's ___ to fix the security bug.
+filter|You can ___ the results to show only recent posts.
+inheritance|In object-oriented programming, ___ lets a class reuse code from another class.
+interactive|The museum has an ___ map that visitors can touch.
+loop|The ___ runs ten times and then stops.
+malicious|Don't open ___ attachments from unknown senders.
+modular|A ___ design lets you replace one part without changing the rest.
+monitor|The ___ shows how busy each server is.
+parameter|The function takes one ___: the user's name.
+partition|He created a new ___ on the hard drive.
+processor|A faster ___ makes the computer run more quickly.
+probe|The engineer used a ___ to measure the voltage.
+recursion|A function that calls itself uses ___.
+repository|The project's code is stored in a public ___.
+robust|The system is ___ enough to handle millions of users.
+router|The ___ sends data between your home network and the internet.
+schema|The database ___ defines the tables and their fields.
+subset|We tested the model on a small ___ of the data.
+swap|The operating system uses ___ space when memory is full.
+symmetric|In ___ encryption, both sides use the same key.
+transmit|The satellite can ___ data back to Earth.
+trigger|Clicking the button will ___ the download.
+wireless|Most phones use ___ charging now.
+transistor|A ___ is a tiny switch inside a chip.

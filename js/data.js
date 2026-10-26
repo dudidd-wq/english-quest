@@ -68,6 +68,8 @@ export const isAdultTrack = t => ['acad', 'tech', 'c1', 'c2'].includes(t);
 export const worldsFor = t => isAdultTrack(t) ? WORLDS_ADULT : WORLDS;
 export const PER_WORLD = 8;
 export let D = null;           // current track data
+let onTrackLoad = null;
+export const setOnTrackLoad = f => { onTrackLoad = f; };
 const cache = {};
 export const loaded = t => cache[t];
 export async function loadTrack(track) {
@@ -79,6 +81,7 @@ export async function loadTrack(track) {
     d.read ||= []; d.talk ||= [];
     cache[track] = d;
   }
+  onTrackLoad?.(cache[track]);
   return (D = cache[track]);
 }
 export const W = n => D.byN.get(+n);

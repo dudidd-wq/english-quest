@@ -1,0 +1,129 @@
+# author-written cloze sentences for acad (derived, eq-3.4); format: word|sentence with ___ ; distractors are picked by tools/build_extra.py
+afterward|We discussed the results, and ___ we wrote the report.
+amongst|The idea is popular ___ young researchers.
+historically|___, the city was an important trade centre.
+locally|The vegetables are grown ___, on farms near the town.
+planner|The city ___ designed new bike lanes.
+problematic|Using a small sample is ___ because the results may not be reliable.
+adaptation|The film is an ___ of a famous novel.
+actively|Students should ___ take part in the discussion.
+commentary|The professor wrote a short ___ on each poem.
+comparable|The two studies used ___ methods, so we can compare them.
+disturbance|Construction noise caused a ___ during the exam.
+economist|The ___ predicted that prices would rise.
+inequality|The report shows growing ___ between rich and poor.
+intensity|The ___ of the storm surprised everyone.
+occurrence|Earthquakes are a rare ___ in this region.
+physically|After the long hike, she was ___ tired.
+punishment|The school decided that extra homework is not a fair ___.
+quotation|Start your essay with a ___ from the book.
+specification|The engineer checked every ___ before building the device.
+stabilize|The doctors worked to ___ the patient's condition.
+accelerate|New technology can ___ the research process.
+variance|The test measures the ___ in students' scores.
+allocate|The school will ___ more money to the library.
+alliance|The two countries formed an ___ to fight the disease.
+bacteria|Some ___ live in our stomach and help us digest food.
+beam|A ___ of light came through the window.
+compensate|The company will ___ customers for the delay.
+competent|She is a ___ manager who solves problems quickly.
+consumption|Energy ___ rises in summer because of air conditioning.
+contradict|The new data seem to ___ the old theory.
+criteria|What are the ___ for choosing the winner?
+crystal|Salt forms a small white ___ when water evaporates.
+distribution|The ___ of food to the villages took two days.
+dominant|English is the ___ language of science.
+emission|Cars are a major source of carbon ___.
+enforcement|Law ___ in the area has improved.
+flexibility|Working from home gives employees more ___.
+fiber|Fruit and vegetables are rich in ___.
+ideology|The party's ___ is based on equality.
+inevitably|Prices ___ go up when demand grows.
+irrelevant|That question is ___ to our topic.
+lecturer|The ___ explained the theory with clear examples.
+migration|Bird ___ happens every autumn and spring.
+methodology|The article describes its ___ in the second section.
+philosopher|Plato was a Greek ___.
+practitioner|A medical ___ examined the children.
+rational|Try to make a ___ decision, not an emotional one.
+randomly|Participants were ___ divided into two groups.
+resemble|The twins ___ each other closely.
+ritual|Drinking coffee every morning is part of my daily ___.
+subtle|There is a ___ difference between the two colours.
+strategic|The port has a ___ location near the border.
+translation|I read the novel in ___ because I don't speak Russian.
+transaction|Every ___ is recorded by the bank.
+acute|She went to hospital with ___ pain.
+adjacent|The library is ___ to the main building.
+bizarre|He told a ___ story that nobody believed.
+bulk|The ___ of the work was done by volunteers.
+classification|Scientists use a ___ system for animals and plants.
+closure|The ___ of the factory left many people without work.
+consensus|After a long debate, the committee reached a ___.
+comprehension|The test checks reading ___.
+diagnosis|The doctor gave a clear ___ after the tests.
+diameter|The ___ of the circle is ten centimetres.
+empirical|The claim needs ___ evidence from experiments.
+emperor|The Roman ___ ordered a new road.
+fracture|The X-ray showed a small ___ in his arm.
+grid|The map is divided into a ___ of squares.
+illusion|The mirror creates an ___ of more space.
+implicit|There was an ___ agreement not to discuss money.
+interface|The new app has a simple user ___.
+integral|Practice is an ___ part of learning a language.
+manuscript|The author sent the ___ to the publisher.
+maximize|We want to ___ the time we spend studying.
+norm|Working long hours has become the ___ in this company.
+obscure|The poem is full of ___ references.
+physician|Consult your ___ before taking this medicine.
+portfolio|The art student showed her ___ to the teacher.
+protocol|Every hospital follows a strict safety ___.
+pulse|The nurse checked his ___.
+scenario|In the worst ___, the project will be delayed by a year.
+seminar|We have a history ___ every Tuesday.
+specimen|The scientist examined a blood ___ under the microscope.
+spontaneous|The audience broke into ___ applause.
+thesis|She is writing her ___ on climate change.
+threshold|The noise was above the safe ___.
+utilize|The farm will ___ solar energy.
+upward|Prices moved ___ last month.
+antibody|The body produces an ___ to fight the virus.
+applause|The speech ended with loud ___.
+cylinder|A can is shaped like a ___.
+degrade|Plastic takes hundreds of years to ___.
+elastic|The ___ band stretched and snapped back.
+enzyme|An ___ helps break down food in the body.
+kidney|The ___ removes waste from the blood.
+lateral|The test measured ___ movement, from side to side.
+nucleus|The ___ is at the centre of the cell.
+nutrient|Plants take every ___ they need from the soil.
+pesticide|Organic farmers do not use any chemical ___.
+plausible|Her explanation sounds ___, but we need proof.
+sediment|A layer of ___ settled at the bottom of the lake.
+semantic|The ___ meaning of a word can change over time.
+synthetic|This jacket is made of ___ material, not wool.
+thermal|The hot spring is a natural ___ pool.
+antiquity|The statue dates from ___.
+binary|Computers store data in ___ code.
+discrete|The process has five ___ stages.
+encode|The software can ___ the message so others cannot read it.
+mentor|My ___ helped me choose the right courses.
+metabolism|Exercise can speed up your ___.
+radius|The ___ of a circle is half of its diameter.
+receptor|The drug blocks a ___ in the brain.
+yeast|You need ___ to make bread rise.
+bilingual|She grew up ___, speaking Hebrew and English.
+innate|Children have an ___ ability to learn language.
+infinity|The road seemed to stretch into ___.
+proton|A ___ has a positive charge.
+soluble|Sugar is ___ in water.
+consonant|The letter B is a ___.
+cortex|The brain's outer layer is called the ___.
+axiom|It is an ___ of geometry that parallel lines never meet.
+calculus|Engineers study ___ in their first year.
+semester|The course lasts one ___.
+parenthesis|Put the date in a ___ after the author's name.
+layout|The ___ of the website is clear and simple.
+lifestyle|A healthy ___ includes sleep and exercise.
+pole|The flag hung from a tall ___.
+lifetime|A good pair of boots can last a ___.

@@ -1,7 +1,7 @@
 // English Quest – screens & navigation
 import { $, h, put, en, shuffle, dayNum, fmtDay, toast, download, nWords, reduced, posHe } from './util.js';
 import { S, save, on, T, stageRec, today, dueWords, level, levelXp, gainCoins, touchStreak, streakNow, checkAch, ACH, isMastered, replaceState, resetAll, exportState, unlock, ensureDaily, bumpDaily, beatRival, AURAS, TITLES, profiles, curProfileId, createProfile, switchProfile, leaveProfile, deleteProfile } from './store.js';
-import { TRACKS, GRADES, GRADE_GROUPS, LEVELS, levelsFor, validLevel, isEarly, gradeTracks, themeOf, gradeLabel, WORLDS, worldsFor, isAdultTrack, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
+import { setOnTrackLoad, TRACKS, GRADES, GRADE_GROUPS, LEVELS, levelsFor, validLevel, isEarly, gradeTracks, themeOf, gradeLabel, WORLDS, worldsFor, isAdultTrack, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
 import { sayUi, untimed, GAMES, practiceFor, missionPool, theme, Session, intro, match, listen, pics, scramble, fill, memory, blitz, boss, forms, formsPool, familyItems, reading, talk, cards, typing } from './games.js';
 import * as B from './backup.js';
 import { playWord, sfx, prefetch, stop as stopAudio, hasClip, audioUrl, onRobo } from './audio.js';
@@ -51,7 +51,13 @@ on((type, d) => {
 });
 
 // ---------- shared bits ----------
-const isUnlocked = i => i === 0 || stageRec(i - 1).cleared;
+// a derived track whose stage layout changed (eq-3.4: confusable words split, known words moved to fast review):
+// stage stars are reset once; word progress is keyed by n and is kept.
+setOnTrackLoad(d => {
+  if (!d.layout || !S.profile) return; const t = T(d.track);
+  if (t.layout !== d.layout) { if (Object.keys(t.stages).length) t.stages = {}; t.layout = d.layout; save(); }
+});
+const isUnlocked = i => i === 0 || stageRec(i - 1).cleared || (D.fast != null && i >= D.fast);   // fast-review stages (words known from the MoE Bands) are optional
 const currentStage = () => { let i = 0; while (i < D.stages.length - 1 && stageRec(i).cleared) i++; return i; };
 const practiceDone = i => practiceFor(i).filter(g => stageRec(i).games[g]).length;
 const starsTxt = n => '★'.repeat(n) + '☆'.repeat(3 - n);
@@ -141,8 +147,9 @@ function mapView() {
       const node = h('button.node' + (r.cleared ? '.done' : un ? '.open' : '.lock') + (i === cur ? '.cur' : ''), {
         style: { '--tx': off + '%', transform: `translateX(${off}%)` }, 'aria-label': `שלב ${i + 1}` + (un ? '' : ' (נעול)'),
         onclick: () => un ? (sfx('tap'), go('#/stage/' + i)) : (sfx('bad'), toast('🔒 נצחו את הבוס של השלב הקודם')) },
-        h('span.num', un ? i + 1 : '🔒'), r.cleared && h('span.nstars', starsTxt(r.stars)),
+        h('span.num', un ? (D.fast != null && i >= D.fast ? '⚡' + (i + 1) : i + 1) : '🔒'), r.cleared && h('span.nstars', starsTxt(r.stars)),
         i === cur && h('span.me', S.profile.avatar), i === cur && h('span.bubble', r.plays ? 'ממשיכים!' : 'התחילו כאן!'));
+      if (i === D.fast) sec.append(h('div.fastsep', '⚡ חזרה מהירה – מילים שכבר פגשתם ברשימות של משרד החינוך. פתוח תמיד, אפשר לדלג.'));
       sec.append(node);
     }
     sec.append(h('div.gate', h('span.gboss', W0.boss), h('small', `${adult ? 'אתגר הפרק' : 'בוס האי'}: ${W0.bossName}`)));

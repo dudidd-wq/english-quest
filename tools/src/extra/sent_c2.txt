@@ -1,0 +1,51 @@
+# author-written cloze sentences for c2 (derived, eq-3.4); format: word|sentence with ___
+venture|Opening a restaurant is a risky business ___.
+commission|The government set up a ___ to investigate the accident.
+deficit|The country has a large budget ___.
+echo|We heard the ___ of our voices in the cave.
+hypothesis|The experiment was designed to test the ___.
+abundance|The forest has an ___ of wildlife.
+vicinity|There are three schools in the ___ of our house.
+cosmic|Scientists study ___ rays from distant stars.
+formidable|The team faced a ___ opponent in the final.
+vocational|He chose a ___ course in electronics.
+redundant|The word "free" in "free gift" is ___.
+catastrophic|The flood had ___ effects on the village.
+menace|Speeding drivers are a ___ to everyone on the road.
+brink|The company was on the ___ of collapse.
+abolish|Many countries have voted to ___ the death penalty.
+anthology|The book is an ___ of short stories by young writers.
+nostalgic|Old photos make my grandmother feel ___.
+bogus|The email offered a ___ prize to steal people's details.
+daunting|Starting a new school can be a ___ experience.
+chronological|List the events in ___ order.
+opaque|The bathroom window is made of ___ glass.
+beneficiary|She is the main ___ of her uncle's will.
+adept|He is ___ at solving puzzles.
+deterrent|High fines act as a ___ against littering.
+treacherous|The mountain road is ___ in winter.
+disperse|The police asked the crowd to ___.
+encompass|The course will ___ both history and literature.
+topography|The ___ of the area includes hills and deep valleys.
+impeccable|Her English is ___; she makes no mistakes.
+lament|The poem seems to ___ the loss of childhood.
+fallacy|It is a ___ that money always brings happiness.
+meteorology|She studied ___ because she loves weather.
+ornate|The palace has ___ ceilings covered in gold.
+provocation|He stayed calm despite the ___.
+skim|___ the article first, then read it carefully.
+attrition|The war of ___ lasted for years.
+instantaneous|The effect of the medicine was almost ___.
+contextual|Use ___ clues to guess the meaning of the word.
+figurative|"Time flies" is a ___ expression.
+condensation|___ formed on the cold glass of water.
+tenacity|Her ___ helped her finish the marathon despite the pain.
+derelict|The old factory has been ___ for years.
+nascent|The country's ___ tech industry is growing fast.
+meticulously|He ___ checked every detail of the plan.
+egalitarian|They want an ___ society where everyone has equal rights.
+palatable|The medicine was made ___ for children by adding sugar.
+magnate|The oil ___ bought a football club.
+belligerent|The ___ customer shouted at the staff.
+mariner|The old ___ told stories about the sea.
+insular|The village was small and ___, with few visitors.

@@ -67,11 +67,40 @@ def chunks(ws, size):
     if cur: out.append(cur)
     bad = sum(1 for st in out for i, a in enumerate(st) for b in st[i + 1:] if overlaps(a, b)); assert not bad, bad
     return [[w['n'] for w in st] for st in out]
-def out(track, source, words, stages):
+KNOWN = {norm(w['en']) for t in OFFICIAL for w in OFF[t]['words']}
+def split_known(ws, size):
+    """review #7: words the learner already met in the MoE Bands (same English headword) go to 'fast review' stages
+    at the end of the track, so new words come first. Returns (stages, index of the first fast stage)."""
+    new = [w for w in ws if norm(w['en']) not in KNOWN]; old = [w for w in ws if norm(w['en']) in KNOWN]
+    for w in old: w['k'] = 1
+    a = chunks(new, size); return a + chunks(old, size), len(a)
+LAYOUT = '3.4'   # stage layout version of the derived tracks; the app resets stage stars (not word progress) when it changes
+def cloze(track, words, stages):
+    """review #3: author-written cloze sentences (tools/src/extra/sent_<track>.txt, derived). Distractors: 3 words of the
+    same part of speech from nearby stages that do not overlap the answer in meaning (seeded, reproducible)."""
+    f = f'{X}/sent_{track}.txt'
+    if not os.path.exists(f): return {}
+    import random
+    by = {norm(w['en']): w for w in words}; st = {n: i for i, s in enumerate(stages) for n in s}
+    P = lambda w: re.split(r'[ ,/]', w['pos'])[0]
+    out = {}
+    for en, s in lines(f'sent_{track}.txt'):
+        w = by[norm(en)]; assert s.count('___') == 1, s
+        pool = [x for x in words if x is not w and P(x) == P(w) and not overlaps(x, w) and abs(st[x['n']] - st[w['n']]) <= 4 and ' ' not in x['en']]
+        if len(pool) < 3: pool = [x for x in words if x is not w and P(x) == P(w) and not overlaps(x, w)]
+        V = lambda e: e[0].lower() in 'aeiou'
+        if re.search(r'\ban ___', s): pool = [x for x in pool if V(x['en'])] or pool       # "an ___" must not give the answer away
+        elif re.search(r'\ba ___', s, re.I): pool = [x for x in pool if not V(x['en'])] or pool
+        if len(pool) < 3: pool = [x for x in words if x is not w and P(x) == P(w) and not overlaps(x, w) and V(x['en']) == V(w['en'])]
+        r = random.Random(w['n']); o = [x['en'] for x in r.sample(pool, 3)]
+        out.setdefault(str(w['n']), []).append({'s': s, 'a': w['en'], 'o': o})
+    return out
+def out(track, source, words, stages, fast=None):
     assert len({w['n'] for w in words}) == len(words), track
-    d = {'track': track, 'source': source, 'derived': True, 'stages': stages, 'words': words, 'sent': {}, 'read': [], 'talk': []}
+    d = {'track': track, 'source': source, 'derived': True, 'stages': stages, 'words': words, 'sent': cloze(track, words, stages), 'read': [], 'talk': []}
+    if fast is not None and fast < len(stages): d['fast'] = fast; d['layout'] = LAYOUT
     json.dump(d, open(f'{ROOT}/data/{track}.json', 'w'), ensure_ascii=False, separators=(',', ':'))
-    print(track, len(words), 'words', len(stages), 'stages')
+    print(track, len(words), 'words', len(stages), 'stages', len(d['sent']), 'sent', 'fast from', fast, 'known', sum(1 for w in words if w.get('k')))
 def lines(f): return [l.rstrip('\n').split('|') for l in open(f'{X}/{f}', encoding='utf-8') if l.strip() and not l.startswith('#')]
 
 # ---- abc
@@ -110,20 +139,23 @@ for r in csv.DictReader(open(f'{ADV}/NAWL_12_with_en_definitions.csv', encoding=
     else: MISS.append(en); n += 1; continue
     ws.append(word(n, en, he, pos, '🎓')); n += 1
 assert not MISS, MISS
-out('acad', 'NAWL 1.2 – New Academic Word List (Browne, Culligan & Phillips 2013), CC BY-SA 4.0; Hebrew derived', ws, chunks(ws, 12))
+st, fast = split_known(ws, 12)
+out('acad', 'NAWL 1.2 – New Academic Word List (Browne, Culligan & Phillips 2013), CC BY-SA 4.0; Hebrew derived', ws, st, fast)
 
 # ---- tech (NCSAWL)
 ws, n = [], 31001
 for idx, en, pos, he in [(i,) + tuple(r) for i, r in enumerate(lines('tech_he.txt'))]:
     ws.append(word(n, en, he, pos, '💻')); n += 1
-out('tech', 'NCSAWL – New Computer Science Academic Word List (Uba, Irudayasamy & Hankins 2023), CC BY 4.0; Hebrew derived (computing sense)', ws, chunks(ws, 12))
+st, fast = split_known(ws, 12)
+out('tech', 'NCSAWL – New Computer Science Academic Word List (Uba, Irudayasamy & Hankins 2023), CC BY 4.0; Hebrew derived (computing sense)', ws, st, fast)
 
 # ---- c2 (Octanove subset)
 PO = {'noun': 'n', 'verb': 'v', 'adjective': 'adj', 'adverb': 'adv'}
 ws, n = [], 32001
 for en, pos, he in lines('c2_he.txt'):
     ws.append(word(n, en, he, PO.get(pos, pos), '💎')); n += 1
-out('c2', 'Derived 300-word subset of the Octanove C1/C2 Vocabulary List (CC BY-SA 4.0), rule in tools/build_c2_list.py; Hebrew derived', ws, chunks(ws, 12))
+st, fast = split_known(ws, 12)
+out('c2', 'Derived 300-word subset of the Octanove C1/C2 Vocabulary List (CC BY-SA 4.0), rule in tools/build_c2_list.py; Hebrew derived', ws, st, fast)
 
 json.dump({l: {str(k): v for k, v in sorted(TODO[l].items())} for l in TODO}, open(f'{X}/tts_todo.json', 'w'), ensure_ascii=False, indent=0)
 print('TODO clips: en', len(TODO['en']), 'he', len(TODO['he']), 'chars en', sum(map(len, TODO['en'].values())), 'he', sum(map(len, TODO['he'].values())))
