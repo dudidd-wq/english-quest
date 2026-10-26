@@ -24,28 +24,6 @@
    "before_verify3": "6/6 runs, onset 0/5, FAIL",
    "after_verify3": "5/6 runs, onset 5/5, OK"
   },
-  "en/78057": {
-   "replaces": "en/58057",
-   "word": "bay",
-   "voice": "Alice",
-   "voice_id": "Xb7hH8MSUJpSbSDYk0k2",
-   "text": "Bay!",
-   "words": [
-    "b3c1#8057"
-   ],
-   "before_score": 2,
-   "after_score": 5,
-   "sim_to_matilda": 0.908,
-   "lead_in": 130.2,
-   "lufs_in": -18.2,
-   "pad_ms": 0,
-   "gain_db": 0,
-   "lead": 130.2,
-   "lufs": -18.2,
-   "encode": "single pass from raw TTS",
-   "before_verify3": "5/6 runs, onset 5/5, OK",
-   "after_verify3": "4/6 runs, onset 5/5, OK"
-  },
   "en/72009": {
    "replaces": "en/62009",
    "word": "mere",
@@ -201,28 +179,6 @@
    "before_verify3": "1/6 runs, onset 0/5, FAIL",
    "after_verify3": "6/6 runs, onset 5/5, OK"
   },
-  "en/79192": {
-   "replaces": "en/9192",
-   "word": "considerate",
-   "voice": "Sarah",
-   "voice_id": "EXAVITQu4vr4xnSDxMaL",
-   "text": "con-sid-er-ate.",
-   "words": [
-    "b3c2#9192"
-   ],
-   "before_score": 2,
-   "after_score": 5,
-   "sim_to_matilda": 0.898,
-   "lead_in": 137.0,
-   "lufs_in": -18.5,
-   "pad_ms": 0,
-   "gain_db": 0,
-   "lead": 137.0,
-   "lufs": -18.5,
-   "encode": "single pass from raw TTS",
-   "before_verify3": "0/6 runs, onset 0/5 (n/a), FAIL",
-   "after_verify3": "6/6 runs, onset 0/5 (n/a), OK"
-  },
   "en/76050": {
    "replaces": "en/6050",
    "word": "beach",
@@ -346,6 +302,35 @@
    "before_verify3": "6/6 runs, onset 5/5, OK",
    "after_verify3": "6/6 runs, onset 5/5, OK",
    "word": "burn"
+  },
+  "en/89192": {
+   "replaces": "en/9192",
+   "word": "considerate",
+   "voice": "Alice",
+   "voice_id": "Xb7hH8MSUJpSbSDYk0k2",
+   "text": "Considerate, as in a considerate friend.",
+   "words": [
+    "b3c2#9192"
+   ],
+   "before_score": 2,
+   "after_score": 5,
+   "sim_to_matilda": 0.79,
+   "lead_in": 137.0,
+   "lufs_in": -18.5,
+   "pad_ms": 0,
+   "gain_db": 0,
+   "lead": 175.2,
+   "lufs": -18.3,
+   "encode": "single pass from raw TTS",
+   "before_verify3": "0/6 runs, onset 0/5 (n/a), FAIL",
+   "after_verify3": "6/6 runs (headword itself in 6/6), onset 0/5, OK",
+   "r6": {
+    "note": "review #6: en/79192 (Sarah \"con-sid-er-ate.\") said verb-like /-eɪt/; plain \"considerate.\" in Sarah and Alice (4 takes) had the correct /-ɪt/ ending but every Whisper run heard \"Consider it\" (0/6), so the context phrase was used",
+    "old_79192": "6/6 runs, phonemes ok at 0/5 offsets (0-0.4 s)",
+    "old_9192": "0/6 runs, phonemes ok at 5/5 offsets (0-0.4 s)",
+    "new": "6/6 runs, phonemes ok at 5/5 offsets (0-0.4 s)",
+    "ph": "kənsɪdɚɹətæzɪnɐkənsɪdɚɹətfɹɛnd"
+   }
   }
  },
  "weak": [
@@ -366,5 +351,39 @@
   "middle",
   "vary"
  ],
- "verify3": "tools/r5/verify3.py: Whisper small.en + medium.en + large-v3-turbo at 2 pads (6 runs) + wav2vec2 first-sound vote over 5 offsets; OK = >=4/6 and onset not wrong"
+ "verify3": "tools/r5/verify3.py: Whisper small.en + medium.en + large-v3-turbo at 2 pads (6 runs) + wav2vec2 first-sound vote over 5 offsets; OK = >=4/6 and onset not wrong",
+ "reverted": {
+  "en/78057": {
+   "replaces": "en/58057",
+   "word": "bay",
+   "voice": "Alice",
+   "voice_id": "Xb7hH8MSUJpSbSDYk0k2",
+   "text": "Bay!",
+   "words": [
+    "b3c1#8057"
+   ],
+   "before_score": 2,
+   "after_score": 5,
+   "sim_to_matilda": 0.908,
+   "lead_in": 130.2,
+   "lufs_in": -18.2,
+   "pad_ms": 0,
+   "gain_db": 0,
+   "lead": 130.2,
+   "lufs": -18.2,
+   "encode": "single pass from raw TTS",
+   "before_verify3": "5/6 runs, onset 5/5, OK",
+   "after_verify3": "4/6 runs, onset 5/5, OK",
+   "r6": {
+    "note": "review #6: Alice \"Bay!\" gave v-like onset at 0-0.1 s; 3 new takes (Alice/Sarah/Bella \"Bay.\") did not beat the original Matilda en/58057, which is kept",
+    "old_58057": "5/6 runs, phonemes ok at 5/5 offsets (0-0.4 s)",
+    "rejected_78057": "1/6 runs, phonemes ok at 2/5 offsets (0-0.4 s)",
+    "takes": {
+     "Alice": "3/6 runs, phonemes ok at 5/5 offsets (0-0.4 s)",
+     "Sarah": "2/6 runs, phonemes ok at 5/5 offsets (0-0.4 s)",
+     "Bella": "0/6 runs, phonemes ok at 0/5 offsets (0-0.4 s)"
+    }
+   }
+  }
+ }
 }

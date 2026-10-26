@@ -28,7 +28,7 @@
   "5113": 55113,
   "6045": 56045,
   "659": 50659,
-  "8057": 78057,
+  "8057": 58057,
   "8069": 58069,
   "8448": 58448,
   "8455": 58455,
@@ -77,7 +77,7 @@
   "8853": 78853,
   "9148": 79148,
   "7306": 77306,
-  "9192": 79192,
+  "9192": 89192,
   "6050": 76050,
   "8070": 78070,
   "8438": 78438
@@ -281,7 +281,6 @@
   "he/11097": "niqqud re-record (headquarters): מַטֶּה, מִפְקָדָה",
   "en/11021": "hull (carrier-cut from \"Hull: the body of a ship.\")",
   "en/71132": "3.8.0 alt voice Alice \"Bill.\" replaces en/1132",
-  "en/78057": "3.8.0 alt voice Alice \"Bay!\" replaces en/58057",
   "en/72009": "3.8.0 alt voice Alice \"Mere.\" replaces en/62009",
   "en/70578": "3.8.0 alt voice Alice \"Medal, as in a gold medal.\" replaces en/578",
   "en/70402": "3.8.0 alt voice Bella \"Hall, as in the school hall.\" replaces en/50402",
@@ -289,12 +288,12 @@
   "en/78853": "3.8.0 alt voice Sarah \"Vary, as in to vary the colors.\" replaces en/8853",
   "en/79148": "3.8.0 alt voice Alice \"Chew.\" replaces en/9148",
   "en/77306": "3.8.0 alt voice Alice \"Middle.\" replaces en/7306",
-  "en/79192": "3.8.0 alt voice Sarah \"con-sid-er-ate.\" replaces en/9192",
   "en/76050": "3.8.0 alt voice Alice \"beach.\" replaces en/6050",
   "en/78070": "3.8.0 alt voice Sarah \"bench.\" replaces en/8070",
   "en/78438": "3.8.0 alt voice Bella \"Madam.\" replaces en/8438",
   "en/80333": "3.8.0 re-pad of en/50333 to >=120ms lead",
   "en/80130": "3.8.0 re-pad of en/50130 to >=120ms lead",
-  "en/81162": "3.8.0 re-pad of en/51162 to >=120ms lead"
+  "en/81162": "3.8.0 re-pad of en/51162 to >=120ms lead",
+  "en/89192": "3.8.0 alt voice Alice \"Considerate, as in a considerate friend.\" replaces en/9192 (review #6: 79192 had verb-like /-eIt/)"
  }
 }
