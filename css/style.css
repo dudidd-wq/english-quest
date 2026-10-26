@@ -481,6 +481,7 @@ html.theme-kids .daily-card{background:linear-gradient(135deg,rgba(255,122,182,.
 html.theme-kids .daily-card.done{opacity:.85}
 html.theme-kids .daily-card .dbar{background:rgba(10,40,110,.6)}
 /* spoken Hebrew instructions (grades 1–2) */
-.say-ui{font-size:1.05rem;line-height:1;padding:4px 8px;margin-inline-start:6px;border-radius:99px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:inherit;cursor:pointer;vertical-align:middle}
+.say-ui{display:inline-flex;align-items:center;gap:4px;font-size:1rem;line-height:1;padding:5px 10px;margin-inline-start:6px;border-radius:10px;border:2px dashed rgba(255,225,77,.85);background:rgba(255,225,77,.18);color:inherit;cursor:pointer;vertical-align:middle;font-family:inherit}
+.say-ui-l{font-size:.8rem;font-weight:600}
 .say-ui:active{transform:scale(.92)}
 .fastsep{margin:14px 8px 6px;padding:8px 12px;border-radius:12px;background:rgba(255,229,102,.12);border:1px dashed rgba(255,229,102,.5);font-size:.82rem;text-align:center}

@@ -48,13 +48,13 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
 - [x] #17 shots/v3/desktop-g7-map.png committed
 - [~] #1 EN apt 33094 → /æpt/ (done, "Apt!", ad83849); ASR re-check all ≤3-letter EN words
 - [x] #2 הבא 1431, #3 חזה 1211, #7 container 11035, #10 אי־צדק 33072, גנום 33092, שלשום 10010 re-record + verify
-- [ ] #4 testament 33027: no bracketed text in any recording text (lint)
+- [x] #4 testament 33027: no bracketed text in any recording text (lint)
 - [ ] #9 bat 30062 / mid 30927 / fin 30819 verify by ASR in context; re-record if doubtful
-- [ ] #5 11099 "green" vs kids button colour
+- [x] #5 11099 "green" vs kids button colour
 - [ ] #6/#8 cloze distractors (30439, 32255, 31312, 31131, 32146, 30805, 30520, 30867, 30563, 30953) + automatic near-synonym lint
 - [ ] #11 adult chapter themes (no repeats; ⚡ chapters named "חזרה מהירה")
 - [ ] #12 map old stage stars to new stages by words
-- [ ] #13 abc spoken instruction; instruction 🔊 visually distinct (🗣️)
+- [x] #13 abc spoken instruction; instruction 🔊 visually distinct (🗣️)
 - [x] #14 flourish += לשגשג, boast += להתרברב
 - [ ] #15 safeRounds max 5 words per round
 - [ ] #16 live_check probes c1.json + a C1 clip

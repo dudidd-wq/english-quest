@@ -28,7 +28,7 @@ export const pace = () => theme() === 'kids' ? 1.5 : 1;
 export const early = () => isEarly(S.profile?.grade || 7);
 /** grades 1–3: no countdowns (review #1) */
 /** grades 1–2: spoken Hebrew instructions for non-readers (review #1/#4) */
-export const sayUi = clip => early() ? h('button.say-ui', { type: 'button', 'aria-label': 'הקראת ההוראה', onclick: e => { e.stopPropagation(); sfx('tap'); playUrl(`audio/he/${clip}.mp3`); } }, '🔊') : null;
+export const sayUi = clip => early() ? h('button.say-ui', { type: 'button', 'aria-label': 'הקראת ההוראה', onclick: e => { e.stopPropagation(); sfx('tap'); playUrl(`audio/he/${clip}.mp3`); } }, '🗣️', h('span.say-ui-l', 'הוראה')) : null;
 export const untimed = () => +(S.profile?.grade || 7) <= 3;
 /** rounds of up to k words in which no two words could be confused (same/overlapping Hebrew gloss) */
 export function safeRounds(ws, k) {
@@ -162,7 +162,7 @@ function picOpts(w, pool) {
   return shuffle(out.map(x => ({ text: picFace(x), ok: x === w, label: x.en })));
 }
 function qPic(sess, w, pool, timer = 0) {
-  const prompt = h('div.prompt', h('div.qhint', lettersTrack() ? 'הקשיבו ולחצו על האות' : 'הקשיבו ולחצו על התמונה', lettersTrack() ? null : sayUi(11102)), audioBtn(w, 'en', true));
+  const prompt = h('div.prompt', h('div.qhint', lettersTrack() ? 'הקשיבו ולחצו על האות' : 'הקשיבו ולחצו על התמונה', sayUi(lettersTrack() ? 11130 : 11102)), audioBtn(w, 'en', true));
   sess.later(() => playWord(w, 'en'), 150);
   return choice(sess, { prompt, w, timer, cols: 2, pic: true, opts: picOpts(w, pool), onRight: () => sess.later(() => playWord(w, 'he'), 250), onWrong: () => playWord(w, 'en'), wrongPause: 1800 });
 }
