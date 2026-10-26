@@ -103,6 +103,6 @@ All runs below were made against the **live** site (https://dudidd-wq.github.io/
 ### Known risks going into the independent review
 - Hebrew glosses for acad/tech/c2 are **derived** (written by us, not official). They were audited by the author only.
 - ASR is weak on isolated Hebrew words. Clips below 0.8 were second-checked, and the rest rely on Scribe.
-- Stress-ambiguous NAWL words are spoken in the citation form for the listed part of speech. The *hull* clip says "the hull". Homophones (cue/Q…) were accepted.
+- Stress-ambiguous NAWL words are spoken in the citation form for the listed part of speech. The *hull* clip said "the hull" (fixed in eq-3.4, `en/11021`). Homophones (cue/Q…) were accepted.
 - The new tracks have word games only: no sentences, reading or talk modes.
 - The scramble timeout above was not reproduced.

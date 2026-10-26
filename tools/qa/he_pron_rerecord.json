@@ -1,0 +1,798 @@
+{
+"method": "Dicta Nakdan vocalisation of every Hebrew gloss -> manual homograph review (138 flags) -> wav2vec2 espeak phonemes of the existing clip vs. transliteration of the correct niqqud and of the wrong reading -> re-record mismatches with niqqud text -> phoneme re-check",
+"clips": [
+{
+"clip": 11033,
+"say": "לִתְחֹם, לְהַגְבִּיל",
+"en": [
+"bound"
+],
+"items": [
+"acad:30065"
+],
+"ph": "litxomlehagbil",
+"sim": 0.93
+},
+{
+"clip": 11034,
+"say": "מַחְבֵּר",
+"en": [
+"connector"
+],
+"items": [
+"acad:30081"
+],
+"ph": "maxbel",
+"sim": 0.83
+},
+{
+"clip": 11035,
+"say": "מֵכָל, מְכוּלָה",
+"en": [
+"container"
+],
+"items": [
+"acad:30084",
+"b3c2:9194"
+],
+"ph": "mexolmexula",
+"sim": 0.86
+},
+{
+"clip": 11036,
+"say": "חֶבֶל",
+"en": [
+"rope"
+],
+"items": [
+"acad:30152",
+"b3c1:8647"
+],
+"ph": "xevøn",
+"sim": 0.6
+},
+{
+"clip": 11037,
+"say": "מִתְאָם",
+"en": [
+"correlation"
+],
+"items": [
+"acad:30245"
+],
+"ph": "mitam",
+"sim": 1.0
+},
+{
+"clip": 11038,
+"say": "לַהֲפֹךְ ל־; לְעַבֵּד",
+"en": [
+"render"
+],
+"items": [
+"acad:30389"
+],
+"ph": "lahafoxlaleabed",
+"sim": 0.93
+},
+{
+"clip": 11039,
+"say": "חֶבֶל; כֶּבֶל",
+"en": [
+"cord"
+],
+"items": [
+"acad:30489"
+],
+"ph": "evinkevin",
+"sim": 0.53
+},
+{
+"clip": 11040,
+"say": "לְשַׁבֵּט, לְשַׁכְפֵּל",
+"en": [
+"clone"
+],
+"items": [
+"acad:30475"
+],
+"ph": "leshabetleshaxpel",
+"sim": 0.94
+},
+{
+"clip": 11041,
+"say": "שַׁיִשׁ; גֻּלָּה",
+"en": [
+"marble"
+],
+"items": [
+"acad:30581"
+],
+"ph": "shshgula",
+"sim": 0.84
+},
+{
+"clip": 11042,
+"say": "לְמַקְסֵם",
+"en": [
+"maximize"
+],
+"items": [
+"acad:30583"
+],
+"ph": "lemaksem",
+"sim": 0.93
+},
+{
+"clip": 11043,
+"say": "לְדַמּוֹת",
+"en": [
+"simulate"
+],
+"items": [
+"acad:30644"
+],
+"ph": "ledamot",
+"sim": 0.92
+},
+{
+"clip": 11044,
+"say": "מָסוֹף (טֶרְמִינָל)",
+"en": [
+"terminal"
+],
+"items": [
+"acad:30669",
+"b3c1:8790"
+],
+"ph": "masoftexminal",
+"sim": 0.89
+},
+{
+"clip": 11045,
+"say": "מִסְפָּרִי",
+"en": [
+"numerical"
+],
+"items": [
+"acad:30751"
+],
+"ph": "mispaxi",
+"sim": 0.8
+},
+{
+"clip": 11046,
+"say": "לְחַסֵּר",
+"en": [
+"subtract"
+],
+"items": [
+"acad:30883",
+"b3c2:9975"
+],
+"ph": "lexasel",
+"sim": 0.77
+},
+{
+"clip": 11047,
+"say": "מְתָאֵר",
+"en": [
+"descriptor"
+],
+"items": [
+"acad:30919"
+],
+"ph": "mitaer",
+"sim": 0.91
+},
+{
+"clip": 11048,
+"say": "לְחַמְצֵן",
+"en": [
+"oxidize"
+],
+"items": [
+"acad:30920"
+],
+"ph": "lixamtsen",
+"sim": 0.94
+},
+{
+"clip": 11049,
+"say": "מַפְתֵּחַ",
+"en": [
+"key"
+],
+"items": [
+"b1c2:7250",
+"tech:31175"
+],
+"ph": "nofdeax",
+"sim": 0.57
+},
+{
+"clip": 11050,
+"say": "כֶּבֶל",
+"en": [
+"cable"
+],
+"items": [
+"b3c2:9123",
+"tech:31056"
+],
+"ph": "kevin",
+"sim": 0.6
+},
+{
+"clip": 11051,
+"say": "מַטֶּה",
+"en": [
+"headquarters"
+],
+"items": [
+"acad:30957"
+],
+"ph": "mati",
+"sim": 0.75
+},
+{
+"clip": 11052,
+"say": "עֲפָרָה",
+"en": [
+"ore"
+],
+"items": [
+"c2:32011"
+],
+"ph": "afoxa",
+"sim": 0.6
+},
+{
+"clip": 11053,
+"say": "נוֹטֶה, מוּעָד",
+"en": [
+"prone"
+],
+"items": [
+"c2:32023"
+],
+"ph": "notemuad",
+"sim": 1.0
+},
+{
+"clip": 11054,
+"say": "מַכָּה, נֶגַע",
+"en": [
+"blight"
+],
+"items": [
+"c2:32171"
+],
+"ph": "makanega",
+"sim": 1.0
+},
+{
+"clip": 11055,
+"say": "גְּדֻלָּה, חֲשִׁיבוּת",
+"en": [
+"eminence"
+],
+"items": [
+"c2:32183"
+],
+"ph": "gdulaashivut",
+"sim": 0.92
+},
+{
+"clip": 11056,
+"say": "הַקְצָבָה; חֶלְקַת גִּנָּה",
+"en": [
+"allotment"
+],
+"items": [
+"c2:32222"
+],
+"ph": "haktsavaxelkatgina",
+"sim": 1.0
+},
+{
+"clip": 11057,
+"say": "דְּלִי; מֵכָל אִחְסוּן",
+"en": [
+"bucket"
+],
+"items": [
+"tech:31050"
+],
+"ph": "delimixalixsun",
+"sim": 0.86
+},
+{
+"clip": 11058,
+"say": "בַּיְט (8 סִיבִיּוֹת)",
+"en": [
+"byte"
+],
+"items": [
+"tech:31055"
+],
+"ph": "btshmonesiviot",
+"sim": 0.59
+},
+{
+"clip": 11059,
+"say": "מְפַתֵּחַ",
+"en": [
+"developer"
+],
+"items": [
+"tech:31106"
+],
+"ph": "mɨfatea",
+"sim": 0.86
+},
+{
+"clip": 11060,
+"say": "מַרְאֶה",
+"en": [
+"look"
+],
+"items": [
+"tech:31192"
+],
+"ph": "maxe",
+"sim": 0.75
+},
+{
+"clip": 11061,
+"say": "לְצַמֵּד",
+"en": [
+"pair"
+],
+"items": [
+"tech:31240"
+],
+"ph": "letsamed",
+"sim": 0.93
+},
+{
+"clip": 11062,
+"say": "מַעֲבָר",
+"en": [
+"pass"
+],
+"items": [
+"tech:31246"
+],
+"ph": "maav",
+"sim": 0.8
+},
+{
+"clip": 11063,
+"say": "לְאַפֵּס",
+"en": [
+"reset"
+],
+"items": [
+"tech:31299"
+],
+"ph": "leafis",
+"sim": 0.55
+},
+{
+"clip": 11064,
+"say": "עִקְבָה",
+"en": [
+"trace"
+],
+"items": [
+"tech:31380"
+],
+"ph": "ikva",
+"sim": 1.0
+},
+{
+"clip": 11065,
+"say": "חוּט, כֶּבֶל",
+"en": [
+"wire"
+],
+"items": [
+"tech:31425"
+],
+"ph": "xutkevin",
+"sim": 0.75
+},
+{
+"clip": 11066,
+"say": "רָעֵב",
+"en": [
+"hungry"
+],
+"items": [
+"b1c1:6252"
+],
+"ph": "zai",
+"sim": 0.29
+},
+{
+"clip": 11067,
+"say": "לְנַצֵּחַ, לִזְכּוֹת",
+"en": [
+"win"
+],
+"items": [
+"b1c1:6527",
+"g9:1999"
+],
+"ph": "linatseaxlizkot",
+"sim": 0.97
+},
+{
+"clip": 11068,
+"say": "לְחַלֵּק",
+"en": [
+"give out sth or give sth out",
+"hand sth out or hand out sth",
+"divide"
+],
+"items": [
+"b1c2:7185",
+"g7:403",
+"g9:1332"
+],
+"ph": "lexalek",
+"sim": 0.92
+},
+{
+"clip": 11069,
+"say": "לְחַלֵּק (בְּחֶשְׁבּוֹן)",
+"en": [
+"divide"
+],
+"items": [
+"b3c1:8198"
+],
+"ph": "lexalekbexeshbon",
+"sim": 0.93
+},
+{
+"clip": 11070,
+"say": "לְנַשֵּׁק; נְשִׁיקָה",
+"en": [
+"kiss"
+],
+"items": [
+"b1c2:7255"
+],
+"ph": "linashiknishika",
+"sim": 0.83
+},
+{
+"clip": 11071,
+"say": "שָׁקֵט",
+"en": [
+"quiet"
+],
+"items": [
+"b1c2:7421"
+],
+"ph": "shaket",
+"sim": 1.0
+},
+{
+"clip": 11072,
+"say": "שֵׁנִי",
+"en": [
+"second"
+],
+"items": [
+"b1c2:7454"
+],
+"ph": "sheni",
+"sim": 0.91
+},
+{
+"clip": 11073,
+"say": "שָׁלֵו, שָׁקֵט",
+"en": [
+"peaceful"
+],
+"items": [
+"b3c1:8537"
+],
+"ph": "shelivshakit",
+"sim": 0.75
+},
+{
+"clip": 11074,
+"say": "דֻּגְמָה, מִדְגָּם",
+"en": [
+"sample"
+],
+"items": [
+"b3c1:8660"
+],
+"ph": "dugmamidgam",
+"sim": 1.0
+},
+{
+"clip": 11075,
+"say": "מַחֲסֶה, מִקְלָט; לַחְסוֹת",
+"en": [
+"shelter"
+],
+"items": [
+"b3c1:8684"
+],
+"ph": "maxasemiklatlaxsot",
+"sim": 1.0
+},
+{
+"clip": 11076,
+"say": "לֶאֱנֹחַ; אֲנָחָה",
+"en": [
+"sigh"
+],
+"items": [
+"b3c1:8693"
+],
+"ph": "leenoxanaxa",
+"sim": 0.96
+},
+{
+"clip": 11077,
+"say": "בִּרְכַּיִם (חֵיק); הַקָּפָה",
+"en": [
+"lap"
+],
+"items": [
+"b3c2:9573"
+],
+"ph": "bilknxkhakafa",
+"sim": 0.71
+},
+{
+"clip": 11078,
+"say": "לָלֶכֶת לְעוֹלָמוֹ, לְהִפָּטֵר",
+"en": [
+"pass away"
+],
+"items": [
+"b3c2:9742"
+],
+"ph": "lalexetleolamolehipatex",
+"sim": 0.91
+},
+{
+"clip": 11079,
+"say": "עִקְבָה, שָׂרִיד",
+"en": [
+"trace"
+],
+"items": [
+"b3c2:10040"
+],
+"ph": "ikvasaxid",
+"sim": 0.84
+},
+{
+"clip": 11080,
+"say": "לְנַגֵּב",
+"en": [
+"wipe sth away/from/off, etc.",
+"wipe"
+],
+"items": [
+"b3c2:10089",
+"g9:2000"
+],
+"ph": "linʌgøv",
+"sim": 0.62
+},
+{
+"clip": 11081,
+"say": "לְרַגֵּשׁ, לְהַשְׁפִּיעַ רִגְשִׁית",
+"en": [
+"affect"
+],
+"items": [
+"g7:25"
+],
+"ph": "lexageshlehaspiaxigshit",
+"sim": 0.81
+},
+{
+"clip": 11082,
+"say": "הֶקְשֵׁר",
+"en": [
+"context"
+],
+"items": [
+"g7:212"
+],
+"ph": "hekshel",
+"sim": 0.86
+},
+{
+"clip": 11083,
+"say": "הַכְתָּבָה",
+"en": [
+"dictation"
+],
+"items": [
+"g7:256"
+],
+"ph": "haxdava",
+"sim": 0.86
+},
+{
+"clip": 11084,
+"say": "בַּמַּאי",
+"en": [
+"director"
+],
+"items": [
+"g7:264"
+],
+"ph": "bʌm",
+"sim": 0.5
+},
+{
+"clip": 11085,
+"say": "לְחַבֵּר, לְאַחֵד",
+"en": [
+"join"
+],
+"items": [
+"g7:500"
+],
+"ph": "lexavexleaxed",
+"sim": 0.75
+},
+{
+"clip": 11086,
+"say": "טוֹסְט, לִקְלוֹת",
+"en": [
+"toast"
+],
+"items": [
+"g7:924"
+],
+"ph": "tostliklot",
+"sim": 1.0
+},
+{
+"clip": 11087,
+"say": "לְהִשְׁתַּתֵּף, לִנְכֹּחַ",
+"en": [
+"attend"
+],
+"items": [
+"g9:1086"
+],
+"ph": "lehishtatifliŋkox",
+"sim": 0.82
+},
+{
+"clip": 11088,
+"say": "לְנַצֵּחַ, לְהָבִיס",
+"en": [
+"beat"
+],
+"items": [
+"g9:1120"
+],
+"ph": "lɨnatseaxlɨhavis",
+"sim": 0.9
+},
+{
+"clip": 11089,
+"say": "אֲנִי מַנִּיחַ שֶׁכֵּן",
+"en": [
+"I suppose (so)"
+],
+"items": [
+"g9:1516"
+],
+"ph": "animeniaxsheken",
+"sim": 0.88
+},
+{
+"clip": 11090,
+"say": "עַל, אֶל",
+"en": [
+"onto/on to"
+],
+"items": [
+"g9:1664"
+],
+"ph": "ael",
+"sim": 0.86
+},
+{
+"clip": 11091,
+"say": "לְהַחֲנוֹת, לַחֲנוֹת",
+"en": [
+"park"
+],
+"items": [
+"g9:1689"
+],
+"ph": "lehaxanotlaxanot",
+"sim": 0.97
+},
+{
+"clip": 11092,
+"say": "לְנַעֵר, לִרְעֹד",
+"en": [
+"shake"
+],
+"items": [
+"g9:1817"
+],
+"ph": "lenaerirod",
+"sim": 0.9
+},
+{
+"clip": 11093,
+"say": "מִמְטָר",
+"en": [
+"shower"
+],
+"items": [
+"g9:1827"
+],
+"ph": "mintalo",
+"sim": 0.62
+},
+{
+"clip": 11094,
+"say": "צָמָא",
+"en": [
+"thirst"
+],
+"items": [
+"g9:1931"
+],
+"ph": "sm",
+"sim": 0.57
+},
+{
+"clip": 11095,
+"say": "רָעָב",
+"en": [
+"hunger"
+],
+"items": [
+"g7:441"
+],
+"ph": "raav",
+"sim": 1.0
+},
+{
+"clip": 11096,
+"say": "צָמֵא",
+"en": [
+"thirsty"
+],
+"items": [
+"b1c2:7538"
+],
+"ph": "sm",
+"sim": 0.57
+},
+{
+"clip": 11097,
+"say": "מַטֶּה, מִפְקָדָה",
+"en": [
+"headquarters"
+],
+"items": [
+"b3c1:8326"
+],
+"ph": "matemifkada",
+"sim": 1.0
+}
+]
+}
