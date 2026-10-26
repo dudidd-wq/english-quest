@@ -73,4 +73,4 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
 - [x] R7 grade 3: spelling games (scramble/type) unlocked after chapter 1
 - [x] R9 gloss nits: fan, indulge, imposition, gate, 10010 display
 - [x] R10 people emoji as word pictures in new tracks; parents button icon
-- [ ] SW eq-3.6.0, chunked full tests, live verify, credits
+- [x] SW eq-3.6.0, chunked full tests, live verify, credits (all chunks ERRORS 0 except transient Pages 503s, rerun clean; ledger total 36754; round 3 ≈313 credits; cumulative ≈11.77k of 15k cap)

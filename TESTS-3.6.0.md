@@ -18,3 +18,5 @@ Run against https://dudidd-wq.github.io/english-quest/ (SW eq-3.6.0), tools/test
 | 2026-10-26 11:30 | tools/test_remap.js (local) | – | 0 | PASS |
 | 2026-10-26 11:05 | tools/test_r3.js (R2/R6/R7/R10 UI: g2 no banners, g3 no scramble/type, track themes, 📊 parents button) | – | 0 | PASS |
 | 2026-10-26 11:05 | audio md5 live == repo (en 8057, en 1133, he 0893, he 11101) | – | 0 | same |
+| 2026-10-26 11:38 | desktop grades 8–12 rerun | 5 | 2 | only failures: transient GitHub Pages HTTP 503 (manifest.webmanifest on g12; first run: he/1518.mp3 on g9); both URLs return 200 on recheck. No app errors |
+| 2026-10-26 11:41 | desktop grade 12 rerun | 1 | 0 | ERRORS 0 |
