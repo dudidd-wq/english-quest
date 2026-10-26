@@ -1,4 +1,4 @@
-// Recorded clips (Matilda EN / Tomer HE from band2) + speechSynthesis fallback + punchy Web Audio SFX.
+// Recorded clips (EN: Matilda, plus Alice/Bella/Sarah for a few weak words - see tools/voices.json; HE: Tomer from band2) + speechSynthesis fallback + punchy Web Audio SFX.
 import { S } from './store.js';
 const pad = n => String(n).padStart(4, '0');
 /** recorded clip for a word, or null (then the browser voice is used and flagged in the UI) */
