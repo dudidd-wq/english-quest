@@ -74,3 +74,19 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
 - [x] R9 gloss nits: fan, indulge, imposition, gate, 10010 display
 - [x] R10 people emoji as word pictures in new tracks; parents button icon
 - [x] SW eq-3.6.0, chunked full tests, live verify, credits (all chunks ERRORS 0 except transient Pages 503s, rerun clean; ledger total 36754; round 3 ≈313 credits; cumulative ≈11.77k of 15k cap)
+
+## Round 4 (review #4 → eq-3.7.0)
+- [ ] R4-2 sw.js audio miss: fetch(key,{cache:'no-cache'})
+- [ ] R4-3 a11y: avatar/🗣️ aria-label contains visible text; contrast .gglabel, .floaty
+- [ ] R4-4 grades 1–2: no daily-goal coins toast, no "רמה/XP" text in HUD
+- [ ] R4-5a cloze 30368, 30127
+- [ ] R4-5b pluck gloss (noun+verb); "to" (consequence) in b1c2
+- [ ] R4-5c tech themes for all chapters; C2 ch4 stages; C1 card text
+- [ ] R4-5d one-off 404 after profile creation
+- [ ] R4-5e Band III source URL
+- [ ] R4-6 human-figure emoji pre-1/MoE → neutral where cheap
+- [ ] R4-1a global re-trim of short EN clips (lead ≥120 ms, −60 dB), verify
+- [ ] R4-1b re-record 17 labial clips + medal/hull/mere (new file numbers, SW bust)
+- [ ] R4-1c automatic dual check (word+onset) on all EN ≤4 letters; rates
+- [ ] R4-1d HE 872, 33045
+- [ ] SW eq-3.7.0, full tests, live verify, credits
