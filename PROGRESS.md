@@ -85,7 +85,8 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
 - [x] R4-5d one-off 404 after profile creation
   - not reproducible: tools/test_404.js (fresh profiles g1/g5/g9 + acad/c2, page + SW network events, local and live, with reload) logs 0 HTTP≥400, 0 failed requests, 0 console errors; every ae/ah clip, REFRESH entry and UI clip exists. Most likely a transient GitHub Pages response (we saw 503s during round-3 tests).
 - [x] R4-5e Band III source URL
-- [ ] R4-6 human-figure emoji pre-1/MoE → neutral where cheap
+- [x] R4-6 human-figure emoji pre-1/MoE → neutral where cheap
+  - glyph table NEUTRAL in tools/build_all.py: 0 person/face-figure pictograms left in pre1/b1c1/b1c2/g7/g9/b3c1/b3c2 (was ~420). Kept on purpose: 👤 👥 (faceless silhouettes, 50 words), hand gestures 🙏 🤲 🙌, and 🙈. man/woman/boy/girl words → ♂️/♀️; family → 🌳.
 - [ ] R4-1a global re-trim of short EN clips (lead ≥120 ms, −60 dB), verify
 - [ ] R4-1b re-record 17 labial clips + medal/hull/mere (new file numbers, SW bust)
 - [ ] R4-1c automatic dual check (word+onset) on all EN ≤4 letters; rates

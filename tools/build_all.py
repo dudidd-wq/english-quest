@@ -10,6 +10,19 @@ SRC = os.path.join(ROOT, 'tools/src')
 RAW = json.load(open(os.path.join(SRC, 'raw.json')))
 B2 = json.load(open('/workspace/band2-study/data/words.json'))['words']
 EMO_FIX = json.load(open(os.path.join(ROOT, 'tools/emoji_fix.json')))
+
+# review #4 (R4-6): human-figure pictograms → neutral object/symbol emoji (glyph table, a few per-word picks).
+# Kept on purpose: 👤 👥 (faceless silhouettes) and hand gestures (🙏 🤲 🙌).
+NEUTRAL = {'🤷': '❓', '🙋': '✋', '🗣️': '💬', '🏃': '👟', '🏃\u200d♂️': '👟', '🙅': '🚫', '🚶': '👣', '🚶\u200d♀️': '👣', '🧍': '📍',
+  '🏋️': '💪', '🧑\u200d🏫': '🏫', '👩\u200d🏫': '🏫', '🕵️': '🔍', '👶': '🍼', '👷': '🦺', '🦹': '🚨', '🧑': '🆔', '🧗': '⛰️', '👯': '🟰',
+  '🧑\u200d💼': '💼', '🙇': '🤝', '🧘': '☮️', '🏊': '🌊', '🧑\u200d✈️': '🚗', '🤦': '🌀', '🛌': '🛏️', '🧑\u200d🍳': '🍳', '👨\u200d🍳': '🍳',
+  '🧔': '🪒', '💃': '👗', '🚴': '🚲', '🦸': '🏅', '💂': '🛡️', '👮': '🚓', '💁': '💡', '💇': '✂️', '🙆': '🧠', '🤵': '👔', '🤴': '👑',
+  '👱': '🌾', '👨\u200d⚖️': '⚖️', '🧑\u200d⚖️': '⚖️', '🚣': '🛶', '🧑\u200d🔬': '🔬', '🤹': '🎯', '🛀': '🛁', '👰': '💍', '🤾': '🥏',
+  '🧓': '🧭', '🧑\u200d🤝\u200d🧑': '🛎️', '🤳': '📱', '🫃': '🍽️', '🧑\u200d🎤': '🎧', '🧑\u200d🚒': '🚒', '👨\u200d💻': '💻', '🤸': '〰️',
+  '🤼': '🥊', '🧑\u200d🌾': '🌻', '🤰': '🍼', '👪': '🌳', '👨\u200d👩\u200d👧': '🌳', '👩\u200d👧': '🌳', '👨\u200d👧': '🌳',
+  '👨': '♂️', '👦': '♂️', '👩': '♀️', '👧': '♀️', '💁\u200d♀️': '♀️', '🙋\u200d♀️': '♀️', '💁\u200d♂️': '♂️', '🙋\u200d♂️': '♂️',
+  '👴': '⏳', '👵': '⏳', '🧒': '🧸', '👫': '🤝'}
+def neutral(e): return NEUTRAL.get(e, e)
 SENSITIVE = {9828, 9979}        # official B3C2 items kept in the word list but not used in games for teens
 norm = lambda s: re.sub(r'\s+', ' ', s.strip().lower())
 EN2N = {}; HE2N = {}
@@ -44,7 +57,7 @@ for t in ('pre1', 'b1c1', 'b1c2', 'b3c1', 'b3c2'):
     H = he_file(t); words = []
     for r in RAW[t]:
         he, e = H[r['n']]
-        w = {'n': r['n'], 'en': r['en'].strip(), 'he': he, 'pos': r['pos'], 'm': r['m'], 'e': EMO_FIX.get(str(r['n']), e), 'rp': r['rp'] or 'Rec'}
+        w = {'n': r['n'], 'en': r['en'].strip(), 'he': he, 'pos': r['pos'], 'm': r['m'], 'e': neutral(EMO_FIX.get(str(r['n']), e)), 'rp': r['rp'] or 'Rec'}
         if r.get('fpos'): w['fp'] = r['fpos']
         if r.get('fam'): w['f'] = r['fam']
         if r.get('lst'): w['l'] = r['lst']
@@ -57,7 +70,7 @@ for t in ('pre1', 'b1c1', 'b1c2', 'b3c1', 'b3c2'):
         words.append(w)
     TRACKS[t] = words
 for core, t in ((1, 'g7'), (2, 'g9')):
-    TRACKS[t] = [{'n': w['n'], 'en': w['en'], 'he': w['he'], 'pos': w['pos'], 'm': w['m'], 'e': EMO_FIX.get(str(w['n']), w['e']), 'rp': w['rp'], 'ae': w['n'], 'ah': w['n']}
+    TRACKS[t] = [{'n': w['n'], 'en': w['en'], 'he': w['he'], 'pos': w['pos'], 'm': w['m'], 'e': neutral(EMO_FIX.get(str(w['n']), w['e'])), 'rp': w['rp'], 'ae': w['n'], 'ah': w['n']}
                  for w in B2 if w['core'] == core]
 
 # audio fixes (tools/audio_fix.json): homograph clips per meaning + re-recorded clips, always under NEW clip numbers
