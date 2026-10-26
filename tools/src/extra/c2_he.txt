@@ -223,7 +223,7 @@ allotment|n|הקצבה; חלקת גינה
 diligently|adv|בחריצות
 etching|n|תחריט
 modernism|n|מודרניזם
-pluck|n|אומץ
+pluck|n, v|אומץ; לקטוף, למרוט
 proverbial|adj|פתגמי, ידוע
 quirk|n|מוזרות קטנה
 treachery|n|בגידה

@@ -18,13 +18,13 @@
   "audio_he": 549
  },
  "b1c2": {
-  "words": 601,
+  "words": 602,
   "stages": 50,
-  "in_games": 601,
-  "sentences": 100,
+  "in_games": 602,
+  "sentences": 102,
   "min_sent": 2,
-  "audio_en": 601,
-  "audio_he": 601
+  "audio_en": 602,
+  "audio_he": 602
  },
  "b3c1": {
   "words": 886,

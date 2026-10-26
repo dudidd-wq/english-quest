@@ -109,7 +109,7 @@ if __name__ == '__main__':
             for st, c in ex.map(lambda j: synth(*j, state), uniq): C[st] += 1; cost += c
         print(dict(C), 'cost this run', cost)
     elif cmd == 'install':
-        out = {}; miss = 0
+        P = os.path.join(ROOT, 'tools/src/clips_v3.json'); out = json.load(open(P)) if os.path.exists(P) else {}; miss = 0   # merge: J holds only clip-less words
         for n, lang, text, voice, t, w in J:
             src = cpath(text, voice, lang)
             if not os.path.exists(src): miss += 1; continue

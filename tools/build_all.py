@@ -68,7 +68,13 @@ for _ws in TRACKS.values():
             if str(_w['n']) in AUDIO_FIX.get(_k, {}): _w[_k] = AUDIO_FIX[_k][str(_w['n'])]
 
 OLD_STAGES = json.load(open(os.path.join(ROOT, 'tools/stages.json')))   # keep v1/v2 stage order for g7/g9 (saved progress!)
+LATE = {'b1c2': [7602]}   # review #4: words added after release go into the smallest last stage, so saved stage stars stay valid
 def stages_for(t, words):
+    late = [w['n'] for w in words if w['n'] in LATE.get(t, [])]
+    if late:
+        st = stages_for(t, [w for w in words if w['n'] not in late])
+        for n in late: min(st[-4:], key=len).append(n)
+        return st
     if t in OLD_STAGES: return OLD_STAGES[t]
     play = [w for w in words if w['n'] not in SENSITIVE]
     if t == 'b3c1':
