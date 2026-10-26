@@ -25,3 +25,21 @@ Grade map (Curriculum 2020 Table 4/5): 4=PreBand I+B1C1, 5=B1C1/B1C2, 6=B1C2, 7=
 - [x] Audio: 1,304 EN + 1,323 HE new clips (455e550); HE QA: Scribe all + ivrit-ai on 77 → 40 niqqud re-records (e0810e9); EN QA: Whisper all + Scribe on 214 → 5 re-records (cfc1af7). Credits ≈8,594 TTS + ≈380 STT (cap 15k)
 - [x] NCSAWL attribution corrected to Uba, Irudayasamy & Hankins 2023 (data, About, LEVELS, SOURCES); SW eq-3.3.2
 - [x] Gloss audit (derived Hebrew, tech + c2 + acad scanned): sector, interrupt, hitch fixed + 3 HE clips; SW eq-3.3.3 live (52fd676). Credits ≈8,670 TTS + ≈385 STT
+
+## Review #1 fixes (eq-3.4.0) – resume checklist (/workspace/eq_review_findings_1.md)
+- [x] #1 HE homographs: 62 niqqud re-records, split shared clips, tools/qa_he_pron.py (27c99a8)
+- [x] #2 hull re-cut, say.json "hull" (27c99a8)
+- [x] #3 adult worlds post-12 + cloze sentences acad/tech/c2 (8b4d89e)
+- [x] #4 spoken HE instructions grades 1–2 (he/11099–11103), "Early words" translated, untimed grades 1–3 (8b4d89e)
+- [x] #5 fan 🪭, hat 👒, soft 🪶, hello without "(בפגישה)" (8b4d89e)
+- [x] #6 no overlapping glosses in one round (safeRounds/distinctWords) (8b4d89e)
+- [x] #7 known Band words → optional ⚡ fast-review stages; 15 NCSAWL items listed in SOURCES (84f4338)
+- [x] #7 C1 track data (498ea16) + audio 180 EN / 173 HE (4c98749, 01601f1)
+- [ ] #7 C1: HE QA, wire into data.js/picker, tests, docs
+- [ ] #8 About links + LICENSE-DATA.md check
+- [ ] #9 abc example words
+- [ ] #10 conglomerate/tuple (done in data? verify) + 19 duplicate-gloss pairs
+- [ ] #11 splash claim
+- [ ] low: scramble stall g10; upgrade 3.3.2→3.4.0 + offline reload
+- [ ] SW eq-3.4.0, full tests, live verify, credits report
+Credits this task so far: 260 + 1,294 (C1) TTS → ledger 36,006; cumulative ≈11.0k of 15k cap
