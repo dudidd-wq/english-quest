@@ -54,3 +54,24 @@
 31002|encode
 32208|brim
 32208|unravel
+# review #3 human check
+30015|interestingly
+32232|proverbial
+30548|ethical
+30383|statistical
+30411|statistical
+33080|voluntary
+30685|likewise
+30127|enormously
+31020|argument
+31218|probe
+31218|sensor
+31309|modular
+30383|strategic
+30127|incredibly
+31218|simulation
+30015|locally
+31309|optimal
+30548|obscure
+30015|broadly
+31218|spreadsheet

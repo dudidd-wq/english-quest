@@ -67,7 +67,7 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
 - [ ] R1c ASR gate (Whisper small+medium + phonemes) on every EN ≤4 letters + b/m/p-initial
 - [x] R2 per-track chapter themes (tech / C1 / C2 / acad)
 - [x] R3 HE 893 שלשום, 11101 שיאה, 6402, 31210
-- [ ] R4 cloze 30015, 32232 + 30548 30383 30411 33080 30685 30127 31020 31218 31309
+- [x] R4 cloze 30015, 32232 + 30548 30383 30411 33080 30685 30127 31020 31218 31309
 - [x] R5 cap match time-bonus XP (bonus ≤30, match pairs ½ XP + combo ≤×2: perfect round ≈140 instead of 424)
 - [x] R6 grades 1–2: hide rival/daily banners, results = stars + big emoji
 - [x] R7 grade 3: spelling games (scramble/type) unlocked after chapter 1
