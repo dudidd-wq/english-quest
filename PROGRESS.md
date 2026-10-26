@@ -56,7 +56,7 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
 - [ ] #12 map old stage stars to new stages by words
 - [x] #13 abc spoken instruction; instruction 🔊 visually distinct (🗣️)
 - [x] #14 flourish += לשגשג, boast += להתרברב
-- [ ] #15 safeRounds max 5 words per round
+- [x] #15 safeRounds max 5 words per round
 - [ ] #16 live_check probes c1.json + a C1 clip
 - [ ] fun/feel cats 1–2 (cheap extras)
 - [ ] SW eq-3.5.0, chunked full tests, live verify, credits

@@ -34,7 +34,13 @@ export const untimed = () => +(S.profile?.grade || 7) <= 3;
 export function safeRounds(ws, k) {
   const rounds = [];
   for (const w of ws) { const r = rounds.find(r => r.length < k && !r.some(x => overlaps(w, x))); r ? r.push(w) : rounds.push([w]); }
-  if (rounds.length > 1 && rounds.at(-1).length < 3 && !rounds.at(-1).some(w => rounds.at(-2).some(x => overlaps(w, x)))) rounds.at(-2).push(...rounds.pop());
+  // a tiny last round is merged into the previous one only while that stays ≤5 words (review #2 pacing);
+  // otherwise it borrows words from the previous round so no round is a 1–2 word stub
+  const last = rounds.at(-1), prev = rounds.at(-2);
+  if (prev && last.length < 3 && !last.some(w => prev.some(x => overlaps(w, x)))) {
+    if (prev.length + last.length <= 5) rounds.pop(), prev.push(...last);
+    else while (last.length < 3 && prev.length > 3) last.push(prev.pop());
+  }
   return rounds;
 }
 export const distinctWords = ws => ws.reduce((a, w) => (a.some(x => overlaps(w, x)) || a.push(w), a), []);
