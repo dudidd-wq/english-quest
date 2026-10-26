@@ -89,7 +89,13 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
   - glyph table NEUTRAL in tools/build_all.py: 0 person/face-figure pictograms left in pre1/b1c1/b1c2/g7/g9/b3c1/b3c2 (was ~420). Kept on purpose: 👤 👥 (faceless silhouettes, 50 words), hand gestures 🙏 🤲 🙌, and 🙈. man/woman/boy/girl words → ♂️/♀️; family → 🌳.
 - [x] R4-1a global re-trim of short EN clips (lead ≥120 ms, −60 dB), verify
   - finding: the ElevenLabs raws themselves start only ~30–60 ms before speech, so onsets were never clipped by trimming; the fix is padding. All 6,311 EN clips re-processed from the cached raws with NORM + adelay=95 (tools/r4/topup.py tops up anything <125 ms; 16 raws that crash ffmpeg's loudnorm were padded from the installed file). Measured lead (reviewer metric, first sample >2% of peak @16 kHz): min 122 ms, median ≈135 ms, 0 clips <120 ms (all 6,311). Same file names → SW audio cache renamed eq-audio-v1 → eq-audio-v2 (old one deleted on activate) and audio is fetched with cache:'no-cache'.
-- [ ] R4-1b re-record 17 labial clips + medal/hull/mere (new file numbers, SW bust)
+- [x] R4-1b re-record 17 labial clips + medal/hull/mere (new file numbers, SW bust)
+  - judged with tools/r4/check.py (reviewer's method: faster-whisper small.en + medium.en, wav2vec2-lv-60 phoneme onset, 0.5/0.7 s pad); tools/r4/rerec.py tries up to 8 phrasings (plain, CAPS, 2nd-token cuts of "W... w." / "W, w!" / "W. W." / "The word is: w." / "Listen: w."). Installed under NEW numbers (official 50000+n, derived 60000+n%10000) by tools/r4/install.py; log tools/r4/rerec_installed.json.
+  - new takes passing all three tests: pain 50659, milk 55113, bank 56045 (also b3c1 8051 + derived 31028), bell 58069, pill 58544, pin 58545, beg 59090, mask 58448 (+31201), melt 58455, mesh 62042.
+  - bare 59051 = "bare, as in bare feet." (the option in the brief; Whisper: "Bear, as in, bare feet" – homophone, context disambiguates; onset b).
+  - hull 61021 = "hull, as in the hull of a ship." (both models hear "Hull").
+  - may 7298, pick 7384, pig 7388, male 1605: after the R4-1a lead padding the existing clips pass all three tests → kept (no new take needed).
+  - residual (documented): bay 58057 – medium.en and phonemes say "bay"/b, small.en says "They" (better than before: phonemes were wrong too). mere 62009 – both models write the homophone "Mir"/"mirror"; onset m ok. medal 578 – kept: every take (8 plain/cut + 2 "as in a gold medal") is heard "metal" (American flap: medal/metal are homophones for this voice).
 - [ ] R4-1c automatic dual check (word+onset) on all EN ≤4 letters; rates
 - [x] R4-1d HE 872, 33045
   - 872 taste → new clip he/50872 "טַעַם, לִטְעוֹם" (vocalised; ivrit-ai turbo hears "טעם לטעום"). 33045 acre → he/53045 "אַקֶר. בְּעֵרֶךְ אַרְבָּעָה דּוּנָם." (5 wordings tried; ASR writes the homophone "עקר" for every correctly pronounced take – א/ע sound the same in modern Hebrew – rest of the gloss exact). Tools: tools/r4/he.py. Ledger 80.

@@ -1,0 +1,162 @@
+[
+ {
+  "a": 659,
+  "word": "pain",
+  "say": "Pain.",
+  "score": 5,
+  "old": 659,
+  "new": 50659,
+  "words": [
+   659
+  ]
+ },
+ {
+  "a": 5113,
+  "word": "milk",
+  "say": "The word is: milk.",
+  "score": 5,
+  "old": 5113,
+  "new": 55113,
+  "words": [
+   5113
+  ]
+ },
+ {
+  "a": 6045,
+  "word": "bank",
+  "say": "bank.",
+  "score": 5,
+  "old": 6045,
+  "new": 56045,
+  "words": [
+   6045,
+   8051,
+   31028
+  ],
+  "note": "8051 bank (b3c1) had a byte-identical copy 8051.mp3 → also mapped to 56045"
+ },
+ {
+  "a": 8057,
+  "word": "bay",
+  "say": "Bay... bay.",
+  "score": 3,
+  "old": 8057,
+  "new": 58057,
+  "words": [
+   8057
+  ]
+ },
+ {
+  "a": 8069,
+  "word": "bell",
+  "say": "Bell, bell!",
+  "score": 5,
+  "old": 8069,
+  "new": 58069,
+  "words": [
+   8069
+  ]
+ },
+ {
+  "a": 8448,
+  "word": "mask",
+  "say": "Mask. Mask.",
+  "score": 5,
+  "old": 8448,
+  "new": 58448,
+  "words": [
+   8448,
+   31201
+  ]
+ },
+ {
+  "a": 8455,
+  "word": "melt",
+  "say": "Melt... melt.",
+  "score": 5,
+  "old": 8455,
+  "new": 58455,
+  "words": [
+   8455
+  ]
+ },
+ {
+  "a": 8544,
+  "word": "pill",
+  "say": "Pill.",
+  "score": 5,
+  "old": 8544,
+  "new": 58544,
+  "words": [
+   8544
+  ]
+ },
+ {
+  "a": 8545,
+  "word": "pin",
+  "say": "pin.",
+  "score": 5,
+  "old": 8545,
+  "new": 58545,
+  "words": [
+   8545
+  ]
+ },
+ {
+  "a": 9051,
+  "word": "bare",
+  "say": "bare, as in bare feet.",
+  "score": "small: Bear, as in, bare feet. / onset b",
+  "kind": "phrase (review #4 option)",
+  "old": 9051,
+  "new": 59051,
+  "words": [
+   9051
+  ]
+ },
+ {
+  "a": 9090,
+  "word": "beg",
+  "say": "Beg.",
+  "score": 5,
+  "old": 9090,
+  "new": 59090,
+  "words": [
+   9090
+  ]
+ },
+ {
+  "a": 11021,
+  "word": "hull",
+  "say": "hull, as in the hull of a ship.",
+  "score": "phrase: small+medium hear Hull",
+  "kind": "phrase",
+  "old": 11021,
+  "new": 61021,
+  "words": [
+   32015
+  ]
+ },
+ {
+  "a": 32042,
+  "word": "mesh",
+  "say": "Mesh, mesh!",
+  "score": 5,
+  "old": 32042,
+  "new": 62042,
+  "words": [
+   32042
+  ]
+ },
+ {
+  "a": 42009,
+  "word": "mere",
+  "say": "Listen: mere.",
+  "score": 3,
+  "old": 42009,
+  "new": 62009,
+  "words": [
+   32009
+  ]
+ }
+]
