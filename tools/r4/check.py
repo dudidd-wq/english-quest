@@ -14,7 +14,8 @@ HOMO=[{'bear','bare'},{'be','bee','b'},{'by','bye','buy'},{'pi','pie'},{'pea','p
  {'bow','bough'},{'bean','been'},{'brake','break'},{'mere','mir'},{'pore','pour','poor','paw'},{'peel','peal'},{'but','butt'},{'minor','miner'},
  {'bay','bey'},{'pause','paws'},{'role','roll'},{'sale','sail'},{'son','sun'},{'tail','tale'},{'wait','weight'},{'week','weak'},{'wear','where'},
  {'hour','our'},{'know','no'},{'right','write'},{'sea','see'},{'two','to','too'},{'one','won'},{'eight','ate'},{'for','four'},{'new','knew'},
- {'hear','here'},{'their','there'},{'road','rode'},{'flour','flower'},{'fair','fare'},{'deer','dear'},{'die','dye'},{'mist','missed'}]
+ {'hear','here'},{'their','there'},{'road','rode'},{'flour','flower'},{'fair','fare'},{'deer','dear'},{'die','dye'},{'mist','missed'},
+ {'prey','pray'},{'pole','poll'},{'byte','bite'},{'main','maine','mane'},{'pack','pak','pac'},{'band','banned'},{'bass','base'}]
 EXP={'b':'b','m':'m','p':'p','d':'d','l':'l','r':'ɹr','n':'n','t':'t','s':'s','f':'f','k':'k'}
 nz=lambda s:re.sub(r'[^a-z]','',s.lower())
 def word_ok(w,h):

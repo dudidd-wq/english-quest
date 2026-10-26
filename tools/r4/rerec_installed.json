@@ -1,5 +1,42 @@
 [
  {
+  "a": 97,
+  "word": "bear",
+  "say": "Bear... bear.",
+  "score": 5,
+  "old": 97,
+  "new": 50097,
+  "words": [
+   97
+  ]
+ },
+ {
+  "a": 130,
+  "word": "burn",
+  "say": "burn.",
+  "score": 5,
+  "old": 130,
+  "new": 50130,
+  "words": [
+   130
+  ]
+ },
+ {
+  "a": 590,
+  "word": "Miss",
+  "say": "Miss... Miss.",
+  "score": 5,
+  "old": 590,
+  "new": 50590,
+  "words": [
+   590,
+   6303,
+   7310,
+   8463,
+   8464
+  ]
+ },
+ {
   "a": 659,
   "word": "pain",
   "say": "Pain.",
@@ -11,6 +48,111 @@
   ]
  },
  {
+  "a": 667,
+  "word": "path",
+  "say": "Path... path.",
+  "score": 5,
+  "old": 667,
+  "new": 50667,
+  "words": [
+   667,
+   9745,
+   31249
+  ]
+ },
+ {
+  "a": 1100,
+  "word": "base",
+  "say": "Base... base.",
+  "score": 5,
+  "old": 1100,
+  "new": 51100,
+  "words": [
+   1100,
+   8056,
+   31030
+  ]
+ },
+ {
+  "a": 1119,
+  "word": "bear",
+  "say": "Bear... bear.",
+  "score": 5,
+  "old": 1119,
+  "new": 51119,
+  "words": [
+   1119
+  ]
+ },
+ {
+  "a": 1162,
+  "word": "burn",
+  "say": "burn.",
+  "score": 5,
+  "old": 1162,
+  "new": 51162,
+  "words": [
+   1162
+  ]
+ },
+ {
+  "a": 1626,
+  "word": "miss",
+  "say": "Miss... miss.",
+  "score": 5,
+  "old": 1626,
+  "new": 51626,
+  "words": [
+   1626
+  ]
+ },
+ {
+  "a": 1629,
+  "word": "mix",
+  "say": "Mix. Mix.",
+  "score": 5,
+  "old": 1629,
+  "new": 51629,
+  "words": [
+   1629,
+   5114
+  ]
+ },
+ {
+  "a": 1696,
+  "word": "pay",
+  "say": "Pay.",
+  "score": 5,
+  "old": 1696,
+  "new": 51696,
+  "words": [
+   1696,
+   7377
+  ]
+ },
+ {
+  "a": 5016,
+  "word": "bed",
+  "say": "Bed.",
+  "score": 5,
+  "old": 5016,
+  "new": 55016,
+  "words": [
+   5016
+  ]
+ },
+ {
+  "a": 5017,
+  "word": "best",
+  "say": "best.",
+  "score": 5,
+  "old": 5017,
+  "new": 55017,
+  "words": [
+   5017
+  ]
+ },
+ {
   "a": 5113,
   "word": "milk",
   "say": "The word is: milk.",
@@ -19,6 +161,17 @@
   "new": 55113,
   "words": [
    5113
+  ]
+ },
+ {
+  "a": 5129,
+  "word": "past",
+  "say": "Past.",
+  "score": 5,
+  "old": 5129,
+  "new": 55129,
+  "words": [
+   5129
   ]
  },
  {
@@ -34,6 +187,39 @@
    31028
   ],
   "note": "8051 bank (b3c1) had a byte-identical copy 8051.mp3 → also mapped to 56045"
+ },
+ {
+  "a": 6057,
+  "word": "best",
+  "say": "best.",
+  "score": 5,
+  "old": 6057,
+  "new": 56057,
+  "words": [
+   6057
+  ]
+ },
+ {
+  "a": 6080,
+  "word": "bye",
+  "say": "Bye... bye.",
+  "score": 5,
+  "old": 6080,
+  "new": 56080,
+  "words": [
+   6080
+  ]
+ },
+ {
+  "a": 7388,
+  "word": "pig",
+  "say": "pig.",
+  "score": 5,
+  "old": 7388,
+  "new": 57388,
+  "words": [
+   7388
+  ]
  },
  {
   "a": 8057,
@@ -138,6 +324,28 @@
   ]
  },
  {
+  "a": 30061,
+  "word": "bang",
+  "say": "Bang.",
+  "score": 5,
+  "old": 30061,
+  "new": 60061,
+  "words": [
+   30061
+  ]
+ },
+ {
+  "a": 30832,
+  "word": "mole",
+  "say": "mole.",
+  "score": 5,
+  "old": 30832,
+  "new": 60832,
+  "words": [
+   30832
+  ]
+ },
+ {
   "a": 32042,
   "word": "mesh",
   "say": "Mesh, mesh!",
@@ -157,6 +365,17 @@
   "new": 62009,
   "words": [
    32009
+  ]
+ },
+ {
+  "a": 59051,
+  "word": "bare",
+  "say": "Bare, bare!",
+  "score": 5,
+  "old": 59051,
+  "new": 69051,
+  "words": [
+   9051
   ]
  }
 ]

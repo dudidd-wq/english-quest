@@ -8,7 +8,7 @@ miss=[a for a in M if a not in L]; rows=collections.defaultdict(lambda:[0,0,0,0,
 for a,w in M.items():
     if a not in L: continue
     j=L[a]; c=w[0].lower(); k=c if c in 'bmp' else ('ctrl' if c in 'dlrntsfk' else 'other')
-    r=rows[k]; r[0]+=1; o1=j['onset'] is False; o=j['onset_robust'] is False; r[5]+=o1; ws=not j['word_small']; wa=not j['word_any']
+    r=rows[k]; r[0]+=1; o1=j['onset'] is False; o=j['onset_robust'] is False; r[5]+=o1; ws=not word_ok(w,j['small']); wa=ws and not word_ok(w,j['medium'] or '')
     r[1]+=o; r[2]+=ws; r[3]+=wa
     if o or wa: r[4].append(f"{a}:{w}|{j['small']}|{j['medium']}|{j['ph']}")
 for k in ['b','m','p','ctrl','other']:
