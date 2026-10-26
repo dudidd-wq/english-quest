@@ -107,7 +107,7 @@ def lines(f): return [l.rstrip('\n').split('|') for l in open(f'{X}/{f}', encodi
 
 # ---- abc
 ws = [word(int(n), f'{L} {L.lower()}', he, 'letter', e, m=ex, say=f'{L}, as in {ex}.') for n, L, ex, he, e in lines('abc.txt')]
-out('abc', 'Derived: English alphabet with example words (mostly from the MoE Pre-Band I / Band I lists)', ws, chunks(ws[:18], 6) + [[w['n'] for w in ws[18:]]])  # A–F, G–L, M–R, S–Z
+out('abc', 'Derived: English alphabet with example words (every example word is in the MoE Pre-Band I or Band I list)', ws, chunks(ws[:18], 6) + [[w['n'] for w in ws[18:]]])  # A–F, G–L, M–R, S–Z
 
 # ---- early (reuses the official item's Hebrew, emoji and clips)
 ws, stages, n = [], [], 21001
