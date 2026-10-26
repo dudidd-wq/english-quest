@@ -9,3 +9,4 @@ Run against https://dudidd-wq.github.io/english-quest/ (SW eq-3.6.0), tools/test
 | 2026-10-26 10:46 | mobile grades 4–7 | 5 | 0 | ERRORS 0 / EXIT 0 |
 | 2026-10-26 10:52 | desktop grades 4–7 | 5 | 0 | ERRORS 0 / EXIT 0 |
 | 2026-10-26 11:00 | mobile grades 8–12 | 6 | 0 | ERRORS 0 / EXIT 0 |
+| 2026-10-26 11:07 | desktop grades 8–12 | 6 | 0 | ERRORS 2 / EXIT 1 |
