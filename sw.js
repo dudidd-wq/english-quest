@@ -1,5 +1,5 @@
 // Service worker: precache the app shell, cache word audio on demand (with Range support for Safari).
-const VERSION = 'eq-3.6.0';
+const VERSION = 'eq-3.7.0';
 const SHELL = 'eq-shell-' + VERSION;
 const AUDIO = 'eq-audio-v2';            // kept across versions; bumped when all clips are re-processed in place (v2 = review #4 lead padding)
 // clips re-recorded in place (same file name): evicted from the audio cache on activate so users get the new take
@@ -12,6 +12,7 @@ const REFRESH = [
   'audio/en/0578.mp3', 'audio/en/0582.mp3', 'audio/en/1001.mp3', 'audio/en/1133.mp3', 'audio/en/1407.mp3', 'audio/en/1562.mp3', 'audio/en/1641.mp3', 'audio/en/5160.mp3', 'audio/en/7242.mp3', 'audio/en/7303.mp3', 'audio/en/7307.mp3', 'audio/en/8384.mp3', 'audio/en/11021.mp3', 'audio/en/31153.mp3', 'audio/en/33171.mp3',
   'audio/en/0096.mp3', 'audio/en/0097.mp3', 'audio/en/0402.mp3', 'audio/en/0567.mp3', 'audio/en/0590.mp3', 'audio/en/0667.mp3', 'audio/en/1100.mp3', 'audio/en/1119.mp3', 'audio/en/1128.mp3', 'audio/en/1626.mp3', 'audio/en/1633.mp3', 'audio/en/1686.mp3', 'audio/en/1696.mp3', 'audio/en/5068.mp3', 'audio/en/7015.mp3', 'audio/en/7043.mp3', 'audio/en/7388.mp3', 'audio/en/8095.mp3', 'audio/en/8448.mp3', 'audio/en/8455.mp3', 'audio/en/9051.mp3', 'audio/en/20013.mp3',
   'audio/he/0893.mp3', 'audio/he/6402.mp3', 'audio/he/5043.mp3', 'audio/he/32072.mp3', 'audio/he/32192.mp3', 'audio/he/11101.mp3', 'audio/he/31210.mp3',
+  // eq-3.7.0 (review #4): nothing here – the audio cache was renamed to eq-audio-v2 (all EN clips re-padded) and every re-recorded clip got a new file number
 ];
 const ASSETS = [
   './', 'index.html', 'manifest.webmanifest', 'css/style.css', 'fonts/rubik.woff2',
