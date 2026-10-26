@@ -20,7 +20,9 @@
    "gain_db": 0,
    "lead": 148.3,
    "lufs": -18.1,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "6/6 runs, onset 0/5, FAIL",
+   "after_verify3": "5/6 runs, onset 5/5, OK"
   },
   "en/78057": {
    "replaces": "en/58057",
@@ -40,7 +42,9 @@
    "gain_db": 0,
    "lead": 130.2,
    "lufs": -18.2,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "5/6 runs, onset 5/5, OK",
+   "after_verify3": "4/6 runs, onset 5/5, OK"
   },
   "en/72009": {
    "replaces": "en/62009",
@@ -60,7 +64,9 @@
    "gain_db": 0,
    "lead": 130.0,
    "lufs": -18.1,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "5/6 runs, onset 5/5, OK",
+   "after_verify3": "6/6 runs, onset 5/5, OK"
   },
   "en/70578": {
    "replaces": "en/578",
@@ -80,28 +86,32 @@
    "gain_db": 2.1,
    "lead": 143.7,
    "lufs": -18.2,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "0/6 runs, onset 5/5, FAIL",
+   "after_verify3": "6/6 runs, onset 5/5, OK"
   },
   "en/70402": {
    "replaces": "en/50402",
    "word": "hall",
    "voice": "Bella",
    "voice_id": "hpp4J3VqNfWAUOO0d1Us",
-   "text": "Hall, as in a long hall.",
+   "text": "Hall, as in the school hall.",
    "words": [
     "b1c2#7199",
     "g7#402"
    ],
    "before_score": 2,
-   "after_score": 5,
-   "sim_to_matilda": 0.933,
-   "lead_in": 141.3,
+   "sim_to_matilda": 0.928,
+   "lead_in": 140.6,
    "lufs_in": -18.7,
    "pad_ms": 0,
    "gain_db": 0,
-   "lead": 141.3,
+   "lead": 140.6,
    "lufs": -18.7,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "after_verify3": "6/6 runs, onset 5/5, OK",
+   "round": 5,
+   "before_verify3": "1/6 runs, onset 5/5, FAIL"
   },
   "en/71417": {
    "replaces": "en/1417",
@@ -121,7 +131,9 @@
    "gain_db": 1.1,
    "lead": 134.6,
    "lufs": -18.3,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "4/6 runs, onset 5/5, OK",
+   "after_verify3": "6/6 runs, onset 5/5, OK"
   },
   "en/78853": {
    "replaces": "en/8853",
@@ -141,7 +153,9 @@
    "gain_db": 0,
    "lead": 130.2,
    "lufs": -18.3,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "0/6 runs, onset 5/5, FAIL",
+   "after_verify3": "6/6 runs, onset 5/5, OK"
   },
   "en/79148": {
    "replaces": "en/9148",
@@ -161,7 +175,9 @@
    "gain_db": 0,
    "lead": 156.2,
    "lufs": -18.7,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "2/6 runs, onset 0/5 (n/a), FAIL",
+   "after_verify3": "4/6 runs, onset 0/5 (n/a), OK"
   },
   "en/77306": {
    "replaces": "en/7306",
@@ -181,7 +197,9 @@
    "gain_db": 0,
    "lead": 139.3,
    "lufs": -18.2,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "1/6 runs, onset 0/5, FAIL",
+   "after_verify3": "6/6 runs, onset 5/5, OK"
   },
   "en/79192": {
    "replaces": "en/9192",
@@ -201,7 +219,9 @@
    "gain_db": 0,
    "lead": 137.0,
    "lufs": -18.5,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "0/6 runs, onset 0/5 (n/a), FAIL",
+   "after_verify3": "6/6 runs, onset 0/5 (n/a), OK"
   },
   "en/76050": {
    "replaces": "en/6050",
@@ -221,7 +241,9 @@
    "gain_db": 0,
    "lead": 130.2,
    "lufs": -17.9,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "4/6 runs, onset 0/5, FAIL",
+   "after_verify3": "4/6 runs, onset 5/5, OK"
   },
   "en/78070": {
    "replaces": "en/8070",
@@ -241,7 +263,9 @@
    "gain_db": 0,
    "lead": 130.5,
    "lufs": -17.9,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "6/6 runs, onset 0/5, FAIL",
+   "after_verify3": "6/6 runs, onset 5/5, OK"
   },
   "en/78438": {
    "replaces": "en/8438",
@@ -261,7 +285,9 @@
    "gain_db": 0,
    "lead": 148.9,
    "lufs": -17.8,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "5/6 runs, onset 0/5, FAIL",
+   "after_verify3": "6/6 runs, onset 5/5, OK"
   },
   "en/80333": {
    "replaces": "en/50333",
@@ -278,7 +304,10 @@
    "gain_db": 0,
    "lead": 130.1,
    "lufs": -19.3,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "5/6 runs, onset 5/5, OK",
+   "after_verify3": "6/6 runs, onset 5/5, OK",
+   "word": "fear"
   },
   "en/80130": {
    "replaces": "en/50130",
@@ -294,7 +323,10 @@
    "gain_db": 0,
    "lead": 129.9,
    "lufs": -18.0,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "6/6 runs, onset 5/5, OK",
+   "after_verify3": "6/6 runs, onset 5/5, OK",
+   "word": "burn"
   },
   "en/81162": {
    "replaces": "en/51162",
@@ -310,7 +342,10 @@
    "gain_db": 0,
    "lead": 129.9,
    "lufs": -18.0,
-   "encode": "single pass from raw TTS"
+   "encode": "single pass from raw TTS",
+   "before_verify3": "6/6 runs, onset 5/5, OK",
+   "after_verify3": "6/6 runs, onset 5/5, OK",
+   "word": "burn"
   }
  },
  "weak": [
@@ -330,5 +365,6 @@
   "mere",
   "middle",
   "vary"
- ]
+ ],
+ "verify3": "tools/r5/verify3.py: Whisper small.en + medium.en + large-v3-turbo at 2 pads (6 runs) + wav2vec2 first-sound vote over 5 offsets; OK = >=4/6 and onset not wrong"
 }
