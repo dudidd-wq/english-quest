@@ -43,3 +43,20 @@ Grade map (Curriculum 2020 Table 4/5): 4=PreBand I+B1C1, 5=B1C1/B1C2, 6=B1C2, 7=
 - [x] low: scramble guard (no over-fill, lock during reset); tools/test_upgrade.js 3.3.2→3.4.0 PASS (progress kept, offline c1/c2/b1c1) (ea30035)
 - [ ] SW eq-3.4.0, full tests, live verify, credits report
 Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledger 36,183; cumulative ≈11.2k of 15k cap
+
+## Review #2 fixes (eq-3.5.0) – resume checklist (/workspace/eq_review_findings_2.md)
+- [x] #17 shots/v3/desktop-g7-map.png committed
+- [ ] #1 EN apt 33094 → /æpt/; ASR re-check all ≤3-letter EN words
+- [ ] #2 הבא 1431, #3 חזה 1211, #7 container 11035, #10 אי־צדק 33072, גנום 33092, שלשום 10010 re-record + verify
+- [ ] #4 testament 33027: no bracketed text in any recording text (lint)
+- [ ] #9 bat 30062 / mid 30927 / fin 30819 verify by ASR in context; re-record if doubtful
+- [ ] #5 11099 "green" vs kids button colour
+- [ ] #6/#8 cloze distractors (30439, 32255, 31312, 31131, 32146, 30805, 30520, 30867, 30563, 30953) + automatic near-synonym lint
+- [ ] #11 adult chapter themes (no repeats; ⚡ chapters named "חזרה מהירה")
+- [ ] #12 map old stage stars to new stages by words
+- [ ] #13 abc spoken instruction; instruction 🔊 visually distinct (🗣️)
+- [ ] #14 flourish += לשגשג, boast += להתרברב
+- [ ] #15 safeRounds max 5 words per round
+- [ ] #16 live_check probes c1.json + a C1 clip
+- [ ] fun/feel cats 1–2 (cheap extras)
+- [ ] SW eq-3.5.0, chunked full tests, live verify, credits
