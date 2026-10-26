@@ -1,7 +1,7 @@
 // English Quest – screens & navigation
 import { $, h, put, en, shuffle, dayNum, fmtDay, toast, download, nWords, reduced, posHe } from './util.js';
 import { S, save, on, T, stageRec, today, dueWords, level, levelXp, gainCoins, touchStreak, streakNow, checkAch, ACH, isMastered, replaceState, resetAll, exportState, unlock, ensureDaily, bumpDaily, beatRival, AURAS, TITLES, profiles, curProfileId, createProfile, switchProfile, leaveProfile, deleteProfile } from './store.js';
-import { setOnTrackLoad, TRACKS, GRADES, GRADE_GROUPS, LEVELS, levelsFor, validLevel, isEarly, gradeTracks, themeOf, gradeLabel, WORLDS, worldsFor, worldAt, isAdultTrack, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
+import { setOnTrackLoad, TRACKS, GRADES, GRADE_GROUPS, LEVELS, levelsFor, validLevel, isEarly, gradeTracks, themeOf, gradeLabel, WORLDS, worldsFor, worldAt, isAdultTrack, PER_WORLD, chapterEnd, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
 import { sayUi, spellingOpen, untimed, GAMES, practiceFor, missionPool, theme, Session, intro, match, listen, pics, scramble, fill, memory, blitz, boss, forms, formsPool, familyItems, reading, talk, cards, typing } from './games.js';
 import * as B from './backup.js';
 import { playWord, sfx, prefetch, stop as stopAudio, hasClip, audioUrl, onRobo } from './audio.js';
@@ -151,7 +151,7 @@ const LIST_LABEL = { acad: 'רשימת NAWL', tech: 'אנגלית טכנית', c
 function adultProgress() {
   const N = D.words.length, recs = D.words.map(w => T().words[w.n]), seen = recs.filter(Boolean).length, m = recs.filter(isMastered).length;
   const pct = Math.round(m / N * 100), next = [10, 25, 50, 75, 100].find(x => x > pct) || 100;
-  const chapters = Array.from({ length: D.worlds }, (_, wi) => wi).filter(wi => { const a = wi * PER_WORLD, b = Math.min(D.stages.length, a + PER_WORLD); for (let i = a; i < b; i++) if (!stageRec(i).cleared) return false; return true; }).length;
+  const chapters = Array.from({ length: D.worlds }, (_, wi) => wi).filter(wi => { const a = wi * PER_WORLD, b = chapterEnd(wi); for (let i = a; i < b; i++) if (!stageRec(i).cleared) return false; return true; }).length;
   return h('div.aprog', h('div.aprow', h('b', '📈 ', LIST_LABEL[D.track] || 'הרשימה'), h('span', `${m}/${N} מילים בשליטה · ${pct}%`)),
     h('div.abar', h('div', { style: { width: pct + '%' } }), h('i', { style: { insetInlineStart: next + '%' } })),
     h('div.muted.small', `נלמדו ${seen} · פרקים שהושלמו ${chapters}/${D.worlds} · היעד הבא: ${next}% מהרשימה`));
@@ -163,7 +163,7 @@ function mapView() {
   // review #3 #6 / #5: grades 1–2 can't read yet – no rival card or daily-challenge card at all (was: until 3 stages cleared)
   const path = h('div.map');
   for (let wi = 0; wi < D.worlds; wi++) {
-    const W0 = worldAt(wi), fastCh = D.fast != null && wi * PER_WORLD >= D.fast, adult = isAdultTrack(D.track), from = wi * PER_WORLD, to = Math.min(D.stages.length, from + PER_WORLD);
+    const W0 = worldAt(wi), fastCh = D.fast != null && wi * PER_WORLD >= D.fast, adult = isAdultTrack(D.track), from = wi * PER_WORLD, to = chapterEnd(wi);
     const cleared = Array.from({ length: to - from }, (_, k) => stageRec(from + k).cleared).filter(Boolean).length;
     const locked = !isUnlocked(from);
     const sec = h('section.world' + (locked ? '.locked' : ''), { style: { '--c1': W0.bg[0], '--c2': W0.bg[1] } },
@@ -174,6 +174,7 @@ function mapView() {
       const r = stageRec(i), un = isUnlocked(i), k = i - from;
       const off = Math.sin(k * 1.1) * 32;
       const node = h('button.node' + (r.cleared ? '.done' : un ? '.open' : '.lock') + (i === cur ? '.cur' : ''), {
+        ...(un ? {} : { tabindex: '-1' }),   // review #5: locked stages are not tab stops (still announced/clickable)
         style: { '--tx': off + '%', transform: `translateX(${off}%)` }, 'aria-label': (i === cur ? `${i + 1} ${r.plays ? 'ממשיכים!' : 'התחילו כאן!'} – ` : '') + `שלב ${i + 1}` + (un ? '' : ' (נעול)'),
         onclick: () => un ? (sfx('tap'), go('#/stage/' + i)) : (sfx('bad'), toast('🔒 נצחו את הבוס של השלב הקודם')) },
         h('span.num', un ? (D.fast != null && i >= D.fast ? '⚡' + (i + 1) : i + 1) : '🔒'), r.cleared && h('span.nstars', starsTxt(r.stars)),
@@ -331,7 +332,7 @@ function finishGame(i, g, res) {
         cleared = !r.cleared; r.cleared = true; r.stars = Math.max(r.stars, res.stars); r.games.boss = Math.max(r.games.boss || 0, res.stars);
         coinsBonus = 10 + 5 * res.stars;
         bumpDaily('boss');
-        const wi = worldOf(i), last = Math.min(D.stages.length, (wi + 1) * PER_WORLD) - 1;
+        const wi = worldOf(i), last = chapterEnd(wi) - 1;
         if (cleared && i === last) { worldDone = true; coinsBonus += 50; if (wi === 0) unlock('world1'); }
       }
     } else {
@@ -553,7 +554,7 @@ function parentView() {
     h('h3', 'פעילות ב־14 הימים האחרונים (XP)'),
     h('div.chart', days.map(d => h('div.barc', h('div.bar', { style: { height: ((S.days[d]?.xp || 0) / mx) * 100 + '%' }, title: `${S.days[d]?.xp || 0} XP` }), h('small', fmtDay(d))))),
     h('h3', 'התקדמות לפי עולם'),
-    h('div.wprogs', Array.from({ length: D.worlds }, (_, wi) => { const from = wi * PER_WORLD, to = Math.min(D.stages.length, from + PER_WORLD), c = Array.from({ length: to - from }, (_, k) => stageRec(from + k).cleared).filter(Boolean).length; const Wd = worldAt(wi);
+    h('div.wprogs', Array.from({ length: D.worlds }, (_, wi) => { const from = wi * PER_WORLD, to = chapterEnd(wi), c = Array.from({ length: to - from }, (_, k) => stageRec(from + k).cleared).filter(Boolean).length; const Wd = worldAt(wi);
       return h('div.wp', h('span', `${Wd.icon} ${Wd.name}`), h('div.pbar', h('div', { style: { width: c / (to - from) * 100 + '%' } })), h('small', `${c}/${to - from}`)); })),
     h('h3', 'המילים הקשות ביותר'),
     hard.length ? h('table.hard', h('tr', h('th', 'מילה'), h('th', 'פירוש'), h('th', '✓'), h('th', '✗')), hard.map(([w, r]) => h('tr', h('td', en(w.en)), h('td', w.he), h('td', r.ok), h('td', r.bad)))) : h('p.muted', 'עוד אין טעויות 🙂'),

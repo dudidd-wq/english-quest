@@ -105,6 +105,8 @@ export async function loadTrack(track) {
     const nt = isAdultTrack(track) ? ADULT_WORLDS[track].length : 0;
     d.pw = nt ? Math.max(4, Math.min(8, Math.ceil((d.fast ?? d.stages.length) / nt))) : 8;
     d.worlds = Math.ceil(d.stages.length / d.pw);
+    // review #5: a trailing ⚡ chapter of <3 stages is merged into the previous ⚡ chapter (tech had a 1-stage last chapter)
+    if (nt && d.fast != null && d.worlds > 1 && d.stages.length - (d.worlds - 1) * d.pw < 3 && (d.worlds - 2) * d.pw >= d.fast) d.worlds--;
     d.read ||= []; d.talk ||= [];
     cache[track] = d;
   }
@@ -114,7 +116,9 @@ export async function loadTrack(track) {
 }
 export const W = n => D.byN.get(+n);
 export const stageWords = i => D.stages[i].map(W);
-export const worldOf = i => Math.floor(i / PER_WORLD);
+export const worldOf = i => Math.min(Math.floor(i / PER_WORLD), D.worlds - 1);
+/** first stage after chapter wi (the last chapter runs to the end of the track) */
+export const chapterEnd = wi => wi >= D.worlds - 1 ? D.stages.length : Math.min(D.stages.length, (wi + 1) * PER_WORLD);
 export function worldAt(wi) {
   const L = worldsFor(D && D.track);
   if (D && D.fast != null && isAdultTrack(D.track) && wi * PER_WORLD >= D.fast) {
