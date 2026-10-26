@@ -35,11 +35,11 @@ Grade map (Curriculum 2020 Table 4/5): 4=PreBand I+B1C1, 5=B1C1/B1C2, 6=B1C2, 7=
 - [x] #6 no overlapping glosses in one round (safeRounds/distinctWords) (8b4d89e)
 - [x] #7 known Band words → optional ⚡ fast-review stages; 15 NCSAWL items listed in SOURCES (84f4338)
 - [x] #7 C1 track data (498ea16) + audio 180 EN / 173 HE (4c98749, 01601f1)
-- [ ] #7 C1: HE QA, wire into data.js/picker, tests, docs
-- [ ] #8 About links + LICENSE-DATA.md check
-- [ ] #9 abc example words
-- [ ] #10 conglomerate/tuple (done in data? verify) + 19 duplicate-gloss pairs
-- [ ] #11 splash claim
-- [ ] low: scramble stall g10; upgrade 3.3.2→3.4.0 + offline reload
+- [x] #7 C1: HE QA (qa_he_pron 0 shared; phon spot-checks 0.7–1.0), wired in data.js/LEVEL_CARDS13/sw precache, tests GRADES incl. 134, SOURCES/LEVELS docs (bf3946e)
+- [x] #8 About: licence links, source URLs, modifications note, LICENSE-DATA link (covers C1/C2) – verified
+- [x] #9 abc: K key, L light, T taxi, V vegetable, Z zero – all 26 in MoE Pre-Band I/Band I (c93b5a6)
+- [x] #10 conglomerate/tuple glosses verified in data; 19 identical-gloss pairs differentiated, new HE clips 11106–11124 (4e37779)
+- [x] #11 splash + meta: official lists for grades 3–12, derived content otherwise (bf3946e)
+- [x] low: scramble guard (no over-fill, lock during reset); tools/test_upgrade.js 3.3.2→3.4.0 PASS (progress kept, offline c1/c2/b1c1) (ea30035)
 - [ ] SW eq-3.4.0, full tests, live verify, credits report
-Credits this task so far: 260 + 1,294 (C1) TTS → ledger 36,006; cumulative ≈11.0k of 15k cap
+Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledger 36,183; cumulative ≈11.2k of 15k cap

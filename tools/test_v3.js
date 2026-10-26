@@ -37,7 +37,8 @@ async function playUntilResult(page, tag, ms = 120000) {
     if (s === 'done') return true;
     steps++; await sleep(s === 'wait' ? 250 : 120);
   }
-  const dump = await page.evaluate(() => (document.querySelector('.game')?.innerText || document.body.innerText).slice(0, 300)).catch(() => '?');
+  const dump = await page.evaluate(() => (document.querySelector('.game')?.innerText || document.body.innerText).slice(0, 300)
+    + ` [diag vis=${document.visibilityState} bar=${document.querySelector('.gbar-fill')?.style.width} slots=${[...document.querySelectorAll('.slots .slot')].map(b => b.textContent || '_').join('')} bankDisabled=${document.querySelectorAll('.bank button[disabled]').length} cls=${document.querySelector('.slots')?.className}]`).catch(() => '?');
   throw new Error('timeout ' + tag + ' :: ' + dump.replace(/\s+/g, ' '));
 }
 // wipe localStorage + the IndexedDB mirror (otherwise v3.1 recovery would restore the previous player)
