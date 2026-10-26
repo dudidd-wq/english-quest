@@ -55,22 +55,42 @@ export const WORLDS = [
   { name: 'מערת הדרקון', icon: '🐉', bg: ['#b91c1c', '#7c2d12'], boss: '🐲', bossName: 'מלך הדרקונים', story: 'הדרקון שומר על המילים האחרונות.' },
 ];
 /** Adult skin for the post-12 tracks (review #1: no coconut islands / giant crabs for university students). */
-export const WORLDS_ADULT = [
-  { name: 'יסודות', icon: '📘', bg: ['#334155', '#1e293b'], boss: '📝', bossName: 'בוחן מסכם', story: 'מילים שחוזרות בכל מאמר ובכל קורס.' },
+/** review #3 #2: each post-12 track has its own chapter themes (academic / tech / general advanced) */
+export const WORLDS_ACAD = [
+  { name: 'יסודות אקדמיים', icon: '📘', bg: ['#334155', '#1e293b'], boss: '📝', bossName: 'בוחן מסכם', story: 'מילים שחוזרות בכל מאמר ובכל קורס.' },
   { name: 'ספריית המחקר', icon: '📚', bg: ['#3f3f46', '#27272a'], boss: '📜', bossName: 'מאמר מדעי', story: 'קוראים תקצירים בלי מילון.' },
   { name: 'מעבדה', icon: '🔬', bg: ['#155e75', '#164e63'], boss: '🧪', bossName: 'ניסוי מסכם', story: 'הגדרות מדויקות, תוצאות מדויקות.' },
   { name: 'חדר הסמינר', icon: '🏛️', bg: ['#4c1d95', '#2e1065'], boss: '🎓', bossName: 'עבודת סמינר', story: 'לנסח טיעון באנגלית אקדמית.' },
-  { name: 'מרכז הנתונים', icon: '🗄️', bg: ['#1e3a8a', '#172554'], boss: '🖥️', bossName: 'שרת ראשי', story: 'מונחים מתיעוד טכני ומקוד אמיתי.' },
   { name: 'כנס בינלאומי', icon: '🌐', bg: ['#065f46', '#064e3b'], boss: '🎤', bossName: 'הרצאת מליאה', story: 'להבין דוברים מכל העולם.' },
   { name: 'מערכת העיתון', icon: '📰', bg: ['#7c2d12', '#431407'], boss: '🖋️', bossName: 'מאמר מערכת', story: 'אוצר מילים של עיתונות איכות.' },
   { name: 'ארכיון', icon: '🗂️', bg: ['#57534e', '#292524'], boss: '📖', bossName: 'כתב יד נדיר', story: 'מילים נדירות ומדויקות.' },
   { name: 'אולם ההרצאות', icon: '🎙️', bg: ['#9d174d', '#500724'], boss: '📋', bossName: 'מבחן סוף סמסטר', story: 'להבין הרצאה שלמה באנגלית.' },
-  { name: 'משרד ההייטק', icon: '💼', bg: ['#3730a3', '#1e1b4b'], boss: '📊', bossName: 'מצגת למשקיעים', story: 'אנגלית של ישיבות, מיילים ומצגות.' },
 ];
+export const WORLDS_TECH = [
+  { name: 'שורת הפקודה', icon: '💻', bg: ['#14532d', '#052e16'], boss: '🐛', bossName: 'באג עקשן', story: 'המילים שמופיעות בכל README ובכל הודעת שגיאה.' },
+  { name: 'מרכז הנתונים', icon: '🗄️', bg: ['#1e3a8a', '#172554'], boss: '🖥️', bossName: 'שרת ראשי', story: 'מונחים מתיעוד טכני ומקוד אמיתי.' },
+  { name: 'רשת ואבטחה', icon: '🔐', bg: ['#7f1d1d', '#450a0a'], boss: '🛡️', bossName: 'מתקפת סייבר', story: 'פרוטוקולים, הרשאות והצפנה.' },
+  { name: 'משרד ההייטק', icon: '💼', bg: ['#3730a3', '#1e1b4b'], boss: '📊', bossName: 'מצגת למשקיעים', story: 'אנגלית של ישיבות, מיילים ומצגות.' },
+  { name: 'מעבדת הבינה המלאכותית', icon: '🤖', bg: ['#581c87', '#3b0764'], boss: '🧠', bossName: 'מודל ענק', story: 'נתונים, אימון ומודלים.' },
+];
+export const WORLDS_C1 = [
+  { name: 'העיר הגדולה', icon: '🏙️', bg: ['#334155', '#0f172a'], boss: '🚇', bossName: 'שעת העומס', story: 'אוצר מילים של חיים, עבודה ושירותים בעיר.' },
+  { name: 'חדשות ותקשורת', icon: '📰', bg: ['#7c2d12', '#431407'], boss: '📺', bossName: 'מהדורה מרכזית', story: 'להבין כתבה, פודקאסט וראיון בלי תרגום.' },
+  { name: 'תרבות ובידור', icon: '🎭', bg: ['#9d174d', '#500724'], boss: '🎬', bossName: 'ערב בכורה', story: 'סרטים, מוזיקה וביקורות.' },
+  { name: 'מסע לחו״ל', icon: '✈️', bg: ['#0e7490', '#164e63'], boss: '🛂', bossName: 'ביקורת גבולות', story: 'להסתדר בכל מקום באנגלית.' },
+];
+export const WORLDS_C2 = [
+  { name: 'עולם העסקים', icon: '📈', bg: ['#3730a3', '#1e1b4b'], boss: '🤝', bossName: 'משא ומתן', story: 'חוזים, שווקים וישיבות הנהלה.' },
+  { name: 'חברה ופוליטיקה', icon: '🗳️', bg: ['#1e3a8a', '#172554'], boss: '🎙️', bossName: 'עימות טלוויזיוני', story: 'לנסח עמדה ולהבין ניואנסים.' },
+  { name: 'ספרות והגות', icon: '📖', bg: ['#57534e', '#292524'], boss: '✒️', bossName: 'מסה ספרותית', story: 'מילים נדירות, מדויקות ועשירות.' },
+  { name: 'טבע וסביבה', icon: '🌍', bg: ['#065f46', '#064e3b'], boss: '🌋', bossName: 'סופת על', story: 'מדע, אקלים ותגליות.' },
+];
+export const WORLDS_ADULT = WORLDS_ACAD;
+const ADULT_WORLDS = { acad: WORLDS_ACAD, tech: WORLDS_TECH, c1: WORLDS_C1, c2: WORLDS_C2 };
 /** review #2 #11: chapters made only of fast-review (⚡) stages get their own theme instead of repeating a world */
 export const FAST_WORLD = { name: 'חזרה מהירה', icon: '⚡', bg: ['#854d0e', '#422006'], boss: '⏱️', bossName: 'סבב בזק', story: 'מילים שכבר פגשתם ברשימות של משרד החינוך. פתוח תמיד, אפשר לדלג.' };
 export const isAdultTrack = t => ['acad', 'tech', 'c1', 'c2'].includes(t);
-export const worldsFor = t => isAdultTrack(t) ? WORLDS_ADULT : WORLDS;
+export const worldsFor = t => isAdultTrack(t) ? ADULT_WORLDS[t] : WORLDS;
 export const PER_WORLD = 8;
 export let D = null;           // current track data
 let onTrackLoad = null;
