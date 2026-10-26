@@ -75,9 +75,10 @@ Two Band III Core II items are kept in the word list but left out of games. This
 |---|---|---|---|---|
 | `acad` אקדמי / פסיכומטרי | NAWL 1.2 – New Academic Word List, Browne, Culligan & Phillips (2013), https://www.newgeneralservicelist.com/new-academic-word-list | CC BY-SA 4.0 | 943 | Prefix entries and duplicates removed. It is an open proxy for the psychometric English section; NITE publishes no official list. |
 | `tech` אנגלית טכנולוגית | NCSAWL – A New Computer Science Academic Word List, Uba, Irudayasamy & Hankins (2023), *World Journal of English Language* 13(5):319, doi:10.5430/wjel.v13n5p319 | CC BY 4.0 | 433 | Of 444 items, 11 are not separate words in the app (listed below). |
+| `c1` מתקדמים (C1) | Octanove Vocabulary Profile C1/C2 1.0, https://github.com/openlanguageprofiles/olp-en-cefrj | CC BY-SA 4.0 | 180 | **Derived subset (review #7).** C1-tagged entries, same frequency rule as c2 (`tools/build_c1_list.py`), minus words in any MoE list or c2, inflected forms of listed words, very frequent words whose C1 tag is an unusual sense (Zipf ≥ 4.8, e.g. condition_v, angle_v), odd POS tags/heteronyms (ODD1) and slang/adult items (SENS1). Hebrew, emoji 🔷 and 31 cloze sentences written for the app. n 33001–33180. |
 | `c2` קרוב לשפת אם | Octanove Vocabulary Profile C1/C2 1.0, https://github.com/openlanguageprofiles/olp-en-cefrj | CC BY-SA 4.0 | 300 | **Derived subset.** The rule is in LEVELS.md, reproducible with `tools/build_c2_list.py`. |
 | `early` (grades 1–2) | MoE Lexical Pre-Band I | official words | 36 | **Derived subset** (picturable concrete nouns, colours and numbers). |
-| `abc` letters | written for the app | — | 26 | **Derived.** "X is for …" example words come mostly from Pre-Band I / Band I. X uses *box* (final x sound). |
+| `abc` letters | written for the app | — | 26 | **Derived.** "X is for …" example words: all 26 are in the MoE Pre-Band I or Band I list (review #9: kite, lion, tree, van, zebra replaced by key, light, taxi, vegetable, zero; nine is Band I). X uses *box* (final x sound). |
 
 **NCSAWL items not used as separate words (444 → 433).** Source ids from the published list (`Word_pos`):
 - Brand names (5): 67 Chrome_n, 144 Google_v, 437 Wikipedia_n, 439 Windows_n — dropped; 436 Wifi_n kept as the generic word *Wi‑Fi*.

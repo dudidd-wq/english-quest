@@ -99,7 +99,7 @@ function onboarding(step = profiles().length ? 'who' : 0, draft = {}) {
     h('button.btn.ghost.wide.small', { onclick: () => restoreView() }, '🛟 שחזור מגיבוי')));
   if (step === 0) return screen('onb', h('div.splash',
     h('div.logo-emoji.bob', '🚀'), h('h1', 'English Quest'), h('p.lead', 'משחק מילים באנגלית · כיתות א׳–י״ב ואחרי התיכון'),
-    h('p.muted.small', 'על בסיס רשימות המילים של משרד החינוך (ד׳–י״ב) ומקורות פתוחים (א׳–ג׳ ואחרי י״ב, נגזר) · 2–4 דקות לסיבוב'),
+    h('p.muted.small', 'על בסיס רשימות המילים של משרד החינוך (ג׳–י״ב) ותוכן נגזר מרשימות פתוחות (א׳–ב׳, אותיות, ואחרי י״ב) · 2–4 דקות לסיבוב'),
     h('h3', 'באיזו כיתה את/ה?'),
     gradePicker(null, g => { draft.grade = g; sfx('tap'); next(g >= 10 ? 'level' : 1); }),
     profiles().length > 0 ? h('button.btn.ghost.wide', { onclick: () => next('who') }, '→ חזרה לבחירת שחקן')
