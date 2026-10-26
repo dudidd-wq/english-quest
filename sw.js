@@ -1,7 +1,7 @@
 // Service worker: precache the app shell, cache word audio on demand (with Range support for Safari).
 const VERSION = 'eq-3.6.0';
 const SHELL = 'eq-shell-' + VERSION;
-const AUDIO = 'eq-audio-v1';            // audio file names never change, kept across versions
+const AUDIO = 'eq-audio-v2';            // kept across versions; bumped when all clips are re-processed in place (v2 = review #4 lead padding)
 // clips re-recorded in place (same file name): evicted from the audio cache on activate so users get the new take
 const REFRESH = [
   'audio/en/33094.mp3', 'audio/en/0573.mp3', 'audio/en/1629.mp3', 'audio/en/8057.mp3', 'audio/en/30062.mp3', 'audio/en/30927.mp3',
@@ -25,7 +25,7 @@ self.addEventListener('install', e => {
 });
 self.addEventListener('activate', e => {
   // only touch this app's caches (the same github.io origin hosts other apps)
-  e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith('eq-shell-') && k !== SHELL).map(k => caches.delete(k))))
+  e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => (k.startsWith('eq-shell-') && k !== SHELL) || (k.startsWith('eq-audio-') && k !== AUDIO)).map(k => caches.delete(k))))
     .then(() => caches.open(AUDIO)).then(c => Promise.all(REFRESH.map(u => c.delete(new URL(u, self.registration.scope).href, { ignoreSearch: true }))))
     .catch(() => {}).then(() => self.clients.claim()));
 });

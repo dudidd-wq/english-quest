@@ -87,7 +87,8 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
 - [x] R4-5e Band III source URL
 - [x] R4-6 human-figure emoji pre-1/MoE → neutral where cheap
   - glyph table NEUTRAL in tools/build_all.py: 0 person/face-figure pictograms left in pre1/b1c1/b1c2/g7/g9/b3c1/b3c2 (was ~420). Kept on purpose: 👤 👥 (faceless silhouettes, 50 words), hand gestures 🙏 🤲 🙌, and 🙈. man/woman/boy/girl words → ♂️/♀️; family → 🌳.
-- [ ] R4-1a global re-trim of short EN clips (lead ≥120 ms, −60 dB), verify
+- [x] R4-1a global re-trim of short EN clips (lead ≥120 ms, −60 dB), verify
+  - finding: the ElevenLabs raws themselves start only ~30–60 ms before speech, so onsets were never clipped by trimming; the fix is padding. All 6,311 EN clips re-processed from the cached raws with NORM + adelay=95 (tools/r4/topup.py tops up anything <125 ms; 16 raws that crash ffmpeg's loudnorm were padded from the installed file). Measured lead (reviewer metric, first sample >2% of peak @16 kHz): min 122 ms, median ≈135 ms, 0 clips <120 ms (all 6,311). Same file names → SW audio cache renamed eq-audio-v1 → eq-audio-v2 (old one deleted on activate) and audio is fetched with cache:'no-cache'.
 - [ ] R4-1b re-record 17 labial clips + medal/hull/mere (new file numbers, SW bust)
 - [ ] R4-1c automatic dual check (word+onset) on all EN ≤4 letters; rates
 - [ ] R4-1d HE 872, 33045
