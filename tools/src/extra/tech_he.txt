@@ -138,7 +138,7 @@ fold|n|קיפול
 form|n|טופס
 forth|adv|הלאה
 frame|n|מסגרת; פריים
-gate|n|שער
+gate|n|שער; שער לוגי
 get|v|לקבל
 granularity|n|רמת פירוט
 guard|n|שומר; תנאי שמירה

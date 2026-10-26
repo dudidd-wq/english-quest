@@ -115,7 +115,7 @@ out('abc', 'Derived: English alphabet with example words (every example word is 
 
 # ---- early (reuses the official item's Hebrew, emoji and clips)
 ws, stages, n = [], [], 21001
-EARLY_EMO = {}
+EARLY_EMO = {'21032': '💝', '21035': '🏅'}   # review #3 #10: no human-figure pictograms in the new tracks
 pre = {norm(w['en']): w for w in OFF['pre1']['words']}
 for row in lines('early.txt'):
     st = []

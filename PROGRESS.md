@@ -62,15 +62,15 @@ Credits this task: 260 + 1,294 (C1) + 137 (19 pairs) + 40 (abc) = 1,731 → ledg
 - [x] SW eq-3.5.0, chunked full tests (TESTS-3.5.0.md; d g3/g5 study-type timeouts = harness flake, rerun in 3.6), live verify, credits: ledger 36,441 → this round ≈258, cumulative ≈11.46k of 15k
 
 ## Review #3 fixes (eq-3.6.0) – resume checklist (/workspace/eq_review_findings_3.md)
-- [ ] R1a trim: keep ≥120 ms lead (-60 dB) in tools/tts_v3.py + tts_extra.py
+- [x] R1a trim: keep ≥120 ms lead (-60 dB) in tools/tts_v3.py + tts_extra.py
 - [ ] R1b re-process 32 labial clips (_r3/lab.txt) + bay/bat/bear/mail/base/melt/bare/Miss/he 5068/hall/all
 - [ ] R1c ASR gate (Whisper small+medium + phonemes) on every EN ≤4 letters + b/m/p-initial
 - [x] R2 per-track chapter themes (tech / C1 / C2 / acad)
-- [ ] R3 HE 893 שלשום, 11101 שיאה, 6402, 31210
+- [x] R3 HE 893 שלשום, 11101 שיאה, 6402, 31210
 - [ ] R4 cloze 30015, 32232 + 30548 30383 30411 33080 30685 30127 31020 31218 31309
 - [x] R5 cap match time-bonus XP (bonus ≤30, match pairs ½ XP + combo ≤×2: perfect round ≈140 instead of 424)
 - [x] R6 grades 1–2: hide rival/daily banners, results = stars + big emoji
 - [x] R7 grade 3: spelling games (scramble/type) unlocked after chapter 1
-- [ ] R9 gloss nits: fan, indulge, imposition, gate, 10010 display
-- [ ] R10 people emoji as word pictures in new tracks; parents button icon
+- [x] R9 gloss nits: fan, indulge, imposition, gate, 10010 display
+- [x] R10 people emoji as word pictures in new tracks; parents button icon
 - [ ] SW eq-3.6.0, chunked full tests, live verify, credits

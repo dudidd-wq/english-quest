@@ -479,7 +479,7 @@ function meView() {
     h('div.row', profiles().map(p => h('button.btn.small' + (p.id === curProfileId() ? '.primary' : '.ghost'), { onclick: () => { if (p.id !== curProfileId()) { switchProfile(p.id); applyTheme(); applyBig(); go('#/map'); route(); } } }, `${p.avatar} ${p.name}`)),
       h('button.btn.small.ghost', { onclick: () => { leaveProfile(); applyTheme(); if (location.hash === '#/new') route(); else location.hash = '#/new'; } }, '➕ חדש/ה')),
     h('button.btn.ghost.wide', { onclick: offlineAll }, '📥 הורדת כל ההקלטות של הרשימה לשימוש בלי אינטרנט'),
-    h('button.btn.ghost.wide', { onclick: () => go('#/parent') }, '👨‍👩‍👧 אזור הורים ומורים'),
+    h('button.btn.ghost.wide', { onclick: () => go('#/parent') }, '📊 אזור הורים ומורים'),
     h('details.about', h('summary', 'ℹ️ על האפליקציה ומקורות'), h('div', { html: ABOUT }), coverage()),
     nav('#/me'));
 }

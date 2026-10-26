@@ -8,6 +8,8 @@ const REFRESH = [
   'audio/he/1431.mp3', 'audio/he/1211.mp3', 'audio/he/11035.mp3', 'audio/he/10010.mp3',
   'audio/he/33027.mp3', 'audio/he/33072.mp3', 'audio/he/33092.mp3', 'audio/he/33159.mp3', 'audio/he/33172.mp3',
   'audio/he/11044.mp3', 'audio/he/11058.mp3', 'audio/he/8656.mp3', 'audio/he/33045.mp3', 'audio/he/11099.mp3',
+  // eq-3.6.0 (review #3)
+  'audio/he/0893.mp3', 'audio/he/6402.mp3', 'audio/he/5043.mp3', 'audio/he/32072.mp3', 'audio/he/32192.mp3', 'audio/he/11101.mp3', 'audio/he/31210.mp3',
 ];
 const ASSETS = [
   './', 'index.html', 'manifest.webmanifest', 'css/style.css', 'fonts/rubik.woff2',

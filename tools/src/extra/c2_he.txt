@@ -69,7 +69,7 @@ combustion|n|בעירה
 eminent|adj|דגול
 subsidy|n|סובסידיה
 curator|n|אוצר (מוזיאון)
-indulge|v|לפנק, להתמכר
+indulge|v|לפנק, להתפנק
 menace|n|איום
 seismic|adj|סייסמי
 accessibility|n|נגישות
@@ -189,7 +189,7 @@ prolong|v|להאריך
 aptitude|n|כישרון, נטייה
 oblique|adj|אלכסוני; עקיף
 assimilation|n|הטמעה
-imposition|n|כפייה; הטרדה
+imposition|n|כפייה; נטל, טרחה
 indulgence|n|פינוק
 notoriety|n|שם רע
 ornate|adj|מקושט
