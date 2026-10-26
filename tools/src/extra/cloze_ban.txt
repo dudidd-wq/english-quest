@@ -75,3 +75,6 @@
 30548|obscure
 30015|broadly
 31218|spreadsheet
+30368|psychologist
+30127|socially
+30127|purely

@@ -5,3 +5,4 @@ node_modules/
 src/
 tools/test_v3_mobile.json
 tools/test_v3_desktop.json
+tools/r4/__pycache__/
