@@ -71,7 +71,6 @@ export const WORLDS_TECH = [
   { name: 'מרכז הנתונים', icon: '🗄️', bg: ['#1e3a8a', '#172554'], boss: '🖥️', bossName: 'שרת ראשי', story: 'מונחים מתיעוד טכני ומקוד אמיתי.' },
   { name: 'רשת ואבטחה', icon: '🔐', bg: ['#7f1d1d', '#450a0a'], boss: '🛡️', bossName: 'מתקפת סייבר', story: 'פרוטוקולים, הרשאות והצפנה.' },
   { name: 'משרד ההייטק', icon: '💼', bg: ['#3730a3', '#1e1b4b'], boss: '📊', bossName: 'מצגת למשקיעים', story: 'אנגלית של ישיבות, מיילים ומצגות.' },
-  { name: 'מעבדת הבינה המלאכותית', icon: '🤖', bg: ['#581c87', '#3b0764'], boss: '🧠', bossName: 'מודל ענק', story: 'נתונים, אימון ומודלים.' },
 ];
 export const WORLDS_C1 = [
   { name: 'העיר הגדולה', icon: '🏙️', bg: ['#334155', '#0f172a'], boss: '🚇', bossName: 'שעת העומס', story: 'אוצר מילים של חיים, עבודה ושירותים בעיר.' },
@@ -91,7 +90,8 @@ const ADULT_WORLDS = { acad: WORLDS_ACAD, tech: WORLDS_TECH, c1: WORLDS_C1, c2: 
 export const FAST_WORLD = { name: 'חזרה מהירה', icon: '⚡', bg: ['#854d0e', '#422006'], boss: '⏱️', bossName: 'סבב בזק', story: 'מילים שכבר פגשתם ברשימות של משרד החינוך. פתוח תמיד, אפשר לדלג.' };
 export const isAdultTrack = t => ['acad', 'tech', 'c1', 'c2'].includes(t);
 export const worldsFor = t => isAdultTrack(t) ? ADULT_WORLDS[t] : WORLDS;
-export const PER_WORLD = 8;
+/** stages per chapter: 8; review #4: adult tracks spread their non-fast stages over their own themes (every theme used, no 1-stage chapter) */
+export let PER_WORLD = 8;
 export let D = null;           // current track data
 let onTrackLoad = null;
 export const setOnTrackLoad = f => { onTrackLoad = f; };
@@ -102,10 +102,13 @@ export async function loadTrack(track) {
     const r = await fetch(`data/${track}.json`); const d = await r.json();
     d.byN = new Map(d.words.map(w => [w.n, w]));
     d.stageOf = new Map(); d.stages.forEach((b, i) => b.forEach(n => d.stageOf.set(n, i)));
-    d.worlds = Math.ceil(d.stages.length / PER_WORLD);
+    const nt = isAdultTrack(track) ? ADULT_WORLDS[track].length : 0;
+    d.pw = nt ? Math.max(4, Math.min(8, Math.ceil((d.fast ?? d.stages.length) / nt))) : 8;
+    d.worlds = Math.ceil(d.stages.length / d.pw);
     d.read ||= []; d.talk ||= [];
     cache[track] = d;
   }
+  PER_WORLD = cache[track].pw;
   onTrackLoad?.(cache[track]);
   return (D = cache[track]);
 }

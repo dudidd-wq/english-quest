@@ -95,7 +95,7 @@ function screen(cls, ...kids) { stopAudio(); put(app, h('div.screen.' + cls, ...
 export function go(hash) { if (location.hash === hash) route(); else location.hash = hash; }
 
 const LEVEL_CARDS = [[3, '📗', 'Band II (חזרה ושליטה במילים של חטיבת הביניים)'], [4, '📘', 'Band III Core I'], [5, '📕', 'Band III Core I + Core II']];
-const LEVEL_CARDS13 = [['acad', '🎓', 'מילים אקדמיות (NAWL) – לקריאת מאמרים, אוניברסיטה ופרק האנגלית בפסיכומטרי'], ['tech', '💻', 'אנגלית של מדעי המחשב והייטק (NCSAWL)'], ['c1', '🔷', 'מילים ברמת C1 – שלב ביניים אחרי 5 יח״ל, לפני C2'], ['c2', '💎', 'מילים מתקדמות ברמת C2 – לקראת אנגלית ברמת שפת אם']];
+const LEVEL_CARDS13 = [['acad', '🎓', 'מילים אקדמיות (NAWL) – לקריאת מאמרים, אוניברסיטה ופרק האנגלית בפסיכומטרי'], ['tech', '💻', 'אנגלית של מדעי המחשב והייטק (NCSAWL)'], ['c1', '🔷', 'מילים ברמת C1 – שלב ביניים אחרי 5 יח״ל'], ['c2', '💎', 'מילים מתקדמות ברמת C2 – לקראת אנגלית ברמת שפת אם']];
 const gname = g => +g === 13 ? GRADES[13] : 'כיתה ' + GRADES[g];
 /** grade buttons grouped by school stage; all look the same – only the learner's own chosen grade (`cur`) is highlighted */
 function gradePicker(cur, pick, small = false) {
