@@ -83,7 +83,7 @@ export class Session {
     if (srs && w) answer(w.n, true);
     this.ok++; this.combo++; this.maxCombo = Math.max(this.maxCombo, this.combo);
     S.stats.bestCombo = Math.max(S.stats.bestCombo, this.combo);
-    const x = 10 * comboMult(this.combo); this.xp += x; this.coins += 1; gainXp(x); gainCoins(1);
+    const x = Math.round(10 * Math.min(comboMult(this.combo), this.comboCap || 4) * (this.xpScale || 1)); this.xp += x; this.coins += 1; gainXp(x); gainCoins(1);
     sfx(this.combo >= 3 ? 'combo' : 'ok', this.combo); this.float('+' + x, el);
     if (untimed()) this.cheer(el);   // review #2: extra reward feedback for grades 1–3
     if (el) { el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop'); }
@@ -260,6 +260,7 @@ function swipe(el, cb) {
 // ---------- ⚡ speed match ----------
 export async function match(sess, words) {
   const ws = shuffle(words), rounds = safeRounds(ws, 4), free = untimed();
+  sess.xpScale = .5; sess.comboCap = 2;   // review #3 #5: 12 easy pairs per round – per-answer XP in line with the other games
   let timeLeft = Math.round(60 * pace()), matched = 0; const total = ws.length;
   const clock = h('div.clock', free ? '🐢' : String(timeLeft));
   let over = false;
@@ -292,7 +293,7 @@ export async function match(sess, words) {
     };
     play(0);
   });
-  const bonus = matched === total && !free ? Math.round(timeLeft) * 2 : 0;
+  const bonus = matched === total && !free ? Math.min(30, Math.round(timeLeft)) : 0;   // review #3 #5: capped so match does not out-earn other games
   if (bonus) { sess.xp += bonus; gainXp(bonus); }
   const acc = (matched / total) * (sess.ok / Math.max(1, sess.ok + sess.bad));
   return sess.summary({ acc, stars: matched < total ? 1 : starsFor(acc), timeLeft: Math.round(timeLeft), bonus, note: free ? '🐢 בלי שעון – בקצב שלכם' : matched < total ? `⏰ הזמן נגמר – התאמתם ${matched} מתוך ${total}` : `⏱️ נשארו ${Math.round(timeLeft)} שניות · בונוס +${bonus} XP`, speedy: matched === total && timeLeft >= 20 });
