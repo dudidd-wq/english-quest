@@ -480,3 +480,6 @@ html.theme-kids .rival-chip{background:rgba(20,50,140,.55);border-color:rgba(255
 html.theme-kids .daily-card{background:linear-gradient(135deg,rgba(255,122,182,.45),rgba(26,92,196,.85));border-color:rgba(255,255,255,.5)}
 html.theme-kids .daily-card.done{opacity:.85}
 html.theme-kids .daily-card .dbar{background:rgba(10,40,110,.6)}
+/* spoken Hebrew instructions (grades 1–2) */
+.say-ui{font-size:1.05rem;line-height:1;padding:4px 8px;margin-inline-start:6px;border-radius:99px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:inherit;cursor:pointer;vertical-align:middle}
+.say-ui:active{transform:scale(.92)}

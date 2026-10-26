@@ -74,10 +74,17 @@ Two Band III Core II items are kept in the word list but left out of games. This
 | Track | Source | Licence | Words in app | Notes |
 |---|---|---|---|---|
 | `acad` אקדמי / פסיכומטרי | NAWL 1.2 – New Academic Word List, Browne, Culligan & Phillips (2013), https://www.newgeneralservicelist.com/new-academic-word-list | CC BY-SA 4.0 | 943 | Prefix entries and duplicates removed. It is an open proxy for the psychometric English section; NITE publishes no official list. |
-| `tech` אנגלית טכנולוגית | NCSAWL – A New Computer Science Academic Word List, Uba, Irudayasamy & Hankins (2023), *World Journal of English Language* 13(5):319, doi:10.5430/wjel.v13n5p319 | CC BY 4.0 | 429 | Of 444 items: brand names and typos were removed (`tools/build_extra.py`). |
+| `tech` אנגלית טכנולוגית | NCSAWL – A New Computer Science Academic Word List, Uba, Irudayasamy & Hankins (2023), *World Journal of English Language* 13(5):319, doi:10.5430/wjel.v13n5p319 | CC BY 4.0 | 433 | Of 444 items, 11 are not separate words in the app (listed below). |
 | `c2` קרוב לשפת אם | Octanove Vocabulary Profile C1/C2 1.0, https://github.com/openlanguageprofiles/olp-en-cefrj | CC BY-SA 4.0 | 300 | **Derived subset.** The rule is in LEVELS.md, reproducible with `tools/build_c2_list.py`. |
 | `early` (grades 1–2) | MoE Lexical Pre-Band I | official words | 36 | **Derived subset** (picturable concrete nouns, colours and numbers). |
 | `abc` letters | written for the app | — | 26 | **Derived.** "X is for …" example words come mostly from Pre-Band I / Band I. X uses *box* (final x sound). |
+
+**NCSAWL items not used as separate words (444 → 433).** Source ids from the published list (`Word_pos`):
+- Brand names (5): 67 Chrome_n, 144 Google_v, 437 Wikipedia_n, 439 Windows_n — dropped; 436 Wifi_n kept as the generic word *Wi‑Fi*.
+- Unclear or misspelt (2): 298 Rep_v (abbreviation, sense not recoverable), 372 Synthesization_n (non-standard form) — dropped. 397 Transitor_n is kept with the corrected spelling *transistor*; 345 Solutions_n is kept as *solution*.
+- Same word listed as noun and verb (5 pairs → 5 words): 320/321 Scan, 326/327 Search, 389/390 Trace, 407/408 Type, 413/414 Update — one entry each (both senses in the Hebrew where they differ).
+- 319 Save_v and 367 Switch_v were missing from eq-3.3.x by mistake; restored in eq-3.4 as new words n 31430–31431 (appended, so existing progress keys do not change), with *solution* 31432 and *transistor* 31433.
+
 
 For all five tracks the Hebrew and emoji were written for the app (derived). Sources are in `tools/src/extra/*.txt`. When a word already exists in an MoE list with the same sense, its Hebrew and clips are reused. Share-alike: the derived lists `data/acad.json` and `data/c2.json` are offered under CC BY-SA 4.0, with attribution as above.
 
@@ -151,7 +158,7 @@ For all five tracks the Hebrew and emoji were written for the app (derived). Sou
 | abc (letters) | 26/26 | 26/26 |
 | early | 36/36 | 36/36 |
 | acad (NAWL) | 943/943 | 943/943 |
-| tech (NCSAWL) | 429/429 | 429/429 |
+| tech (NCSAWL) | 433/433 | 433/433 |
 | c2 (Octanove subset) | 300/300 | 300/300 |
 
 ## 5. Privacy and local persistence

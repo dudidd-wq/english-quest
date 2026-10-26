@@ -10,7 +10,7 @@ export const TRACKS = {
   b3c1: { name: 'Band III – Core I', band: 'Band III · Core I', when: "י׳–י״ב · 4 ו־5 יח״ל", emoji: '🎓', file: 'LexicalBand3.xlsx' },
   b3c2: { name: 'Band III – Core II', band: 'Band III · Core II', when: "י׳–י״ב · 5 יח״ל", emoji: '🏛️', file: 'LexicalBand3.xlsx' },
   // derived (not official MoE lists) – see LEVELS.md / SOURCES.md
-  early:{ name: 'מילים בתמונות', band: 'Early words', when: "א׳–ב׳ · התחלה מוקדמת (רשות)", emoji: '🧸', derived: 'תת־רשימה של Pre-Band I (הבחירה שלנו)' },
+  early:{ name: 'מילים בתמונות', band: 'תמונות ומילים', when: "א׳–ב׳ · התחלה מוקדמת (רשות)", emoji: '🧸', derived: 'תת־רשימה של Pre-Band I (הבחירה שלנו)' },
   abc:  { name: 'אותיות וצלילים', band: 'ABC', when: "א׳–ג׳", emoji: '🔤', derived: 'נכתב לאפליקציה', letters: true },
   acad: { name: 'אקדמי / פסיכומטרי', band: 'Academic (NAWL)', when: "אחרי י״ב", emoji: '🎓', derived: 'NAWL 1.2 · CC BY-SA 4.0' },
   tech: { name: 'אנגלית טכנולוגית', band: 'Tech (NCSAWL)', when: "אחרי י״ב", emoji: '💻', derived: 'NCSAWL · CC BY 4.0' },
@@ -53,6 +53,19 @@ export const WORLDS = [
   { name: 'עיר הרובוטים', icon: '🏙️', bg: ['#64748b', '#0f766e'], boss: '🤖', bossName: 'מגה־רובוט', story: 'תכנתו את המוח שלכם באנגלית.' },
   { name: 'מערת הדרקון', icon: '🐉', bg: ['#b91c1c', '#7c2d12'], boss: '🐲', bossName: 'מלך הדרקונים', story: 'הדרקון שומר על המילים האחרונות.' },
 ];
+/** Adult skin for the post-12 tracks (review #1: no coconut islands / giant crabs for university students). */
+export const WORLDS_ADULT = [
+  { name: 'יסודות', icon: '📘', bg: ['#334155', '#1e293b'], boss: '📝', bossName: 'בוחן מסכם', story: 'מילים שחוזרות בכל מאמר ובכל קורס.' },
+  { name: 'ספריית המחקר', icon: '📚', bg: ['#3f3f46', '#27272a'], boss: '📜', bossName: 'מאמר מדעי', story: 'קוראים תקצירים בלי מילון.' },
+  { name: 'מעבדה', icon: '🔬', bg: ['#155e75', '#164e63'], boss: '🧪', bossName: 'ניסוי מסכם', story: 'הגדרות מדויקות, תוצאות מדויקות.' },
+  { name: 'חדר הסמינר', icon: '🏛️', bg: ['#4c1d95', '#2e1065'], boss: '🎓', bossName: 'עבודת סמינר', story: 'לנסח טיעון באנגלית אקדמית.' },
+  { name: 'מרכז הנתונים', icon: '🗄️', bg: ['#1e3a8a', '#172554'], boss: '🖥️', bossName: 'שרת ראשי', story: 'מונחים מתיעוד טכני ומקוד אמיתי.' },
+  { name: 'כנס בינלאומי', icon: '🌐', bg: ['#065f46', '#064e3b'], boss: '🎤', bossName: 'הרצאת מליאה', story: 'להבין דוברים מכל העולם.' },
+  { name: 'מערכת העיתון', icon: '📰', bg: ['#7c2d12', '#431407'], boss: '🖋️', bossName: 'מאמר מערכת', story: 'אוצר מילים של עיתונות איכות.' },
+  { name: 'ארכיון', icon: '🗂️', bg: ['#57534e', '#292524'], boss: '📖', bossName: 'כתב יד נדיר', story: 'מילים נדירות ומדויקות.' },
+];
+export const isAdultTrack = t => ['acad', 'tech', 'c1', 'c2'].includes(t);
+export const worldsFor = t => isAdultTrack(t) ? WORLDS_ADULT : WORLDS;
 export const PER_WORLD = 8;
 export let D = null;           // current track data
 const cache = {};
@@ -71,7 +84,7 @@ export async function loadTrack(track) {
 export const W = n => D.byN.get(+n);
 export const stageWords = i => D.stages[i].map(W);
 export const worldOf = i => Math.floor(i / PER_WORLD);
-export const world = i => WORLDS[worldOf(i) % WORLDS.length];
+export const world = i => { const L = worldsFor(D && D.track); return L[worldOf(i) % L.length]; };
 
 /** k wrong options for word w (field = 'he' | 'en'), same part of speech first, never a synonym/duplicate */
 export function distractors(w, k = 3, field = 'he', prefer = []) {

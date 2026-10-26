@@ -46,7 +46,27 @@ def word(n, en, he, pos, e, m='', say=None, rp='Rec'):
     if a: w['ae'] = a
     if b: w['ah'] = b
     return w
-def chunks(ws, size): return [[w['n'] for w in ws[i:i + size]] for i in range(0, len(ws), size)]
+def senses(he): return {t.replace('…', '').strip() for t in re.split(r'[,/;]|\s+או\s+', re.sub(r'[\u0591-\u05C7]', '', re.sub(r'\([^)]*\)', ' ', he))) if t.strip()}
+def enkey(en): return re.sub(r'\s+', ' ', re.sub(r'[^a-z ]', ' ', re.sub(r'\([^)]*\)', '', en.lower()))).strip()
+def overlaps(a, b): return enkey(a['en']) == enkey(b['en']) or a['he'].strip() == b['he'].strip() or bool(senses(a['he']) & senses(b['he']))
+def chunks(ws, size):
+    """stages of `size` words in list order, but a word whose Hebrew overlaps a word already in the stage
+    (same gloss or a shared sense, e.g. interfere/intervene = להתערב) is moved to the next stage (review #1)."""
+    out, cur, wait = [], [], []
+    for w in ws:
+        for x in list(wait):
+            if len(cur) < size and not any(overlaps(x, y) for y in cur): cur.append(x); wait.remove(x)
+        if len(cur) < size and not any(overlaps(w, y) for y in cur): cur.append(w)
+        else: wait.append(w)
+        if len(cur) == size: out.append(cur); cur = []
+    while wait:
+        for x in list(wait):
+            if len(cur) < size and not any(overlaps(x, y) for y in cur): cur.append(x); wait.remove(x)
+        if cur: out.append(cur); cur = []
+        else: out.append([wait.pop(0)])
+    if cur: out.append(cur)
+    bad = sum(1 for st in out for i, a in enumerate(st) for b in st[i + 1:] if overlaps(a, b)); assert not bad, bad
+    return [[w['n'] for w in st] for st in out]
 def out(track, source, words, stages):
     assert len({w['n'] for w in words}) == len(words), track
     d = {'track': track, 'source': source, 'derived': True, 'stages': stages, 'words': words, 'sent': {}, 'read': [], 'talk': []}
@@ -60,11 +80,15 @@ out('abc', 'Derived: English alphabet with example words (mostly from the MoE Pr
 
 # ---- early (reuses the official item's Hebrew, emoji and clips)
 ws, stages, n = [], [], 21001
+EARLY_EMO = {}
 pre = {norm(w['en']): w for w in OFF['pre1']['words']}
 for row in lines('early.txt'):
     st = []
     for en in row:
         o = pre[norm(en)]; w = {k: o[k] for k in ('en', 'he', 'pos', 'm', 'e', 'rp', 'ae', 'ah') if k in o}; w['n'] = n; w['src'] = o['n']
+        if '(בפגישה)' in w['he']: w['he'] = w['he'].replace('(בפגישה)', '').strip()   # review: no reading-only qualifiers for grades 1–2
+        if str(n) in FIX['he']: w['ah'] = FIX['he'][str(n)]
+        if str(n) in EARLY_EMO: w['e'] = EARLY_EMO[str(n)]
         ws.append(w); st.append(n); n += 1
     stages.append(st)
 out('early', 'Derived: picturable subset of the MoE Lexical Pre-Band I list (optional early start, grades 1–2)', ws, stages)

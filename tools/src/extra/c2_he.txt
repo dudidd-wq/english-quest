@@ -112,7 +112,7 @@ chronological|adj|כרונולוגי
 daunting|adj|מרתיע
 vocalist|n|זמר
 anonymity|n|אנונימיות
-conglomerate|n|תאגיד ענק
+conglomerate|n|קונגלומרט, תאגיד רב-תחומי
 hinder|v|לעכב, להפריע
 melancholy|n|מלנכוליה, עצב
 meteorological|adj|מטאורולוגי

@@ -391,7 +391,7 @@ tree|n|עץ
 triangle|n|משולש
 trigger|v|להפעיל
 trust|n|אמון
-tuple|n|רשומה (n-יה)
+tuple|n|רשומה סדורה (טאפל)
 turn|n|תור
 type|n|טיפוס, סוג
 union|n|איחוד
@@ -427,3 +427,7 @@ wireless|adj|אלחוטי
 word|n|מילה
 write|v|לכתוב
 yield|v|להניב; לוותר על המעבד
+save|v|לשמור (קובץ)
+switch|v|להחליף, לעבור (בין מצבים)
+solution|n|פתרון
+transistor|n|טרנזיסטור

@@ -1,7 +1,7 @@
 // Mini-games. Each game gets a Session (scoring, combo, feedback) and resolves when finished.
-import { h, put, en, shuffle, sample, sleep, clamp, toast, posHe } from './util.js';
+import { h, put, en, shuffle, sample, sleep, clamp, toast, posHe, overlaps } from './util.js';
 import { S, answer, gainXp, gainCoins, comboMult, save } from './store.js';
-import { playWord, sfx, stop as stopAudio } from './audio.js';
+import { playWord, playUrl, sfx, stop as stopAudio } from './audio.js';
 import { D, W, distractors, stageSentences, scrambleWord, phraseTiles, themeOf, isEarly, TRACKS } from './data.js';
 
 export const GAMES = {
@@ -26,6 +26,18 @@ export const theme = () => themeOf(S.profile?.grade || 7);
 export const pace = () => theme() === 'kids' ? 1.5 : 1;
 /** א׳–ב׳: listening-first, no reading – picture games only */
 export const early = () => isEarly(S.profile?.grade || 7);
+/** grades 1–3: no countdowns (review #1) */
+/** grades 1–2: spoken Hebrew instructions for non-readers (review #1/#4) */
+export const sayUi = clip => early() ? h('button.say-ui', { type: 'button', 'aria-label': 'הקראת ההוראה', onclick: e => { e.stopPropagation(); sfx('tap'); playUrl(`audio/he/${clip}.mp3`); } }, '🔊') : null;
+export const untimed = () => +(S.profile?.grade || 7) <= 3;
+/** rounds of up to k words in which no two words could be confused (same/overlapping Hebrew gloss) */
+export function safeRounds(ws, k) {
+  const rounds = [];
+  for (const w of ws) { const r = rounds.find(r => r.length < k && !r.some(x => overlaps(w, x))); r ? r.push(w) : rounds.push([w]); }
+  if (rounds.length > 1 && rounds.at(-1).length < 3 && !rounds.at(-1).some(w => rounds.at(-2).some(x => overlaps(w, x)))) rounds.at(-2).push(...rounds.pop());
+  return rounds;
+}
+export const distinctWords = ws => ws.reduce((a, w) => (a.some(x => overlaps(w, x)) || a.push(w), a), []);
 const young = () => +(S.profile?.grade || 7) <= 3;
 const lettersTrack = () => !!TRACKS[D?.track]?.letters;
 const hasSent = () => D && Object.keys(D.sent || {}).length > 0;
@@ -110,6 +122,7 @@ const wordHead = (w, big) => h('div.whead' + (big ? '.big' : ''), h('div.emoji',
 // ---------- generic multiple-choice question ----------
 /** resolves true/false; opts = [{text, ok, lang}] */
 function choice(sess, { prompt, opts, w, timer = 0, onTimeout, onRight, onWrong, wrongPause = 1300, cols, pic }) {
+  if (untimed()) timer = 0;
   return new Promise(resolve => {
     let done = false, tbar;
     const grid = h('div.opts' + (cols ? '.c' + cols : '') + (pic ? '.pic' : ''));
@@ -149,7 +162,7 @@ function picOpts(w, pool) {
   return shuffle(out.map(x => ({ text: picFace(x), ok: x === w, label: x.en })));
 }
 function qPic(sess, w, pool, timer = 0) {
-  const prompt = h('div.prompt', h('div.qhint', lettersTrack() ? 'הקשיבו ולחצו על האות' : 'הקשיבו ולחצו על התמונה'), audioBtn(w, 'en', true));
+  const prompt = h('div.prompt', h('div.qhint', lettersTrack() ? 'הקשיבו ולחצו על האות' : 'הקשיבו ולחצו על התמונה', lettersTrack() ? null : sayUi(11102)), audioBtn(w, 'en', true));
   sess.later(() => playWord(w, 'en'), 150);
   return choice(sess, { prompt, w, timer, cols: 2, pic: true, opts: picOpts(w, pool), onRight: () => sess.later(() => playWord(w, 'he'), 250), onWrong: () => playWord(w, 'en'), wrongPause: 1800 });
 }
@@ -228,11 +241,9 @@ function swipe(el, cb) {
 
 // ---------- ⚡ speed match ----------
 export async function match(sess, words) {
-  const rounds = []; const ws = shuffle(words);
-  for (let i = 0; i < ws.length; i += 4) rounds.push(ws.slice(i, i + 4));
-  if (rounds.length > 1 && rounds.at(-1).length < 3) rounds.at(-2).push(...rounds.pop());
+  const ws = shuffle(words), rounds = safeRounds(ws, 4), free = untimed();
   let timeLeft = Math.round(60 * pace()), matched = 0; const total = ws.length;
-  const clock = h('div.clock', String(timeLeft));
+  const clock = h('div.clock', free ? '🐢' : String(timeLeft));
   let over = false;
   await new Promise(resolve => {
     const tick = () => {
@@ -240,7 +251,7 @@ export async function match(sess, words) {
       if (timeLeft < 10 && Math.abs(timeLeft - Math.round(timeLeft)) < .05) sfx('tick');
       if (timeLeft <= 0) { over = true; clearInterval(sess.iv); resolve(); }
     };
-    sess.iv = setInterval(tick, 100);
+    if (!free) sess.iv = setInterval(tick, 100);
     const play = r => {
       if (sess.dead) return;
       if (r >= rounds.length) { clearInterval(sess.iv); return resolve(); }
@@ -263,10 +274,10 @@ export async function match(sess, words) {
     };
     play(0);
   });
-  const bonus = matched === total ? Math.round(timeLeft) * 2 : 0;
+  const bonus = matched === total && !free ? Math.round(timeLeft) * 2 : 0;
   if (bonus) { sess.xp += bonus; gainXp(bonus); }
   const acc = (matched / total) * (sess.ok / Math.max(1, sess.ok + sess.bad));
-  return sess.summary({ acc, stars: matched < total ? 1 : starsFor(acc), timeLeft: Math.round(timeLeft), bonus, note: matched < total ? `⏰ הזמן נגמר – התאמתם ${matched} מתוך ${total}` : `⏱️ נשארו ${Math.round(timeLeft)} שניות · בונוס +${bonus} XP`, speedy: matched === total && timeLeft >= 20 });
+  return sess.summary({ acc, stars: matched < total ? 1 : starsFor(acc), timeLeft: Math.round(timeLeft), bonus, note: free ? '🐢 בלי שעון – בקצב שלכם' : matched < total ? `⏰ הזמן נגמר – התאמתם ${matched} מתוך ${total}` : `⏱️ נשארו ${Math.round(timeLeft)} שניות · בונוס +${bonus} XP`, speedy: matched === total && timeLeft >= 20 });
 }
 
 // ---------- 🎧 listen & pick ----------
@@ -362,7 +373,7 @@ export async function fill(sess, stageIdx, list) {
 
 // ---------- 🃏 memory ----------
 export async function memory(sess, words) {
-  const ws = sample(words.filter(w => w.he.length <= 22 && w.en.length <= 18), 6);
+  const ws = sample(distinctWords(shuffle(words.filter(w => w.he.length <= 22 && w.en.length <= 18))), 6);
   const cards = shuffle(ws.flatMap(w => [{ w, side: 'en' }, { w, side: 'he' }]));
   let open = [], moves = 0, pairs = 0, busy = false;
   const movesEl = h('span', '0');
@@ -385,7 +396,7 @@ export async function memory(sess, words) {
         if (pairs === ws.length) sess.later(resolve, 700);
       } else { busy = true; sess.combo = 0; sess.showCombo(); sess.later(() => { a.classList.remove('open'); c.classList.remove('open'); busy = false; }, 850); }
     };
-    put(sess.body, h('div.memory', h('div.mhead', h('span.qhint', 'מצאו את הזוגות'), h('span.moves', 'תורות: ', movesEl)), grid));
+    put(sess.body, h('div.memory', h('div.mhead', h('span.qhint', 'מצאו את הזוגות', sayUi(11103)), h('span.moves', 'תורות: ', movesEl)), grid));
   });
   const acc = clamp(1 - (moves - ws.length) / (ws.length * 2), 0, 1);
   return sess.summary({ acc, ok: ws.length, bad: 0, stars: moves <= 9 ? 3 : moves <= 13 ? 2 : 1, note: `🃏 ${moves} תורות (הכי טוב אפשרי: 6)`, memory: moves <= 10 });

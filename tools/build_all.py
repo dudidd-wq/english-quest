@@ -44,7 +44,7 @@ for t in ('pre1', 'b1c1', 'b1c2', 'b3c1', 'b3c2'):
     H = he_file(t); words = []
     for r in RAW[t]:
         he, e = H[r['n']]
-        w = {'n': r['n'], 'en': r['en'].strip(), 'he': he, 'pos': r['pos'], 'm': r['m'], 'e': e, 'rp': r['rp'] or 'Rec'}
+        w = {'n': r['n'], 'en': r['en'].strip(), 'he': he, 'pos': r['pos'], 'm': r['m'], 'e': EMO_FIX.get(str(r['n']), e), 'rp': r['rp'] or 'Rec'}
         if r.get('fpos'): w['fp'] = r['fpos']
         if r.get('fam'): w['f'] = r['fam']
         if r.get('lst'): w['l'] = r['lst']

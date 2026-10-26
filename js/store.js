@@ -150,8 +150,9 @@ const DAILY_KINDS = [
 ];
 export function ensureDaily() {
   const d = dayNum();
-  if (S.daily.day === d) return S.daily;
-  const pick = DAILY_KINDS[d % DAILY_KINDS.length];
+  const kinds = +(S.profile?.grade || 7) <= 3 ? DAILY_KINDS.filter(k => k[0] !== 'blitz_ok') : DAILY_KINDS;   // grades 1–3: no timed blitz
+  if (S.daily.day === d && kinds.some(k => k[0] === S.daily.kind)) return S.daily;
+  const pick = kinds[d % kinds.length];
   S.daily = { day: d, kind: pick[0], label: pick[1], target: pick[2], progress: 0, done: false };
   save(); return S.daily;
 }

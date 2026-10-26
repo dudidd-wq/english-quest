@@ -1,8 +1,8 @@
 // English Quest – screens & navigation
 import { $, h, put, en, shuffle, dayNum, fmtDay, toast, download, nWords, reduced, posHe } from './util.js';
 import { S, save, on, T, stageRec, today, dueWords, level, levelXp, gainCoins, touchStreak, streakNow, checkAch, ACH, isMastered, replaceState, resetAll, exportState, unlock, ensureDaily, bumpDaily, beatRival, AURAS, TITLES, profiles, curProfileId, createProfile, switchProfile, leaveProfile, deleteProfile } from './store.js';
-import { TRACKS, GRADES, GRADE_GROUPS, LEVELS, levelsFor, validLevel, isEarly, gradeTracks, themeOf, gradeLabel, WORLDS, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
-import { GAMES, practiceFor, missionPool, theme, Session, intro, match, listen, pics, scramble, fill, memory, blitz, boss, forms, formsPool, familyItems, reading, talk, cards, typing } from './games.js';
+import { TRACKS, GRADES, GRADE_GROUPS, LEVELS, levelsFor, validLevel, isEarly, gradeTracks, themeOf, gradeLabel, WORLDS, worldsFor, isAdultTrack, PER_WORLD, D, W, loadTrack, stageWords, world, worldOf } from './data.js';
+import { sayUi, untimed, GAMES, practiceFor, missionPool, theme, Session, intro, match, listen, pics, scramble, fill, memory, blitz, boss, forms, formsPool, familyItems, reading, talk, cards, typing } from './games.js';
 import * as B from './backup.js';
 import { playWord, sfx, prefetch, stop as stopAudio, hasClip, audioUrl, onRobo } from './audio.js';
 
@@ -93,7 +93,7 @@ function onboarding(step = profiles().length ? 'who' : 0, draft = {}) {
     h('button.btn.ghost.wide.small', { onclick: () => restoreView() }, '🛟 שחזור מגיבוי')));
   if (step === 0) return screen('onb', h('div.splash',
     h('div.logo-emoji.bob', '🚀'), h('h1', 'English Quest'), h('p.lead', 'משחק מילים באנגלית · כיתות א׳–י״ב ואחרי התיכון'),
-    h('p.muted.small', 'לפי רשימות המילים הרשמיות של משרד החינוך · 2–4 דקות לסיבוב'),
+    h('p.muted.small', 'על בסיס רשימות המילים של משרד החינוך (ד׳–י״ב) ומקורות פתוחים (א׳–ג׳ ואחרי י״ב, נגזר) · 2–4 דקות לסיבוב'),
     h('h3', 'באיזו כיתה את/ה?'),
     gradePicker(null, g => { draft.grade = g; sfx('tap'); next(g >= 10 ? 'level' : 1); }),
     profiles().length > 0 ? h('button.btn.ghost.wide', { onclick: () => next('who') }, '→ חזרה לבחירת שחקן')
@@ -129,11 +129,11 @@ function mapView() {
   const cur = currentStage(); const due = dueWords(); const daily = ensureDaily();
   const path = h('div.map');
   for (let wi = 0; wi < D.worlds; wi++) {
-    const W0 = WORLDS[wi % WORLDS.length], from = wi * PER_WORLD, to = Math.min(D.stages.length, from + PER_WORLD);
+    const WL = worldsFor(D.track), W0 = WL[wi % WL.length], adult = isAdultTrack(D.track), from = wi * PER_WORLD, to = Math.min(D.stages.length, from + PER_WORLD);
     const cleared = Array.from({ length: to - from }, (_, k) => stageRec(from + k).cleared).filter(Boolean).length;
     const locked = !isUnlocked(from);
     const sec = h('section.world' + (locked ? '.locked' : ''), { style: { '--c1': W0.bg[0], '--c2': W0.bg[1] } },
-      h('div.wbanner', h('span.wicon', W0.icon), h('div', h('small', `אי ${wi + 1}`), h('b', W0.name)), h('span.wprog', `${cleared}/${to - from}`)),
+      h('div.wbanner', h('span.wicon', W0.icon), h('div', h('small', `${adult ? 'פרק' : 'אי'} ${wi + 1}`), h('b', W0.name)), h('span.wprog', `${cleared}/${to - from}`)),
       W0.story && h('p.wstory', W0.story));
     for (let i = from; i < to; i++) {
       const r = stageRec(i), un = isUnlocked(i), k = i - from;
@@ -145,13 +145,13 @@ function mapView() {
         i === cur && h('span.me', S.profile.avatar), i === cur && h('span.bubble', r.plays ? 'ממשיכים!' : 'התחילו כאן!'));
       sec.append(node);
     }
-    sec.append(h('div.gate', h('span.gboss', W0.boss), h('small', `בוס האי: ${W0.bossName}`)));
+    sec.append(h('div.gate', h('span.gboss', W0.boss), h('small', `${adult ? 'אתגר הפרק' : 'בוס האי'}: ${W0.bossName}`)));
     path.append(sec);
   }
   const dailyGo = () => {
     if (daily.done) return toast('✅ אתגר היום כבר הושלם – חזרו מחר!');
     sfx('tap');
-    if (daily.kind === 'blitz_ok' || daily.kind === 'perfect') go('#/play/' + cur + '/blitz');
+    if (!untimed() && (daily.kind === 'blitz_ok' || daily.kind === 'perfect')) go('#/play/' + cur + '/blitz');
     else if (daily.kind === 'boss') go('#/play/' + cur + '/boss');
     else go('#/stage/' + cur);
   };
@@ -161,13 +161,13 @@ function mapView() {
       D.read.length > 0 && h('button.btn.small', { onclick: () => go('#/study/reading') }, '📰 קטע קריאה'),
       familyItems(D.words).length >= 4 && h('button.btn.small', { onclick: () => go('#/study/forms') }, '🧩 משפחות מילים'),
       h('button.btn.small', { onclick: () => go('#/study') }, '📚 כל המילים')),
-    h('div.rival-chip', '👻 יריב מקומי: ', S.rival.name, ' · בליץ ', S.rival.bestBlitz, ' · קומבו ', S.rival.bestCombo),
+    h('div.rival-chip', '👻 יריב מקומי: ', S.rival.name, ...(untimed() ? [] : [' · בליץ ', S.rival.bestBlitz]), ' · קומבו ', S.rival.bestCombo, sayUi(11101)),
     h('div.daily-card' + (daily.done ? '.done' : ''), { onclick: dailyGo },
       h('div.dico', daily.done ? '✅' : '☀️'),
-      h('div', { style: { flex: 1 } }, h('b', 'אתגר היום'), h('div.muted.small', daily.label || ''),
+      h('div', { style: { flex: 1 } }, h('b', 'אתגר היום', sayUi(11100)), h('div.muted.small', daily.label || ''),
         h('div.dbar', h('div', { style: { width: (daily.progress / daily.target * 100) + '%' } })))),
     h('div.mapbar',
-      h('button.btn.primary.cta', { onclick: () => { sfx('whoosh'); go('#/stage/' + cur); } }, `▶ משימה · שלב ${cur + 1}`),
+      h('button.btn.primary.cta', { onclick: () => { sfx('whoosh'); go('#/stage/' + cur); } }, `▶ משימה · שלב ${cur + 1}`), sayUi(11099),
       h('button.btn.review' + (due.length ? '.has' : ''), { onclick: () => due.length ? go('#/review') : toast('אין מילים לחזרה – שחקו! 🎮') }, '🔁', due.length ? h('b.badge', due.length) : null)),
     path, nav('#/map'));
   const c = $('.node.cur'); if (c) setTimeout(() => c.scrollIntoView({ block: 'center', behavior: 'instant' }), 0);
@@ -464,7 +464,10 @@ const ABOUT = `<p><b>רשימות המילים</b> – רשמיות, מהרשי�
 <li>ג׳: Pre-Band I (רשמי, שלב Pre-Basic User / Pre-A1) + אותיות וצלילים (נגזר)</li></ul>
 <p><b>רמות נוספות (נגזר, לא של משרד החינוך)</b> – פירוט ב־<a href="https://github.com/dudidd-wq/english-quest/blob/main/LEVELS.md" target="_blank" rel="noopener">LEVELS.md</a>:</p>
 <ul><li>א׳–ב׳ (התחלה מוקדמת, רשות – תוכנית הלימודים מתחילה בכיתה ג׳): 36 מילים בתמונות מתוך Pre-Band I + 26 אותיות עם מילה לדוגמה; משחקי האזנה ותמונות בלי קריאה.</li>
-<li>אחרי י״ב: <span lang="en">NAWL 1.2</span> (Browne, Culligan &amp; Phillips, CC BY-SA 4.0) · <span lang="en">NCSAWL</span> (Uba, Irudayasamy &amp; Hankins 2023, CC BY 4.0) · 300 מילים ברמת C2 מתוך <span lang="en">Octanove Vocabulary Profile</span> (CC BY-SA 4.0). התרגום לעברית נכתב לאפליקציה.</li></ul>
+<li>אחרי י״ב (נגזר): <span lang="en">New Academic Word List (NAWL 1.2)</span> – Browne, Culligan &amp; Phillips, <a href="https://www.newgeneralservicelist.com/new-academic-word-list" target="_blank" rel="noopener" lang="en">newgeneralservicelist.com</a>, רישיון <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" lang="en">CC BY-SA 4.0</a>.</li>
+<li><span lang="en">New Computer Science Academic Word List (NCSAWL)</span> – Uba, Irudayasamy &amp; Hankins (2023), <a href="https://doi.org/10.5430/wjel.v13n5p319" target="_blank" rel="noopener" lang="en">doi:10.5430/wjel.v13n5p319</a>, רישיון <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" lang="en">CC BY 4.0</a>.</li>
+<li>רמות C1 ו־C2: <span lang="en">Octanove Vocabulary Profile (C1/C2) – © Octanove Labs</span>, <a href="https://github.com/openlanguageprofiles/olp-en-cefrj" target="_blank" rel="noopener" lang="en">github.com/openlanguageprofiles/olp-en-cefrj</a>, רישיון <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" lang="en">CC BY-SA 4.0</a>.</li>
+<li><b>שינויים שעשינו:</b> בחרנו תת־רשימה (NAWL בלי תחיליות; NCSAWL: 433 מתוך 444 – הורדנו שמות מותגים ושני פריטים לא ברורים ואיחדנו זוגות שם עצם/פועל; הרשימה המלאה ב־SOURCES.md; C1/C2 לפי כלל שמתועד ב־LEVELS.md), הוספנו תרגום לעברית, משפטים, הקלטות וחלוקה לשלבים. הנתונים הנגזרים של acad, c1 ו־c2 מופצים ברישיון CC BY-SA 4.0, ושל tech ברישיון CC BY 4.0 – ראו <a href="https://github.com/dudidd-wq/english-quest/blob/main/LICENSE-DATA.md" target="_blank" rel="noopener">LICENSE-DATA.md</a>. השימוש ברשימות אינו מרמז על תמיכה של המחברים.</li></ul>
 <p><b>מה נקבע על ידינו (נגזר, לא רשמי):</b> החלוקה לשלבים של כ־12 מילים והסדר שלהם; בכיתות ה׳ ו־ח׳ – הלומד בוחר מתי לעבור לרשימה השנייה; המשפטים, קטעי הקריאה והשיחות נכתבו במיוחד לתרגול ואינם טקסטים רשמיים; האימוג׳י והתרגום לעברית הותאמו לגיל.</p>
 <p><b>הקלטות:</b> קולות מלאכותיים (ElevenLabs – Matilda באנגלית, Tomer בעברית) לכל המילים בכל הכיתות. ההקלטות נשמרות במכשיר בהדרגה, לפי הרשימה שבה משחקים; אפשר להוריד רשימה שלמה מראש בלשונית "אני". אם הקלטה לא נטענת, המילה מוקראת בקול הדפדפן ומסומנת 🤖.</p>
 <p><b>🔒 פרטיות:</b> שום מידע לא יוצא מהמכשיר – אין שרת, אין חשבון ואין מעקב. ההתקדמות נשמרת בדפדפן (localStorage + עותק ב־IndexedDB), והגיבוי (קובץ, קוד או שמירה אוטומטית לקובץ) נשאר אצלכם; הוא נשלח לאן שהוא רק אם אתם בוחרים לשתף אותו בעצמכם. מקורות מלאים: <a href="https://github.com/dudidd-wq/english-quest/blob/main/SOURCES.md" target="_blank" rel="noopener">SOURCES.md</a>.</p>`;
@@ -513,7 +516,7 @@ function parentView() {
     h('h3', 'פעילות ב־14 הימים האחרונים (XP)'),
     h('div.chart', days.map(d => h('div.barc', h('div.bar', { style: { height: ((S.days[d]?.xp || 0) / mx) * 100 + '%' }, title: `${S.days[d]?.xp || 0} XP` }), h('small', fmtDay(d))))),
     h('h3', 'התקדמות לפי עולם'),
-    h('div.wprogs', Array.from({ length: D.worlds }, (_, wi) => { const from = wi * PER_WORLD, to = Math.min(D.stages.length, from + PER_WORLD), c = Array.from({ length: to - from }, (_, k) => stageRec(from + k).cleared).filter(Boolean).length; const Wd = WORLDS[wi % WORLDS.length];
+    h('div.wprogs', Array.from({ length: D.worlds }, (_, wi) => { const from = wi * PER_WORLD, to = Math.min(D.stages.length, from + PER_WORLD), c = Array.from({ length: to - from }, (_, k) => stageRec(from + k).cleared).filter(Boolean).length; const WL = worldsFor(D.track), Wd = WL[wi % WL.length];
       return h('div.wp', h('span', `${Wd.icon} ${Wd.name}`), h('div.pbar', h('div', { style: { width: c / (to - from) * 100 + '%' } })), h('small', `${c}/${to - from}`)); })),
     h('h3', 'המילים הקשות ביותר'),
     hard.length ? h('table.hard', h('tr', h('th', 'מילה'), h('th', 'פירוש'), h('th', '✓'), h('th', '✗')), hard.map(([w, r]) => h('tr', h('td', en(w.en)), h('td', w.he), h('td', r.ok), h('td', r.bad)))) : h('p.muted', 'עוד אין טעויות 🙂'),
