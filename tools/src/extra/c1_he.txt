@@ -1,0 +1,181 @@
+# c1: Hebrew written for this app (derived); order = tools/src/extra/c1_list.txt
+coverage|n|סיקור; כיסוי
+debut|n|הופעת בכורה
+clinical|adj|קליני
+hence|adv|לכן, מכאן ש־
+legacy|n|מורשת
+diversity|n|גיוון, מגוון
+sacrifice|n|הקרבה, קורבן
+collaboration|n|שיתוף פעולה
+mechanism|n|מנגנון
+quest|n|מסע חיפוש
+suspension|n|השעיה; מתלה (ברכב)
+amateur|n|חובבן
+transit|n|מעבר, תחבורה
+advisory|adj|מייעץ
+structural|adj|מבני
+compliance|n|ציות, עמידה בדרישות
+aboard|prep|על סיפון
+conviction|n|הרשעה; שכנוע עמוק
+provisions|n|אספקה, צידה
+restoration|n|שחזור, שיקום
+facial|adj|של הפנים
+innovative|adj|חדשני
+jurisdiction|n|סמכות שיפוט
+contractor|n|קבלן
+hostile|adj|עוין
+notable|adj|ראוי לציון, בולט
+testament|n|עדות (ל־)
+withdrawal|n|נסיגה; משיכת כסף
+peninsula|n|חצי אי
+sentiment|n|רגש, תחושה
+verdict|n|פסק דין
+complexity|n|מורכבות
+precision|n|דיוק
+voluntary|adj|התנדבותי, מרצון
+speculation|n|השערה, ספקולציה
+acoustic|adj|אקוסטי
+sequel|n|סרט המשך, ספר המשך
+clan|n|שבט, חמולה
+inclusive|adj|מכליל, כולל את כולם
+portable|adj|נייד
+succession|n|רצף; ירושת תפקיד
+substantially|adv|במידה ניכרת
+amid|prep|בתוך, בעיצומו של
+terrain|n|פני השטח
+acre|n|אקר (כ־4 דונם)
+bloom|v|לפרוח
+descent|n|ירידה; מוצא
+demographic|adj|דמוגרפי
+exotic|adj|אקזוטי
+exterior|n|החלק החיצוני
+pioneer|v|לחלוץ, להיות הראשון
+suburban|adj|פרברי
+withdrawn|adj|מופנם, מסוגר
+tomb|n|קבר, מצבה
+immense|adj|עצום
+juvenile|n|קטין, צעיר
+gem|n|אבן חן
+prospective|adj|פוטנציאלי, עתידי
+irony|n|אירוניה
+atmospheric|adj|אטמוספרי; בעל אווירה
+exploitation|n|ניצול
+goose|n|אווז
+violet|adj|סגול
+inherent|adj|מובנה, טבוע
+organizational|adj|ארגוני
+vicious|adj|אכזרי, מרושע
+citation|n|ציטוט, הפניה
+geological|adj|גאולוגי
+premise|n|הנחת יסוד
+carpenter|n|נגר
+exhaust|v|לכלות, להתיש
+injustice|n|אי־צדק
+privileged|adj|בעל זכויות יתר
+retention|n|שימור, החזקה
+faction|n|פלג, סיעה
+strap|n|רצועה
+alignment|n|יישור; התאמה
+bliss|n|אושר עילאי
+collaborative|adj|שיתופי
+credible|adj|אמין
+simplicity|n|פשטות
+bypass|v|לעקוף
+endorsement|n|תמיכה, המלצה
+forensic|adj|פורנזי, משפטי
+naive|adj|תמים, נאיבי
+remotely|adv|מרחוק
+scrutiny|n|בדיקה קפדנית
+insecure|adj|חסר ביטחון
+occupational|adj|תעסוקתי
+voluntarily|adv|מרצון
+calf|n|עגל; שוק (ברגל)
+genome|n|גנום
+meaningless|adj|חסר משמעות
+apt|adj|הולם, מתאים
+exodus|n|יציאה המונית
+plaque|n|לוחית זיכרון; רובד
+purity|n|טוהר
+durable|adj|עמיד
+mutually|adv|הדדית
+staple|n|מצרך בסיסי; סיכה (שדכן)
+commercially|adv|מסחרית
+fixture|n|מתקן קבוע
+muscular|adj|שרירי
+protagonist|n|גיבור הסיפור
+snail|n|חילזון
+demise|n|קץ, היעלמות
+imperative|adj|הכרחי
+versatile|adj|רב־גוני, רב־שימושי
+hypocrisy|n|צביעות
+indefinitely|adv|ללא הגבלת זמן
+refresh|v|לרענן
+ruthless|adj|חסר רחמים
+salvage|v|להציל, לחלץ
+accustomed|adj|רגיל ל־
+mythology|n|מיתולוגיה
+align|v|ליישר, להתאים
+assertion|n|טענה נחרצת, קביעה
+flick|v|להקיש, להעיף בתנועה קלה
+comprise|v|להיות מורכב מ־
+demolition|n|הריסה
+fuse|v|למזג, לאחד
+sarcasm|n|סרקזם, עוקצנות
+cavity|n|חלל; חור בשן
+hostility|n|עוינות
+pigeon|n|יונה
+reminiscent|adj|מזכיר, דומה ל־
+tailor|n|חייט
+adjustable|adj|מתכוונן
+climax|n|שיא
+degradation|n|השפלה; הידרדרות
+isolate|v|לבודד
+prolific|adj|פורה
+quarry|n|מחצבה
+sarcastic|adj|עוקצני, סרקסטי
+ventilation|n|אוורור
+calorie|n|קלוריה
+cynical|adj|ציני
+inherently|adv|מטבעו, מעצם טבעו
+plumbing|n|אינסטלציה
+eccentric|adj|תמהוני, אקסצנטרי
+liaison|n|קישור; איש קשר
+resilience|n|חוסן
+cloak|n|גלימה
+immensely|adv|מאוד, במידה עצומה
+intuitive|adj|אינטואיטיבי
+orchard|n|מטע
+victorious|adj|מנצח
+wary|adj|זהיר, חשדן
+aquarium|n|אקווריום
+complementary|adj|משלים
+superficial|adj|שטחי
+waterfront|n|חוף, טיילת
+detrimental|adj|מזיק
+expire|v|לפוג (תוקף)
+intuition|n|אינטואיציה
+screenplay|n|תסריט
+conform|v|להתאים את עצמו, לציית
+customary|adj|נהוג, מקובל
+flourish|n|תנועה ראוותנית; קישוט
+knowledgeable|adj|בקיא
+numb|adj|רדום, חסר תחושה
+plaster|n|טיח; גבס
+quirky|adj|משונה ומקסים
+reap|v|לקצור (תועלת)
+recess|n|הפסקה; פגרה
+sentimental|adj|סנטימנטלי, רגשני
+adrenaline|n|אדרנלין
+alleviate|v|להקל (כאב, בעיה)
+tread|n|דריכה; סוליה (של צמיג)
+turmoil|n|מהומה, סערה
+benign|adj|שפיר; נעים
+boast|n|התרברבות
+collaborate|v|לשתף פעולה
+oversee|v|לפקח על
+parasite|n|טפיל
+profoundly|adv|באופן עמוק
+speculative|adj|ספקולטיבי, משוער
+usher|n|סדרן
+allegation|n|טענה, האשמה
+avid|adj|נלהב

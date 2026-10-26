@@ -4,8 +4,9 @@
   abc   : 26 letters with an example word (grades 1–3), n 20001+
   acad  : New Academic Word List (NAWL 1.2, Browne/Culligan/Phillips, CC BY-SA 4.0), prefixes removed, n 30001+
   tech  : New Computer Science Academic Word List (NCSAWL, Uba, Irudayasamy & Hankins 2023, CC BY 4.0), brand names/typos removed, n 31001+
+  c1    : 180-word C1 subset of the Octanove C1/C2 list (CC BY-SA 4.0) – rule in tools/build_c1_list.py, n 33001+
   c2    : 300-word C2 subset of the Octanove C1/C2 list (CC BY-SA 4.0) – rule in tools/build_c2_list.py, n 32001+
-Hebrew for acad/tech/c2 and the abc example words: written for this app (derived); where an official MoE item
+Hebrew for acad/tech/c1/c2 and the abc example words: written for this app (derived); where an official MoE item
 has the same English word its Hebrew is reused for acad (not for tech, which uses the computing sense).
 Audio: a clip is reused when the identical English (same part of speech) / Hebrew text already has one;
 otherwise the clip number is the word number n (tools/src/extra/clips.json records which exist).
@@ -92,6 +93,7 @@ def cloze(track, words, stages):
         if re.search(r'\ban ___', s): pool = [x for x in pool if V(x['en'])] or pool       # "an ___" must not give the answer away
         elif re.search(r'\ba ___', s, re.I): pool = [x for x in pool if not V(x['en'])] or pool
         if len(pool) < 3: pool = [x for x in words if x is not w and P(x) == P(w) and not overlaps(x, w) and V(x['en']) == V(w['en'])]
+        if len(pool) < 3: pool = [x for x in words if x is not w and not overlaps(x, w) and ' ' not in x['en']]   # rare POS (prep)
         r = random.Random(w['n']); o = [x['en'] for x in r.sample(pool, 3)]
         out.setdefault(str(w['n']), []).append({'s': s, 'a': w['en'], 'o': o})
     return out
@@ -149,8 +151,15 @@ for idx, en, pos, he in [(i,) + tuple(r) for i, r in enumerate(lines('tech_he.tx
 st, fast = split_known(ws, 12)
 out('tech', 'NCSAWL – New Computer Science Academic Word List (Uba, Irudayasamy & Hankins 2023), CC BY 4.0; Hebrew derived (computing sense)', ws, st, fast)
 
+# ---- c1 (Octanove subset, review #7: a C1 step before C2)
+PO = {'noun': 'n', 'verb': 'v', 'adjective': 'adj', 'adverb': 'adv', 'preposition': 'prep'}
+ws, n = [], 33001
+for en, pos, he in lines('c1_he.txt'):
+    ws.append(word(n, en, he, PO.get(pos, pos), '🔷')); n += 1
+st, fast = split_known(ws, 12)
+out('c1', 'Derived 180-word subset of the C1-tagged entries in the Octanove C1/C2 Vocabulary List (CC BY-SA 4.0), rule in tools/build_c1_list.py; Hebrew derived', ws, st, fast)
+
 # ---- c2 (Octanove subset)
-PO = {'noun': 'n', 'verb': 'v', 'adjective': 'adj', 'adverb': 'adv'}
 ws, n = [], 32001
 for en, pos, he in lines('c2_he.txt'):
     ws.append(word(n, en, he, PO.get(pos, pos), '💎')); n += 1

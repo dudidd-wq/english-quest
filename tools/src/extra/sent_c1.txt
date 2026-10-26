@@ -1,0 +1,32 @@
+# author-written cloze sentences for c1 (derived, eq-3.4); format: word|sentence with ___
+debut|The singer released her ___ album at the age of seventeen.
+legacy|The scientist left a ___ of important discoveries.
+mechanism|The door has a simple locking ___.
+amateur|He is an ___ photographer, not a professional.
+aboard|All passengers are now ___ the ship.
+verdict|The jury reached a ___ after two days.
+peninsula|Italy is a long ___ in southern Europe.
+sequel|The ___ was even better than the first movie.
+portable|I bought a small ___ speaker for the beach.
+terrain|The jeep can drive over rough ___.
+exotic|The market sells ___ fruits from Asia.
+tomb|The ancient king was buried in a stone ___.
+goose|A ___ is a large bird that swims and honks.
+carpenter|The ___ built a wooden table for our kitchen.
+strap|The ___ of my bag broke, so I carried it in my hand.
+credible|The witness gave a ___ account of the events.
+genome|Scientists have mapped the human ___.
+durable|These boots are ___ and will last for years.
+snail|The ___ moved slowly across the leaf.
+refresh|Press F5 to ___ the page.
+pigeon|A ___ landed on the window and looked for crumbs.
+tailor|The ___ shortened the sleeves of my jacket.
+plumbing|We called a plumber because the ___ was leaking.
+orchard|They grow apples in a large ___ near the village.
+aquarium|We saw sharks and turtles at the ___.
+screenplay|She wrote the ___ for the film in six months.
+numb|My fingers were ___ from the cold.
+parasite|A ___ lives on or inside another animal.
+usher|The ___ showed us to our seats in the theater.
+avid|My brother is an ___ reader; he finishes a book a week.
+expire|My passport will ___ next month, so I need a new one.
