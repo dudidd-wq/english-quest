@@ -44,7 +44,7 @@ const swap = () => execSync(`ln -sfn ${ROOT} ${TMP}/cur`);
     await page.waitForSelector('.mapv .hud', { timeout: 20000 });
     R.swAfter = await page.evaluate(async () => (await caches.keys()).join(','));
     R.kept = await page.evaluate(async () => { const s = await import('./js/store.js'); return { name: s.S.profile?.name, xp: s.S.xp, w6005: s.T('b1c1').words[6005]?.ok }; });
-    if (!/eq-3\.4\.0/.test(R.swAfter)) fail('new SW cache missing: ' + R.swAfter);
+    const NEWV = fs.readFileSync(ROOT + '/sw.js', 'utf8').match(/VERSION = '([^']+)'/)[1]; if (!R.swAfter.includes('eq-shell-' + NEWV)) fail('new SW cache missing: ' + R.swAfter);
     if (R.kept.xp !== 4321 || R.kept.w6005 !== 4 || R.kept.name !== 'נועה') fail('progress lost ' + JSON.stringify(R.kept));
     await ctx.setOffline(true);
     await page.reload({ waitUntil: 'load' }); await page.waitForSelector('.mapv .hud', { timeout: 20000 }).catch(() => fail('offline map'));
