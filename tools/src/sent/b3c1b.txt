@@ -1,0 +1,111 @@
+8144|It takes ___ to say you were wrong.|courage|clothing;contest;liquid
+8277|Please ___ your clothes and put them in the drawer.|fold|follow;cure;slip
+8419|Shampoo is a thick ___.|liquid|loan;debt;courage
+8150|Scientists are still looking for a ___ for cancer.|cure|loan;debt;slip
+8279|Sorry, I don't ___ you. Can you explain again?|follow|fold;cure;annoy
+8426|We took a ___ from the bank to buy the car.|loan|cure;debt;fortune
+8025|Her ___ is to become a doctor.|ambition|debt;departure;fortune
+8157|He is ___ in one ear, so speak to him on his left side.|deaf|lonely;former;ashamed
+8705|Be careful not to ___ on the ice.|slip|fold;annoy;argue
+8028|It really ___ me when people talk during a movie.|annoys|argues;slips;deserves
+8158|He's in ___; he owes the bank a lot of money.|debt|loan;fortune;ambition
+8287|Mr. Cohen is the ___ president of the club; he left the job two years ago.|former|formerly;ceremony;disturb
+8034|The kids always ___ about who sits in the front seat.|argue|annoy;deserve;disturb
+8288|He made a ___ selling software and became a millionaire.|fortune|debt;loan;departure
+8430|She felt ___ when she moved to a new city and had no friends.|lonely|former;deaf;modest
+8172|The flight's ___ was delayed by two hours.|departure|access;fortune;barrier
+8289|Entrance to the museum is ___ on Tuesdays; you don't pay.|free|former;lonely;modest
+8008|All students have ___ to the library computers.|access|departure;barrier;membership
+8039|He was ___ of what he had said and apologized.|ashamed|generous;modest;grateful
+8174|You worked so hard; you ___ a break.|deserve|underline;distinguish;disturb
+8444|She is the best cake ___ in town.|maker|victim;barrier;draft
+8055|Language can be a ___ to communication between people.|barrier|membership;mood;draft
+8301|It was very ___ of you to share your lunch with me.|generous|ashamed;bitter;modest
+8830|___ the key words in the text with a red pen.|Underline|Distinguish;Disturb;Deserve
+8196|Can you ___ between the two sounds?|distinguish|disturb;deserve;bend
+8456|Gym ___ costs 200 shekels a month.|membership|mood;barrier;victim
+8468|Even after winning the prize, she remained ___ and polite.|modest|bitter;dramatic;aggressive
+8071|___ your knees when you lift something heavy.|Bend|Bother;Grab;Disturb
+8197|Please do not ___. The baby is sleeping.|disturb|distinguish;dedicate;deserve
+8471|He's in a bad ___ today; don't talk to him.|mood|draft;membership;victim
+8074|This coffee is too ___; can I have some sugar?|bitter|grateful;modest;generous
+8856|The ___ of the robbery told the police what happened.|victim|maker;editor;critic
+8318|She ___ my arm before I fell.|grabbed|bothered;deserved;dedicated
+8080|Don't ___ to cook; we'll order pizza.|bother|grab;bend;dedicate
+8209|This is only the first ___ of my essay. I'll finish it tomorrow.|draft|mood;barrier;honesty
+8319|I'm very ___ for all your help.|grateful|bitter;dramatic;modest
+8210|There was a ___ change in the weather: from sunshine to a storm.|dramatic|grateful;bitter;modest
+8336|___ is the best policy.|Honesty|Ceremony;Earthquake;Incident
+8164|The author ___ the book to her mother.|dedicated|grabbed;bothered;chased
+8108|The graduation ___ will take place in the school yard.|ceremony|incident;earthquake;earth
+8217|The farmers plant seeds in the ___.|earth|ceremony;incident;escape
+8361|The police are investigating an ___ that happened at the mall.|incident|ceremony;earthquake;escape
+8116|The dog ___ the cat across the garden.|chased|cheated;punished;equaled
+8218|The ___ destroyed hundreds of buildings.|earthquake|ceremony;incident;escape
+8761|We had a ___ time at the party!|super|elderly;classic;equal
+8117|He ___ on the test and was caught by the teacher.|cheated|chased;punished;corresponded
+8225|Our youth group visits ___ people in the neighborhood every Friday.|elderly|classic;super;aggressive
+8590|Should parents ___ their children for bad grades?|punish|chase;cheat;equal
+8121|"Romeo and Juliet" is a ___ love story.|classic|elderly;aggressive;equal
+8234|Two plus three ___ five.|equals|corresponds;escapes;charges
+8195|The ___ between the neighbors ended up in court.|dispute|escape;ceremony;bench
+8142|I ___ with a pen pal in Canada; we write every month.|correspond|equal;escape;charge
+8235|The prisoner's ___ was in all the newspapers.|escape|dispute;incident;ceremony
+8415|She touched his arm ___ to wake him.|lightly|shortly;seldom;automatically
+8016|The dog became ___ and started barking at everyone.|aggressive|artistic;romantic;modest
+8302|A ___ always holds the door open for others.|gentleman|branch;navy;spy
+8115|I need to ___ my phone; the battery is almost empty.|charge|squeeze;bury;knit
+8036|She's very ___; she paints, draws and plays the piano.|artistic|aggressive;nasty;romantic
+8601|I forgot my tennis ___ at home.|racket|bench;branch;resort
+8278|We danced to Israeli ___ music.|folk|navy;spy;cab
+8070|Let's sit on that ___ in the park.|bench|branch;racket;resort
+8479|What a ___ smell! Something must be rotten.|nasty|artistic;romantic;modest
+8732|___ the lemon to get the juice.|Squeeze|Bury;Knit;Spy
+8083|The bank has a ___ in every city.|branch|bench;navy;resort
+8483|My cousin serves in the ___ on a ship.|navy|branch;resort;racket
+8635|We spent our vacation at a ski ___ in the mountains.|resort|branch;navy;bench
+8095|The dog ___ its bone in the garden.|buried|squeezed;knitted;spied
+8731|The ___ was arrested for selling secrets.|spy|cab;web;laser
+8870|The spider is waiting in its ___.|web|cab;spy;laser
+8097|We took a ___ to the airport.|cab|web;spy;laser
+8399|My grandmother ___ me a warm scarf.|knitted|buried;squeezed;braked
+8645|They had a ___ dinner by candlelight.|romantic|nasty;aggressive;rude
+8403|The doctor used a ___ to fix my eyes.|laser|cab;web;loaf
+8082|The driver ___ suddenly to avoid the dog.|braked|knitted;buried;swept
+8388|I ___ when the door slammed behind me.|jumped|braked;swept;knitted
+8156|They went on a ___ to the cinema.|date|loaf;rubbish;lightning
+8416|The tree was hit by ___ during the storm.|lightning|rubbish;loaf;penalty
+8651|Take out the ___, please; the bin is full.|rubbish|lightning;loaf;mess
+8165|Our team ___ the champions 3–1.|defeated|swept;scratched;exploded
+8425|Can you buy a ___ of bread on your way home?|loaf|date;pill;mask
+8652|It's ___ to talk with your mouth full.|rude|loose;dishonest;magnificent
+8192|It was ___ of him to lie about his age.|dishonest|loose;magnificent;dreadful
+8434|This screw is ___; tighten it before the shelf falls.|loose|rude;dishonest;dreadful
+8516|She plays the violin in the city ___.|orchestra|penalty;madam;scratch
+8438|"Can I help you, ___?" asked the waiter.|madam|gentleman;orchestra;victim
+8769|Please ___ the floor after lunch.|sweep|scratch;explode;pray
+8185|My little brother is being ___ today; he refuses to eat anything.|difficult|magnificent;loose;modest
+8439|The view from the top of the mountain was ___.|magnificent|dreadful;difficult;dishonest
+8540|The referee gave a ___ in the last minute and we lost.|penalty|scratch;pill;mess
+8666|The cat left a ___ on my arm.|scratch|penalty;pity;pill
+8211|The weather was ___; it rained all week.|dreadful|magnificent;super;genuine
+8440|The traffic was terrible, but we just ___ it to the airport in time.|made|did;went;arrived
+8544|Take one ___ three times a day after meals.|pill|mask;pin;loaf
+8448|The children wore ___ at the Purim party.|masks|shores;shades;temples
+8679|Let's sit in the ___; it's too hot in the sun.|shade|shore;harbor;temple
+8685|We walked along the ___ and collected shells.|shore|shade;harbor;mask
+8249|The bomb ___ but luckily nobody was hurt.|exploded|swept;prayed;shaved
+8459|Your room is a ___! Clean it up!|mess|pity;terror;fool
+8546|It's a ___ you can't come to the party.|pity|mess;terror;fool
+8564|They went to the synagogue to ___.|pray|shave;sigh;pump
+8683|Dad ___ every morning before work.|shaves|prays;sighs;pumps
+8792|She screamed in ___ when she saw the snake.|terror|pity;mess;bargain
+8280|I felt like a ___ when I realized my mistake.|fool|priest;monster;bargain
+8572|The ___ spoke to the people in the church.|priest|fool;monster;pump
+8054|Only 20 shekels for this jacket? What a ___!|bargain|fool;monster;mess
+8469|The children's book is about a friendly green ___.|monster|priest;pump;sigh
+8589|We need a ___ to get the water out of the basement.|pump|monster;sigh;priest
+8693|She ___ and said, "I'm so tired."|sighed|pumped;prayed;shaved
+8696|There has been a ___ increase in the number of tourists this year.|significant|peculiar;nasty;loose
+8332|___ the important sentences in yellow.|Highlight|Quarrel;Use;Sigh
+8594|The two brothers ___ about who would sit in the front.|quarreled|highlighted;used;sighed
