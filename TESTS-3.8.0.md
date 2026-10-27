@@ -60,7 +60,7 @@ Re-run after the fixes (local server 127.0.0.1:8771): test_v3 all grades ERRORS 
 ## Final run & release (2026-10-27, Asia/Jerusalem)
 
 Local (127.0.0.1:8771, branch at 1158f3d8): test_v3 all grades in 4 chunks — ERRORS 0 ×4 · test_backup mobile+desktop PASS · test_a11y AXE none · test_r5 ALL PASS · test_remap PASS · test_r3 PASS · test_404 none · test_upgrade 85d51f70 (3.7.0) → 3.8.0 PASS.
-`tools/r6/r6.py eval` (local Whisper + wav2vec2 only, no TTS): considerate 89192 phonemes kənsɪdɚɹət… ×5 offsets (adjective ending), transcripts "Considerate, as in a considerate friend" (eval mode scores the carrier phrase as 0/6 because it is not in phrase mode — read manually: headword heard 5/6); bay 58057 beɪ ×5, Whisper "bay/Bae" 6/6 (homophone spelling).
+`tools/r6/r6.py eval` (local Whisper + wav2vec2 only, no TTS): considerate 89192 phonemes kənsɪdɚɹət… ×5 offsets (adjective ending), transcripts "Considerate, as in a considerate friend" (eval mode scores the carrier phrase as 0/6 because it is not in phrase mode — read manually: headword heard 5/6); bay 58057 beɪ ×5, Whisper scored 3/6 "bay" + 3/6 "Bae" (homophone spelling; round 6 had 5/6).
 No ElevenLabs/TTS calls in this run.
 
 Released: main fast-forwarded to 640f2e34, Pages deployed at ~11:56 (Asia/Jerusalem).
