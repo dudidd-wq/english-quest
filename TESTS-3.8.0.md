@@ -56,3 +56,13 @@ wav2vec2 phoneme check at lead offsets 0.0/0.1/0.2/0.3/0.4 s (`tools/r6/r6.py`, 
 Other review #6 fixes: cloze b3c1 8386 distractor editor → earthquake; audio.js header names the alternate voices.
 
 Re-run after the fixes (local server 127.0.0.1:8771): test_v3 all grades ERRORS 0 · test_backup mobile+desktop PASS · axe SERIOUS 0 · test_upgrade 3.7.0 (85d51f70) → 3.8.0 PASS · test_r5 / test_remap / test_r3 PASS · test_404 none.
+
+## Final run & release (2026-10-27, Asia/Jerusalem)
+
+Local (127.0.0.1:8771, branch at 1158f3d8): test_v3 all grades in 4 chunks — ERRORS 0 ×4 · test_backup mobile+desktop PASS · test_a11y AXE none · test_r5 ALL PASS · test_remap PASS · test_r3 PASS · test_404 none · test_upgrade 85d51f70 (3.7.0) → 3.8.0 PASS.
+`tools/r6/r6.py eval` (local Whisper + wav2vec2 only, no TTS): considerate 89192 phonemes kənsɪdɚɹət… ×5 offsets (adjective ending), transcripts "Considerate, as in a considerate friend" (eval mode scores the carrier phrase as 0/6 because it is not in phrase mode — read manually: headword heard 5/6); bay 58057 beɪ ×5, Whisper "bay/Bae" 6/6 (homophone spelling).
+No ElevenLabs/TTS calls in this run.
+
+Released: main fast-forwarded to 640f2e34, Pages deployed at ~11:56 (Asia/Jerusalem).
+Live (https://dudidd-wq.github.io/english-quest/): sw.js VERSION eq-3.8.0; all 16 new/kept clips HTTP 200 and SHA-256 identical to the repo (71132 72009 70578 70402 71417 78853 79148 77306 89192 76050 78070 78438 80333 80130 81162 + bay 58057); js/data/index identical to repo.
+Live upgrade (`tools/live_upgrade.js pre` on live 3.7.0, then `post` after deploy, same browser profile): PASS — new SW activated, caches eq-shell-eq-3.8.0 + eq-audio-v2 (3.7.0 shell removed), profile "נועה" xp 4321 + word 6005 progress kept, retired clips 7306/9192 evicted, 0001/58057 kept, 79192/78057 never shipped (404), data bay→58057, considerate→89192, cloze 8386 options generation/earthquake/critic, offline map + data + clip OK.
